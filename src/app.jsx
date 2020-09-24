@@ -3,11 +3,11 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 import tabHome from './pages/tabs/tabHome'
 import dva from './utils/dva'
-import models from './models/common'
-
-import Index from './pages/index'
+import models from './models'
 
 import './app.less'
+//taro-ui全局引入一次即可
+import 'taro-ui/dist/style/index.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -33,13 +33,12 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/login/index',//登录页面
       'pages/tabs/tabHome/index',
       'pages/tabs/tabArticle/index',
       'pages/tabs/tabQuestion/index',
       'pages/tabs/tabRecord/index',
       'pages/tabs/tabUser/index',
-
-      'pages/login/index',//登录页面
 
     ],
     window: {

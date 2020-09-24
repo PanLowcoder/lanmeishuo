@@ -5,11 +5,15 @@ import './index.less'
 function Index() {
     // const
     return (
-        <View className='index'>
-            <Text>首页</Text>
+        <View className='question'>
+            <Text>问答</Text>
         </View>
     )
 
+}
+
+Index.config = {
+    navigationBarTitleText: '问答'
 }
 
 export default Index

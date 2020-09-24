@@ -13,7 +13,7 @@ function createApp(options) {
 
     app.use(createLoading({}));
 
-    // if (!global.registered) options.models.forEach(model => app.model(model));
+    if (!global.registered) options.models.forEach(model => app.model(model));
 
     registered = true;
 

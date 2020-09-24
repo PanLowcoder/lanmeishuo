@@ -1,0 +1,15 @@
+.home .nav {
+  display: flex;
+  justify-content: space-around;
+}
+.home .nav .nav-item {
+  display: flex;
+  flex-direction: column;
+}
+.home .nav .nav-item .img {
+  width: 48px;
+  height: 48px;
+}
+.home .nav .nav-item .text {
+  font-size: 11px;
+}

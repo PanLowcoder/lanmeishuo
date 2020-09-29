@@ -2,32 +2,31 @@ import Taro from '@tarojs/taro';
 import BaseComponent from "../../BaseComponent";
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components';
 import PropTypes from 'prop-types';
-import { ossUrl } from '../../../config';
+import { ossUrl } from '../../../../config';
 import './index.less';
-import { goToCommonPage } from "../../../utils/common";
-import top_banner from '../../images/home/top_banner.png';
+import { goToCommonPage } from "../../../../utils/common";
+import top_banner from '../../../images/home/top_banner.png';
 
 
 /**
  * 左右滑动组件（图片）
  */
-function MySwiper() {
+function Index() {
     return (
         <View className='myswiper'>
             <Swiper
-                className='test-h'
+                className='swiper'
                 indicatorColor='#999'
                 indicatorActiveColor='#333'
                 circular
                 indicatorDots
                 autoplay>
-                <SwiperItem>
-                    <View className='demo-text-1'>
+                <SwiperItem className='swiper-item'>
+                    <View className=''>
                         <Image
                             className='img'
                             mode='widthFix'
                             src={top_banner}
-                            style="width:100%"
                         />
                     </View>
                 </SwiperItem>
@@ -36,5 +35,5 @@ function MySwiper() {
     )
 }
 
-export default MySwiper
+export default Index
 

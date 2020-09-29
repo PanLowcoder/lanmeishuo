@@ -1,95 +1,70 @@
 import Taro from '@tarojs/taro';
-import BaseComponent from "../../BaseComponent";
-import { View, Text, Image } from '@tarojs/components';
+import { View, Text, Image, Icon } from '@tarojs/components';
 import PropTypes from 'prop-types';
 import { ossUrl } from "../../../config";
 import './index.less';
-import { customTime, getCustomImgUrl } from "../../../utils/common";
 
-//图片
-const img_good_normal = ossUrl + 'wap/images/article/img_good_normal.png';
-const img_good_selected = ossUrl + 'wap/images/article/img_good_selected.png';
-const img_read_normal = ossUrl + 'wap/images/article/img_read_normal.png';
-const img_read_selected = ossUrl + 'wap/images/article/img_read_selected.png';
-const img_hot = ossUrl + 'wap/images/article/img_hot.png';
+import banner from '../../../images/home/banner.jpg';
+import heart from '../../../images/home/Star_Heart.png';
+import chat from '../../../images/home/Star_Chat.png';
+import star from '../../../images/home/Star_Star.png';
 
 
 /**
  * 文章列表单条内容组件
  */
-class ItemArticle extends BaseComponent {
-  static propTypes = {
-    item: PropTypes.array,
-    index: PropTypes.number,
-  }
-
-  static defaultProps = {
-    item: '',
-  };
-
-  gotoDetail = (e) => {
-    Taro.navigateTo({
-      url: `/pages/articleDetail/index?id=${e.currentTarget.dataset.id}`,
-    })
-  }
-
-  render() {
-    const { item } = this.props;
-    return (
-
-      <View className='articles-li' data-id={item.id} onClick={this.gotoDetail}>
-        <View className='item_container'>
-          <View className='title-con'>
-            <View className='title'>{item.title}</View>
-            {item.is_hot == 1 && (<Image
-              className='img-hot'
-              src={img_hot}
-            />)}
-          </View>
-          <View className='des'>{item.introduction}</View>
+function Index() {
+  return (
+    <View className='articles-li'>
+      <View className="article-title">
+        <View className="title-text">九月运势</View>
+        <View className="title-time">5小时前</View>
+      </View>
+      <Image
+        className='article-img'
+        mode='widthFix'
+        src={banner}
+        style="width:100%"
+      />
+      <View className="article-footer">
+        <View className='left-con'>
           <Image
-            className='img'
-            src={ossUrl + item.thumb}
+            className='left-img'
+            src=''
           />
-          {/*底部作者、时间、点赞、阅读部分*/}
-          <View className='bottom-con '>
-            <View className='left-con'>
-              <Image
-                className='at-col-1 img'
-                src={getCustomImgUrl(item.avatar)}
-              />
-              <View className='author'>{item.author}</View>
-              <Text className='time'>{customTime(item.publish_time, 13)}</Text>
-            </View>
-
-
-            <View className='right-con'>
-              {/*点赞数*/}
-              <View className='zan-or-good-con'>
-                <Image
-                  className='img'
-                  src={item.good_status ? img_good_selected : img_good_normal}
-                />
-                <Text className={!item.good_status ? "zan-text" : 'text selected'}>{item.good}</Text>
-              </View>
-              {/*阅读数*/}
-              <View className='zan-or-good-con margin-left-con'>
-                <Image
-                  className='img'
-                  src={item.is_read ? img_read_selected : img_read_normal}
-                />
-                <View className={!item.is_read ? "zan-text" : "zan-text selected"}>{item.read}</View>
-              </View>
-            </View>
-          </View>
-          {/*底部分割线*/}
-          <View className='sperate_line'></View>
+          <View className='author'>蓝莓说官方</View>
         </View>
 
+        <View className='right-con'>
+          {/*点赞数*/}
+          <View className=''>
+            <Image
+              className='right-img'
+              src={heart}
+            />
+            <Text className=''>12</Text>
+          </View>
+          {/*收藏数*/}
+          <View className=''>
+            <Image
+              className='right-img'
+              src={chat}
+            />
+            <Text className=''>11</Text>
+          </View>
+          {/*评论数*/}
+          <View className=''>
+            <Image
+              className='right-img'
+              src={star}
+            />
+            <Text className=''>11</Text>
+          </View>
+        </View>
       </View>
+    </View>
+  )
 
-    )
-  }
 }
 
-export default ItemArticle;
+export default Index

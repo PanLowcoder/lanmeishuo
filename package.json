@@ -31,6 +31,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@antv/f2": "^3.7.7",
     "@tarojs/async-await": "^2.2.10",
     "@tarojs/components": "2.2.13",
     "@tarojs/components-qa": "2.2.13",

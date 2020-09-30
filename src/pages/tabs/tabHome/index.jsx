@@ -1,4 +1,4 @@
-import Taro, { useState, useEffect } from '@tarojs/taro'
+import Taro, { useState, useEffect, createContext, useContext } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import * as homeApi from './service';
 import { connect } from '@tarojs/redux';
@@ -17,62 +17,61 @@ import gray from '../../../images/home/gray.png';
 
 import img_Today from '../../../images/home/today_bg.png';
 
-
+export const DataContext = createContext()
 
 function Index(props) {
-
+    const tabs = [
+        {
+            title: '星盘',
+            url: icon_Astrolable
+        },
+        {
+            title: '合盘',
+            url: icon_Combine
+        },
+        {
+            title: '星盘',
+            url: icon_Correction
+        },
+        {
+            title: '日记',
+            url: icon_Diary
+        },
+        {
+            title: '预测',
+            url: icon_Prediction
+        },
+    ]
+    const [data, setData] = useState(props.data)
     useEffect(() => {
-        this.props.dispatch({
-            type: 'tabHome/load',
-        }).then((data) => {
-            console.log(data);
-        })
+        // this.props.dispatch({
+        //     type: 'tabHome/load',
+        // }).then((data) => {
+        //     console.log(data);
+        // })
     })
 
     return (
         <View className='home'>
             <MySwiper />
             <View className="container">
+                {/* 导航栏 */}
                 <View className='nav'>
-                    <View className='nav-item'>
-                        <Image
-                            className='img'
-                            src={icon_Astrolable}
-                        />
-                        <View className='text'>星盘</View>
-                    </View>
-                    <View className='nav-item'>
-                        <Image
-                            className='img'
-                            src={icon_Combine}
-                        />
-                        <View className='text'>合盘</View>
-                    </View>
-                    <View className='nav-item'>
-                        <Image
-                            className='img'
-                            src={icon_Correction}
-                        />
-                        <View className='text'>星盘</View>
-                    </View>
-                    <View className='nav-item'>
-                        <Image
-                            className='img'
-                            src={icon_Diary}
-                        />
-                        <View className='text'>日记</View>
-                    </View>
-                    <View className='nav-item'>
-                        <Image
-                            className='img'
-                            src={icon_Prediction}
-                        />
-                        <View className='text'>预测</View>
-                    </View>
+                    {tabs.map((item) => {
+                        return (
+                            <View className='nav-item'>
+                                <Image
+                                    className='img'
+                                    src={item.url}
+                                />
+                                <View className='text'>{item.title}</View>
+                            </View>
+                        )
+                    })}
                 </View>
-
+                {/* 内容部分 */}
                 <View className="content">
-                    {/* chart */}
+                    {/* 运势 */}
                     <View className="fortune">
                         <View className="fortune-header">
                             <View className="header-left">
@@ -107,12 +106,17 @@ function Index(props) {
                         />
                     </View>
                     {/*文章列表*/}
-                    <ArticleList />
+                    <DataContext.Provider value={data.article}>
+                        <ArticleList />
+                    </DataContext.Provider>
+
+                    {/* {data.article.map((item) => {
+                        return (
+                            <View>{item.auth}--{item.id}</View>
+                        )
+                    })} */}
                 </View>
-
             </View>
-
-
         </View>
     )
 
@@ -122,9 +126,8 @@ Index.config = {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state);
     return {
-
+        data: state.tabHome.data
     }
 }
 

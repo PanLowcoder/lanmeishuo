@@ -7,11 +7,12 @@ export default {
     data: Taro.getStorageSync('store_home_data'),
   },
   effects: {
-    * load(_, {call, put}) {
+    * load(_, { call, put }) {
       const res = yield call(homeApi.homepage, {});
       if (res.code == '200') {
         yield put({
-          type: 'save', payload: {
+          type: 'save',
+          payload: {
             data: res.data,
           }
         });
@@ -23,8 +24,8 @@ export default {
     },
   },
   reducers: {
-    save(state, {payload}) {
-      return {...state, ...payload};
+    save(state, { payload }) {
+      return { ...state, ...payload };
     },
   },
 };

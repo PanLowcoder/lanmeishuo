@@ -28,11 +28,9 @@
   font-weight: 800;
   flex: 6;
 }
-.articles-li .article-footer .left-con .left-img {
-  width: 48px;
-  height: 48px;
-  border: 1px solid red;
-  background: blue;
+.articles-li .article-footer .left-con .author {
+  display: flex;
+  align-items: center;
 }
 .articles-li .article-footer .right-con {
   font-size: 22px ;

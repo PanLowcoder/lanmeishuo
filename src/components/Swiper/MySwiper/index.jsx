@@ -20,7 +20,8 @@ function Index() {
                 indicatorActiveColor='#333'
                 circular
                 indicatorDots
-                autoplay>
+                autoplay
+            >
                 <SwiperItem className='swiper-item'>
                     <View className=''>
                         <Image

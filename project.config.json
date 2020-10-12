@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "lanmeishuo",
   "description": "蓝莓说",
-  "appid": "touristappid",
+  "appid": "wx2170af9bd53d3ab8",
   "setting": {
     "urlCheck": true,
     "es6": false,

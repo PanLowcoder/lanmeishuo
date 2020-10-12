@@ -1,47 +1,54 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro, { useEffect, useState } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import { connect } from '@tarojs/redux';
+
 import './index.less'
 
 import { AtTabs, AtTabsPane } from 'taro-ui';
 
-export default class Index extends Component {
+function Index(props) {
+    const tabList = [{ title: '看点推荐' }, { title: '生命灵数' }, { title: '运迹天象' }, { title: '星座年运' }]
 
-    componentWillMount() { }
+    const [current, setCurrent] = useState(0)
 
-    componentDidMount() { }
+    useEffect(() => {
 
-    componentWillUnmount() { }
+    })
 
-    componentDidShow() { }
-
-    componentDidHide() { }
-
-    handleClick(value) {
-        this.setState({
-            current: value
-        })
+    const handleClick = (value) => {
+        setCurrent(value)
     }
 
-    config = {
-        navigationBarTitleText: '星文'
-    }
+    return (
+        <View className='article'>
+            <AtTabs animated={false} current={current} tabList={tabList} onClick={handleClick}>
+                <AtTabsPane current={current} index={0} >
+                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
+                </AtTabsPane>
+                <AtTabsPane current={current} index={1}>
+                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
+                </AtTabsPane>
+                <AtTabsPane current={current} index={2}>
+                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
+                </AtTabsPane>
+                <AtTabsPane current={current} index={3}>
+                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页四的内容</View>
+                </AtTabsPane>
+            </AtTabs>
+        </View>
+    )
 
-    render() {
-        const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
-        return (
-            <View className='index'>
-                <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
-                    <AtTabsPane current={this.state.current} index={0} >
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
-                    </AtTabsPane>
-                    <AtTabsPane current={this.state.current} index={1}>
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
-                    </AtTabsPane>
-                    <AtTabsPane current={this.state.current} index={2}>
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
-                    </AtTabsPane>
-                </AtTabs>
-            </View>
-        )
+}
+
+Index.config = {
+    navigationBarTitleText: '星文'
+}
+
+const mapStateToProps = (state) => {
+    // console.log(state);
+    return {
+        categories: state.tabArticle.categories,
     }
 }
+
+export default connect(mapStateToProps)(Index) 

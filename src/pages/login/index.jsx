@@ -16,7 +16,6 @@ function Index(props) {
         }
         let callback = this.$router.params.callback;
         let user_info = this.$router.params.user_info;
-        this.log('Login componentDidMount callback=' + callback + ',user_info=' + user_info);
         if (callback) {
             this.props.dispatch({
                 type: 'login/save',
@@ -39,8 +38,7 @@ function Index(props) {
 
     //微信登录
     const actionWechatLogin = () => {
-        let url = window.location.href;
-        this.log(url)
+        // let url = window.location.href;
         window.location.href = baseUrl + '/web/wap/wechat_login?callback_url=' + encodeURIComponent(window.location.href + '?user_info=')
 
     }
@@ -180,7 +178,7 @@ function Index(props) {
                 <View className='wechat-con'>
                     <AtDivider content='其他方式登录' fontColor='#ACAEAD' fontSize='24' />
                     {/*微信登录*/}
-                    <View className='img-con' onClick={this.actionWechatLogin}>
+                    <View className='img-con' onClick={actionWechatLogin()}>
                         <Image src={img_wechat} className='wechat-img'></Image>
                         <View className='text'>微信登录</View>
                     </View>

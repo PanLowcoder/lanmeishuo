@@ -1,13 +1,13 @@
 import Taro from '@tarojs/taro';
 import { View, Text, Image, Icon } from '@tarojs/components';
 import PropTypes from 'prop-types';
-import { ossUrl } from "../../../config";
+import { AtAvatar } from 'taro-ui'
+
 import './index.less';
 import { List } from '../../ArticleList';
 
 import banner from '../../../images/home/banner.jpg';
-import heart from '../../../images/home/Star_Heart.png';
-import chat from '../../../images/home/Star_Chat.png';
+import watch from '../../../images/home/Star_Chat.png';
 import star from '../../../images/home/Star_Star.png';
 
 
@@ -16,6 +16,7 @@ import star from '../../../images/home/Star_Star.png';
  */
 function Index() {
   const { item } = this.props;
+  // const item = this.props;
   return (
     <View className='articles-li'>
       <View className="article-title">
@@ -30,27 +31,16 @@ function Index() {
       />
       <View className="article-footer">
         <View className='left-con'>
-          <Image
-            className='left-img'
-            src=''
-          />
+          <AtAvatar circle size='small'></AtAvatar>
           <View className='author'>{item.id}</View>
         </View>
 
         <View className='right-con'>
-          {/*点赞数*/}
+          {/*阅读数*/}
           <View className=''>
             <Image
               className='right-img'
-              src={heart}
-            />
-            <Text className=''>{item.watch}</Text>
-          </View>
-          {/*收藏数*/}
-          <View className=''>
-            <Image
-              className='right-img'
-              src={chat}
+              src={watch}
             />
             <Text className=''>{item.watch}</Text>
           </View>

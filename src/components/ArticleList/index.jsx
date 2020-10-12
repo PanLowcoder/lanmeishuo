@@ -7,8 +7,6 @@ import './index.less';
 import ItemArticle from '../Item/ItemArticle';
 import { DataContext } from '../../pages/tabs/tabHome';
 
-// export const List = createContext();
-
 /**
  * 文章列表（首页需要用到）
  */
@@ -21,6 +19,7 @@ function Index() {
           list.map((item) => {
             return (
               <ItemArticle
+                key={item.id}
                 item={item}
               />
 

@@ -1,6 +1,5 @@
 import Taro, { useState, useEffect, createContext, useContext } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
-import * as homeApi from './service';
 import { connect } from '@tarojs/redux';
 import './index.less'
 import MySwiper from '../../../components/Swiper/MySwiper';
@@ -110,11 +109,6 @@ function Index(props) {
                         <ArticleList />
                     </DataContext.Provider>
 
-                    {/* {data.article.map((item) => {
-                        return (
-                            <View>{item.auth}--{item.id}</View>
-                        )
-                    })} */}
                 </View>
             </View>
         </View>

@@ -1,0 +1,72 @@
+.user .user-header {
+  width: 100%;
+  height: 542px;
+  background: linear-gradient(180deg, #B494EF 0%, #5F5DCF 100%);
+  border-radius: 2px;
+  z-index: 0;
+}
+.user .user-header .header-con {
+  padding-top: 176px;
+  padding-left: 62px;
+  display: flex;
+}
+.user .user-header .header-con .right-con {
+  padding-left: 18px;
+  color: #FFFFFF;
+}
+.user .user-header .header-con .right-con .name {
+  font-size: 28px;
+  font-weight: 600;
+}
+.user .user-header .header-con .right-con .num {
+  font-size: 24px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+.user .user-header .header-con .right-con .asc {
+  background: #FFFFFF;
+  border-radius: 22px;
+  font-size: 18px;
+  color: #8575DD;
+  display: flex;
+  padding: 8px 16px;
+}
+.user .user-header .header-con .right-con .asc .img-sex {
+  width: 24px;
+  height: 24px;
+}
+.user .user-header .header-con .right-con .asc .asc-text {
+  padding-left: 6px;
+}
+.user .container {
+  position: relative;
+  top: -200px;
+  background: #F6F7F9;
+  border-radius: 20px 20px 0 0;
+}
+.user .container .tab,
+.user .container .list {
+  background: #FFFFFF;
+  border-radius: 26px;
+}
+.user .container .tab {
+  margin: 32px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.user .container .tab .tab-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user .container .tab .tab-item .img {
+  width: 64px;
+  height: 64px;
+}
+.user .container .tab .tab-item .text {
+  font-size: 12px;
+}
+.user .container .list {
+  margin: 0 32px;
+}

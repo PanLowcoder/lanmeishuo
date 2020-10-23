@@ -1,15 +1,23 @@
 //静态图片资源
 import { ossUrl } from "../../../config";
 
-const img_grid_function_0 = ossUrl + 'wap/images/user/img_grid_function_0.png';
-const img_grid_function_1 = ossUrl + 'wap/images/user/img_grid_function_1.png';
-const img_grid_function_2 = ossUrl + 'wap/images/user/img_grid_function_2.png';
-const img_grid_function_3 = ossUrl + 'wap/images/user/img_grid_function_3.png';
+import img_grid_function_0 from '../../../images/user/me_bt_order.png';
+import img_grid_function_1 from '../../../images/user/me_bt_like.png';
+import img_grid_function_2 from '../../../images/user/me_bt_favorites.png';
+import img_grid_function_3 from '../../../images/user/me_bt_classroom.png';
+import img_grid_function_4 from '../../../images/user/me_bt_luckystar.png';
+import img_grid_function_5 from '../../../images/user/me_bt_questions.png';
+import img_grid_function_6 from '../../../images/user/me_bt_birthtime.png';
+import img_grid_function_7 from '../../../images/user/me_bt_diary.png';
 
-const img_grid_service_0 = ossUrl + 'wap/images/user/img_grid_service_0.png';
-const img_grid_service_1 = ossUrl + 'wap/images/user/img_grid_serive_my_question.png';
-const img_grid_service_2 = ossUrl + 'wap/images/user/img_grid_service_2.png';
-const img_grid_service_3 = ossUrl + 'wap/images/user/img_grid_service_3.png';
+import img_list_function_0 from '../../../images/user/me_bt_wallet.png';
+import img_list_function_1 from '../../../images/user/me_bt_certification.png';
+import img_list_function_2 from '../../../images/user/me_bt_examination.png';
+import img_list_function_3 from '../../../images/user/me_bt_share.png';
+import img_list_function_4 from '../../../images/user/me_bt_score.png';
+import img_list_function_5 from '../../../images/user/me_bt_setup.png';
+
+
 // const icon_mine_message =ossUrl+ 'wap/images/user/icon_mine_message.png';
 
 import { LIST_ITEM_TYPES } from "../../../utils/constants";
@@ -61,25 +69,25 @@ export default {
             },
             {
                 txt: '幸运星',
-                img: img_grid_service_0,
+                img: img_grid_function_4,
                 num: 0,
                 link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_LUCKY,
             },
             {
                 txt: '我的提问',
-                img: img_grid_service_1,
+                img: img_grid_function_5,
                 num: 0,
                 link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_QUESITON_MY,
             },
             {
                 txt: '生时校正',
-                img: img_grid_service_2,
+                img: img_grid_function_6,
                 num: 0,
                 link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_RECTIFICATION,
             },
             {
                 txt: '运势日记',
-                img: img_grid_service_3,
+                img: img_grid_function_7,
                 num: 1,
                 link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_FORTUNE_NOTE,
             }
@@ -87,20 +95,35 @@ export default {
         ],
 
         //我的钱包、认证、考试等
-        astrologer_items: [
+        astrologerItems: [
             {
                 txt: '我的钱包',
-                img: ossUrl + 'wap/images/user/icon_mine_wallet.png',
+                img: img_list_function_0,
                 link: '/pages/platform/balanceDetail/index',
             },
             {
                 txt: '我要认证',
-                img: ossUrl + 'wap/images/user/icon_mine_certification.png',
+                img: img_list_function_1,
                 link: '/pages/platform/identifyPage/index',
             },
             {
                 txt: '我要考试',
-                img: ossUrl + 'wap/images/user/icon_mine_examination.png',
+                img: img_list_function_2,
+                link: '/pages/platform/examineListPage/index',
+            },
+            {
+                txt: '分享给好友',
+                img: img_list_function_3,
+                link: '/pages/platform/balanceDetail/index',
+            },
+            {
+                txt: '给蓝莓说评分',
+                img: img_list_function_4,
+                link: '/pages/platform/identifyPage/index',
+            },
+            {
+                txt: '设置',
+                img: img_list_function_5,
                 link: '/pages/platform/examineListPage/index',
             },
         ],

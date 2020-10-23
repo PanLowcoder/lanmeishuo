@@ -1,10 +1,6 @@
 import Taro from '@tarojs/taro';
-import BaseComponent from "../../BaseComponent";
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components';
-import PropTypes from 'prop-types';
-import { ossUrl } from '../../../../config';
 import './index.less';
-import { goToCommonPage } from "../../../../utils/common";
 import top_banner from '../../../images/home/top_banner.png';
 
 
@@ -20,7 +16,7 @@ function Index() {
                 indicatorActiveColor='#333'
                 circular
                 indicatorDots
-                autoplay
+            // autoplay
             >
                 <SwiperItem className='swiper-item'>
                     <View className=''>

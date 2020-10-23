@@ -16,7 +16,7 @@ function Index() {
     <View className='article-list-container'>
       <View className="articles-ul">
         {
-          list.map((item) => {
+          list && list.map((item) => {
             return (
               <ItemArticle
                 key={item.id}

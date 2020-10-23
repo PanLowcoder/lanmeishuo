@@ -1,0 +1,148 @@
+@import '../../styles/base.less';
+
+@opcity: 30%;
+.articleDetail{
+  color: #313836;
+  margin-top: @height-nav;
+  padding-left: 34px;
+  padding-right: 32px;
+  .line{
+    width: 686px;
+    height: 1px;
+    background: #D8D8D8;
+    border-radius: 2px;
+    opacity: 0.1;
+    border: 1px solid #979797;
+  }
+  .header{
+    margin-top: 42px;
+    .title{
+      font-size: 36px;
+      font-weight: 600;
+    }
+    .author{
+      margin-top: 32px;
+      font-size: 24px;
+      .name{
+
+      }
+      .time{
+        opacity: @opcity;
+      }
+    }
+    .art-img{
+      margin: 76px 0 66px;
+      width: 684px;
+      height: 308px;
+    }
+    .label{
+      width: 414px;
+      height: 66px;
+      background: #FF806F;
+      font-size: 28px;
+      color: #FFFFFF;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+  .tab{
+  opacity: 59%;
+  display: flex;
+  .item{
+    margin-left: 32px;
+    display: flex;
+    .icon{
+      width: 46px;
+      height: 42px;
+    }
+    .text{
+      font-size: 11px;
+      margin-left: 8px;
+    }
+  }
+  
+}
+  .container{
+    margin-top: 42px;
+    .content{
+      margin-bottom: 64px;
+      font-size: 28px;
+      .cate{
+        font-weight: 600;
+      }
+      .text{
+
+      }
+    }
+    .event{
+      display: flex;
+      justify-content: space-between;
+          align-items: center;
+
+      .share{
+        .img{
+          width:66px ;
+          height: 66px;
+          margin-right: 32px;
+        }
+      }
+    }
+  }
+  .com-list{
+    margin: 32px 0 62px;
+    font-size:28px ;
+    .user{
+      display: flex;
+      .info{
+        padding-left: 16px;        
+        .name{         
+        }
+        .time{
+          opacity: @opcity;
+          font-size: 22px;
+        }
+      }
+    }
+    .comment{
+      display: flex;
+      justify-content: space-between;
+      margin-left: 102px;
+      margin-top: 30px;
+        .small{
+          width:30px ;
+          height: 28px;
+        }
+    }
+  }
+  .footer{
+    // padding-bottom: 32px;
+    // position: fixed;
+    // bottom: 0px;
+    .line{
+      margin-bottom: 32px;
+    }
+    .dis{
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      .input{
+        width: 606px;
+        height: 64px;
+        background: #EAEAEA;
+        border-radius: 32px;
+        font-size: 22px;
+        color: rgba(49, 56, 54, .3);
+        padding-left: 32px;
+      }
+      .img{
+        width: 48px;
+        height: 48px;
+        margin-left: 32px;
+      }
+    }
+    
+  }
+}

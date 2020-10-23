@@ -1,6 +1,7 @@
 import Taro, { Component, useEffect } from '@tarojs/taro'
 import { View, Text, Input, Image, Checkbox } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
+import { baseUrl } from "../../config";
 import './index.less'
 
 import { AtDivider } from 'taro-ui'
@@ -54,6 +55,7 @@ function Index(props) {
 
     const getCode = (event) => {
         const value = event.target.value;
+        this.props.code = value;
         this.props.dispatch({
             type: 'login/save',
             payload: { code: value },
@@ -178,7 +180,7 @@ function Index(props) {
                 <View className='wechat-con'>
                     <AtDivider content='其他方式登录' fontColor='#ACAEAD' fontSize='24' />
                     {/*微信登录*/}
-                    <View className='img-con' onClick={actionWechatLogin()}>
+                    <View className='img-con' >
                         <Image src={img_wechat} className='wechat-img'></Image>
                         <View className='text'>微信登录</View>
                     </View>
@@ -195,7 +197,6 @@ Index.config = {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state);
     return {
 
     }

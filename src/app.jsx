@@ -1,7 +1,6 @@
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
-import tabHome from './pages/tabs/tabHome'
 import dva from './utils/dva'
 import models from './models'
 
@@ -34,6 +33,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/login/index',//登录页面
+      'pages/articleDetail/index',//文章详情页
+
       'pages/tabs/tabHome/index',
       'pages/tabs/tabArticle/index',
       'pages/tabs/tabQuestion/index',
@@ -41,11 +42,27 @@ class App extends Component {
       'pages/tabs/tabUser/index',
 
     ],
+    subPackages: [
+      {
+        root: "minePages/mine/",
+        pages: [
+          //个人中心
+          // 'message/index',//消息中心页面
+          // 'setting/index',//设置页面
+          // 'about/index',//关于我们页面
+          'userCenter/index',//个人中心页面
+          // 'editName/index',//修改昵称页面
+          // 'editMobile/index',//修改昵称页面
+          // 'agreement/index',//星座女神服务条款和隐私政策页面
+        ]
+      },
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTitleText: '蓝莓说',
+      navigationBarTextStyle: 'black',
+      navigationStyle: 'custom',
     },
     tabBar: {
       list: [
@@ -61,18 +78,19 @@ class App extends Component {
           iconPath: "./images/tab/article.png",
           selectedIconPath: "./images/tab/article-active.png"
         },
+        // {
+        //   pagePath: "pages/tabs/tabQuestion/index",
+        //   text: "问答",
+        //   iconPath: "./images/tab/question.png",
+        //   selectedIconPath: "./images/tab/question-active.png"
+        // },
+        // {
+        //   pagePath: "pages/tabs/tabRecord/index",
+        //   text: "档案",
+        //   iconPath: "./images/tab/record.png",
+        //   selectedIconPath: "./images/tab/record-active.png"
+        // },
         {
-          pagePath: "pages/tabs/tabQuestion/index",
-          text: "问答",
-          iconPath: "./images/tab/question.png",
-          selectedIconPath: "./images/tab/question-active.png"
-        },
-        {
-          pagePath: "pages/tabs/tabRecord/index",
-          text: "档案",
-          iconPath: "./images/tab/record.png",
-          selectedIconPath: "./images/tab/record-active.png"
-        }, {
           pagePath: "pages/tabs/tabUser/index",
           text: "我的",
           iconPath: "./images/tab/user.png",

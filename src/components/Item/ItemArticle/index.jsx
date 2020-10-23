@@ -7,8 +7,9 @@ import './index.less';
 import { List } from '../../ArticleList';
 
 import banner from '../../../images/home/banner.jpg';
-import watch from '../../../images/home/Star_Chat.png';
+import heart from '../../../images/home/Star_Heart.png';
 import star from '../../../images/home/Star_Star.png';
+import chat from '../../../images/home/Star_Chat.png';
 
 
 /**
@@ -16,9 +17,15 @@ import star from '../../../images/home/Star_Star.png';
  */
 function Index() {
   const { item } = this.props;
-  // const item = this.props;
+
+  const gotoDetail = (e) => {
+    Taro.navigateTo({
+      url: `/pages/articleDetail/index?id=${e.currentTarget.dataset.id}`,
+    })
+    // console.log(e.currentTarget.dataset.id);
+  }
   return (
-    <View className='articles-li'>
+    <View className='articles-li' data-id={item.id} onClick={gotoDetail}>
       <View className="article-title">
         <View className="title-text">{item.title}</View>
         <View className="title-time">{item.created_at}</View>
@@ -31,26 +38,34 @@ function Index() {
       />
       <View className="article-footer">
         <View className='left-con'>
-          <AtAvatar circle size='small'></AtAvatar>
+          <AtAvatar circle size='small' className='left-img'></AtAvatar>
           <View className='author'>{item.id}</View>
         </View>
 
         <View className='right-con'>
-          {/*阅读数*/}
-          <View className=''>
+          {/*点赞数*/}
+          <View className='tab'>
             <Image
-              className='right-img'
-              src={watch}
+              className='icon-img'
+              src={heart}
             />
-            <Text className=''>{item.watch}</Text>
+            <View className='icon-text'>{item.watch}</View>
           </View>
-          {/*评论数*/}
-          <View className=''>
+          {/*收藏数*/}
+          <View className='tab'>
             <Image
-              className='right-img'
+              className='icon-img'
               src={star}
             />
-            <Text className=''>{item.watch}</Text>
+            <View className='icon-text'>{item.watch}</View>
+          </View>
+          {/*评论数*/}
+          <View className='tab'>
+            <Image
+              className='icon-img'
+              src={chat}
+            />
+            <View className='icon-text'>{item.watch}</View>
           </View>
         </View>
       </View>

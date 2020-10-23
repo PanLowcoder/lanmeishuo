@@ -1,5 +1,6 @@
 .home .container {
   background: #FEFFFE;
+  color: #313836;
 }
 .home .container .nav {
   display: flex;
@@ -36,15 +37,18 @@
   justify-content: space-between;
 }
 .home .container .content .fortune .fortune-header .header-left {
-  flex: 6;
   display: flex;
 }
-.home .container .content .fortune .fortune-header .header-left .img {
+.home .container .content .fortune .fortune-header .header-left .left-img {
+  padding-left: 8px;
+}
+.home .container .content .fortune .fortune-header .header-left .left-img .img {
   width: 28px;
   height: 28px;
+  margin-left: 10px;
 }
 .home .container .content .fortune .fortune-header .header-right {
-  flex: 4;
+  display: flex;
 }
 .home .container .content .fortune .fortune-content {
   margin-top: 24px;
@@ -66,12 +70,54 @@
 .home .container .content .fortune .fortune-content .des .des-content {
   font-size: 18px ;
 }
-.home .container .content .fortune .fortune-content .des .des-content .text {
+.home .container .content .fortune .fortune-content .des .des-content .item {
+  display: flex;
+  align-items: center;
+}
+.home .container .content .fortune .fortune-content .des .des-content .item .progress {
+  width: 172px;
+  margin-left: 18px;
+}
+.home .container .content .fortune .fortune-content .des .des-content .textarea {
   font-size: 22px;
+  display: -webkit-box;
+  overflow: hidden;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .home .container .content .today {
   margin: 32px auto;
+  height: 222px;
 }
 .home .container .content .today .img {
   width: 100%;
+  z-index: 0;
+}
+.home .container .content .today .info {
+  position: relative;
+  top: -210px;
+  margin-left: 287px;
+  margin-right: 16px;
+  z-index: 100;
+  color: #FFFFFF;
+}
+.home .container .content .today .info .date {
+  font-size: 22px;
+  margin-left: 140px;
+}
+.home .container .content .today .info .today-content {
+  font-size: 24px;
+  margin-top: 16px;
+}
+.home .container .content .art-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.home .container .content .art-title .left .text {
+  font-size: 28px;
+}
+.home .container .content .art-title .right .more {
+  font-size: 22px;
 }

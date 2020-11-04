@@ -2,9 +2,9 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.less'
 import { AtNavBar } from "taro-ui";
-import { ossUrl } from "../../../config";
+import { ossUrl } from "../../config";
 
-import icon_more from '../../../images/user/more.png';
+const icon_more = ossUrl + 'upload/images/user/more.png';
 
 function Index() {
     const userList = [

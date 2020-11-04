@@ -15,7 +15,7 @@ export default {
     loading: 0,//0：不显示加载中；1：显示加载中；2：显示没有更多了；
   },
   effects: {
-    * categories(_, {call, put}) {
+    * categories(_, { call, put }) {
       const res = yield call(articleApi.categories, {});
       if (res.code == '200') {
         yield put({
@@ -29,12 +29,12 @@ export default {
         Taro.setStorageSync('store_article_category_list', res.data);
 
         //请求文章列表，这样第一个tab 就不为空了
-        yield put({type: 'articles'});
+        yield put({ type: 'articles' });
 
       }
     },
-    * articles(_, {call, put, select}) {
-      const {cid, page, list} = yield select(state => state.tabArticle);
+    * articles(_, { call, put, select }) {
+      const { cid, page, list } = yield select(state => state.tabArticle);
 
       //是否是显示加载提示
       let is_show_loading = false;
@@ -81,8 +81,8 @@ export default {
     },
   },
   reducers: {
-    save(state, {payload}) {
-      return {...state, ...payload};
+    save(state, { payload }) {
+      return { ...state, ...payload };
     },
   },
 };

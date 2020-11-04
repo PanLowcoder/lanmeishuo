@@ -10,7 +10,7 @@ import 'taro-ui/dist/style/index.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
-// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
+// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5') {
 //   require('nerv-devtools')
 // }
 
@@ -44,13 +44,14 @@ class App extends Component {
     ],
     subPackages: [
       {
-        root: "minePages/mine/",
+        root: "minePages/",
         pages: [
           //个人中心
           // 'message/index',//消息中心页面
           // 'setting/index',//设置页面
           // 'about/index',//关于我们页面
           'userCenter/index',//个人中心页面
+          'likeOrCollect/index'//点赞或收藏页面
           // 'editName/index',//修改昵称页面
           // 'editMobile/index',//修改昵称页面
           // 'agreement/index',//星座女神服务条款和隐私政策页面

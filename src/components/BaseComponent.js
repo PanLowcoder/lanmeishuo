@@ -1,13 +1,13 @@
-import Taro, { Component } from '@tarojs/taro';
-import { noConsole } from "../config";
-import { uploadImage } from "../utils/request";
+import Taro, {Component} from '@tarojs/taro';
+import {noConsole} from "../config";
+import {uploadImage} from "../utils/request";
 
 /**
  * 基类
  */
 class BaseComponent extends Component {
   config = {
-    navigationBarTitleText: '蓝莓说',
+    navigationBarTitleText: '准了',
   };
 
   constructor() {

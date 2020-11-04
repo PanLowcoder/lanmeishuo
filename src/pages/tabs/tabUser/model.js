@@ -1,29 +1,26 @@
 //静态图片资源
 import { ossUrl } from "../../../config";
 
-import img_grid_function_0 from '../../../images/user/me_bt_order.png';
-import img_grid_function_1 from '../../../images/user/me_bt_like.png';
-import img_grid_function_2 from '../../../images/user/me_bt_favorites.png';
-import img_grid_function_3 from '../../../images/user/me_bt_classroom.png';
-import img_grid_function_4 from '../../../images/user/me_bt_luckystar.png';
-import img_grid_function_5 from '../../../images/user/me_bt_questions.png';
-import img_grid_function_6 from '../../../images/user/me_bt_birthtime.png';
-import img_grid_function_7 from '../../../images/user/me_bt_diary.png';
-
-import img_list_function_0 from '../../../images/user/me_bt_wallet.png';
-import img_list_function_1 from '../../../images/user/me_bt_certification.png';
-import img_list_function_2 from '../../../images/user/me_bt_examination.png';
-import img_list_function_3 from '../../../images/user/me_bt_share.png';
-import img_list_function_4 from '../../../images/user/me_bt_score.png';
-import img_list_function_5 from '../../../images/user/me_bt_setup.png';
-
-
-// const icon_mine_message =ossUrl+ 'wap/images/user/icon_mine_message.png';
-
 import { LIST_ITEM_TYPES } from "../../../utils/constants";
 import * as userApi from "./service";
 import Taro from "@tarojs/taro";
 import { actionNavBack, showToast } from "../../../utils/common";
+
+const img_grid_function_0 = ossUrl + 'upload/images/user/me_bt_order.png';
+const img_grid_function_1 = ossUrl + 'upload/images/user/me_bt_like.png';
+const img_grid_function_2 = ossUrl + 'upload/images/user/me_bt_favorites.png';
+const img_grid_function_3 = ossUrl + 'upload/images/user/me_bt_classroom.png';
+const img_grid_function_4 = ossUrl + 'upload/images/user/me_bt_luckystar.png';
+const img_grid_function_5 = ossUrl + 'upload/images/user/me_bt_questions.png';
+const img_grid_function_6 = ossUrl + 'upload/images/user/me_bt_birthtime.png';
+const img_grid_function_7 = ossUrl + 'upload/images/user/me_bt_diary.png';
+
+const img_list_function_0 = ossUrl + 'upload/images/user/me_bt_wallet.png';
+const img_list_function_1 = ossUrl + 'upload/images/user/me_bt_certification.png';
+const img_list_function_2 = ossUrl + 'upload/images/user/me_bt_examination.png';
+const img_list_function_3 = ossUrl + 'upload/images/user/me_bt_share.png';
+const img_list_function_4 = ossUrl + 'upload/images/user/me_bt_score.png';
+const img_list_function_5 = ossUrl + 'upload/images/user/me_bt_setup.png';
 
 export default {
     namespace: 'user',
@@ -43,53 +40,53 @@ export default {
                 txt: '我的订单',
                 img: img_grid_function_0,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_ORDER,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_ORDER,
                 type: 2,
             },
             {
                 txt: '我的点赞',
                 img: img_grid_function_1,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_ZAN,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_ZAN,
                 type: 3,
             },
             {
                 txt: '我的收藏',
                 img: img_grid_function_2,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_COLLECT_ARTICLE + '&type2=' + LIST_ITEM_TYPES.ITEM_COLLECT_MAP,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_COLLECT,
                 type: 9,
             },
             {
                 txt: '我的课程',
                 img: img_grid_function_3,
                 num: 1,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_MY_COURSE,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_MY_COURSE,
                 type: 8,
             },
             {
                 txt: '幸运星',
                 img: img_grid_function_4,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_LUCKY,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_LUCKY,
             },
             {
                 txt: '我的提问',
                 img: img_grid_function_5,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_QUESITON_MY,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_QUESITON_MY,
             },
             {
                 txt: '生时校正',
                 img: img_grid_function_6,
                 num: 0,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_RECTIFICATION,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_RECTIFICATION,
             },
             {
                 txt: '运势日记',
                 img: img_grid_function_7,
                 num: 1,
-                link: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_FORTUNE_NOTE,
+                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_FORTUNE_NOTE,
             }
 
         ],

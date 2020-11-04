@@ -1,31 +1,31 @@
 body {
   background: #f6f7f9;
 }
-.login .purple {
+.login-page .purple {
   color: #6C5FD3;
 }
-.login .container {
+.login-page .container {
   margin: 32px;
 }
-.login .container .title {
+.login-page .container .title {
   font-size: 96px;
   font-family: 'SJfengyu-Regular, SJfengyu';
   font-weight: 400;
   line-height: 114px;
   margin-top: 186px;
 }
-.login .container .box {
+.login-page .container .box {
   margin-top: 16px;
   background: #ffffff;
   font-size: 24px;
   border-radius: 10px;
   padding: 32px;
 }
-.login .container .box .text {
+.login-page .container .box .text {
   font-size: 28px;
 }
-.login .container .box .mobile-con,
-.login .container .box .code-con {
+.login-page .container .box .mobile-con,
+.login-page .container .box .code-con {
   height: 80px;
   display: flex;
   align-items: center;
@@ -35,25 +35,25 @@ body {
   color: #313836;
   border-radius: 48px;
 }
-.login .container .box .btn-con {
+.login-page .container .box .btn-con {
   width: 52%;
   height: 80px;
   background: linear-gradient(112deg, #AF88FF 0%, #8A7EE7 100%);
   border-radius: 20px;
   margin: 38px auto;
 }
-.login .container .box .btn-con .btn-text {
+.login-page .container .box .btn-con .btn-text {
   line-height: 80px;
   display: flex;
   justify-content: center;
   color: #ffffff;
   font-size: 28px;
 }
-.login .container .box .agreement-con .des {
+.login-page .container .box .agreement-con .des {
   display: inline-block;
   margin-left: 6px;
 }
-.login .container .wechat-con {
+.login-page .container .wechat-con {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,10 +62,10 @@ body {
   color: #ACAEAD;
   margin-top: 190px;
 }
-.login .container .wechat-con .img-con {
+.login-page .container .wechat-con .img-con {
   margin-top: 34px;
 }
-.login .container .wechat-con .img-con .wechat-img {
+.login-page .container .wechat-con .img-con .wechat-img {
   width: 66px;
   height: 54px;
   padding: 8px 16px;

@@ -1,4 +1,4 @@
-import Taro, { createContext, useContext } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import BaseComponent from "../BaseComponent";
 import { View } from '@tarojs/components';
 import PropTypes from 'prop-types';
@@ -10,28 +10,43 @@ import { DataContext } from '../../pages/tabs/tabHome';
 /**
  * 文章列表（首页需要用到）
  */
-function Index() {
-  const list = useContext(DataContext)
-  return (
-    <View className='article-list-container'>
-      <View className="articles-ul">
+class ArticleList extends BaseComponent {
+  static propTypes = {
+    list: PropTypes.array,
+  }
+
+  static defaultProps = {
+    list: [],
+  };
+
+  gotoDetail = (e) => {
+    Taro.navigateTo({
+      url: `/pages/articleDetail/index?id=${e.currentTarget.dataset.id}`,
+    })
+  }
+
+  render() {
+    const { list } = this.props;
+    return (
+      <View className='article-list-container'>
         {
-          list && list.map((item) => {
-            return (
-              <ItemArticle
-                key={item.id}
-                item={item}
-              />
-
+          list.length > 0 ? (
+            <View className='articles-ul'>
+              {
+                list.map((item) => (
+                  <ItemArticle
+                    item={item}
+                  />
+                ))
+              }
+            </View>
+          ) : (
+              <View></View>
             )
-
-          })
         }
       </View>
-
-    </View>
-  )
-
+    );
+  }
 }
 
-export default Index;
+export default ArticleList;

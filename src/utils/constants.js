@@ -1,4 +1,4 @@
-import {baseUrl, ossUrl} from '../config/index';
+import { baseUrl, ossUrl } from '../config/index';
 
 const con_0 = ossUrl + 'wap/images/common/con_0.png';
 const con_1 = ossUrl + 'wap/images/common/con_1.png';
@@ -652,7 +652,7 @@ export function PLANET(id) {
         "color": "#F0AD4E",
         icon: icon_planet_20,
       }
-    default :
+    default:
       return {
         "glyph": "p20",
         glyph_cavans: "('\ue61a')",
@@ -1351,9 +1351,10 @@ export const LIST_ITEM_TYPES = {
   ITEM_RECTIFICATION: 2,//生时校正
   ITEM_FORTUNE_NOTE: 3,//运势日记
   ITEM_ORDER: 4,//订单
-  ITEM_ZAN: 5,//我的点赞或者我的收藏
-  ITEM_COLLECT_ARTICLE: 6,//我的点赞或者我的收藏
-  ITEM_COLLECT_MAP: 7,//我的收藏
+  ITEM_ZAN: 5,//我的点赞
+  ITEM_COLLECT: 6,//我的收藏
+  // ITEM_COLLECT_ARTICLE: 6,//我的点赞或者我的收藏
+  // ITEM_COLLECT_MAP: 7,//我的收藏
   ITEM_ARTICLE: 9,//星文
   ITEM_MESSAGE_SYSTEM: 10,//系统消息
   ITEM_MESSAGE_SERVICE: 11,//服务消息
@@ -1373,49 +1374,49 @@ export const LIST_ITEM_TYPES = {
 
 //================================所有的通用跳转页面类型====================================
 export const PAGES = {
-    PAGE_URL: 'url',//星盘
-    PAGE_ASTROLABLE: 'astrolable',//星盘
-    PAGE_COMPOSITE: 'composite',//合盘
-    PAGE_RECTIFICATION: 'rectification',//生时校正
-    PAGE_DIVINATION: 'divination',//占卜
-    PAGE_PREDICT: 'predict',//预测
-    PAGE_ARCHIVES: 'archives',//档案管理
-    PAGE_ARTICLE_DETAILS: 'article_details',//?id=13(文章详情,调用之前的details接口)
-    PAGE_RECTIFICATION_DETAILS: 'rectification_details',//?id=13(生时校正结果详情,调用之前的details接口)'
-    PAGE_LUCKY_STAR_DETAILS: 'lucky_star_details',//?id=11(幸运星提问详情)'
-    PAGE_ORDER_DETAILS: 'order_details',//?id=10(订单详情)'
-    PAGE_VIP: 'vip',//开通会员
-    PAGE_DAY: 'day',//?rid=参数&time=2018-11-3(日运，无参数rid使用默认时间是当前时间)',
-    PAGE_WEEK: 'week',//周运
-    PAGE_MONTH: 'month',//周运_月运
-    PAGE_YEAR: 'year',//周运_年运
-    PAGE_FORTUNE_FOR_MONTH: 'fortune_for_month',//?rid=参数&time=2018-11(月运，无参数rid使用默认时间是当前时间)'
-    PAGE_FORTUNE_FOR_YEAR: 'fortune_for_year',//?rid=参数&time=2018(年运，无参数rid使用默认时间是当前时间)'
-    PAGE_EMPTY: 'empty',//空
-    PAGE_ACG_MAP: 'acg_map',//?rid=参数(地图首页)',
-    PAGE_IDENTIFY_LOVE: 'identify_love',//鉴爱首页
-    PAGE_IDENTIFY_RESULT: 'identify_result',//?rid1=参数&rid2=参数&wid1=参数&wid2=参数',（鉴爱结果页面）
-    PAGE_PAY_ORDERS_FOR_YEAR: 'pay_orders_for_year',//年运支付页面
-    PAGE_COURSE_LIST: 'course_list',//
-    PAGE_MY_COURSE: 'my_course',//我的课程
-    PAGE_COURSE_DETAIL: 'course_detail',//?id=参数 (课程详情)
-    PAGE_ASTROLOGERS: 'astrologers',//占星师广场
+  PAGE_URL: 'url',//星盘
+  PAGE_ASTROLABLE: 'astrolable',//星盘
+  PAGE_COMPOSITE: 'composite',//合盘
+  PAGE_RECTIFICATION: 'rectification',//生时校正
+  PAGE_DIVINATION: 'divination',//占卜
+  PAGE_PREDICT: 'predict',//预测
+  PAGE_ARCHIVES: 'archives',//档案管理
+  PAGE_ARTICLE_DETAILS: 'article_details',//?id=13(文章详情,调用之前的details接口)
+  PAGE_RECTIFICATION_DETAILS: 'rectification_details',//?id=13(生时校正结果详情,调用之前的details接口)'
+  PAGE_LUCKY_STAR_DETAILS: 'lucky_star_details',//?id=11(幸运星提问详情)'
+  PAGE_ORDER_DETAILS: 'order_details',//?id=10(订单详情)'
+  PAGE_VIP: 'vip',//开通会员
+  PAGE_DAY: 'day',//?rid=参数&time=2018-11-3(日运，无参数rid使用默认时间是当前时间)',
+  PAGE_WEEK: 'week',//周运
+  PAGE_MONTH: 'month',//周运_月运
+  PAGE_YEAR: 'year',//周运_年运
+  PAGE_FORTUNE_FOR_MONTH: 'fortune_for_month',//?rid=参数&time=2018-11(月运，无参数rid使用默认时间是当前时间)'
+  PAGE_FORTUNE_FOR_YEAR: 'fortune_for_year',//?rid=参数&time=2018(年运，无参数rid使用默认时间是当前时间)'
+  PAGE_EMPTY: 'empty',//空
+  PAGE_ACG_MAP: 'acg_map',//?rid=参数(地图首页)',
+  PAGE_IDENTIFY_LOVE: 'identify_love',//鉴爱首页
+  PAGE_IDENTIFY_RESULT: 'identify_result',//?rid1=参数&rid2=参数&wid1=参数&wid2=参数',（鉴爱结果页面）
+  PAGE_PAY_ORDERS_FOR_YEAR: 'pay_orders_for_year',//年运支付页面
+  PAGE_COURSE_LIST: 'course_list',//
+  PAGE_MY_COURSE: 'my_course',//我的课程
+  PAGE_COURSE_DETAIL: 'course_detail',//?id=参数 (课程详情)
+  PAGE_ASTROLOGERS: 'astrologers',//占星师广场
 
-    //上面是通用的，下面是我自己定义的
-    PAGE_HOROSCOPE: 'horoscope', //八字
-    PAGE_RECORD_SELECT: 'page_record_select', //档案选择页面
-    PAGE_CAT_RECORDS: 'page_cat_records', //档案袋点击进入的档案列表页面
-    PAGE_RECORD_ADD: 'page_record_add', //新建档案页面
-    PAGE_ASTROLOGERS_SELECT: 'astrologers_select',//占星师广场筛选
-    PAGE_ASTROLOGER_DETAIL: 'page_astrologer_detail',//占星师详情
-    PAGE_QUESTION_MY: 'question_my',//我的提问列表页
-    PAGE_QUESTION: 'question',//问答广场
-    PAGE_QUESTION_INPUT: 'question_input',//问题输入
-    PAGE_QUESTION_DETAIL: 'question_detail',//问题详情
-    PAGE_BALANCE_LIST: 'page_balance_list',//账户明细列表
+  //上面是通用的，下面是我自己定义的
+  PAGE_HOROSCOPE: 'horoscope', //八字
+  PAGE_RECORD_SELECT: 'page_record_select', //档案选择页面
+  PAGE_CAT_RECORDS: 'page_cat_records', //档案袋点击进入的档案列表页面
+  PAGE_RECORD_ADD: 'page_record_add', //新建档案页面
+  PAGE_ASTROLOGERS_SELECT: 'astrologers_select',//占星师广场筛选
+  PAGE_ASTROLOGER_DETAIL: 'page_astrologer_detail',//占星师详情
+  PAGE_QUESTION_MY: 'question_my',//我的提问列表页
+  PAGE_QUESTION: 'question',//问答广场
+  PAGE_QUESTION_INPUT: 'question_input',//问题输入
+  PAGE_QUESTION_DETAIL: 'question_detail',//问题详情
+  PAGE_BALANCE_LIST: 'page_balance_list',//账户明细列表
 
-  }
-;
+}
+  ;
 //================================所有的通用跳转页面类型====================================
 
 

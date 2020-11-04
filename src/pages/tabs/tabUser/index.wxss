@@ -1,49 +1,41 @@
-.user .line {
-  width: 622px;
-  height: 1px;
-  background: #D8D8D8;
-  border-radius: 2px;
-  opacity: 0.1;
-  border: 1px solid #979797;
-}
-.user .user-header {
+.user-page .user-header {
   width: 100%;
   height: 542px;
   background: linear-gradient(180deg, #B494EF 0%, #5F5DCF 100%);
   border-radius: 2px;
 }
-.user .user-header .header-con {
+.user-page .user-header .header-con {
   padding-top: 176px;
   padding-left: 62px;
   display: flex;
 }
-.user .user-header .header-con .img-msg {
+.user-page .user-header .header-con .img-msg {
   width: 38px;
   height: 34px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 110px;
+  left: 32px;
 }
-.user .user-header .header-con .img-avatar {
+.user-page .user-header .header-con .img-avatar {
   width: 128px;
   height: 128px;
 }
-.user .user-header .header-con .right-con {
+.user-page .user-header .header-con .right-con {
   padding-left: 18px;
   color: #FFFFFF;
 }
-.user .user-header .header-con .right-con .name {
+.user-page .user-header .header-con .right-con .name {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 8px;
 }
-.user .user-header .header-con .right-con .num {
+.user-page .user-header .header-con .right-con .num {
   font-size: 24px;
   font-weight: 400;
   opacity: 0.6;
   margin-bottom: 6px;
 }
-.user .user-header .header-con .right-con .asc {
+.user-page .user-header .header-con .right-con .asc {
   background: #FFFFFF;
   border-radius: 22px;
   font-size: 18px;
@@ -51,67 +43,74 @@
   display: flex;
   padding: 6px 10px;
 }
-.user .user-header .header-con .right-con .asc .img-sex {
+.user-page .user-header .header-con .right-con .asc .img-sex {
   width: 24px;
   height: 24px;
 }
-.user .user-header .header-con .right-con .asc .asc-text {
+.user-page .user-header .header-con .right-con .asc .asc-text {
   padding-left: 6px;
 }
-.user .container {
+.user-page .container {
   position: relative;
   top: -150px;
   background: #F6F7F9;
   border-radius: 20px 20px 0 0;
   padding: 38px 32px;
 }
-.user .container .tab,
-.user .container .list {
+.user-page .container .tab,
+.user-page .container .list {
   background: #FFFFFF;
   border-radius: 26px;
 }
-.user .container .tab {
+.user-page .container .tab {
   margin-bottom: 32px;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   padding-top: 28px;
 }
-.user .container .tab .tab-item {
+.user-page .container .tab .tab-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 40px;
 }
-.user .container .tab .tab-item .img {
+.user-page .container .tab .tab-item .img {
   width: 64px;
   height: 64px;
 }
-.user .container .tab .tab-item .text {
+.user-page .container .tab .tab-item .text {
   font-size: 12px;
 }
-.user .container .list .list-item {
+.user-page .container .list .list-item {
   padding: 16px 16px 0 32px;
 }
-.user .container .list .list-item .item {
+.user-page .container .list .list-item .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
-.user .container .list .list-item .item .left {
+.user-page .container .list .list-item .item .left {
   display: flex;
   align-items: center;
 }
-.user .container .list .list-item .item .left .icon-img {
+.user-page .container .list .list-item .item .left .icon-img {
   width: 64px;
   height: 64px;
 }
-.user .container .list .list-item .item .left .text {
+.user-page .container .list .list-item .item .left .text {
   font-size: 28px;
   margin-left: 16px;
 }
-.user .container .list .list-item .item .right {
+.user-page .container .list .list-item .item .right {
   width: 22.62px;
   height: 22.62px;
+}
+.user-page .container .list .list-item .line {
+  width: 100%;
+  background: #D8D8D8;
+  border-radius: 2px;
+  opacity: 0.1;
+  border: 1px solid #979797;
 }

@@ -9,11 +9,11 @@ export const getArticleDetail = params => Request({
 });
 
 // 获取文章评论列表
-export const getArticleComments = (data, loading)  => Request({
+export const getArticleComments = (data, loading) => Request({
   url: '/article/index/comment_lists',
   method: 'GET',
   data: data,
-},loading);
+}, loading);
 
 //点赞
 export const good = params => Request({
@@ -36,12 +36,6 @@ export const comment_good = params => Request({
   data: params,
 });
 
-//举报评论
-export const comment_complaint = params => Request({
-  url: '/api/v9/against_save',
-  method: 'POST',
-  data: params,
-});
 
 //评论
 export const comment = params => Request({

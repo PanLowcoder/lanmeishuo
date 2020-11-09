@@ -1,9 +1,9 @@
-import Taro, { useEffect } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import BaseComponent from "../../components/BaseComponent";
 import { View, Text, Image, Input } from '@tarojs/components'
 import { AtAvatar, AtNavBar } from 'taro-ui'
 import { connect } from '@tarojs/redux';
-import { ossUrl } from "../../../config";
+import { ossUrl } from "../../config";
 import './index.less'
 import { actionNavBack, customTime, getCustomImgUrl } from "../../utils/common";
 import { getWindowHeight } from "../../utils/style";
@@ -66,23 +66,27 @@ export default class Detail extends BaseComponent {
             this.setState({ detail: res })
         });
         //请求文章评论列表数据
-        // this.props.dispatch({
-        //     type: 'articleDetail/comment_list',
-        //     payload: {
-        //         articleId: articleId,
-        //         page: 1,
-        //     },
-        // }).then((res) => {
-        //     //设置数据
-        //     let loading = this.state.loading;
-        //     if (Number(res.data.last_page) == Number(res.data.current_page)) {//没有更多了
-        //         loading = 2;
-        //     } else if (Number(res.data.last_page) > Number(res.data.current_page)) {//显示加载中
-        //         loading = 1;
-        //     }
-        //     this.setState({ commentResult: res.data, loading: loading })
-        // });
+        this.props.dispatch({
+            type: 'articleDetail/comment_list',
+            payload: {
+                articleId: articleId,
+                page: 1,
+            },
+        }).then((res) => {
+            //设置数据
+            let loading = this.state.loading;
+            if (Number(res.data.last_page) == Number(res.data.current_page)) {//没有更多了
+                loading = 2;
+            } else if (Number(res.data.last_page) > Number(res.data.current_page)) {//显示加载中
+                loading = 1;
+            }
+            this.setState({ commentResult: res.data, loading: loading })
+        });
     };
+    //创建des内容
+    customHtmlContent() {
+        return { __html: this.state.detail.content };
+    }
 
     render() {
         const {
@@ -93,7 +97,8 @@ export default class Detail extends BaseComponent {
             scroll_view_height,
             reply_name,
         } = this.state;
-
+        console.log(detail);
+        let user = Object(detail.user)
         return (
             <View className='detail-page'>
                 {/*导航栏*/}
@@ -107,35 +112,24 @@ export default class Detail extends BaseComponent {
                 />
                 <View className="top">
                     <View className="header">
-                        <View className="title">9月1日十二星座塔罗运势</View>
+                        <View className="title">{detail.title}</View>
                         <View className="author">
-                            <Text className="name">蓝莓说官方</Text>
-                            <Text className="time">5小时前</Text>
+                            <Text className="name">{user.nickname}</Text>
+                            <Text className="time">{detail.created_at}</Text>
                         </View>
                         <View className="art-img">
-                            <Image className='img' src={banner}></Image>
+                            <Image className='img' src={ossUrl + detail.img}></Image>
                         </View>
                         <View className="label">太阳或上升再白羊座</View>
                     </View>
                     <View className="container">
-                        <View className="content">
-                            <View className="cate">本周在工作方面:</View>
-                            <View className="text">
-                                你可能还没从放假的生活中走出来，因此工作时会有些不在状态，在处理一些文书、数据、细节的事情时，容易掉链子，自己要仔细一些。工作中会有突发情况，比如原本定好的约会、合同会临时变卦、改时间，或是有新增的任务，给你造成压力，因此和领导发生冲突。不过这些问题你都能解决好，周末的时候工作就轻松、顺利许多了。
-                    </View>
-                        </View>
-                        <View className="content">
-                            <View className="cate">本周在财务方面：</View>
-                            <View className="text">
-                                资金往来频繁，金钱运势不稳定，现金流会出现突然的中断，或是因为还款而有大笔的支出。
-                    </View>
-                        </View>
-                        <View className="content">
-                            <View className="cate">本周在感情方面：</View>
-                            <View className="text">
-                                你可能还没从放假的生活中走出来，因此工作时会有些不在状态，在处理一些文书、数据、细节的事情时，容易掉链子，自己要仔细一些。工作中会有突发情况，比如原本定好的约会、合同会临时变卦、改时间，或是有新增的任务，给你造成压力，因此和领导发生冲突。不过这些问题你都能解决好，周末的时候工作就轻松、顺利许多了。
-                    </View>
-                        </View>
+                        {/*文章详情*/}
+                        {detail && (
+                            <View
+                                className='content'
+                                dangerouslySetInnerHTML={this.customHtmlContent()}
+                            />
+                        )}
                         <View className="event">
                             <View className="share">
                                 <Image className='img' src={share_wechat}></Image>
@@ -144,22 +138,22 @@ export default class Detail extends BaseComponent {
                             <View className="tab">
                                 <View className="item">
                                     <Image className='icon' src={heart}></Image>
-                                    <Text className='text'>22</Text>
+                                    <Text className='text'>{detail.watch}</Text>
                                 </View>
                                 <View className="item">
                                     <Image className='icon' src={star}></Image>
-                                    <Text className='text'>22</Text>
+                                    <Text className='text'>{detail.watch}</Text>
                                 </View>
                                 <View className="item">
                                     <Image className='icon' src={chat}></Image>
-                                    <Text className='text'>22</Text>
+                                    <Text className='text'>{detail.watch}</Text>
                                 </View>
                             </View>
                         </View>
                         <View className="line"></View>
                     </View>
                     <View className="com-list">
-                        <View className="com-item">
+                        {/* <View className="com-item">
                             <View className="user">
                                 <AtAvatar circle size='small' image={avatar}></AtAvatar>
                                 <View className="info">
@@ -181,30 +175,33 @@ export default class Detail extends BaseComponent {
                                 </View>
                             </View>
                             <View className="line"></View>
-                        </View>
-                        <View className="com-item">
-                            <View className="user">
-                                <AtAvatar circle size='small' image={avatar}></AtAvatar>
-                                <View className="info">
-                                    <View className="name">白日梦想家</View>
-                                    <View className="time">3分钟前</View>
+                        </View> */}
+                        {(!commentResult || !commentResult.data || commentResult.data.length == 0) ? (
+                            <View>还没有评论，快抢占沙发吧</View>
+                        ) : (
+                                <View>
+                                    {/* {commentResult && commentResult.data && commentResult.data.length > 0 && commentResult.data.map((item, index) => (
+                                        <ItemArticleReplay
+                                            item={item}
+                                            index={index}
+                                            onCommomReplayItemClick={this.onCommomReplayItemClick}
+                                        />
+                                    ))}
+                                    {loading == 1 && (
+                                        <View className='loadMoreGif'>
+                                            <View className='zan-loading'></View>
+                                            <View className='text'>加载中...</View>
+                                        </View>
+                                    )}
+
+                                    {loading == 2 && (
+                                        <View className='loadMoreGif'>
+                                            <View className='text'>没有更多了</View>
+                                        </View>
+                                    )} */}
+                                    HHHHHHHHHHHHHHHHH
                                 </View>
-                            </View>
-                            <View className="comment">
-                                <View className="text">跪求桃花运！呜呜呜！</View>
-                                <View className="tab">
-                                    <View className="item">
-                                        <Image className='icon small' src={heart}></Image>
-                                        <Text className='text'>22</Text>
-                                    </View>
-                                    <View className="item">
-                                        <Image className='icon small' src={chat}></Image>
-                                        <Text className='text'>22</Text>
-                                    </View>
-                                </View>
-                            </View>
-                            <View className="line"></View>
-                        </View>
+                            )}
                     </View>
                 </View>
                 <View className="footer">

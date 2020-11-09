@@ -28,6 +28,7 @@
 }
 .detail-page .top .header .author .time {
   opacity: 30%;
+  margin-left: 16px;
 }
 .detail-page .top .header .art-img {
   margin: 76px 0 66px;
@@ -56,6 +57,7 @@
 .detail-page .top .tab .item {
   margin-left: 32px;
   display: flex;
+  align-items: center;
 }
 .detail-page .top .tab .item .icon {
   width: 46px;
@@ -71,9 +73,6 @@
 .detail-page .top .container .content {
   margin-bottom: 64px;
   font-size: 28px;
-}
-.detail-page .top .container .content .cate {
-  font-weight: 600;
 }
 .detail-page .top .container .event {
   display: flex;

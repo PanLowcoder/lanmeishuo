@@ -23,7 +23,7 @@ export default {
     ,
     * comment_list(_, { call, select }) {
       const { articleId, page } = yield select(state => state.articleDetail);
-      const res = yield call(detailApi.getArticleComments, { page: page, aid: articleId }, page > 1 ? false : true);
+      const res = yield call(detailApi.getArticleComments, { page: page, id: articleId }, page > 1 ? false : true);
       if (res.code == '200') {
         return res;
       }

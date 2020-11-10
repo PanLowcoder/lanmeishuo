@@ -1,0 +1,128 @@
+.page{
+    .container{
+        background: #FEFFFE;
+        color: #313836;
+        .nav{
+            display: flex; 
+            justify-content: space-around;
+            margin-bottom: 16px;
+            .nav-item{
+                display: flex;
+                flex-direction: column;
+                .img{
+                    width: 96px;
+                    height: 96px;                    
+                    border-radius: 5px 0px 0px 0px;
+                } 
+                .text{
+                    display: flex;
+                    justify-content: center;
+                    font-size: 11px;
+                }
+            }
+        
+        }
+        .content{
+            width: 90%;
+            margin: auto;
+            .fortune{ 
+                padding: 30px;               
+                background: #FFFFFF;
+                box-shadow: 0px 8px 15px 0px rgba(150, 159, 171, 0.23);
+                border-radius: 5px;
+                font-size: 28px;
+                .fortune-header{
+                    display: flex;
+                    justify-content: space-between;                                        
+                    .header-left{
+                        display: flex; 
+                        .left-img{
+                            padding-left: 8px;
+                            .img{
+                                width: 28px;
+                                height: 28px;
+                                margin-left: 10px;
+                            }
+                        }                       
+                        
+                    }
+                    .header-right{
+                        display: flex;
+                    }
+                }
+                .fortune-content{
+                    margin-top: 24px;
+                    // display: flex;
+                    .des-title{
+                        font-weight: 800;
+                    }
+                    .des{
+                        .des-img{
+                            
+                        }
+                        .des-content{
+                            font-size:18px ;
+                            .item{
+                                display: flex;
+                                align-items: center;
+                                .progress{
+                                    width: 172px;
+                                    margin-left: 18px;
+                                }
+                            }
+                            
+                        }
+                    }
+                    .textarea{
+                        font-size: 22px;
+                        display: -webkit-box;
+                        overflow: hidden;
+                        /* autoprefixer: ignore next */
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+            }
+            .today{
+                margin: 32px auto;
+                height: 222px;
+                .img{
+                    width: 100%;
+                    z-index: 0;
+                }
+                .info{
+                    position: relative;
+                    top: -210px;
+                    margin-left: 287px;
+                    margin-right: 16px;
+                    z-index: 100;
+                    color: #FFFFFF;
+                    .date{
+                        font-size: 22px;
+                        margin-left: 140px;
+                    }
+                    .today-content{
+                        font-size: 24px;
+                        margin-top: 16px;
+                    }
+                }
+            }
+            .art-title{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                .left{
+                    .text{
+                        font-size: 28px;
+                    }
+                }
+                .right{
+                    .more{
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+    
+}

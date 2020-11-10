@@ -1,0 +1,317 @@
+@import "../../../styles/mixin";
+
+.natal-or-now-params-page {
+  @include wh(100%, 100%);
+
+  .nav {
+  }
+
+  //tabs
+  .tabs-con {
+    margin-top: $height-nav;
+    height: auto;
+  }
+
+  .scrollview {
+    position: fixed;
+    top: $height-nav*2;
+    @include wh(100%, auto);
+
+    //通用的header
+    .header {
+      background: $bg-color-light;
+      padding: 10px 40px;
+      @include sc(30px, $color-light);
+    }
+
+    //基本参数页
+    .pane-page-0 {
+      position: relative;
+      //z-index: 1;
+      //行星header
+      .planet-header-con {
+        background: $bg-color-light;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-light);
+      }
+      //行星单条内容
+      .planet-item-con {
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-dark2);
+        //行星的名字部分
+        .name-con {
+          flex: 3;
+          display: flex;
+          align-items: center;
+        }
+        //行星度数部分
+        .sign-con {
+          flex: 5;
+          display: flex;
+          align-items: center;
+          .deg {
+            color: $color-light;
+          }
+        }
+        .house {
+          flex: 2;
+          .house-des {
+            color: $color-light;
+          }
+        }
+        .speed {
+          flex: 1;
+          color: $color-light;
+        }
+      }
+      //宫位部分
+      .house-header-con {
+        background: $bg-color-light;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-light);
+      }
+      //宫位单条内容
+      .house-item-con {
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-dark2);
+
+        .name-con {
+          flex: 3;
+          display: flex;
+          align-items: center;
+          .house-des {
+            color: $color-dark2;
+          }
+        }
+
+        .sign-con {
+          flex: 6;
+          display: flex;
+          align-items: center;
+          .deg {
+            color: $color-light;
+          }
+        }
+
+        //宫主飞星
+        .house-con {
+          flex: 3;
+          .des {
+            color: $color-light;
+          }
+        }
+      }
+
+      //相位header items
+      .phase-header-con {
+        //margin-left: -5px;
+        display: flex;
+        justify-content: space-around;
+        .planet {
+          @include sc(30px, $color-dark2);
+          flex: 1;
+          border-left: $color-sperate-line 2px solid;
+          text-align: center;
+        }
+      }
+
+      //相位item
+      .phase-item-con {
+        @include sc(30px, $color-dark2);
+        display: flex;
+        justify-content: space-around;
+        border-top: $color-sperate-line 2px solid;
+
+        .phase {
+          flex: 1;
+          border-left: $color-sperate-line 2px solid;
+          //background: #f00;
+          //padding-left: 15px;
+          font-size: 20px;
+          padding: 5px 5px;
+          text-align: center;
+        }
+
+        .column-first {
+          @include sc(30px, $color-dark2);
+        }
+      }
+
+      .phase-item-con-bg {
+        background: #f0f0f0;
+      }
+
+      .bottom-con {
+        //background: #f00;
+        @include wh(100%, $height-nav);
+      }
+    }
+
+    //古典参数页
+    .pane-page-1 {
+      //background: #f00;
+      //力量分部部分
+      .influence-row-con {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-dark2);
+        border-bottom: $color-sperate-line 2px solid;
+        .item-con {
+          padding: 10px 0;
+          flex: 3;
+          border-left: $color-sperate-line 2px solid;
+          text-align: center;
+        }
+      }
+
+      //先天尊贵部分
+      .planet-ancients-row-con {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-dark2);
+        border-bottom: $color-sperate-line 2px solid;
+        .item-con {
+          flex: 3;
+          border-left: $color-sperate-line 2px solid;
+          text-align: center;
+          //padding: 10px 0;
+          .title {
+            color: $color-dark2;
+          }
+          .deg {
+            color: $color-light;
+          }
+
+          .sanfen-con {
+            flex: 3;
+            text-align: center;
+            .title {
+              border-left: $color-sperate-line 2px solid;
+
+            }
+          }
+        }
+      }
+
+      //福点部分
+      .fortune-item-con {
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include sc(30px, $color-dark2);
+        .item {
+
+        }
+      }
+
+      //接纳和互容部分
+      .hurong-and-jiena-item-con {
+        padding: 10px 40px;
+        .jiena-con {
+          display: flex;
+          align-items: center;
+          @include sc(30px, $color-dark2);
+          .des {
+            color: $color-light;
+            margin-left: 10px;
+          }
+          .title {
+            margin-left: 10px;
+          }
+        }
+      }
+
+    }
+
+    //结构参数部分
+    .pane-page-2 {
+      //行星结构
+      .struct-item-con {
+        //background: #f00;
+        display: flex;
+        align-items: center;
+        .struct-con {
+          //background: #0f0;
+          display: flex;
+          align-items: center;
+          margin-right: 40px;
+          .first {
+            //background: #00f;
+            @include sc(30px, $color-dark2);
+            padding: 10px 40px;
+          }
+          .item-con {
+            .title {
+              @include sc(30px, $color-dark2);
+            }
+            .des {
+              @include sc(30px, $color-light);
+            }
+            .margin-add {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+
+      //行星中点
+      .zhongdian-item-con {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 40px;
+        @include sc(30px, $color-dark2);
+        .item-con {
+          padding: 10px 0;
+          width: 50%;
+          .des {
+            color: $color-light;
+          }
+        }
+      }
+    }
+
+  }
+
+  //tar-ui tab 自定义处理
+  .at-tabs__header {
+    position: fixed;
+    //margin-top: $height_of_top;
+    z-index: 5;
+    border-bottom: 1px solid #999;
+  }
+
+  .at-tabs__item-underline {
+    background: #000;
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .at-tabs__item {
+    color: #999;
+  }
+
+  .at-tabs__item--active {
+    color: #000;
+  }
+
+  .at-tabs__item-underline {
+    height: 3px;
+  }
+
+}
+
+

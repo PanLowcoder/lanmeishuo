@@ -1,0 +1,112 @@
+@import "../../../styles/mixin";
+
+.record-cat-page {
+
+  //顶部标题
+  .top_container {
+    //background: #f00;
+    height: 100%;
+    width: 100%;
+    padding: 0 30px 0 30px;
+    //返回按钮
+    .close_container {
+      //background: #00f;
+      padding: 40px 20px 20px 30px;
+      @include wh(80px, 80px);
+      position: absolute;
+      .close_img {
+        //background: #0f0;
+        @include wh(30px, 30px);
+      }
+    }
+    //保存
+    .save {
+      //background: #f00;
+      position: absolute;
+      padding-top: 20px;
+      right: 0;
+      top: 0;
+      width: 150px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 30px;
+      color: #000;
+      text-align: center;
+    }
+
+  }
+
+  .middle_container {
+    //background: #0f0;
+    padding-left: 40px;
+    padding-bottom: 40px;
+
+    //新建标题
+    .title {
+      //background: #f00;
+      color: #000;
+      font-size: 60px;
+      font-weight: bold;
+      padding-top: 100px;
+    }
+
+    //档案袋输入框
+    .input {
+      //background: #00f;
+      margin-top: 80px;
+      height: 60px;
+      border-bottom: solid 2px $color-sperate-line;
+    }
+
+    //背景提示
+    .hint {
+      //background: #0f0;
+      margin-top: 80px;
+      margin-bottom: 20px;
+      font-size: 30px;
+      color: #000;
+    }
+
+    //档案袋列表
+    .bg-list-container {
+      background-color: #fff;
+      .cat-bg-ui {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .bg-li {
+          width: 25%;
+          box-sizing: border-box;
+          .pos {
+            position: relative;
+            .img-container {
+              //background: #f00;
+              height: 60px;
+              padding: 40px 20px 0 0;
+              //名字
+              .name {
+                background: #fff;
+                @include wh(100%, 60px);
+                line-height: 60px;
+                text-align: center;
+                border-radius: 10px;
+                border: solid 2px $color-sperate-line;
+              }
+              //选中
+              .selected {
+                background: $color-pink;
+                color: #fff;
+              }
+              //不可点击
+              .unable{
+                background: #eee;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}

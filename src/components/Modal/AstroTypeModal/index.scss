@@ -1,0 +1,81 @@
+@import "../../../styles/mixin";
+
+.astro-modal-con {
+  .content-con {
+    //padding: 50px;
+
+    //通用标题样式
+    .title {
+      @include sc(33px, $color-dark);
+      margin-top: 20px;
+    }
+
+    //通用按钮
+    .item {
+      @include sc(30px, $color-dark);
+      padding: 10px 60px;
+      border-radius: 10px;
+      border: $color-sperate-line 2px solid;
+    }
+    //通用按钮选中状态
+    .selected {
+      color: #fff;
+      background: $color-pink;
+    }
+
+    //星盘样式
+    .item-con1 {
+      position: relative;
+      .bottom-con1 {
+        //background: #f00;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+      }
+
+    }
+
+    //星盘风格
+    .item-con {
+      .bg-con {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 10px 40px;
+        .bg-item {
+          //background: #f00;
+          text-align: center;
+          display: flex;
+          align-items: flex-start;
+          width: 30%;
+          height: 60px;
+          padding: 20px 0;
+          .img-bg {
+            @include wh(70px, 70px);
+          }
+          .img-selected {
+            @include wh(25px, 25px);
+            margin-left: -20px;
+          }
+        }
+      }
+    }
+
+    //星盘类型
+    .item-con2 {
+      .bottom-con2 {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+      }
+
+    }
+
+  }
+}

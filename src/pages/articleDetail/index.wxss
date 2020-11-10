@@ -1,0 +1,136 @@
+.detail-page {
+  color: #313836;
+  margin-top: 85px;
+  padding-left: 34px;
+  padding-right: 32px;
+}
+.detail-page .line {
+  width: 100%;
+  background: #D8D8D8;
+  border-radius: 2px;
+  opacity: 0.1;
+  border: 1px solid #979797;
+}
+.detail-page .top {
+  min-height: 100%;
+  margin: 0 auto 96px;
+}
+.detail-page .top .header {
+  margin-top: 42px;
+}
+.detail-page .top .header .title {
+  font-size: 36px;
+  font-weight: 600;
+}
+.detail-page .top .header .author {
+  margin-top: 32px;
+  font-size: 24px;
+}
+.detail-page .top .header .author .time {
+  opacity: 30%;
+}
+.detail-page .top .header .art-img {
+  margin: 76px 0 66px;
+  text-align: center;
+}
+.detail-page .top .header .art-img .img {
+  width: 684px;
+  height: 308px;
+}
+.detail-page .top .header .label {
+  width: 414px;
+  height: 66px;
+  background: #FF806F;
+  font-size: 28px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.detail-page .top .tab {
+  opacity: 59%;
+  display: flex;
+}
+.detail-page .top .tab .item {
+  margin-left: 32px;
+  display: flex;
+}
+.detail-page .top .tab .item .icon {
+  width: 46px;
+  height: 42px;
+}
+.detail-page .top .tab .item .text {
+  font-size: 11px;
+  margin-left: 8px;
+}
+.detail-page .top .container {
+  margin-top: 42px;
+}
+.detail-page .top .container .content {
+  margin-bottom: 64px;
+  font-size: 28px;
+}
+.detail-page .top .container .content .cate {
+  font-weight: 600;
+}
+.detail-page .top .container .event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail-page .top .container .event .share .img {
+  width: 66px ;
+  height: 66px;
+  margin-right: 32px;
+}
+.detail-page .top .com-list {
+  font-size: 28px ;
+}
+.detail-page .top .com-list .com-item {
+  padding-top: 32px;
+}
+.detail-page .top .com-list .com-item .user {
+  display: flex;
+}
+.detail-page .top .com-list .com-item .user .info {
+  padding-left: 16px;
+}
+.detail-page .top .com-list .com-item .user .info .time {
+  opacity: 30%;
+  font-size: 22px;
+}
+.detail-page .top .com-list .com-item .comment {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 102px;
+  margin-top: 30px;
+  margin-bottom: 62px;
+}
+.detail-page .top .com-list .com-item .comment .small {
+  width: 30px ;
+  height: 28px;
+}
+.detail-page .footer {
+  width: 92%;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+}
+.detail-page .footer .input {
+  height: 64px;
+  background: #EAEAEA;
+  border-radius: 32px;
+  font-size: 22px;
+  color: rgba(49, 56, 54, 0.3);
+  padding-left: 32px;
+}
+.detail-page .footer .img {
+  width: 48px;
+  height: 48px;
+  margin-left: 32px;
+}

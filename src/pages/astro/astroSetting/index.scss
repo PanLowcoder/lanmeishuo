@@ -1,0 +1,138 @@
+@import "../../../styles/mixin";
+
+$height_of_sep: 40px;
+
+.astro-setting-page {
+  //@include wh(100%, 100%);
+  background: #fff;
+
+  //导航栏右上角‘还原’按钮不可用
+  .disabled {
+    color: $color-light;
+  }
+
+  //容许度名字
+  .text-orb {
+    padding: 0 40px;
+    width: 30px;
+    text-align: center;
+  }
+
+  .content-con {
+    margin-top: $height-nav;
+    margin-bottom: 150px;
+
+    //单条内容
+    .item-con {
+      padding-left: 40px;
+      //分宫制
+      .h-sys-con {
+        padding: 25px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .name {
+          @include sc(30px, $color-dark);
+        }
+
+        .img {
+          @include wh(40px, 40px);
+        }
+      }
+
+      //小行星
+      .planets-con {
+        //background: #f00;
+        padding: 10px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .name {
+          //background: #0f0;
+          @include sc(30px, $color-dark);
+        }
+
+        .img {
+          @include wh(40px, 40px);
+        }
+
+        .switch {
+          //background: #f00;
+          //width: 50px;
+          //height: 50px;
+          margin-right: 40px;
+        }
+      }
+
+      //常用相位
+      .phase-con {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include sc(30px, $color-dark);
+
+        //容许度数
+        .text-deg {
+          @include wh(100px, auto)
+        }
+
+        .name {
+
+        }
+
+        .add-sub-con {
+          display: flex;
+          align-items: center;
+
+          .img {
+            @include wh(40px, 40px);
+          }
+
+
+        }
+      }
+
+      //星体容许度部分
+      .planet-orb-con {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 30px 0;
+
+        .planet-name {
+          @include sc(30px, $color-pink);
+          width: 100px;
+        }
+
+        .add-sub-con {
+          display: flex;
+          align-items: center;
+
+          .img {
+            @include wh(40px, 40px);
+            padding: 0 40px;
+          }
+        }
+      }
+
+    }
+  }
+
+
+  .bottom-con {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: solid 2px $color-sperate-line;
+
+    .btn {
+      margin: 20px 40px;
+    }
+  }
+
+}

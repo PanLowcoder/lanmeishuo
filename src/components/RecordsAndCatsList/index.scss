@@ -1,0 +1,66 @@
+@import "../../styles/mixin";
+
+//tab栏的高度
+$height_of_tab_header: 85px !default;
+
+.record-page {
+  @include wh(100%, 100%);
+
+  //导航栏背景
+  .nav-container {
+    background: #fff;
+    @include wh(100%, $height-nav);
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    //border-bottom: 1px solid #999;
+    border-bottom: solid 2px $color-sperate-line;
+
+    .tabs {
+      //background: #0f0;
+      margin-left: 30%;
+      width: 40%;
+      display: flex;
+      justify-content: space-around;
+      .item {
+        .title {
+          //background: #00f;
+          @include sc(30px, $color-dark2);
+          @include wh(auto, auto);
+          text-align: center;
+          height: $height-nav;
+          line-height: $height-nav;
+        }
+        .title-selected {
+          //background: #f00;
+          color: $color-pink;
+          border-bottom: solid 3px $color-pink;
+        }
+      }
+    }
+  }
+
+  //新建按钮
+  .new_btn {
+    //background: #f00;
+    @include sc(30px, $color-dark);
+    padding: 20px 40px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    z-index: 5;
+  }
+
+  //返回按钮（只有选择档案的时候才显示）
+  .nav-back{
+    @include sc(30px, $color-dark);
+    padding: 20px 10px;
+    position: fixed;
+    left: 15px;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+

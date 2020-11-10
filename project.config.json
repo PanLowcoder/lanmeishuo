@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./wap",
+  "projectname": "lanmeishuo",
+  "description": "蓝莓说",
+  "appid": "wx2170af9bd53d3ab8",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

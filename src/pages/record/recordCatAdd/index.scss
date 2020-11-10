@@ -1,0 +1,120 @@
+@import "../../../styles/mixin";
+
+.record-cat-page {
+
+  //顶部标题
+  .top_container {
+    background: #fff;
+    position: fixed;
+    height: 200px;
+    width: 100%;
+    z-index: 5;
+    //关闭按钮
+    .close_container {
+      //background: #00f;
+      padding: 40px 20px 20px 30px;
+      @include wh(80px, 80px);
+      position: absolute;
+      .close_img {
+        //background: #0f0;
+        @include wh(30px, 30px);
+      }
+    }
+    //新建标题
+    .title {
+      //background: #f00;
+      color: #000;
+      font-size: 60px;
+      font-weight: bold;
+      padding-top: 100px;
+      margin-left: 30px;
+    }
+  }
+
+  //.middle_container {
+    .scrollview{
+    //background: #0f0;
+    padding-left: 40px;
+    z-index: 1;
+    position: absolute;
+      top:0;
+      margin-top: 200px;
+    //top: 200px;
+      //position: relative;
+      //margin: 200px 0 150px 0;
+    //padding-bottom: 40px;
+    //档案袋输入框
+    .input {
+      //background: #00f;
+      margin-top: 80px;
+      height: 60px;
+      border-bottom: solid 2px $color-sperate-line;
+    }
+
+    //背景提示
+    .hint {
+      //background: #0f0;
+      margin-top: 80px;
+      margin-bottom: 20px;
+      @include sc(30px, $color-dark);
+    }
+
+    //档案袋列表
+    .bg-list-container {
+      background-color: #fff;
+      .cat-bg-ui {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .bg-li {
+          width: 50%;
+          box-sizing: border-box;
+          .pos {
+            position: relative;
+            .img-container {
+              //background: #f00;
+              height: 100px;
+              padding: 40px 40px 0 0;
+              //背景图片
+              .bg_img {
+                //background: #f00;
+                @include wh(100%, 100px);
+                border-radius: 20px;
+              }
+              //选中、未选中图片
+              .radio_img {
+                @include wh(30px, 30px);
+                position: absolute;
+                top: 55px;
+                right: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  //保存按钮
+  .bottom_container {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    border-top: solid 2px $color-sperate-line;
+    z-index: 1;
+    .btn {
+      background: $color-pink;
+      border-radius: 30px;
+      margin: 30px 40px 20px 40px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      color: #fff;
+
+    }
+  }
+
+}

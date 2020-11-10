@@ -1,0 +1,96 @@
+@import "../../styles/mixin";
+
+//顶部搜索栏和提示的高度
+$height-of-top-container: 150px !default;
+
+//档案列表
+.record-list-container {
+
+  //搜索栏和提示部分
+  .top-container {
+    @include wh(100%, $height-of-top-container);
+    //background: #00f;
+    margin-top: $height-nav;
+    position: absolute;
+    //搜索栏部分
+    .search-bar {
+    }
+
+    //提示部分
+    .hint-con {
+      display: flex;
+      align-items: center;
+      padding: 10px 40px;
+      .img {
+        @include wh(25px, 25px);
+      }
+      .text {
+        margin-left: 10px;
+        @include sc(25px, $color-light);
+      }
+    }
+  }
+
+  //列表部分
+  .records-container {
+    //background: #f00;
+    top: $height-of-top-container+$height-nav;
+    position: absolute;
+    width: 100%;
+    .records-ul {
+      //background: #f00;
+      padding: 0 50px;
+      .records-li {
+        .item_container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 120px;
+          //索引和头像和名字
+          .left_container {
+            //background: #f00;
+            display: flex;
+            align-items: center;
+            .index {
+              @include sc(30px, $color-light);
+              width: 30px;
+            }
+            .img_bg {
+              @include wh(60px, 60px);
+              border-radius: 60px;
+              margin-left: 80px;
+            }
+            .name {
+              @include sc(30px, $color-dark);
+              margin-left: 40px;
+              line-height: 60px;
+            }
+          }
+          .radio-img {
+            @include wh(40px, 40px);
+          }
+        }
+      }
+    }
+
+    .bottom-con {
+      //background: #f00;
+      @include wh(100%, $height-of-top-container);
+    }
+  }
+
+  //底部完成按钮（只有多选的时候，才会有）
+  .ok-con {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    //padding: 20px 40px 50px 40px;
+    border-top: 2px solid $color-sperate-line;
+  }
+}
+
+//自定义tar-ui
+.at-button--primary {
+  background-color: $btn-active;
+  border: 0px;
+}

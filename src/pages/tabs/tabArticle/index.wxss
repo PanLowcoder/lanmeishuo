@@ -1,0 +1,36 @@
+.tab-article-page {
+  background: #FFFFFF;
+}
+.tab-article-page .search {
+  padding-top: 100px;
+  padding-left: 32px;
+}
+.tab-article-page .search .input {
+  width: 63%;
+  height: 60px;
+  background: #EAEAEA;
+  border-radius: 32px;
+  font-size: 18px;
+  color: rgba(49, 56, 54, 0.3);
+  padding-left: 32px;
+}
+.tab-article-page .line {
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  background: #000000;
+  border-radius: 2px;
+  opacity: 0.1;
+}
+.tab-article-page .at-tabs__underline {
+  background: #FFFFFF;
+}
+.tab-article-page .at-tabs__item-underline {
+  background: #FFFFFF;
+}
+.tab-article-page .at-tabs__item--active {
+  color: #B976FF;
+}
+.tab-article-page .at-tabs-pane {
+  padding: 32px;
+}

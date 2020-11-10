@@ -1,0 +1,304 @@
+@import "../../../styles/mixin";
+
+//顶部星座header的高度
+$height_of_top: 120px !default;
+$height_of_tab_header: 50px;
+.predict-detail-page {
+  @include wh(100%, 100%);
+
+  .nav {
+  }
+
+  //顶部部分
+  .top-container {
+    background: #fff;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    margin-top: $height-nav;
+    @include wh(90%, $height_of_top);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left-con {
+      display: flex;
+      align-items: center;
+
+      .title {
+        @include sc(44px, $color-dark);
+      }
+
+      .img {
+        @include wh(30px, 30px);
+        margin-left: 20px;
+      }
+    }
+
+    .img-avatar {
+      @include wh(80px, 80px);
+      border-radius: 80px;
+    }
+  }
+
+  //tabs
+  .tabs-con {
+    margin-top: $height-nav+$height_of_top;
+    height: auto;
+    //background: #f00;
+  }
+
+  .scrollview {
+    //background: #0f0;
+    padding-top: $height_of_top;
+  }
+
+  //人生概况部分
+  .pane-page-0 {
+    height: auto;
+    //background: #f00;
+    padding: 0 40px;
+    //顶部 提示部分
+    .top-con {
+      //background: #0f0;
+      display: flex;
+      align-items: center;
+      padding-bottom: 40px;
+      border-bottom: $color-sperate-line 2px solid;
+
+      .bg-circle {
+        background: $color-pink;
+        @include wh(15px, 15px);
+        border-radius: 15px;
+      }
+
+      .hint {
+        @include sc(30px, $color-dark);
+        white-space: pre-line;
+        margin-left: 20px;
+      }
+    }
+
+    //底部 图表部分
+    .chart-con {
+      margin-top: 20px;
+      //background: #f00;
+      display: flex;
+      align-items: center;
+      @include wh(100%, auto);
+
+      .item-con {
+        //background: #0f0;
+        @include wh(20%, auto);
+        padding: 20px;
+
+        .con {
+          text-align: center;
+          //background: #f00;
+          .score {
+            @include sc(30px, #1c1c1c);
+          }
+
+          .progress-con {
+            background: #f0f0f0;
+            margin-top: 20px;
+
+            .bg-top {
+              //@include wh(40px, 100px);
+              //height: 100px;
+            }
+
+            //渐变色
+            .bg-bottom-gradient {
+              background: $color-pink;
+              background: -webkit-linear-gradient(#ff6d5d, #ff3d6c); /*for safari5.1-6.0*/
+              background: -o-linear-gradient(#ff6d5d, #ff3d6c); /*Opera 11.1-12.0*/
+              background: -moz-linear-gradient(#ff6d5d, #ff3d6c); /*firefox 3.6-15*/
+              background: linear-gradient(#f8e6e9, #f2b0bf); /*标准语法，必须放在最后*/
+            }
+
+            //固定颜色
+            .bg-bottom {
+              background: #f8e6e9;
+            }
+          }
+
+          .title {
+            margin-top: 20px;
+            @include sc(28px, $color-dark);
+          }
+        }
+      }
+    }
+
+  }
+
+  //行星能量部分
+  .pane-page-1 {
+    //background: #f00;
+
+    .planet-item-con {
+      display: flex;
+      align-items: center;
+      padding: 40px;
+
+      .img-planet {
+        @include wh(120px, 120px);
+        min-width: 120px;
+      }
+
+      .right-con {
+        margin-left: 40px;
+
+        .planet-top-con {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .text {
+            @include sc(33px, $color-dark);
+            font-weight: bold;
+          }
+
+          .rate {
+
+          }
+        }
+
+        .bottom-des {
+          @include sc(25px, $color-light);
+          white-space: pre-line;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  //星座成分部分
+  .pane-page-2 {
+    //background: #f00;
+    padding: 0 40px;
+    height: auto;
+    @include wh(100%, 100%);
+
+    .sign-item-con {
+      display: flex;
+      align-items: center;
+      padding: 40px 0;
+      width: 100%;
+
+      .img-sign {
+        @include wh(120px, 120px);
+        min-width: 120px;
+        max-width: 120px;
+        width: 20%;
+      }
+
+      .sign-right-con {
+        width: 80%;
+        margin-left: 40px;
+
+        //顶部 **星座 | 水| 部分
+        .sign-top-con {
+          width: 80%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .left-con {
+            display: flex;
+            align-items: center;
+
+            .text {
+              @include sc(33px, $color-dark);
+              font-weight: bold;
+            }
+
+            .sep {
+              background: $color-sperate-line;
+              margin-left: 20px;
+              @include wh(2px, 25px);
+            }
+
+            .des {
+              margin-left: 20px;
+              @include sc(25px, $color-light);
+            }
+          }
+
+          .percent-con {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            text-align: center;
+
+            .percent {
+              @include sc(35px, $color-dark);
+            }
+
+            .unit {
+              @include sc(25px, $color-dark);
+            }
+          }
+        }
+
+        //底部部分
+        .sign-bottom-con {
+          width: 80%;
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .bottom-des {
+            @include sc(28px, $color-light);
+          }
+
+          .progress-con {
+            background: $color-sperate-line;
+            @include wh(100px, 5px);
+
+            .left-bg {
+              background: $color-dark;
+              height: 5px;
+            }
+
+            .right-bg {
+              //background: $color-sperate-line;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //tar-ui tab 自定义处理
+  .at-tabs__header {
+    position: fixed;
+    //margin-top: $height_of_top;
+    z-index: 5;
+    border-bottom: 1px solid #999;
+  }
+
+  .at-tabs__item-underline {
+    background: #000;
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .at-tabs__item {
+    color: #999;
+  }
+
+  .at-tabs__item--active {
+    color: #000;
+  }
+
+  .at-tabs__item-underline {
+    height: 3px;
+  }
+}
+
+

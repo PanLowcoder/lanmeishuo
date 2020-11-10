@@ -1,0 +1,174 @@
+@import "../../../styles/mixin";
+
+.map-order-page {
+  background: $bg-color-light;
+  //background: #f00;
+
+  .scrollview {
+    //background: #f00;
+    padding-top: 50px;
+  }
+
+  //运势开通部分
+  .select-con {
+    //background: #f00;
+    margin-top: 20px;
+
+    .header-con {
+      background: #fff;
+      padding: 20px 0 20px 40px;
+      display: flex;
+      align-items: center;
+
+      .img {
+        @include wh(50px, 50px);
+      }
+
+      .des {
+        @include sc(30px, $color-light);
+        line-height: 50px;
+        margin-left: 20px;
+      }
+
+      .hint {
+        @include sc(25px, $color-pink);
+        margin-left: 10px;
+      }
+    }
+  }
+
+
+  //打包方式部分
+  .goods-con {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+
+    .left-con {
+      display: flex;
+      align-items: flex-end;
+      //打包解锁标示
+      .img-unlock-all-tips {
+        @include wh(320px, 80px);
+        margin-top: -40px;
+        margin-left: 20px;
+      }
+    }
+
+    //右侧标签
+    .right-con {
+      //background: #f00;
+      display: flex;
+      height: 50px;
+
+      .des {
+        @include sc(28px, $color-pink);
+      }
+
+      .img {
+        //background: #0f0;
+        align-self: center;
+        margin-left: 20px;
+        @include wh(40px, 40px);
+      }
+    }
+  }
+
+  //选中的命格线
+  .selected-lines-item-con {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: solid $color-sperate-line 2px;
+
+    .left-con {
+      display: flex;
+      align-items: center;
+
+      .img {
+        @include wh(40px, 40px);
+      }
+
+      .title {
+        @include sc(30px, $color-dark);
+        margin-left: 10px;
+      }
+    }
+
+    .right-con {
+      display: flex;
+      align-items: center;
+
+      .now-price {
+        @include sc(30px, $color-pink);
+      }
+
+      .or-price {
+        @include sc(25px, $color-light);
+        text-decoration: line-through;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  //添加命格线
+  .text-add-line {
+    background: #fff;
+    @include sc(30px, $color-pink);
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  //占星地图打包解锁
+  .unlock-all-lines-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #fff;
+
+    .left-con {
+      display: flex;
+      align-items: center;
+
+      .img-radio {
+        @include wh(40px, 40px);
+        margin-right: 10px;
+      }
+    }
+
+    .text-money {
+      @include sc(30px, $color-pink);
+    }
+  }
+
+  //底部空白部分
+  .bottom-con {
+    //background: #f00;
+    @include wh(100%, 200px);
+  }
+
+  //通用
+  .title {
+    @include sc(30px, $color-dark);
+  }
+
+  .line {
+    @include separate_line(2px);
+  }
+
+  .margin_top {
+    margin-top: 20px;
+  }
+
+  .margin_bottom {
+    margin-bottom: 20px;
+  }
+
+}
+
+

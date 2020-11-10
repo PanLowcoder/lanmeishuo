@@ -1,0 +1,244 @@
+@import "../../../styles/mixin";
+
+.horoscope-detail-page {
+  background: linear-gradient(#00D6A7, #11BFD3); /*标准语法，必须放在最后*/
+  position: fixed;
+  @include wh(100%, 100%);
+
+  .nav {
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .header-record-con {
+    padding: 20px 40px;
+    margin-top: $height-nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left-con {
+      display: flex;
+      align-items: center;
+      .img {
+        @include wh(30px, 30px);
+      }
+      .time {
+        margin-left: 40px;
+        @include sc(28px, #fff);
+      }
+    }
+    .img {
+      @include wh(40px, 40px);
+    }
+  }
+
+  //通用的字体样式
+  .item-text {
+    @include sc(28px, $color-dark2);
+    margin-top: 10px;
+  }
+  //八字的字体样式
+  .item-bazi-text {
+    @include sc(35px, $color-dark);
+  }
+
+  //详情内容
+  .detail-con {
+    .swiper-con {
+      height: auto;
+      .first-con {
+        margin: 0 40px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 20px;
+        //十神
+        .shishen-con {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+        //天干地支
+        .bazi-con {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          .ver-con {
+            //background: #f00;
+            .item-bazi-text {
+              font-size: 40px;
+            }
+          }
+        }
+        //臧干
+        .canggan-con {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+
+        //分割线部分
+        .sep-con {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          margin: 0 -40px 0 -40px;
+          padding: 20px 0;
+          .bg {
+            @include wh(40px, 40px);
+            background: #10d0A7;
+            border-radius: 40px;
+          }
+          .line {
+            @include wh(100%, 2px);
+            border-top: 2px dotted $color-sperate-line;
+          }
+        }
+
+        //格局标题
+        .geju-con {
+          display: flex;
+          align-items: center;
+          .line {
+            height: 2px;
+            flex: 10;
+            border-top: 2px dotted $color-sperate-line;
+            margin-top: 10px;
+          }
+        }
+
+        //格局按钮
+        .geju-btn {
+          border-radius: 60px;
+          border: 2px solid $color-sperate-line;
+          @include wh(50%, 60px);
+          margin-left: 25%;
+          text-align: center;
+          @include sc(35px, #6b49f2);
+        }
+
+        //五行比例部分
+        .wuxing-con {
+          margin-top: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          .item-con {
+            .top-con {
+              display: flex;
+              align-items: flex-end;
+              .progress-con {
+                background: #f4f4f4;
+                border-radius: 20px;
+                @include wh(20px, 240px);
+                display: flex;
+                align-items: flex-end;
+                .value-bg {
+                  background: #f00;
+                  width: 100%;
+                  border-radius: 20px;
+                }
+              }
+              .percent {
+                @include sc(20px, $color-light);
+                -webkit-transform: rotate(90deg);
+              }
+            }
+            .title {
+              @include sc(30px, $color-dark);
+            }
+          }
+        }
+      }
+
+      //第二页的内容
+      .second-con {
+        margin: 0 40px;
+        padding-bottom: 20px;
+        background: #fff;
+        border-radius: 20px;
+        //天干地支
+        .bazi-con {
+          background: #f5f5f5;
+          padding: 20px;
+          border-radius: 20px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          .ver-con {
+            //background: #f00;
+            .item-bazi-text {
+              font-size: 33px;
+            }
+          }
+        }
+
+        //分割线部分
+        .sep-con {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          margin: 0 -20px 0 -20px;
+          padding: 20px 0;
+          margin-top: -35px;
+          .bg {
+            @include wh(40px, 40px);
+            background: #10d0A7;
+            border-radius: 40px;
+          }
+          .line {
+            @include wh(100%, 2px);
+            border-top: 2px dotted $color-sperate-line;
+            //background: #f00;
+          }
+        }
+
+        //起运和大运流年部分
+        .qiyun-con {
+          display: flex;
+          align-items: center;
+          .img-qiyun {
+            @include wh(40px, 40px);
+            margin-left: 20px;
+          }
+          .qiyun-text {
+            @include sc(32px, #54af97);
+            margin-left: 20px;
+          }
+
+          .line {
+            flex: 10;
+            border-top: 2px dotted $color-sperate-line;
+          }
+        }
+
+        //底部详情部分
+        .detail-con {
+          .item-con {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          }
+        }
+
+      }
+    }
+  }
+
+  .at-nav-bar__title{
+    color: #fff;
+  }
+}
+
+//swiper组件中，底部分页指示栏的样式
+.swiper-pagination-bullet {
+  //width: 30px;
+  //height: 7px;
+  //border-radius: 0px;
+  bottom: -50px;
+  z-index: 1000;
+}
+
+

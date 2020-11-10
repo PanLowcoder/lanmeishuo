@@ -1,0 +1,30 @@
+@import "../../../styles/mixin";
+
+
+//性别弹出框
+.sex_modal {
+  background: #fff;
+  color: #000;
+  //性别标题
+  .title {
+    font-size: 40px;
+  }
+  //列表container
+  .list {
+    .item {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      .left_text {
+        font-size: 35px;
+        width: 50%;
+      }
+      .right_img {
+        @include wh(30px, 30px);
+      }
+    }
+  }
+}
+

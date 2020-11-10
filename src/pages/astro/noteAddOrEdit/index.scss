@@ -1,0 +1,21 @@
+@import "../../../styles/mixin";
+
+$height_of_sep: 40px;
+
+.note-page {
+  @include wh(100%, 100%);
+  background: $bg-color-light;
+  .content-con {
+    background: #fff;
+    margin-top: $height-nav;
+    padding: 40px;
+
+    //输入框部分
+    .input-con {
+      margin-top: $height_of_sep;
+    }
+
+  }
+}
+
+

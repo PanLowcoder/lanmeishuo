@@ -1,0 +1,89 @@
+@import "../../styles/mixin";
+
+.cat-list-con {
+  width: 100%;
+  position: fixed;
+  top: $height-nav;
+
+  .cats-scroll-view {
+    -webkit-overflow-scrolling: touch; /*这句是为了滑动更顺畅*/
+    padding: 20px 0;
+    width: 100%;
+    .item-con {
+      width: 100%;
+      position: relative;
+      height: 250px;
+      margin-top: 20px;
+      .item_container {
+        position: relative;
+        height: 250px;
+        margin: 0 5% 0 5%;
+        //图片背景
+        .img_bg {
+          background: $color-light;
+          @include wh(100%, 250px);
+          border-radius: 20px;
+          z-index: 0;
+          position: absolute;
+        }
+        .top_container {
+          //background: #00f;
+          @include wh(80%, 190px);
+          position: absolute;
+          z-index: 10;
+          left: 0;
+          margin: 30px;
+          color: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          //数量
+          .count_view {
+            flex: 1;
+            height: 100px;
+            //档案数量
+            .count_text {
+              //background: #f00;
+              font-size: 50px;
+              font-weight: bold;
+              height: 100px;
+              line-height: 100px;
+            }
+            //人
+            .unit_text {
+              //background: #00f;
+              font-size: 20px;
+              position: absolute;
+              padding-left: 10px;
+              height: 60px;
+              line-height: 60px;
+              vertical-align: top;
+              //top:5px;
+            }
+          }
+          //分割线
+          .seperate_line {
+            background: #fff;
+            width: 2px;
+            height: 100%;
+          }
+          //名字
+          .name {
+            //background: #0f0;
+            flex: 3;
+            @include sc(55px, #fff);
+            padding-left: 30px;
+            line-height: 100px;
+          }
+        }
+      }
+    }
+
+    .bottom-con {
+      //background: #f00;
+      @include wh(100%, 50px);
+    }
+  }
+
+}
+

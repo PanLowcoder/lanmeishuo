@@ -1,0 +1,47 @@
+@import "../../../styles/mixin";
+
+.predict-detail-page {
+
+  .detail-container {
+    .bg {
+      @include wh(100%, auto);
+    }
+
+    .title {
+      @include sc(35px, $color-dark);
+      padding: 60px 40px;
+      font-weight: bold;
+    }
+
+    .des {
+      @include sc(30px, $color-dark2);
+      padding: 20px 40px 60px 40px;
+      border-bottom: $color-sperate-line solid 2px;
+    }
+
+    .bottom-con {
+      padding: 40px;
+      display: flex;
+      .left-img {
+        @include wh(30px, 30px);
+        min-width: 30px;
+      }
+      .detail-con {
+        margin: 10px -20px 10px -20px;
+        border: $color-sperate-line 2px solid;
+        padding: 20px;
+        @include sc(30px, $color-dark2);
+        white-space: pre-line;
+        text-indent:50px;
+      }
+      .right-img {
+        @include wh(30px, 30px);
+        min-width: 30px;
+        align-self: flex-end;
+      }
+    }
+
+  }
+}
+
+

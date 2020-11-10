@@ -1,0 +1,47 @@
+@import "../../../styles/mixin";
+
+
+.item-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  .taro-img, image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .left-con {
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+    .name {
+      margin-left: 50px;
+      white-space: nowrap;
+    }
+
+  }
+  .right-con {
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+    .num {
+      display: inline-block;
+      font-size: 18px;
+      text-align: center;
+      color: #ffffff;
+      background: #EC5D75;
+      border-radius: 20px;
+      padding: 6px 12px;
+      box-sizing: border-box;
+      margin-right: 25px;
+    }
+    i.arrow {
+      font-size: 20px;
+    }
+
+    .value {
+      @include sc(30px, $color-pink);
+    }
+  }
+}

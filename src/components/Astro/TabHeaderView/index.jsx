@@ -37,9 +37,27 @@ class TabHeaderView extends BaseComponent {
   componentWillReceiveProps(nextProps) {
     this.log('TabHeaderView componentWillReceiveProps this.props.tab_index=' + this.props.tab_index)
     this.log('TabHeaderView componentWillReceiveProps nextProps.tab_index=' + nextProps.tab_index)
-    
+   //  if (process.env.TARO_ENV === 'h5') {
+      // this.context =  window.document.getElementById('canvas-id' + this.props.type)
+   //   if (this.props.data)
+   //     this.draw(this.props.data)
+      // 只有编译为小程序下面代码才会被编译
+  //  } else if (process.env.TARO_ENV === 'weapp') {
+   //   this.context = Taro.createCanvasContext('canvas-id', this.props.type)
+  //  }
 
-
+    /**去掉所有的选中状态
+    let list = nextProps.type == 0 ? ASTRO_TABS : ASTRO_SYNASTRY_TABS
+    for (let i=0;i<list.length;i++){
+      let element= window.document.getElementById('tab' + i)
+      element.className='at-tabs__item'
+    }*/
+    /**增加当前选中的样式
+    let element_current_selected = window.document.getElementById('tab' + nextProps.tab_index)
+    if (element_current_selected) {
+      element_current_selected.className += ' at-tabs__item--active';
+      this.log('element_current_selected class=' + element_current_selected.className)
+    }*/
   }
 
   //tab栏点击

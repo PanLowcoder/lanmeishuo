@@ -1,0 +1,135 @@
+@import "../../../styles/mixin";
+
+.astro-canvas-page {
+  //background: #f00;
+  width: 100%;
+  //顶部两个按钮部分
+  .top-con {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .img {
+      border-radius: 50px;
+      padding: 20px;
+      @include wh(50px, 50px);
+      box-shadow: 0px -6px 50px #dde7e9;
+    }
+
+    .note-con {
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 0px -6px 60px #dde7e9;
+      border-radius: 80px;
+      padding: 20px;
+
+      .img-note {
+        //background: #00f;
+        @include wh(40px, 40px);
+      }
+
+      .count {
+        @include sc(20px, $color-pink);
+        //pading-top: 20px;
+      }
+    }
+  }
+
+  //星盘画布部分
+  .canvas-con {
+    position: relative;
+    //画布
+    .canvas {
+      //@include wh(750px, 750px);
+      width: 100%;
+      min-height: 750px;
+    }
+
+    //宫位详情pop
+    .pop-house-detail-con {
+      background: #fff;
+      //@include wh(100px, 100px);
+      border-radius: 20px;
+      @include center();
+      padding: 20px;
+      //box-shadow: 0px -6px 10px #dde7e9; //边框阴影
+      //width: auto;
+      white-space: nowrap; /*不换行*/
+
+      .house-top-con {
+        //background: #f00;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        @include sc(28px, $color-dark);
+        //font-weight: bold;
+      }
+
+      .text-deg {
+        background: $color-light;
+        @include sc(25px, $color-dark);
+        @include wh(100px, auto);
+        text-align: center;
+        border-radius: 35px;
+        line-height: 35px;
+        margin: 10px 0;
+      }
+
+      .protect-con {
+        display: flex;
+        @include sc(23px, $color-light);
+        align-items: center;
+      }
+
+      .text-common{
+        @include sc(23px, $color-light);
+      }
+    }
+  }
+
+  //底部两个按钮部分
+  .bottom-btns-con {
+    //background: #f00;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    .btn {
+      border-radius: 70px;
+      padding: 20px;
+      @include sc(30px, $color-dark);
+      box-shadow: 0px -6px 50px #dde7e9;
+    }
+
+    .pink{
+      color: $color-pink;
+    }
+
+    .setting-con {
+      border-radius: 70px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px -6px 50px #dde7e9;
+
+      .text {
+        @include sc(30px, $color-dark);
+      }
+
+      .sep {
+        @include wh(2px, 30px);
+        margin-left: 10px;
+      }
+
+      .img {
+        @include wh(40px, 40px);
+        margin-left: 10px;
+      }
+    }
+  }
+
+
+}

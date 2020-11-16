@@ -7,82 +7,11 @@ import {ASTRO_SYNASTRY_TABS, ASTRO_TABS, CONS, HOUSE, LIST_ITEM_TYPES, PHASE, PL
 import {ossUrl} from "../../../config";
 import {ASTRO_CONF_BGS, PROTECT_ANCIENT_IDS, PROTECT_IDS} from "../../../js/astro-conf";
 import {showToast} from "../../../utils/common";
-import {NOTE_PAGE_TYPE, NOTE_TYPE} from "../../../pages/astro/noteAddOrEdit";
+import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE  } from '../../../utils/astrolabe';
 
 const icon_astro_style = ossUrl + 'wap/images/astro/cavans/icon_astro_style.png'
 const icon_astro_note = ossUrl + 'wap/images/astro/cavans/icon_astro_note.png'
 const icon_astro_setting = ossUrl + 'wap/images/astro/cavans/icon_astro_setting.png'
-
-/**
- * 类型：0：星盘；1：合盘；2:占卜；
- */
-export const CANVAS_VIEW_TYPE = {
-  ASTRO: 0,//星盘
-  SYNASTRY: 1,//合盘
-  DIVINATION: 2,//占卜
-}
-/**
- * 星盘类型：1：现代；2：古典；3：特殊；
- * @type {{MODERN: number, ANCIENT: number, SPECIAL: number}}
- */
-export const ASTRO_TID_TYPES = {
-  MODERN: 1,
-  ANCIENT: 2,
-  SPECIAL: 3,
-}
-
-/**
- * 星盘类型
- * @type {{NATAL: number, SOLAR_RETURN: number, PROGRESSIONS: number, NOW: number, SOLAR: number, LUNAR_RETURN: number, THIRDPROGRESSED: number, FIRDARIA: number, TRANSITS: number, PROFECTION: number}}
- */
-export const ASTRO_TYPES = {
-  NOW: 1,
-  NATAL: 2,
-  TRANSITS: 3,
-  THIRDPROGRESSED: 4,
-  PROGRESSIONS: 5,
-  SOLAR: 6,
-  SOLAR_RETURN: 7,
-  LUNAR_RETURN: 8,
-  FIRDARIA: 9,
-  PROFECTION: 10,
-}
-
-
-/**
- * 星盘-合盘类型
- * @type {{SYNASTRY_1: number, NATAL_2: number, NATAL_1: number, COMPOSITE_THIRDPROGRESSED: number, COMPOSITE_PROGRESSIONS: number, DAVISON: number, SYNASTRY_2: number, MARKS_2: number, MARKS_1: number, COMPOSITE: number}}
- */
-export const ASTRO_SYNASTRY_TYPES =
-  {
-    SYNASTRY_1: 0,
-    SYNASTRY_2: 1,
-    SYNASTRY_THIRDPROGRESSED_1: 2,
-    SYNASTRY_THIRDPROGRESSED_2: 3,
-    SYNASTRY_PROGRESSIONS_1: 4,
-    SYNASTRY_PROGRESSIONS_2: 5,
-    COMPOSITE: 6,
-    COMPOSITE_THIRDPROGRESSED: 7,
-    COMPOSITE_PROGRESSIONS: 8,
-    DAVISON: 9,
-    DAVISON_THIRDPROGRESSED: 10,
-    DAVISON_PROGRESSIONS: 11,
-    MARKS_1: 12,
-    MARKS_2: 13,
-    NATAL_1: 14,
-    NATAL_2: 15,
-  }
-
-/**
- * //左下角按钮的类型：-1：不显示；0：显示参数；1：显示单盘；2：显示双盘；
- * @type {{SINGLE: number, PARAMS: number, DOUBLE: number, NONE: number}}
- */
-export const BOTTOM_LETF_BTN_TYPE = {
-  NONE: -1,
-  PARAMS: 0,
-  SINGLE: 1,
-  DOUBLE: 2,
-}
 
 /**
  * 详情弹出框的类型
@@ -155,15 +84,17 @@ class CanvasView extends BaseComponent {
 
 
   componentDidMount() {
-
+    console.log("====<>"+this.props.data)
     // 只有编译为h5下面代码才会被编译
     if (process.env.TARO_ENV === 'h5') {
       // this.context = window.document.getElementById('canvas-id').getContext('2d')
       if (this.props.data)
         this.draw(this.props.data)
       // 只有编译为小程序下面代码才会被编译
-    } else if (process.env.TARO_ENV === 'weapp') {
-      this.context = Taro.createCanvasContext('canvas-id', this.scope)
+    } else{
+      this.context = Taro.createCanvasContext('canvas-id', this.props.type)
+       if (this.props.data)
+        this.draw(this.props.data)
     }
   }
 
@@ -195,8 +126,8 @@ class CanvasView extends BaseComponent {
     this.log('actionNoteBtnClick')
 
     if (this.props.count_of_note == 0) {//添加
-      let page_type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? NOTE_PAGE_TYPE.ASTRO : NOTE_PAGE_TYPE.DIVINATION
-      Taro.navigateTo({url: '/pages/astro/noteAddOrEdit/index?page_type=' + page_type + '&type=' + NOTE_TYPE.ADD + '&rid=' + this.props.rid + '&from=' + ASTRO_TABS[this.props.astro_type].params + '&event_time=' + this.props.event_time})
+     // let page_type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? NOTE_PAGE_TYPE.ASTRO : NOTE_PAGE_TYPE.DIVINATION
+      //Taro.navigateTo({url: '/pages/astro/noteAddOrEdit/index?page_type=' + page_type + '&type=' + NOTE_TYPE.ADD + '&rid=' + this.props.rid + '&from=' + ASTRO_TABS[this.props.astro_type].params + '&event_time=' + this.props.event_time})
     } else {//跳转到列表
       let type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? LIST_ITEM_TYPES.ITEM_ASTRO_NOTE : LIST_ITEM_TYPES.ITEM_DIVINATION_NOTE
       //跳转到列表
@@ -957,7 +888,17 @@ class CanvasView extends BaseComponent {
 
 //画布被点击
   actionCavasClick = (e) => {
-    let canvas = window.document.getElementById('canvas-id'+ this.props.type)
+   if (process.env.TARO_ENV === 'h5') {
+    
+      if (this.props.data)
+        this.draw(this.props.data)
+      // 只有编译为小程序下面代码才会被编译
+    } else  {
+      this.context = Taro.createCanvasContext('canvas-id', this.props.type)
+        this.draw(this.props.data)
+    }
+
+   //
      console.log(canvas)
     var x = (e.pageX - canvas.getBoundingClientRect().left) * rdi;
 
@@ -1228,7 +1169,7 @@ class CanvasView extends BaseComponent {
 
               <View className='text-common'>
                 <View>
-                  {POP_TYPE.FIRDARIA_SMALL == pop_type ? data.firdaria.details[index_planet_detail_pop].sub[index_planet].start : data.firdaria.details[index_planet_detail_pop].main.start}&nbsp;=>&nbsp;{POP_TYPE.FIRDARIA_SMALL == pop_type ? data.firdaria.details[index_planet_detail_pop].sub[index_planet].end : data.firdaria.details[index_planet_detail_pop].main.end}
+                  {POP_TYPE.FIRDARIA_SMALL == pop_type ? data.firdaria.details[index_planet_detail_pop].sub[index_planet].start : data.firdaria.details[index_planet_detail_pop].main.start}=&gt;{POP_TYPE.FIRDARIA_SMALL == pop_type ? data.firdaria.details[index_planet_detail_pop].sub[index_planet].end : data.firdaria.details[index_planet_detail_pop].main.end}
                 </View>
                 <View>
                   {POP_TYPE.FIRDARIA_SMALL == pop_type ? data.firdaria.details[index_planet_detail_pop].sub[index_planet].year_min.toFixed(2) : data.firdaria.details[index_planet_detail_pop].main.year_min}岁
@@ -1250,7 +1191,7 @@ class CanvasView extends BaseComponent {
 
               <View className='text-common'>
                 <View>
-                  {POP_TYPE.PROFECTION_YEAR == pop_type ? data.profection.details[index_planet_detail_pop].start_year : data.profection.details[index_planet_detail_pop].start_month}&nbsp;=>&nbsp;{POP_TYPE.PROFECTION_YEAR == pop_type ? data.profection.details[index_planet_detail_pop].end_year : data.profection.details[index_planet_detail_pop].end_month}
+                  {POP_TYPE.PROFECTION_YEAR == pop_type ? data.profection.details[index_planet_detail_pop].start_year : data.profection.details[index_planet_detail_pop].start_month}&nbsp;=&gt;&nbsp;{POP_TYPE.PROFECTION_YEAR == pop_type ? data.profection.details[index_planet_detail_pop].end_year : data.profection.details[index_planet_detail_pop].end_month}
                 </View>
                 {/*流年-岁数部分*/}
                 {POP_TYPE.PROFECTION_YEAR == pop_type && (

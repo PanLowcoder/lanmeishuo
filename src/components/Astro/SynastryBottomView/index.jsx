@@ -5,7 +5,7 @@ import './index.scss';
 import {ossUrl} from "../../../config";
 import PropTypes from "prop-types";
 import {getNameFromRecord} from "../../../utils/common";
-import {ASTRO_SYNASTRY_TYPES} from "../CanvasView";
+import { ASTRO_SYNASTRY_TYPES } from '../../../utils/astrolabe';
 
 const img_bottom_view_natal_forecast = ossUrl + 'wap/images/astro/img_bottom_view_natal_forecast.png'
 

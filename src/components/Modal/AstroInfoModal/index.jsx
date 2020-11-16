@@ -12,8 +12,8 @@ import {ossUrl} from "../../../config";
 class AstroInfoModal extends BaseComponent {
   static propTypes = {
     type: PropTypes.number,//类型：0：星盘；1：合盘；
-    rid: PropTypes.number,
-    rid2: PropTypes.number,//另外一个档案id，当type=1时有效
+    rid: PropTypes.string,
+    rid2: PropTypes.string,//另外一个档案id，当type=1时有效
     bottom_text: PropTypes.string,//最下面一行的文字描述
     show: PropTypes.bool,//是否显示alert
     onClickAlertShadow: PropTypes.func,//点击阴影部分

@@ -9,7 +9,7 @@ import {
   LIST_ITEM_TYPES
 } from "../../utils/constants";
 import Taro from "@tarojs/taro";
-import {ASTRO_SYNASTRY_TYPES, ASTRO_TYPES, BOTTOM_LETF_BTN_TYPE} from "../../components/Astro/CanvasView";
+import {ASTRO_SYNASTRY_TYPES, ASTRO_TYPES, BOTTOM_LETF_BTN_TYPE} from '../../constants/astrolabe';
 
 export default {
   namespace: 'astro',

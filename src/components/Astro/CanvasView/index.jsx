@@ -193,9 +193,10 @@ class CanvasView extends BaseComponent {
     // this.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + window.screen.width + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
 
     //canvas
-    let canvas = window.document.getElementById('canvas-id' + this.props.type)
+    //let canvas = window.document.getElementById('canvas-id' + this.props.type)
 
-    let ctx = canvas.getContext('2d')
+    //let ctx = canvas.getContext('2d')
+    const ctx = Taro.createCanvasContext('canvas-id' + this.props.type)
     //设置画布宽高
     canvas.height = canvas.width = screenWidth;
     let x = screenWidth / 2;

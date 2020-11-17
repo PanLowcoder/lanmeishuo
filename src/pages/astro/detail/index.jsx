@@ -13,10 +13,17 @@ import {
   goToCommonPage,
   isEmpty
 } from "../../../utils/common";
-import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE  } from '../../../utils/astrolabe';
+import {
+CANVAS_VIEW_TYPE,
+ASTRO_TID_TYPES,
+ASTRO_TYPES, 
+ASTRO_SYNASTRY_TYPES, 
+BOTTOM_LETF_BTN_TYPE 
+ } from "../../../utils/astrolabe";
 import AstroRecordModal from '../../../components/Modal/AstroRecordModal'
 import TabHeaderView from '../../../components/Astro/TabHeaderView'
 import BottomView from '../../../components/Astro/BottomView'
+
 import CanvasView from '../../../components/Astro/CanvasView'
 import AstroTypeModal from '../../../components/Modal/AstroTypeModal'
 import AstroInfoModal from "../../../components/Modal/AstroInfoModal"
@@ -358,7 +365,7 @@ class detail extends BaseComponent {
         >
           {/*中间星盘和按钮部分*/}
           {data && (
-            <CanvasViews
+            <CanvasView
               astro_type={tab_index}
               is_show_note_btn={1}
               rid={rid}

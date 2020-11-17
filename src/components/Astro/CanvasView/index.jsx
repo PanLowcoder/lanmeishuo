@@ -93,7 +93,7 @@ class CanvasView extends BaseComponent {
       // 只有编译为小程序下面代码才会被编译
     } else{
       this.context = Taro.createCanvasContext('canvas-id', this.props.type)
-       if (this.props.data)
+      // if (this.props.data)
         this.draw(this.props.data)
     }
   }
@@ -193,12 +193,11 @@ class CanvasView extends BaseComponent {
     // this.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + window.screen.width + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
 
     //canvas
-    //let canvas = window.document.getElementById('canvas-id' + this.props.type)
 
-    //let ctx = canvas.getContext('2d')
-    const ctx = Taro.createCanvasContext('canvas-id' + this.props.type)
+   let ctx = Taro.createCanvasContext('canvas-id'+this.props.type)
+   console.log(ctx)
     //设置画布宽高
-    canvas.height = canvas.width = screenWidth;
+    ctx.height = ctx.width = screenWidth;
     let x = screenWidth / 2;
     let y = screenWidth / 2;
 
@@ -498,6 +497,7 @@ class CanvasView extends BaseComponent {
     ctx.beginPath()
     ctx.arc(x, y, circle1_radius, 0, 2 * Math.PI)
     ctx.fill()
+    console.log((x, y, circle1_radius, 0, 2 * Math.PI))
     //---------星座-圆背景---------
 
     //---------宫主飞星-圆背景---------
@@ -889,17 +889,7 @@ class CanvasView extends BaseComponent {
 
 //画布被点击
   actionCavasClick = (e) => {
-   if (process.env.TARO_ENV === 'h5') {
-    
-      if (this.props.data)
-        this.draw(this.props.data)
-      // 只有编译为小程序下面代码才会被编译
-    } else  {
-      this.context = Taro.createCanvasContext('canvas-id', this.props.type)
-        this.draw(this.props.data)
-    }
-
-   //
+  this.canvas = Taro.createCanvasContext('canvas-id', this.props.type)
      console.log(canvas)
     var x = (e.pageX - canvas.getBoundingClientRect().left) * rdi;
 

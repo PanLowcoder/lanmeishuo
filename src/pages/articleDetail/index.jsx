@@ -1,17 +1,17 @@
 import Taro from '@tarojs/taro'
 import BaseComponent from "../../components/BaseComponent";
 import { View, Text, Image, Input } from '@tarojs/components'
-import { AtAvatar, AtNavBar } from 'taro-ui'
+import { AtNavBar } from 'taro-ui'
 import { connect } from '@tarojs/redux';
 import { ossUrl } from "../../config";
 import './index.less'
 import { actionNavBack, customTime, getCustomImgUrl } from "../../utils/common";
+import ItemArticleReplay from '../../components/Item/ItemArticleReplay'
 import { getWindowHeight } from "../../utils/style";
 
 const banner = ossUrl + 'upload/images/home/banner.jpg';
 const share_wechat = ossUrl + 'upload/images/article/share_wechat.png';
 const share_friend = ossUrl + 'upload/images/article/share_friend.png';
-const avatar = ossUrl + 'upload/images/article/avatar.png';
 
 const heart = ossUrl + 'upload/images/home/Star_Heart.png';
 const star = ossUrl + 'upload/images/home/Star_Star.png';
@@ -97,8 +97,8 @@ export default class Detail extends BaseComponent {
             scroll_view_height,
             reply_name,
         } = this.state;
-        console.log(detail);
         let user = Object(detail.user)
+        console.log(commentResult.data);
         return (
             <View className='detail-page'>
                 {/*导航栏*/}
@@ -177,10 +177,13 @@ export default class Detail extends BaseComponent {
                             <View className="line"></View>
                         </View> */}
                         {(!commentResult || !commentResult.data || commentResult.data.length == 0) ? (
-                            <View>还没有评论，快抢占沙发吧</View>
+                            // <View>还没有评论，快抢占沙发吧</View>
+                            <ItemArticleReplay
+
+                            />
                         ) : (
                                 <View>
-                                    {/* {commentResult && commentResult.data && commentResult.data.length > 0 && commentResult.data.map((item, index) => (
+                                    {commentResult && commentResult.data && commentResult.data.length > 0 && commentResult.data.map((item, index) => (
                                         <ItemArticleReplay
                                             item={item}
                                             index={index}
@@ -198,8 +201,8 @@ export default class Detail extends BaseComponent {
                                         <View className='loadMoreGif'>
                                             <View className='text'>没有更多了</View>
                                         </View>
-                                    )} */}
-                                    HHHHHHHHHHHHHHHHH
+                                    )}
+
                                 </View>
                             )}
                     </View>

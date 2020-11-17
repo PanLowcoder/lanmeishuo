@@ -84,33 +84,6 @@
   height: 66px;
   margin-right: 32px;
 }
-.detail-page .top .com-list {
-  font-size: 28px ;
-}
-.detail-page .top .com-list .com-item {
-  padding-top: 32px;
-}
-.detail-page .top .com-list .com-item .user {
-  display: flex;
-}
-.detail-page .top .com-list .com-item .user .info {
-  padding-left: 16px;
-}
-.detail-page .top .com-list .com-item .user .info .time {
-  opacity: 30%;
-  font-size: 22px;
-}
-.detail-page .top .com-list .com-item .comment {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 102px;
-  margin-top: 30px;
-  margin-bottom: 62px;
-}
-.detail-page .top .com-list .com-item .comment .small {
-  width: 30px ;
-  height: 28px;
-}
 .detail-page .footer {
   width: 92%;
   position: fixed;

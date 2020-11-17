@@ -83,7 +83,7 @@ export default class tabUser extends BaseComponent {
     //消息按钮，被点击
     actionMsg = (e) => {
         this.log('actionMsg');
-        Taro.navigateTo({ url: '/minePages/mine/message/index' });
+        Taro.navigateTo({ url: '/minePages/message/index' });
         e.stopPropagation();
     }
 
@@ -122,7 +122,7 @@ export default class tabUser extends BaseComponent {
                 >
                     <View className="user-header">
                         <View className="header-con" onClick={this.actionUserHeaderClick}>
-                            <Image className='img-msg' src={img_msg}></Image>
+                            <Image className='img-msg' src={img_msg} onClick={this.actionMsg}></Image>
                             <AtAvatar circle className="img-avatar" image={img_atv} ></AtAvatar>
                             <View className="right-con">
                                 <View className="name">南山吴彦祖 </View>

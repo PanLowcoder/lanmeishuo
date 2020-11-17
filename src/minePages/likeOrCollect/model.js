@@ -30,6 +30,7 @@ export default {
                     res = yield call(listApi.get_my_good, {
                         page: page,
                     }, is_show_loading);
+                    console.log(res)
                     empty_des = '记得给你喜欢的文章及作者点赞哦~';
                     break;
                 }
@@ -38,6 +39,7 @@ export default {
                     res = yield call(listApi.get_my_collect, {
                         page: page,
                     }, is_show_loading);
+                    console.log(res)
                     empty_des = '您还没有收藏，快去收藏吧';
                     break;
                 }

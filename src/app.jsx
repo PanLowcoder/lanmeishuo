@@ -47,7 +47,7 @@ class App extends Component {
         root: "minePages/",
         pages: [
           //个人中心
-          // 'message/index',//消息中心页面
+          'message/index',//消息中心页面
           // 'setting/index',//设置页面
           // 'about/index',//关于我们页面
           'userCenter/index',//个人中心页面

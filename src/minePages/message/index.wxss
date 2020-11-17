@@ -1,0 +1,39 @@
+body {
+  background: #f6f7f9;
+}
+.msg-page {
+  background: #FFFFFF;
+  margin-top: 85px;
+}
+.msg-page .list .list-item {
+  padding: 16px 16px 0 32px;
+}
+.msg-page .list .list-item .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.msg-page .list .list-item .item .left {
+  display: flex;
+  align-items: center;
+}
+.msg-page .list .list-item .item .left .icon-img {
+  width: 64px;
+  height: 64px;
+}
+.msg-page .list .list-item .item .left .text {
+  font-size: 28px;
+  margin-left: 16px;
+}
+.msg-page .list .list-item .item .right {
+  width: 22.62px;
+  height: 22.62px;
+}
+.msg-page .list .list-item .line {
+  width: 100%;
+  background: #D8D8D8;
+  border-radius: 2px;
+  opacity: 0.1;
+  border: 1px solid #979797;
+}

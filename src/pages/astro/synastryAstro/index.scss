@@ -1,0 +1,39 @@
+@import "../../../styles/mixin";
+
+.astro-page {
+  @include wh(100%, 100%);
+  box-sizing: border-box;
+  //padding-top: $height-nav;
+
+  .nav-con {
+    //background: #f00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: $height-nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-back {
+      padding: 0 15px;
+    }
+
+    .title-con {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .scrollview {
+    padding-bottom: 40px;
+  }
+
+}
+
+
+.at-nav-bar__title {
+  //color: $color-dark;
+}

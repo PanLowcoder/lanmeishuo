@@ -1,0 +1,15 @@
+@import "./mixin";
+
+.loading-con {
+  @include wh(100%, 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img {
+    @include wh(315px, 410px);
+    border-radius: 20px;
+  }
+}

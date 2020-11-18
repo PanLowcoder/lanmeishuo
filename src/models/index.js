@@ -7,6 +7,7 @@ import tabRecord from '../pages/tabs/tabRecord/model';
 import tabUser from '../pages/tabs/tabUser/model';
 import message from '../minePages/message/model';
 
+import astro from '../pages/astro/model';
 
 import articleDetail from '../pages/articleDetail/model';
 import likeOrCollect from '../minePages/likeOrCollect/model';
@@ -22,5 +23,6 @@ export default [
 
     message,
     articleDetail,
-    likeOrCollect
+    likeOrCollect,
+    astro,
 ]

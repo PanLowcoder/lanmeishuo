@@ -1,0 +1,43 @@
+@import "../../../styles/mixin";
+
+.astro-modal-con {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  @include wh(100%, 100%);
+  .shandow-con {
+    background: rgba(0, 0, 0, 0.5);
+    //background: #f00;
+    @include wh(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .astro-content-con {
+    @include wh(300px, auto);
+    border-radius: 20px;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    top: $height-nav;
+    right: 40px;
+    .con {
+      padding: 40px;
+      .item-con {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        .img {
+          @include wh(30px, 30px);
+        }
+        .title {
+          @include sc(30px, $color-dark);
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+

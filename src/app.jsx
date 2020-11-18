@@ -7,6 +7,10 @@ import models from './models'
 import './app.less'
 //taro-ui全局引入一次即可
 import 'taro-ui/dist/style/index.scss'
+<<<<<<< HEAD
+=======
+import './styles/taro-ui.css'
+>>>>>>> 7184343574601f3b39100f529311b787de22e2e3
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -16,6 +20,13 @@ import 'taro-ui/dist/style/index.scss'
 
 const dvaApp = dva.createApp({
   initialState: {},
+<<<<<<< HEAD
+=======
+  onError(err) {
+    // 在这里进行错误处理
+    console.log(err);
+  },
+>>>>>>> 7184343574601f3b39100f529311b787de22e2e3
   models: models,
 });
 const store = dvaApp.getStore();
@@ -57,6 +68,30 @@ class App extends Component {
           // 'agreement/index',//星座女神服务条款和隐私政策页面
         ]
       },
+      {
+        root: "pages/astro/",
+        pages: [
+          'detail/index',//星盘页面
+          'synastryAstro/index',//星盘-合盘页面
+          'predict/index',//本命预测页面
+          'predictPlanetDetail/index',//本命预测-行星详情页面
+          'horoscope/index',//八字页面
+          'natalOrNowParamsDetail/index',//本命或者天象盘的参数页面
+          'astroSetting/index',//星盘配置页面
+        ]
+      },
+      {
+        root: "pages/record/",
+        pages: [
+          //档案
+          'recordSelect/index',//档案选择页面
+          'recordCatAdd/index',//新建档案袋页
+          'recordAdd/index',//新建档案页
+          'recordNameAndTagAdd/index',//新建档案-》姓名/标签页
+          'recordMoveCat/index',//移入档案到-档案袋页面
+          'catRecords/index',//档案袋item点击-》档案详情页面
+        ]
+      },
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -85,12 +120,12 @@ class App extends Component {
         //   iconPath: "./images/tab/question.png",
         //   selectedIconPath: "./images/tab/question-active.png"
         // },
-        // {
-        //   pagePath: "pages/tabs/tabRecord/index",
-        //   text: "档案",
-        //   iconPath: "./images/tab/record.png",
-        //   selectedIconPath: "./images/tab/record-active.png"
-        // },
+        {
+          pagePath: "pages/tabs/tabRecord/index",
+          text: "档案",
+          iconPath: "./images/tab/record.png",
+          selectedIconPath: "./images/tab/record-active.png"
+        },
         {
           pagePath: "pages/tabs/tabUser/index",
           text: "我的",

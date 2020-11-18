@@ -1,0 +1,66 @@
+@import "../../../styles/mixin";
+
+.astrologer-week-help-modal-con {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  @include wh(100%, 100%);
+  text-align: center;
+
+  .img-top {
+    @include wh(233px, 203px);
+    z-index: 10;
+    margin-top: 100px;
+  }
+
+  .info-con {
+    background: #fff;
+    margin-left: 10%;
+    margin-top: -100px;
+    position: relative;
+    z-index: 9;
+    border-radius: 40px;
+    @include wh(80%, auto);
+    padding: 100px 0 40px 0;
+
+    .item-con {
+
+      background: $bg-color-light;
+      display: flex;
+      align-items: flex-start;
+      margin: 30px 40px;
+      border-radius: 20px;
+
+
+      &-img-top {
+        @include wh(50px, 50px);
+      }
+
+      &-text-des {
+        padding: 20px 40px 20px 0;
+        @include sc(30px, $color-dark2);
+      }
+    }
+  }
+
+  .img-close {
+    position: relative;
+    z-index: 10;
+    margin-top: 20px;
+    @include wh(60px, 60px);
+  }
+
+
+  .info-shandow-con {
+    background: rgba(0, 0, 0, 0.5);
+    //background: #f00;
+    @include wh(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+
+}
+

@@ -11,7 +11,7 @@ export default {
     cat_rids: Taro.getStorageSync('store_cat_rid_list'),//档案袋里面的ids
   },
   effects: {
-    * recordes(_, {call, put}) {
+    * recordes(_, { call, put }) {
       const res = yield call(recordApi.recordes, {});
       if (res && res.code == '200') {
         yield put({
@@ -25,7 +25,7 @@ export default {
       }
     },
     //获取档案袋列表
-    * cats(_, {call, put}) {
+    * cats(_, { call, put }) {
       const res = yield call(recordApi.cats, {});
       if (res && res.code == '200') {
         let cat_list = res.data;
@@ -58,8 +58,8 @@ export default {
     },
   },
   reducers: {
-    save(state, {payload}) {
-      return {...state, ...payload};
+    save(state, { payload }) {
+      return { ...state, ...payload };
     },
     // save(state, { payload }) {
     //   Taro.setStorageSync('items',[
@@ -68,8 +68,8 @@ export default {
     //   ]);
     //   return { ...state, ...payload };
     // },
-    deleteClothes(state, {payload}) {
-      const {id} = payload;
+    deleteClothes(state, { payload }) {
+      const { id } = payload;
       const items = state.items.filter((item) => item.product_id != id);
       // 设置衣袋小红点
       if (items.length > 0) {

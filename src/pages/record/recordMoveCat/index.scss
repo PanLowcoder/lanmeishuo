@@ -1,0 +1,98 @@
+@import "../../../styles/mixin";
+
+$height-of-header-con: 250px;
+
+.record-move-cat-page {
+
+  //顶部标题
+  .top_container {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    height: $height-of-header-con;
+    width: 100%;
+    z-index: 1;
+    //关闭按钮
+    .close_container {
+      //background: #00f;
+      padding: 40px 20px 20px 30px;
+      @include wh(80px, 80px);
+      position: absolute;
+      .close_img {
+        //background: #0f0;
+        @include wh(30px, 30px);
+      }
+    }
+    //新建标题
+    .title {
+      //background: #f00;
+      color: #000;
+      font-size: 60px;
+      font-weight: bold;
+      padding-top: 100px;
+      padding-left: 40px;
+    }
+    //背景提示
+    .hint {
+      //background: #0f0;
+      width: 100%;
+      padding-left: 40px;
+      @include sc(30px, $color-light);
+    }
+  }
+
+  .scroll-con {
+    //background: #0f0;
+    z-index: 0;
+    position: absolute;
+    top: $height-of-header-con;
+    padding-bottom: 40px;
+    width: 100%;
+
+    //档案袋列表
+    .cat-con {
+      //background: #f00;
+      padding: 40px;
+      .cat-item-con {
+        padding: 40px 0;
+        border-bottom: 2px solid $color-sperate-line;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .cat-name {
+          @include sc(30px, $color-dark);
+        }
+        .img-raido {
+          @include wh(40px, 40px)
+        }
+      }
+    }
+
+    .bottom-con {
+      //background: #f00;
+      @include wh(100%, $height-of-header-con+150px);
+    }
+
+  }
+
+  //保存按钮
+  .bottom_container {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    @include wh(100%, 150px);
+    border-top: solid 2px $color-sperate-line;
+    z-index: 1;
+    .btn {
+      background: $color-pink;
+      border-radius: 30px;
+      margin: 30px 40px 20px 40px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      color: #fff;
+
+    }
+  }
+
+}

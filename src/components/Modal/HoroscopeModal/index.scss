@@ -1,0 +1,46 @@
+@import "../../../styles/mixin";
+
+.horoscope-modal-con {
+  .content-con {
+    padding: 50px;
+
+    //通用的标题
+    .title {
+      @include sc(33px, $color-dark);
+    }
+
+    //通用的按钮
+    .item {
+      @include sc(30px, $color-dark);
+      padding: 20px 50px;
+      border-radius: 50px;
+    }
+
+    //通用的按钮选中
+    .selected {
+      color: #fff;
+      background: linear-gradient(#f06d5d, #ff3d6c); /*标准语法，必须放在最后*/
+    }
+
+    .item-con1 {
+      .bottom-con {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+      }
+    }
+
+    .item-con2 {
+      margin-top: 50px;
+      .bottom-con {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+      }
+    }
+  }
+}

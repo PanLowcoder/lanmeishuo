@@ -1,0 +1,50 @@
+@import "../../../styles/mixin";
+
+.synastry-bottom-con {
+  //position: fixed;
+  z-index: 1;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+
+  //顶部部分
+  .top-con {
+    @include sc(35px, $color-dark);
+  }
+
+  .bottom-con {
+    margin-top: 20px;
+    @include wh(100%, 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: solid 2px $color-sperate-line;
+
+    .item-btn-con {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .img {
+        @include wh(40px, 40px);
+      }
+
+      .text {
+        @include sc(30px, $color-pink);
+        margin-left: 20px;
+      }
+
+      .blue {
+        color: #3485ff;
+      }
+    }
+  }
+
+  //通用的分割线
+  .sep {
+    @include wh(2px, 40px);
+    background: $color-sperate-line;
+  }
+}

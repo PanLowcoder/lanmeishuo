@@ -1,0 +1,164 @@
+@import "../../../styles/mixin";
+
+$height_of_sep: 40px;
+
+.map-detail-page {
+  @include wh(100%, 100%);
+  background: $bg-color-light;
+
+  //分隔块
+  .separate_block {
+    @include separate_block();
+  }
+
+  //底部内容部分
+  .content-con {
+    background: #fff;
+    margin-top: $height-nav;
+
+    //顶部详情内容
+    .top-con {
+      //标题
+      .text-title {
+        @include sc(40px, $color-dark);
+        font-weight: bold;
+        padding: 40px 40px 0px 40px;
+      }
+
+      //距离
+      .text-distance {
+        @include sc(30px, $color-light);
+        padding: 0 40px;
+      }
+
+      //得分部分
+      .score-con {
+        background: $bg-color-light;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px 40px;
+        height: auto;
+        flex-wrap: wrap;
+
+        .item-con {
+          display: flex;
+          align-items: center;
+          width: 33%;
+          padding: 10px 0;
+          @include sc(25px, $color-light);
+        }
+      }
+
+      //收藏&分享 部分
+      .collect-and-share-con {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+
+        .collect-item-con {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .img-collect {
+            @include wh(40px, 40px);
+          }
+
+          .text-collect {
+            @include sc(30px, $color-dark);
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    //地点说明部分（只有命运之城有）
+    .fate-city-con {
+      .text-header {
+        @include sc(33px, $color-dark);
+        font-weight: bold;
+        margin-left: 40px;
+        padding: 20px 0;
+        border-bottom: 2px solid $color-sperate-line;
+      }
+
+      .city-item-con {
+        padding: 20px 40px;
+        display: flex;
+
+        .img-city {
+          @include wh(30px, 30px);
+        }
+
+        .city-right-con {
+          margin-left: 10px;
+
+          .text-city-name {
+            //background: #f00;
+            @include sc(30px, $color-dark);
+            font-weight: bold;
+            min-height: 30px;
+          }
+
+          .text-city-des {
+            @include sc(28px, $color-light);
+            border-bottom: 2px solid $color-sperate-line;
+            padding: 20px 0;
+          }
+        }
+      }
+    }
+
+
+    //位置推荐部分
+    .recommend-con {
+      background: $bg-color-light;
+
+      .text-header {
+        @include sc(33px, $color-dark);
+        font-weight: bold;
+        margin-left: 40px;
+        padding: 20px 0;
+      }
+
+      .recommend-score-con {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-left: 3%;
+
+        .recommend-item-con {
+          background: #fff;
+          width: 45%;
+          margin: 3% 10px;
+          border-radius: 10px;
+          .img-recommend {
+            @include wh(30px, 30px);
+            padding: 20px;
+          }
+
+          .recommend-bottom-con {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+
+            .text-name {
+              @include sc(30px, $color-light);
+            }
+
+            .text-status {
+              @include sc(30px, $color-dark);
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+

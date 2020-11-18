@@ -175,7 +175,6 @@ export default class tabUser extends BaseComponent {
                     </View>
 
                 </ScrollView>
-            </View>
-        )
+            </  View>)
     }
 }

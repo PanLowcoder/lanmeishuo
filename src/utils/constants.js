@@ -1,4 +1,4 @@
-import { baseUrl, ossUrl } from '../config/index';
+import { baseUrl, ossUrl } from '../config';
 
 const con_0 = ossUrl + 'wap/images/common/con_0.png';
 const con_1 = ossUrl + 'wap/images/common/con_1.png';

@@ -152,67 +152,8 @@ export default class Detail extends BaseComponent {
                         </View>
                         <View className="line"></View>
                     </View>
-                    <View className="com-list">
-                        {/* <View className="com-item">
-                            <View className="user">
-                                <AtAvatar circle size='small' image={avatar}></AtAvatar>
-                                <View className="info">
-                                    <View className="name">白日梦想家</View>
-                                    <View className="time">3分钟前</View>
-                                </View>
-                            </View>
-                            <View className="comment">
-                                <View className="text">跪求桃花运！呜呜呜！</View>
-                                <View className="tab">
-                                    <View className="item">
-                                        <Image className='icon small' src={heart}></Image>
-                                        <Text className='text'>22</Text>
-                                    </View>
-                                    <View className="item">
-                                        <Image className='icon small' src={chat}></Image>
-                                        <Text className='text'>22</Text>
-                                    </View>
-                                </View>
-                            </View>
-                            <View className="line"></View>
-                        </View> */}
-                        {(!commentResult || !commentResult.data || commentResult.data.length == 0) ? (
-                            // <View>还没有评论，快抢占沙发吧</View>
-                            <ItemArticleReplay
-
-                            />
-                        ) : (
-                                <View>
-                                    {commentResult && commentResult.data && commentResult.data.length > 0 && commentResult.data.map((item, index) => (
-                                        <ItemArticleReplay
-                                            item={item}
-                                            index={index}
-                                            onCommomReplayItemClick={this.onCommomReplayItemClick}
-                                        />
-                                    ))}
-                                    {loading == 1 && (
-                                        <View className='loadMoreGif'>
-                                            <View className='zan-loading'></View>
-                                            <View className='text'>加载中...</View>
-                                        </View>
-                                    )}
-
-                                    {loading == 2 && (
-                                        <View className='loadMoreGif'>
-                                            <View className='text'>没有更多了</View>
-                                        </View>
-                                    )}
-
-                                </View>
-                            )}
-                    </View>
                 </View>
-                <View className="footer">
-                    <Input className='input' type='text' placeholder='写评论' />
-                    <Image className='img' src={smile}></Image>
-                </View>
-
             </View>
-        );
+        )
     }
 }

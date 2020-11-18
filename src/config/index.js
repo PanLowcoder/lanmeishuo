@@ -10,8 +10,8 @@ export const version = '1.0.0';
 export const noConsole = true;
 
 //local
-export const baseUrl = 'http://www.seeastro.com/';
-// export const baseUrl = 'https://api.lanmeishuo.com/';
+// export const baseUrl = 'http://www.seeastro.com/';
+export const baseUrl = 'https://api.lanmeishuo.com/';
 // export const domainUrl = 'http://192.168.0.193:8088/';
 export const domainUrl = 'https://api.lanmeishuo.com/';
 export const ossUrl = 'http://img.lanmeishuo.com/';

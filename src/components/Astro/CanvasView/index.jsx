@@ -79,6 +79,8 @@ class CanvasView extends BaseComponent {
       canvas_tap_firdaria_big: {},//法达大运可点击区域
       canvas_tap_profection_year: {},//小运流年可点击区域
       canvas_tap_profection_month: {},//小运流月可点击区域
+      width:0,
+      height:0,
     }
   }
 
@@ -92,8 +94,14 @@ class CanvasView extends BaseComponent {
         this.draw(this.props.data)
       // 只有编译为小程序下面代码才会被编译
     } else{
-      this.context = Taro.createCanvasContext('canvas-id', this.props.type)
-      // if (this.props.data)
+    setTimeout(() => {
+       let query = Taro.createSelectorQuery().in(this.$scope)
+       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+       let node = res[0].node;
+       let ctx = node.getContext('2d');
+       console.log(ctx);
+    })
+    }, 1000)
         this.draw(this.props.data)
     }
   }
@@ -193,11 +201,16 @@ class CanvasView extends BaseComponent {
     // this.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + window.screen.width + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
 
     //canvas
-
-   let ctx = Taro.createCanvasContext('canvas-id'+this.props.type)
-   console.log(ctx)
+   
+       let query = Taro.createSelectorQuery().in(this.$scope)
+       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+       let node = res[0].node;
+       let ctx = node.getContext('2d');
+       console.log(ctx);
+    //保存点击坐标
+  //设置画布宽
     //设置画布宽高
-    ctx.height = ctx.width = screenWidth;
+    node.height = node.width = screenWidth;
     let x = screenWidth / 2;
     let y = screenWidth / 2;
 
@@ -497,7 +510,6 @@ class CanvasView extends BaseComponent {
     ctx.beginPath()
     ctx.arc(x, y, circle1_radius, 0, 2 * Math.PI)
     ctx.fill()
-    console.log((x, y, circle1_radius, 0, 2 * Math.PI))
     //---------星座-圆背景---------
 
     //---------宫主飞星-圆背景---------
@@ -883,17 +895,21 @@ class CanvasView extends BaseComponent {
     this.setState({canvas_tap_firdaria_small})
     this.setState({canvas_tap_profection_year})
     this.setState({canvas_tap_profection_month})
-
+})
   }
 
 
 //画布被点击
   actionCavasClick = (e) => {
-  this.canvas = Taro.createCanvasContext('canvas-id', this.props.type)
-     console.log(canvas)
-    var x = (e.pageX - canvas.getBoundingClientRect().left) * rdi;
+   let query = Taro.createSelectorQuery().in(this.$scope)
+       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+       let node = res[0].node;
+       let ctx = node.getContext('2d');
+       console.log(res);
+     //console.log(canvas)
+    var x = (e.pageX - ctx.getBoundingClientRect().left) * rdi;
 
-    var y = (e.pageY - canvas.getBoundingClientRect().top) * rdi;
+    var y = (e.pageY - ctx.getBoundingClientRect().top) * rdi;
     this.log('actionCavasClick x=' + x + ',y=' + y)
 
     let area = 10 * rdi;
@@ -974,6 +990,7 @@ class CanvasView extends BaseComponent {
       }
 
     }
+  })
   }
 
 //宫位详情或者星座详情pop被点击
@@ -1066,9 +1083,11 @@ class CanvasView extends BaseComponent {
 
         {/*星盘画布*/}
         <View className='canvas-con'>
-          <canvas
+          <Canvas
+            type="2d"
             className='canvas'
-            id={'canvas-id' + type}
+            id='myCanvas'
+            canvas-id='myCanvas'
             onClick={this.actionCavasClick}
           />
 

@@ -148,8 +148,8 @@ export default class tabHome extends BaseComponent {
     }
 
     render() {
-        //this.log('home render');
         const { data, tabs } = this.props;
+        console.log(data);
         const {
             tabsListValue,
             show_alert_type,

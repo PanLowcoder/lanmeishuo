@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro';
 import BaseComponent from "../../../components/BaseComponent";
 import { View } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import './index.scss';
+import './index.less';
 
 import RecordsAndCatsList from '../../../components/RecordsAndCatsList'
 import { EVENT_RECORD_CAT_ACTION, EVENT_RECORD_ACTION } from "../../../utils/constants";

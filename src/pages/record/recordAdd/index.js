@@ -1,14 +1,14 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../../../components/BaseComponent";
-import {View, Text, Image, Picker} from '@tarojs/components';
-import {connect} from '@tarojs/redux';
+import { View, Text, Image, Picker } from '@tarojs/components';
+import { connect } from '@tarojs/redux';
 import './index.scss';
 import ItemRecordAdd from '../../../components/Item/ItemRecordAdd';
 import RecordAddSexModal from '../../../components/Modal/RecordAddSexModal'
-import {ossUrl} from "../../../config";
-import {record_upload_img} from "../../../pages/map/service";
-import {getRecord, isEmpty, showToast} from "../../../utils/common";
-import {cityData_latlng} from "../../../js/city.data-xzns.js";
+import { ossUrl } from "../../../config";
+// import {record_upload_img} from "../../../pages/map/service";
+import { getRecord, isEmpty, showToast } from "../../../utils/common";
+import { cityData_latlng } from "../../../js/city.data-xzns.js";
 
 const img_back = ossUrl + 'wap/images/common/img_back.png'
 const img_edit = ossUrl + 'wap/images/record/img_edit.png'
@@ -20,7 +20,7 @@ const img_address_current = ossUrl + "wap/images/record/img_address_current.png"
 
 // const cityData_latlng = ossUrl + "wap/utils/city.data-xzns.js";
 
-@connect(({record}) => ({
+@connect(({ record }) => ({
   ...record,
 }))
 class recordAdd extends BaseComponent {
@@ -162,7 +162,7 @@ class recordAdd extends BaseComponent {
 
   // picker选择数据动态渲染
   onColumnchange = e => {
-    const {column, value} = e.detail;
+    const { column, value } = e.detail;
     this.log('onColumnchange column =' + column + ',value=' + value);
     if (this.state.index_of_click == 4) {
       this.setState({
@@ -303,7 +303,7 @@ class recordAdd extends BaseComponent {
     list[0].value = sex_item.sex;
     list[0].value_name = sex_item.name;
 
-    this.setState({is_show_sex_modal: false, record_add_list: list});
+    this.setState({ is_show_sex_modal: false, record_add_list: list });
     let params = this.props.record_add_params;
     params.type = sex_item.sex;
     this.props.dispatch({
@@ -359,7 +359,7 @@ class recordAdd extends BaseComponent {
         params.ns = district.ns;
         let record_add_list = this.state.record_add_list;
         record_add_list[4].value = e.detail.value;
-        this.setState({record_add_list: this.state.record_add_list});
+        this.setState({ record_add_list: this.state.record_add_list });
         break;
       }
       case 5: {
@@ -377,7 +377,7 @@ class recordAdd extends BaseComponent {
         params.live_city = district.text;
         let record_add_list = this.state.record_add_list;
         record_add_list[5].value = e.detail.value;
-        this.setState({record_add_list: record_add_list});
+        this.setState({ record_add_list: record_add_list });
         break;
       }
     }
@@ -409,7 +409,7 @@ class recordAdd extends BaseComponent {
     // for (var key in params) {
     //   formData.append(key, params[key]);
     // }
-    let file = {uri: path, type: 'image/png', name: 'image.png'};
+    let file = { uri: path, type: 'image/png', name: 'image.png' };
     formData.append("file", path);
     this.log(formData)
     let res = await record_upload_img({

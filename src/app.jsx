@@ -7,10 +7,7 @@ import models from './models'
 import './app.less'
 //taro-ui全局引入一次即可
 import 'taro-ui/dist/style/index.scss'
-<<<<<<< HEAD
-=======
 import './styles/taro-ui.css'
->>>>>>> 7184343574601f3b39100f529311b787de22e2e3
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -20,13 +17,10 @@ import './styles/taro-ui.css'
 
 const dvaApp = dva.createApp({
   initialState: {},
-<<<<<<< HEAD
-=======
   onError(err) {
     // 在这里进行错误处理
     console.log(err);
   },
->>>>>>> 7184343574601f3b39100f529311b787de22e2e3
   models: models,
 });
 const store = dvaApp.getStore();

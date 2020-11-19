@@ -81,7 +81,7 @@ class CatList extends BaseComponent {
 
   render() {
     const {cat_list} = this.props;
-    this.log('CatList render ' + cat_list.length);
+    // this.log('CatList render ' + cat_list.length);
     return (
       <View className='cat-list-con'>
         {(cat_list.length > 0) ? (

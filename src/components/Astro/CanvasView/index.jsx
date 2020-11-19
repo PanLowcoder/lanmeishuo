@@ -1,13 +1,13 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../../BaseComponent";
-import {View, Image} from '@tarojs/components';
+import { View, Image } from '@tarojs/components';
 import PropTypes from 'prop-types';
 import './index.scss';
-import {ASTRO_SYNASTRY_TABS, ASTRO_TABS, CONS, HOUSE, LIST_ITEM_TYPES, PHASE, PLANET} from "../../../utils/constants";
-import {ossUrl} from "../../../config";
-import {ASTRO_CONF_BGS, PROTECT_ANCIENT_IDS, PROTECT_IDS} from "../../../js/astro-conf";
-import {showToast} from "../../../utils/common";
-import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE  } from '../../../utils/astrolabe';
+import { ASTRO_SYNASTRY_TABS, ASTRO_TABS, CONS, HOUSE, LIST_ITEM_TYPES, PHASE, PLANET } from "../../../utils/constants";
+import { ossUrl } from "../../../config";
+import { ASTRO_CONF_BGS, PROTECT_ANCIENT_IDS, PROTECT_IDS } from "../../../js/astro-conf";
+import { showToast } from "../../../utils/common";
+import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE } from '../../../utils/astrolabe';
 
 const icon_astro_style = ossUrl + 'wap/images/astro/cavans/icon_astro_style.png'
 const icon_astro_note = ossUrl + 'wap/images/astro/cavans/icon_astro_note.png'
@@ -79,30 +79,30 @@ class CanvasView extends BaseComponent {
       canvas_tap_firdaria_big: {},//法达大运可点击区域
       canvas_tap_profection_year: {},//小运流年可点击区域
       canvas_tap_profection_month: {},//小运流月可点击区域
-      width:0,
-      height:0,
+      width: 0,
+      height: 0,
     }
   }
 
 
   componentDidMount() {
-    console.log("====<>"+this.props.data)
+    console.log("====<>" + this.props.data)
     // 只有编译为h5下面代码才会被编译
     if (process.env.TARO_ENV === 'h5') {
       // this.context = window.document.getElementById('canvas-id').getContext('2d')
       if (this.props.data)
         this.draw(this.props.data)
       // 只有编译为小程序下面代码才会被编译
-    } else{
-    setTimeout(() => {
-       let query = Taro.createSelectorQuery().in(this.$scope)
-       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
-       let node = res[0].node;
-       let ctx = node.getContext('2d');
-       console.log(ctx);
-    })
-    }, 1000)
-        this.draw(this.props.data)
+    } else {
+      setTimeout(() => {
+        let query = Taro.createSelectorQuery().in(this.$scope)
+        query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+          let node = res[0].node;
+          let ctx = node.getContext('2d');
+          console.log(ctx);
+        })
+      }, 1000)
+      this.draw(this.props.data)
     }
   }
 
@@ -134,16 +134,16 @@ class CanvasView extends BaseComponent {
     this.log('actionNoteBtnClick')
 
     if (this.props.count_of_note == 0) {//添加
-     // let page_type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? NOTE_PAGE_TYPE.ASTRO : NOTE_PAGE_TYPE.DIVINATION
+      // let page_type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? NOTE_PAGE_TYPE.ASTRO : NOTE_PAGE_TYPE.DIVINATION
       //Taro.navigateTo({url: '/pages/astro/noteAddOrEdit/index?page_type=' + page_type + '&type=' + NOTE_TYPE.ADD + '&rid=' + this.props.rid + '&from=' + ASTRO_TABS[this.props.astro_type].params + '&event_time=' + this.props.event_time})
     } else {//跳转到列表
       let type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? LIST_ITEM_TYPES.ITEM_ASTRO_NOTE : LIST_ITEM_TYPES.ITEM_DIVINATION_NOTE
       //跳转到列表
-      Taro.redirectTo({url: '/pages/commonList/index?type=' + type + '&note_list_param=' + this.props.rid + '&rid=' + this.props.rid + '&from=' + ASTRO_TABS[this.props.astro_type].params + '&event_time=' + this.props.event_time})
+      Taro.redirectTo({ url: '/pages/commonList/index?type=' + type + '&note_list_param=' + this.props.rid + '&rid=' + this.props.rid + '&from=' + ASTRO_TABS[this.props.astro_type].params + '&event_time=' + this.props.event_time })
     }
   }
 
-//参数或者单盘、双盘按钮被点击
+  //参数或者单盘、双盘按钮被点击
   actionLeftBottomBtnClick = () => {
     this.log('actionLeftBottomBtnClick')
     // 左下角按钮的类型：-1：不显示；0：显示参数；1：显示单盘；2：显示双盘；
@@ -158,7 +158,7 @@ class CanvasView extends BaseComponent {
       } else {
         params = '?rid=' + this.props.rid
       }
-      Taro.navigateTo({url: '/pages/astro/natalOrNowParamsDetail/index' + params})
+      Taro.navigateTo({ url: '/pages/astro/natalOrNowParamsDetail/index' + params })
     } else if (BOTTOM_LETF_BTN_TYPE.SINGLE == this.props.btn_type) {
       this.props.onSingleOrDoubleBtnClick(BOTTOM_LETF_BTN_TYPE.DOUBLE)
     } else if (BOTTOM_LETF_BTN_TYPE.DOUBLE == this.props.btn_type) {
@@ -166,7 +166,7 @@ class CanvasView extends BaseComponent {
     }
   }
 
-//tid切换按钮被点击
+  //tid切换按钮被点击
   actionTidChangeClick = (e) => {
     let tid_current = e.currentTarget.dataset.tid;
     this.log('actionTidChangeClick tid_current=' + tid_current)
@@ -180,7 +180,7 @@ class CanvasView extends BaseComponent {
     this.props.onTidChangeClick(tid_current)
   }
 
-//星盘设置按钮被点击
+  //星盘设置按钮被点击
   actionSettingBtnClick = () => {
     this.log('actionSettingBtnClick')
     let chart = ''
@@ -189,28 +189,36 @@ class CanvasView extends BaseComponent {
     } else {//合盘
       chart = ASTRO_SYNASTRY_TABS[this.props.astro_type].params
     }
-    Taro.navigateTo({url: '/pages/astro/astroSetting/index?tid=' + this.props.tid + '&chart=' + chart})
+    Taro.navigateTo({ url: '/pages/astro/astroSetting/index?tid=' + this.props.tid + '&chart=' + chart })
   }
 
-// 绘制的函数
+  // 绘制的函数
   draw(data) {
     this.log('---------------draw-----------------')
+    //canvas
+    if (process.env.TARO_ENV === 'h5') {
+      let canvas = document.getElementById("myCanvas");
+      let ctx = canvas.getContext("2d");
+      this.init(canvas, ctx, data)
+    } else {
+      let query = Taro.createSelectorQuery().in(this.$scope)
+      query.select('.canvas').fields({ node: true, size: true, context: true }).exec(res => {
+        let canvas = res[0].node;
+        let ctx = canvas.getContext('2d');
+        //   //保存点击坐标
+        this.init(canvas, ctx, data)
+      })
+    }
+
+  }
+
+  init(canvas, ctx, data) {
     const info = Taro.getSystemInfoSync()
 
     let screenWidth = info.screenWidth * rdi;
     // this.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + window.screen.width + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
-
-    //canvas
-   
-       let query = Taro.createSelectorQuery().in(this.$scope)
-       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
-       let node = res[0].node;
-       let ctx = node.getContext('2d');
-       console.log(ctx);
-    //保存点击坐标
-  //设置画布宽
     //设置画布宽高
-    node.height = node.width = screenWidth;
+    canvas.height = canvas.width = screenWidth;
     let x = screenWidth / 2;
     let y = screenWidth / 2;
 
@@ -416,91 +424,91 @@ class CanvasView extends BaseComponent {
     }
     //---------法达盘---------
     else
-    //---------小限盘---------
-    if (data.profection) {
-      sub_of_firdaria_or_profection = 30 * rdi;
-      this.log('画小限盘')
-      let cx = screenWidth / 2;
-      let ro = screenWidth / 2 - 15 * rdi;//法达大运
-      let r = screenWidth / 2;
+      //---------小限盘---------
+      if (data.profection) {
+        sub_of_firdaria_or_profection = 30 * rdi;
+        this.log('画小限盘')
+        let cx = screenWidth / 2;
+        let ro = screenWidth / 2 - 15 * rdi;//法达大运
+        let r = screenWidth / 2;
 
-      //---------小限盘-流月-圆--------
-      let circle1_radius = screenWidth / 2;
-      ctx.fillStyle = ASTRO_CONF_BGS[this.props.astro_bg_index].astro_circle3_solid_color;
-      ctx.beginPath()
-      ctx.arc(x, y, circle1_radius, 0, 2 * Math.PI)
-      ctx.fill()
-      //---------小限盘-流月-圆--------
+        //---------小限盘-流月-圆--------
+        let circle1_radius = screenWidth / 2;
+        ctx.fillStyle = ASTRO_CONF_BGS[this.props.astro_bg_index].astro_circle3_solid_color;
+        ctx.beginPath()
+        ctx.arc(x, y, circle1_radius, 0, 2 * Math.PI)
+        ctx.fill()
+        //---------小限盘-流月-圆--------
 
-      //---------小限盘-流年-圆--------
-      let circle2_radius = screenWidth / 2 - 15 * rdi;
-      ctx.fillStyle = ASTRO_CONF_BGS[this.props.astro_bg_index].astro_circle4_solid_color;
-      ctx.beginPath()
-      ctx.arc(x, y, circle2_radius, 0, 2 * Math.PI)
-      ctx.fill()
-      //---------小限盘-流年-圆--------
+        //---------小限盘-流年-圆--------
+        let circle2_radius = screenWidth / 2 - 15 * rdi;
+        ctx.fillStyle = ASTRO_CONF_BGS[this.props.astro_bg_index].astro_circle4_solid_color;
+        ctx.beginPath()
+        ctx.arc(x, y, circle2_radius, 0, 2 * Math.PI)
+        ctx.fill()
+        //---------小限盘-流年-圆--------
 
-      let key;
-      for (key in data.profection.details) {
-        let angle = asc - data.houses[key].deg;
-        let next = (key == 12) ? 0 : asc - data.houses[parseInt(key) + 1].deg;
-        let now = (key == 1) ? 360 : angle;
-        if (next < 0) next += 360;
-        if (now < 0) now += 360;
-        let house_cusp_number_angle = (now - next) / 2 + next;
+        let key;
+        for (key in data.profection.details) {
+          let angle = asc - data.houses[key].deg;
+          let next = (key == 12) ? 0 : asc - data.houses[parseInt(key) + 1].deg;
+          let now = (key == 1) ? 360 : angle;
+          if (next < 0) next += 360;
+          if (now < 0) now += 360;
+          let house_cusp_number_angle = (now - next) / 2 + next;
 
-        //---------小限盘-流月-当前选中的圆弧--------
-        if (key == data.profection.month_house) {
-          let angle_year_start = Math.PI / 180 * next;
-          let angle_year_end = Math.PI / 180 * now;
-          ctx.strokeStyle = '#3110c7';
-          ctx.lineWidth = 15 * rdi;//画笔线的宽度
-          ctx.beginPath()
-          ctx.arc(x, y, r - 7.5 * rdi, -Math.PI + angle_year_start, -Math.PI + angle_year_end, false)
-          ctx.stroke()
-          ctx.lineWidth = 1 * rdi;//画笔线的宽度
+          //---------小限盘-流月-当前选中的圆弧--------
+          if (key == data.profection.month_house) {
+            let angle_year_start = Math.PI / 180 * next;
+            let angle_year_end = Math.PI / 180 * now;
+            ctx.strokeStyle = '#3110c7';
+            ctx.lineWidth = 15 * rdi;//画笔线的宽度
+            ctx.beginPath()
+            ctx.arc(x, y, r - 7.5 * rdi, -Math.PI + angle_year_start, -Math.PI + angle_year_end, false)
+            ctx.stroke()
+            ctx.lineWidth = 1 * rdi;//画笔线的宽度
+          }
+          //---------小限盘-流月-当前选中的圆弧--------
+
+          //---------小限盘-流年-当前选中的圆弧--------
+          if (key == data.profection.year_house) {
+            let angle_year_start = Math.PI / 180 * next;
+            let angle_year_end = Math.PI / 180 * now;
+            ctx.strokeStyle = '#3110c7';
+            ctx.lineWidth = 15 * rdi;//画笔线的宽度
+            ctx.beginPath()
+            ctx.arc(x, y, ro - 7.5 * rdi, -Math.PI + angle_year_start, -Math.PI + angle_year_end, false)
+            ctx.stroke()
+            ctx.lineWidth = 1 * rdi;//画笔线的宽度
+          }
+          //---------小限盘-流年-当前选中的圆弧--------
+
+
+          //---------小限盘-流年（内圈）、流月（外圈）-行星文字---------
+          let x_profection_year = -(ro - 7.5 * rdi) * Math.cos(Math.PI / 180 * house_cusp_number_angle) + cx - 5 * rdi;
+          let y_profection_year = -(ro - 7.5 * rdi) * Math.sin(Math.PI / 180 * house_cusp_number_angle) + cx + 3 * rdi;
+          let x_profection_month = -(r - 7.5 * rdi) * Math.cos(Math.PI / 180 * house_cusp_number_angle) + cx - 5 * rdi;
+          let y_profection_month = -(r - 7.5 * rdi) * Math.sin(Math.PI / 180 * house_cusp_number_angle) + cx + 3 * rdi;
+          let text = '';
+          if (0 == this.props.astro_type_index) {//中文
+            ctx.font = 10 * rdi + "px Verdana";
+            text = PLANET(data.houses[key].protect_ancient_id).cn;
+          } else {
+            ctx.font = 10 * rdi + "px iconfont";
+            text = eval(PLANET(data.houses[key].protect_ancient_id).glyph_cavans)
+          }
+          this.log('profection key=' + key + ',protect_id=' + data.houses[key].protect_id + ',protect_ancient_id=' + data.houses[key].protect_ancient_id)
+          ctx.fillStyle = '#999'
+          ctx.fillText(text, x_profection_year, y_profection_year)
+          ctx.fillText(text, x_profection_month, y_profection_month)
+          //增加点击数组
+          canvas_tap_profection_year[key] = [x_profection_year, y_profection_year]
+          canvas_tap_profection_month[key] = [x_profection_month, y_profection_month]
+          //---------小限盘-流年（内圈）、流月（外圈）-行星文字---------
+
         }
-        //---------小限盘-流月-当前选中的圆弧--------
-
-        //---------小限盘-流年-当前选中的圆弧--------
-        if (key == data.profection.year_house) {
-          let angle_year_start = Math.PI / 180 * next;
-          let angle_year_end = Math.PI / 180 * now;
-          ctx.strokeStyle = '#3110c7';
-          ctx.lineWidth = 15 * rdi;//画笔线的宽度
-          ctx.beginPath()
-          ctx.arc(x, y, ro - 7.5 * rdi, -Math.PI + angle_year_start, -Math.PI + angle_year_end, false)
-          ctx.stroke()
-          ctx.lineWidth = 1 * rdi;//画笔线的宽度
-        }
-        //---------小限盘-流年-当前选中的圆弧--------
-
-
-        //---------小限盘-流年（内圈）、流月（外圈）-行星文字---------
-        let x_profection_year = -(ro - 7.5 * rdi) * Math.cos(Math.PI / 180 * house_cusp_number_angle) + cx - 5 * rdi;
-        let y_profection_year = -(ro - 7.5 * rdi) * Math.sin(Math.PI / 180 * house_cusp_number_angle) + cx + 3 * rdi;
-        let x_profection_month = -(r - 7.5 * rdi) * Math.cos(Math.PI / 180 * house_cusp_number_angle) + cx - 5 * rdi;
-        let y_profection_month = -(r - 7.5 * rdi) * Math.sin(Math.PI / 180 * house_cusp_number_angle) + cx + 3 * rdi;
-        let text = '';
-        if (0 == this.props.astro_type_index) {//中文
-          ctx.font = 10 * rdi + "px Verdana";
-          text = PLANET(data.houses[key].protect_ancient_id).cn;
-        } else {
-          ctx.font = 10 * rdi + "px iconfont";
-          text = eval(PLANET(data.houses[key].protect_ancient_id).glyph_cavans)
-        }
-        this.log('profection key=' + key + ',protect_id=' + data.houses[key].protect_id + ',protect_ancient_id=' + data.houses[key].protect_ancient_id)
-        ctx.fillStyle = '#999'
-        ctx.fillText(text, x_profection_year, y_profection_year)
-        ctx.fillText(text, x_profection_month, y_profection_month)
-        //增加点击数组
-        canvas_tap_profection_year[key] = [x_profection_year, y_profection_year]
-        canvas_tap_profection_month[key] = [x_profection_month, y_profection_month]
-        //---------小限盘-流年（内圈）、流月（外圈）-行星文字---------
 
       }
-
-    }
     //---------小限盘---------
 
 
@@ -888,115 +896,114 @@ class CanvasView extends BaseComponent {
     ctx.globalAlpha = 1.0;
 
     //保存点击坐标
-    this.setState({canvas_tap_house})
-    this.setState({canvas_tap_planet})
-    this.setState({canvas_tap_planet_out})
-    this.setState({canvas_tap_firdaria_big})
-    this.setState({canvas_tap_firdaria_small})
-    this.setState({canvas_tap_profection_year})
-    this.setState({canvas_tap_profection_month})
-})
+    this.setState({ canvas_tap_house })
+    this.setState({ canvas_tap_planet })
+    this.setState({ canvas_tap_planet_out })
+    this.setState({ canvas_tap_firdaria_big })
+    this.setState({ canvas_tap_firdaria_small })
+    this.setState({ canvas_tap_profection_year })
+    this.setState({ canvas_tap_profection_month })
   }
 
 
-//画布被点击
+  //画布被点击
   actionCavasClick = (e) => {
-   let query = Taro.createSelectorQuery().in(this.$scope)
-       query.select('.canvas').fields({ node: true, size: true }).exec(res => {
-       let node = res[0].node;
-       let ctx = node.getContext('2d');
-       console.log(res);
-     //console.log(canvas)
-    var x = (e.pageX - ctx.getBoundingClientRect().left) * rdi;
+    let query = Taro.createSelectorQuery().in(this.$scope)
+    query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+      let node = res[0].node;
+      let ctx = node.getContext('2d');
+      console.log(res);
+      //console.log(canvas)
+      var x = (e.pageX - ctx.getBoundingClientRect().left) * rdi;
 
-    var y = (e.pageY - ctx.getBoundingClientRect().top) * rdi;
-    this.log('actionCavasClick x=' + x + ',y=' + y)
+      var y = (e.pageY - ctx.getBoundingClientRect().top) * rdi;
+      this.log('actionCavasClick x=' + x + ',y=' + y)
 
-    let area = 10 * rdi;
-    //检测宫位文字是否被点击
-    this.state.canvas_tap_house.map((item, index) => {
-      if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-        this.log('click ' + index + ' house text')
-        this.setState({index_house_detail_pop: index, pop_type: POP_TYPE.HOUSE})
+      let area = 10 * rdi;
+      //检测宫位文字是否被点击
+      this.state.canvas_tap_house.map((item, index) => {
+        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+          this.log('click ' + index + ' house text')
+          this.setState({ index_house_detail_pop: index, pop_type: POP_TYPE.HOUSE })
+        }
+      })
+      //内盘检测行星文字是否被点击
+      let key;
+      for (key in this.state.canvas_tap_planet) {
+        let item = this.state.canvas_tap_planet[key];
+        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+          this.log('click ' + key + ' planet text')
+          this.setState({ index_planet_detail_pop: key, index_planet: 0, pop_type: POP_TYPE.PLANET })
+        }
+      }
+      //外盘检测行星文字是否被点击
+      for (key in this.state.canvas_tap_planet_out) {
+        let item = this.state.canvas_tap_planet_out[key];
+        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+          this.log('click ' + key + ' planet text')
+          this.setState({ index_planet_detail_pop: key, index_planet: 1, pop_type: POP_TYPE.PLANET_OUT })
+        }
+      }
+      //法达盘-大运、小运被点击
+      if (ASTRO_TYPES.FIRDARIA == this.props.astro_type) {
+        //小运
+        let key;
+        for (key in this.state.canvas_tap_firdaria_small) {
+          let item = this.state.canvas_tap_firdaria_small[key];
+          if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+            this.log('click ' + key + ' small firdaria text')
+            let tmp_arr = key.split('-')
+            this.setState({
+              index_planet_detail_pop: parseInt(tmp_arr[0]),
+              index_planet: parseInt(tmp_arr[1]),
+              pop_type: POP_TYPE.FIRDARIA_SMALL
+            })
+          }
+        }
+        //大运
+
+        for (key in this.state.canvas_tap_firdaria_big) {
+          let item = this.state.canvas_tap_firdaria_big[key];
+          if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+            this.log('click ' + key + ' big firdaria text')
+            this.setState({ index_planet_detail_pop: key, index_planet: -1, pop_type: POP_TYPE.FIRDARIA_BIG })
+          }
+        }
+      }
+      //小限盘-流年、流月被点击
+      if (ASTRO_TYPES.PROFECTION == this.props.astro_type) {
+        //流月
+        let key;
+        for (key in this.state.canvas_tap_profection_month) {
+          let item = this.state.canvas_tap_profection_month[key];
+          if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+            this.log('click profection month key=' + key)
+            this.setState({
+              index_planet_detail_pop: parseInt(key),
+              pop_type: POP_TYPE.PROFECTION_MONTH
+            })
+          }
+        }
+        //流年
+        for (key in this.state.canvas_tap_profection_year) {
+          let item = this.state.canvas_tap_profection_year[key];
+          if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
+            this.log('click profection year key=' + key)
+            this.setState({
+              index_planet_detail_pop: parseInt(key),
+              pop_type: POP_TYPE.PROFECTION_YEAR
+            })
+          }
+        }
+
       }
     })
-    //内盘检测行星文字是否被点击
-    let key;
-    for (key in this.state.canvas_tap_planet) {
-      let item = this.state.canvas_tap_planet[key];
-      if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-        this.log('click ' + key + ' planet text')
-        this.setState({index_planet_detail_pop: key, index_planet: 0, pop_type: POP_TYPE.PLANET})
-      }
-    }
-    //外盘检测行星文字是否被点击
-    for (key in this.state.canvas_tap_planet_out) {
-      let item = this.state.canvas_tap_planet_out[key];
-      if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-        this.log('click ' + key + ' planet text')
-        this.setState({index_planet_detail_pop: key, index_planet: 1, pop_type: POP_TYPE.PLANET_OUT})
-      }
-    }
-    //法达盘-大运、小运被点击
-    if (ASTRO_TYPES.FIRDARIA == this.props.astro_type) {
-      //小运
-      let key;
-      for (key in this.state.canvas_tap_firdaria_small) {
-        let item = this.state.canvas_tap_firdaria_small[key];
-        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          this.log('click ' + key + ' small firdaria text')
-          let tmp_arr = key.split('-')
-          this.setState({
-            index_planet_detail_pop: parseInt(tmp_arr[0]),
-            index_planet: parseInt(tmp_arr[1]),
-            pop_type: POP_TYPE.FIRDARIA_SMALL
-          })
-        }
-      }
-      //大运
-    
-      for (key in this.state.canvas_tap_firdaria_big) {
-        let item = this.state.canvas_tap_firdaria_big[key];
-        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          this.log('click ' + key + ' big firdaria text')
-          this.setState({index_planet_detail_pop: key, index_planet: -1, pop_type: POP_TYPE.FIRDARIA_BIG})
-        }
-      }
-    }
-    //小限盘-流年、流月被点击
-    if (ASTRO_TYPES.PROFECTION == this.props.astro_type) {
-      //流月
-      let key;
-      for (key in this.state.canvas_tap_profection_month) {
-        let item = this.state.canvas_tap_profection_month[key];
-        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          this.log('click profection month key=' + key)
-          this.setState({
-            index_planet_detail_pop: parseInt(key),
-            pop_type: POP_TYPE.PROFECTION_MONTH
-          })
-        }
-      }
-      //流年
-      for (key in this.state.canvas_tap_profection_year) {
-        let item = this.state.canvas_tap_profection_year[key];
-        if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          this.log('click profection year key=' + key)
-          this.setState({
-            index_planet_detail_pop: parseInt(key),
-            pop_type: POP_TYPE.PROFECTION_YEAR
-          })
-        }
-      }
-
-    }
-  })
   }
 
-//宫位详情或者星座详情pop被点击
+  //宫位详情或者星座详情pop被点击
   actionHouseDetailPopClick = () => {
     this.log('actionHouseDetailPopClick')
-    this.setState({index_house_detail_pop: -1, index_planet_detail_pop: -1, pop_type: POP_TYPE.NONE})
+    this.setState({ index_house_detail_pop: -1, index_planet_detail_pop: -1, pop_type: POP_TYPE.NONE })
   }
 
   render() {
@@ -1083,13 +1090,24 @@ class CanvasView extends BaseComponent {
 
         {/*星盘画布*/}
         <View className='canvas-con'>
-          <Canvas
-            type="2d"
-            className='canvas'
-            id='myCanvas'
-            canvas-id='myCanvas'
-            onClick={this.actionCavasClick}
-          />
+          {process.env.TARO_ENV === 'h5' &&
+            <canvas type="2d"
+              className='canvas'
+              id='myCanvas'
+              canvas-id='myCanvas'
+              onClick={this.actionCavasClick}>
+            </canvas>
+          }
+          {process.env.TARO_ENV === 'weapp' &&
+            <Canvas
+              type="2d"
+              className='canvas'
+              id='myCanvas'
+              canvas-id='myCanvas'
+              onClick={this.actionCavasClick}
+            />
+          }
+
 
           {/*宫位详情pop*/}
           {POP_TYPE.HOUSE == pop_type && index_house_detail_pop >= 0 && house_detail && data && (
@@ -1354,7 +1372,7 @@ class CanvasView extends BaseComponent {
     let i;
     for (i = 0; i <= 20; i++) {
       if (!sort[i]) continue;
-       let j;
+      let j;
       for (j = i + 1; j <= 20; j++) {
         if (!sort_reset[j]) continue;
 

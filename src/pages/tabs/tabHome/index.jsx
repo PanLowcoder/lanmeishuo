@@ -154,6 +154,13 @@ export default class tabHome extends BaseComponent {
             tabsListValue,
             show_alert_type,
         } = this.state;
+        
+        let baseTime = data.today_astro.time
+        let map = new Date(baseTime);
+        let year = map.getFullYear(); //获取年
+      let month = map.getMonth() + 1; //获取月
+      let time = map.getDate(); //获取日
+      let date = year + '-' + month + "-" + time
 
         if (!data)
             return
@@ -230,13 +237,16 @@ export default class tabHome extends BaseComponent {
                                 mode="widthFix"
                                 src={img_Today}
                             />
+                          
                             <View className="info">
-                                <View className="date">2020.08.29 星期六</View>
+                                <View className="date">{date}</View>
                                 <View className="today-content">
-                                    太阳在处女座，木星逆行，木星停滞土星逆行，土星停滞，大信封。
+                                    {data.today_astro.tips}
                             </View>
                             </View>
+                
                         </View>
+
                         {/*文章列表*/}
                         <View className="art-title">
                             <View className="left">

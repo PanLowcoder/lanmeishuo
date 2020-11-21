@@ -80,7 +80,7 @@
   height: 64px;
 }
 .user-page .container .tab .tab-item .text {
-  font-size: 12px;
+  font-size: 22px;
 }
 .user-page .container .list .list-item {
   padding: 16px 16px 0 32px;

@@ -98,7 +98,6 @@ export default class Detail extends BaseComponent {
             reply_name,
         } = this.state;
         let user = Object(detail.user)
-        console.log(commentResult.data);
         return (
             <View className='detail-page'>
                 {/*导航栏*/}

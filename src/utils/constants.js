@@ -122,18 +122,18 @@ const img_status_4 = ossUrl + 'wap/images/rectification/img_status_4.png';
 const img_status_5 = ossUrl + 'wap/images/rectification/img_status_5.png';
 const img_status_6 = ossUrl + 'wap/images/rectification/img_status_6.png';
 
-const con_synastry_0 = ossUrl + 'wap/images/common/con_synastry_0.png';
-const con_synastry_1 = ossUrl + 'wap/images/common/con_synastry_1.png';
-const con_synastry_2 = ossUrl + 'wap/images/common/con_synastry_2.png';
-const con_synastry_3 = ossUrl + 'wap/images/common/con_synastry_3.png';
-const con_synastry_4 = ossUrl + 'wap/images/common/con_synastry_4.png';
-const con_synastry_5 = ossUrl + 'wap/images/common/con_synastry_5.png';
-const con_synastry_6 = ossUrl + 'wap/images/common/con_synastry_6.png';
-const con_synastry_7 = ossUrl + 'wap/images/common/con_synastry_7.png';
-const con_synastry_8 = ossUrl + 'wap/images/common/con_synastry_8.png';
-const con_synastry_9 = ossUrl + 'wap/images/common/con_synastry_9.png';
-const con_synastry_10 = ossUrl + 'wap/images/common/con_synastry_10.png';
-const con_synastry_11 = ossUrl + 'wap/images/common/con_synastry_11.png';
+const con_synastry_0 = ossUrl + 'upload/images/common/con_synastry_0.png';
+const con_synastry_1 = ossUrl + 'upload/images/common/con_synastry_1.png';
+const con_synastry_2 = ossUrl + 'upload/images/common/con_synastry_2.png';
+const con_synastry_3 = ossUrl + 'upload/images/common/con_synastry_3.png';
+const con_synastry_4 = ossUrl + 'upload/images/common/con_synastry_4.png';
+const con_synastry_5 = ossUrl + 'upload/images/common/con_synastry_5.png';
+const con_synastry_6 = ossUrl + 'upload/images/common/con_synastry_6.png';
+const con_synastry_7 = ossUrl + 'upload/images/common/con_synastry_7.png';
+const con_synastry_8 = ossUrl + 'upload/images/common/con_synastry_8.png';
+const con_synastry_9 = ossUrl + 'upload/images/common/con_synastry_9.png';
+const con_synastry_10 = ossUrl + 'upload/images/common/con_synastry_10.png';
+const con_synastry_11 = ossUrl + 'upload/images/common/con_synastry_11.png';
 
 
 const img_note_mood_1 = ossUrl + "wap/images/fortune/img_note_mood_1.png";

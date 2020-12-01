@@ -36,30 +36,28 @@ class ItemArticleReplay extends BaseComponent {
         const { item } = this.props;
         const user = Object(item.user)
         return (
-            <View className="com-list">
-                <View className="com-item">
-                    <View className="user">
-                        <AtAvatar circle size='small' image={avatar}></AtAvatar>
-                        <View className="info">
-                            <View className="name">{user.nickname}</View>
-                            <View className="time">{item.created_at}</View>
-                        </View>
+            <View className="com-item">
+                <View className="user">
+                    <AtAvatar circle size='small' image={avatar}></AtAvatar>
+                    <View className="info">
+                        <View className="name">{user.nickname}</View>
+                        <View className="time">{item.created_at}</View>
                     </View>
-                    <View className="comment">
-                        <View className="text">{item.content}</View>
-                        <View className="tab">
-                            <View className="item">
-                                <Image className='icon small' src={heart}></Image>
-                                <Text className='text'>{item.count_like}</Text>
-                            </View>
-                            <View className="item">
-                                <Image className='icon small' src={chat}></Image>
-                                <Text className='text'>{item.count_comment}</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View className="line"></View>
                 </View>
+                <View className="comment">
+                    <View className="text">{item.content}</View>
+                    <View className="tab">
+                        <View className="item">
+                            <Image className='icon small' src={heart}></Image>
+                            <Text className='text'>{item.count_like}</Text>
+                        </View>
+                        <View className="item">
+                            <Image className='icon small' src={chat}></Image>
+                            <Text className='text'>{item.count_comment}</Text>
+                        </View>
+                    </View>
+                </View>
+                <View className="line"></View>
             </View>
         )
     }

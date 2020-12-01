@@ -1,0 +1,256 @@
+@import '../../../styles/base.less';
+@purple:#6C5FD2;
+@pink:#FF83A5;
+@orange:#FFB976;
+.synastry-detail-page{
+    margin-top: @height-nav;
+    background:@deep ;
+    color: @color;
+    .top-con,.relation,.detail{
+        background: @white;
+    }
+    .top-con{
+      font-size: 28px;
+      //档案1 vs 档案2 部分
+      .vs-con {
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .item-con {
+          .img {
+            width: 212px;
+            height: 212px;
+          }
+          .name,.asc{
+            text-align: center;
+          }
+          .name {
+            
+          }
+          .asc {
+            font-size: 24px;
+            opacity: 30%;
+          }
+        }
+        .text-align-right {
+          text-align: right;
+        }
+
+        .vs-text {          
+         .text {
+            
+          }
+        }
+    }
+
+    //进度条部分
+    .progress-con {
+        background: #fff;
+        padding: 32px 38px 12px 32px;
+        // display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+          .percent-con {
+            padding-top: 10px;
+            width: 100%;
+            height: 54px;
+            display: flex;
+            .left-bg,.right-bg{
+              border-radius: 28px;
+              color: @white;
+              line-height: 54px;
+            }
+            .left-bg {
+              background: #6C5FD3;
+              padding-left: 32px;
+
+            }
+            .right-bg {
+              background: #FF83A5;
+              padding-right: 32px;
+              text-align: right;
+            }
+          }
+          .des{
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 32px;
+          }
+      }
+
+        //如果部分
+  .if-content-con {
+    padding-top: 32px;
+    text-align: center;
+    .title {
+      opacity: 29%;
+    }
+    .content {
+      margin-top: 32px;
+      padding-bottom: 36px;
+      font-size: 32px;
+    }
+  }
+    }
+  .swiper-container-wrapper{
+    height: auto;
+  }
+  .relation{
+      margin:32px 0 32px 32px ;
+      width: 83%;
+      padding-top:30px;
+      padding-left: 32px;
+      font-size: 28px;
+      border-radius: 10px;
+      .title{}
+      .rel-con{
+          display: flex;
+          align-items: center;
+          margin-left: 112px;
+          margin-right: 112px;
+        .info{
+          flex: 3;
+          .rel{
+            border-bottom: 1px solid @base;
+          }
+          .des{
+            opacity: 29%;
+          }
+        }
+        .num{
+          flex: 1;
+          font-size: 98px;
+          color: @base;
+          margin-left: 8px;
+        }
+      }
+  }
+  .detail{
+      font-size: 24px;
+    .title{
+      padding-top: 32px;
+      text-align: center;
+      font-size: 32px;
+    }
+    //图表部分
+    .graph-con {
+      width: 100%;
+      height: auto;
+    }
+        //吸引、亲密。。部分{
+    .items-con {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      .item-con {
+        display: flex;
+        align-self: flex-start;
+        border-radius: 10px;
+        margin: 0 28px 32px 32px;
+        .sub-title {
+          border-radius: 10px;
+          padding: 2px 18px;
+          color: @white;
+          font-size: 28px;
+        }
+        .right-con {
+          text-align: left;
+          display: flex;
+          align-items: center;
+          border-radius: 10px;
+          padding-left: 40px;
+          padding-right: 22px;
+          position: relative;
+          left: -20px;
+          .score {
+            line-height: 30px;
+            font-size: 32px;
+          }
+          .des {
+          padding-left: 8px;
+          }
+        }
+
+      }
+    }
+  }
+  .comment{
+    background: @white;
+    margin-top: 32px;
+    .title{
+      padding-top: 28px;
+      text-align: center;
+      font-size: 32px;
+    }
+        //立足点
+    .content-con {
+      padding: 40px 40px;
+      font-size: 28px;
+      .judje-title-con {
+        //background: #0f0;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        .left-bg {
+          background: @purple;
+          // @include wh(8px, 40px);
+        }
+        .judje-title {
+          //background: #f00;
+          margin-left: 20px;
+          // @include sc(33px, $color-dark);
+        }
+
+      }
+      .margin-top-style{
+        margin-top: 40px;
+      }
+      .item-con {
+        .content {
+          // @include sc(30px, $color-dark2);
+          opacity: 59%;
+        }
+      }
+    }
+        //双方在关系中的收获
+    .get-content-con {
+      .graph-con {
+        .top-con {
+          //background: #f00;
+          // @include wh(100%, auto);
+        }
+        .bottom-con {
+          display: flex;
+          justify-content: center;
+          .item-con {
+            // background: #fff;
+            text-align: center;
+
+            .img {
+              // @include wh(117px, 60px);
+            }
+            .title {
+              // @include sc(30px, #1ce2bf)
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .more-btn{
+    width: 45%;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 140px;
+    border-radius: 36px;
+    background: #6C5FD2;
+    text-align: center;
+    color: @white;
+    font-size: 28px;
+    line-height: 70px;
+    position: relative;
+    bottom: 70px;
+  }
+}

@@ -86,6 +86,16 @@ class App extends Component {
           'catRecords/index',//档案袋item点击-》档案详情页面
         ]
       },
+      {
+        root: "pages/synastry/",
+        pages: [
+          //合盘
+          'synastryList/index',//合盘列表页
+          'synastryDetail/index',//合盘详情页
+          // 'moreRelations/index',//合盘更多关系页
+          // 'relationExplain/index',//合盘更多关系页
+        ]
+      },
     ],
     window: {
       backgroundTextStyle: 'light',

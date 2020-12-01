@@ -1,0 +1,206 @@
+.synastry-detail-page {
+  margin-top: 85px;
+  background: #F6F7F9;
+  color: #313836;
+}
+.synastry-detail-page .top-con,
+.synastry-detail-page .relation,
+.synastry-detail-page .detail {
+  background: #FFFFFF;
+}
+.synastry-detail-page .top-con {
+  font-size: 28px;
+}
+.synastry-detail-page .top-con .vs-con {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.synastry-detail-page .top-con .vs-con .item-con .img {
+  width: 212px;
+  height: 212px;
+}
+.synastry-detail-page .top-con .vs-con .item-con .name,
+.synastry-detail-page .top-con .vs-con .item-con .asc {
+  text-align: center;
+}
+.synastry-detail-page .top-con .vs-con .item-con .asc {
+  font-size: 24px;
+  opacity: 30%;
+}
+.synastry-detail-page .top-con .vs-con .text-align-right {
+  text-align: right;
+}
+.synastry-detail-page .top-con .progress-con {
+  background: #fff;
+  padding: 32px 38px 12px 32px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.synastry-detail-page .top-con .progress-con .percent-con {
+  padding-top: 10px;
+  width: 100%;
+  height: 54px;
+  display: flex;
+}
+.synastry-detail-page .top-con .progress-con .percent-con .left-bg,
+.synastry-detail-page .top-con .progress-con .percent-con .right-bg {
+  border-radius: 28px;
+  color: #FFFFFF;
+  line-height: 54px;
+}
+.synastry-detail-page .top-con .progress-con .percent-con .left-bg {
+  background: #6C5FD3;
+  padding-left: 32px;
+}
+.synastry-detail-page .top-con .progress-con .percent-con .right-bg {
+  background: #FF83A5;
+  padding-right: 32px;
+  text-align: right;
+}
+.synastry-detail-page .top-con .progress-con .des {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 32px;
+}
+.synastry-detail-page .top-con .if-content-con {
+  padding-top: 32px;
+  text-align: center;
+}
+.synastry-detail-page .top-con .if-content-con .title {
+  opacity: 29%;
+}
+.synastry-detail-page .top-con .if-content-con .content {
+  margin-top: 32px;
+  padding-bottom: 36px;
+  font-size: 32px;
+}
+.synastry-detail-page .swiper-container-wrapper {
+  height: auto;
+}
+.synastry-detail-page .relation {
+  margin: 32px 0 32px 32px ;
+  width: 83%;
+  padding-top: 30px;
+  padding-left: 32px;
+  font-size: 28px;
+  border-radius: 10px;
+}
+.synastry-detail-page .relation .rel-con {
+  display: flex;
+  align-items: center;
+  margin-left: 112px;
+  margin-right: 112px;
+}
+.synastry-detail-page .relation .rel-con .info {
+  flex: 3;
+}
+.synastry-detail-page .relation .rel-con .info .rel {
+  border-bottom: 1px solid #6C5FD3;
+}
+.synastry-detail-page .relation .rel-con .info .des {
+  opacity: 29%;
+}
+.synastry-detail-page .relation .rel-con .num {
+  flex: 1;
+  font-size: 98px;
+  color: #6C5FD3;
+  margin-left: 8px;
+}
+.synastry-detail-page .detail {
+  font-size: 24px;
+}
+.synastry-detail-page .detail .title {
+  padding-top: 32px;
+  text-align: center;
+  font-size: 32px;
+}
+.synastry-detail-page .detail .graph-con {
+  width: 100%;
+  height: auto;
+}
+.synastry-detail-page .detail .items-con {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.synastry-detail-page .detail .items-con .item-con {
+  display: flex;
+  align-self: flex-start;
+  border-radius: 10px;
+  margin: 0 28px 32px 32px;
+}
+.synastry-detail-page .detail .items-con .item-con .sub-title {
+  border-radius: 10px;
+  padding: 2px 18px;
+  color: #FFFFFF;
+  font-size: 28px;
+}
+.synastry-detail-page .detail .items-con .item-con .right-con {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 40px;
+  padding-right: 22px;
+  position: relative;
+  left: -20px;
+}
+.synastry-detail-page .detail .items-con .item-con .right-con .score {
+  line-height: 30px;
+  font-size: 32px;
+}
+.synastry-detail-page .detail .items-con .item-con .right-con .des {
+  padding-left: 8px;
+}
+.synastry-detail-page .comment {
+  background: #FFFFFF;
+  margin-top: 32px;
+}
+.synastry-detail-page .comment .title {
+  padding-top: 28px;
+  text-align: center;
+  font-size: 32px;
+}
+.synastry-detail-page .comment .content-con {
+  padding: 40px 40px;
+  font-size: 28px;
+}
+.synastry-detail-page .comment .content-con .judje-title-con {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.synastry-detail-page .comment .content-con .judje-title-con .left-bg {
+  background: #6C5FD2;
+}
+.synastry-detail-page .comment .content-con .judje-title-con .judje-title {
+  margin-left: 20px;
+}
+.synastry-detail-page .comment .content-con .margin-top-style {
+  margin-top: 40px;
+}
+.synastry-detail-page .comment .content-con .item-con .content {
+  opacity: 59%;
+}
+.synastry-detail-page .comment .get-content-con .graph-con .bottom-con {
+  display: flex;
+  justify-content: center;
+}
+.synastry-detail-page .comment .get-content-con .graph-con .bottom-con .item-con {
+  text-align: center;
+}
+.synastry-detail-page .more-btn {
+  width: 45%;
+  height: 70px;
+  margin: 0 auto;
+  margin-top: 140px;
+  border-radius: 36px;
+  background: #6C5FD2;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 28px;
+  line-height: 70px;
+  position: relative;
+  bottom: 70px;
+}

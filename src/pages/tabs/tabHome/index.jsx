@@ -42,7 +42,7 @@ export default class tabHome extends BaseComponent {
     }
 
     componentDidMount = () => {
-        this.log('home componentDidMount= access_token=' + this.props.access_token);
+        console.log('home componentDidMount= access_token=' + this.props.access_token);
         if (!this.props.access_token) {
             this.log('跳转到登陆页');
             Taro.navigateTo({
@@ -51,34 +51,19 @@ export default class tabHome extends BaseComponent {
             return;
         }
 
-        // if (this.props.data) {//当前首页数据不为空，已保存到本地
-        //   this.log('当前档首页数据不为空，已保存到本地');
-        // } else {
         this.props.dispatch({
             type: 'tabHome/load',
-        }).then((data) => {
-        })
-        // }
+        });
     };
 
-    // componentDidMount = () => {
-    //   console.log(this);
-    // }
     componentDidShow = () => {
         if (this.props.data) {//当前首页数据不为空，已保存到本地
             this.log('当前档首页数据不为空，已保存到本地');
-            this.log(this.props.data)
-            // alert('当前档首页数据不为空，已保存到本地')
         } else {
-            // this.props.dispatch({
-            //   type: 'tabHome/load',
-            // });
+            this.props.dispatch({
+                type: 'tabHome/load',
+            });
         }
-    }
-
-    componentDidUpdate = () => {
-
-        //this.log('home componentDidUpdate ');
     }
 
     //分享
@@ -142,35 +127,30 @@ export default class tabHome extends BaseComponent {
         e.stopPropagation();
     }
 
-    //通用的关闭按钮点击事件（公告框、**之日alert）
-    onClickAlertShadow = () => {
-        this.setState({ show_alert_type: HOME_ALERT_TYPE.NONE })
+    actionItemClick = (e) => {
+        let index = e.currentTarget.dataset.index;
+        let item = this.props.tabs[index];
+        console.log(item.path);
+        Taro.navigateTo({ url: item.path })
     }
 
     render() {
         const { data, tabs } = this.props;
-        console.log(data);
         const {
             tabsListValue,
-            show_alert_type,
         } = this.state;
 
         if (!data)
             return
-
-        // let astroTime = '2019';
-        // if (data) {
-        //   astroTime = fmtDate(data.today_astro.time * 1000);
-        // }
         return (
             <View className='page'>
                 <MySwiper />
                 <View className="container">
                     {/* 导航栏 */}
                     <View className='nav'>
-                        {tabs && tabs.map((item) => {
+                        {tabs && tabs.map((item, index) => {
                             return (
-                                <View className='nav-item'>
+                                <View className='nav-item' data-index={index} onClick={this.actionItemClick}>
                                     <Image
                                         className='img'
                                         src={item.url}

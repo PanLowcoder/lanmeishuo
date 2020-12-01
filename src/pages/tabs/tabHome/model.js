@@ -16,24 +16,29 @@ export default {
     tabs: [
       {
         title: '星盘',
-        url: icon_Astrolable
+        url: icon_Astrolable,
+        path: '/pages/astro/detail/index'
       },
       {
         title: '合盘',
-        url: icon_Combine
+        url: icon_Combine,
+        path: '/pages/synastry/synastryList/index'
       },
       {
         title: '预测',
-        url: icon_Prediction
+        url: icon_Prediction,
+        path: '/pages/synastry/synastryList/index'
       },
       {
         title: '日记',
-        url: icon_Diary
+        url: icon_Diary,
+        path: '/pages/synastry/synastryList/index'
       },
 
       {
         title: '生时校正',
-        url: icon_Correction
+        url: icon_Correction,
+        path: '/pages/synastry/synastryList/index'
       }
     ]
   },

@@ -86,7 +86,6 @@ class CanvasView extends BaseComponent {
 
 
   componentDidMount() {
-    console.log("====<>" + this.props.data)
     // 只有编译为h5下面代码才会被编译
     if (process.env.TARO_ENV === 'h5') {
       // this.context = window.document.getElementById('canvas-id').getContext('2d')

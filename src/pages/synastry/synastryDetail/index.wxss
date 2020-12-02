@@ -177,9 +177,6 @@
 .synastry-detail-page .comment .content-con .judje-title-con .judje-title {
   margin-left: 20px;
 }
-.synastry-detail-page .comment .content-con .margin-top-style {
-  margin-top: 40px;
-}
 .synastry-detail-page .comment .content-con .item-con .content {
   opacity: 59%;
 }

@@ -1,4 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
+import BaseComponent from "../../../components/BaseComponent";
 import { View, Image } from '@tarojs/components'
 import './index.less'
 import { AtNavBar, AtButton } from "taro-ui";
@@ -25,7 +26,7 @@ const img_more = ossUrl + 'upload/images/user/more.png';
     ...synastryDetail, ...common
 }))
 
-export default class Index extends Component {
+export default class Index extends BaseComponent {
 
     constructor() {
         super(...arguments)
@@ -65,6 +66,7 @@ export default class Index extends Component {
         //合盘历史
         let list = Taro.getStorageSync('store_synatry_list');
         this.setState({ list: list });
+
     }
 
 
@@ -91,6 +93,10 @@ export default class Index extends Component {
                 mask: true,
             });
         }
+    }
+
+    actionRemoveStorage = () => {
+        Taro.removeStorageSync('store_synatry_list');
     }
 
     render() {
@@ -143,7 +149,7 @@ export default class Index extends Component {
                 <View className="record">
                     <View className="head">
                         <View className="title">合盘记录</View>
-                        <View className="del">
+                        <View className="del" onClick={this.actionRemoveStorage}>
                             <Image className='icon' src={del_icon}></Image>
                             <View className="text">清空</View>
                         </View>
@@ -155,13 +161,15 @@ export default class Index extends Component {
                     ) : (
                             <View className="list">
                                 { list && list.length > 0 && list.map((item, index) => {
-                                    <View className="item">
-                                        <View className="content">
-                                            <View className="name">{getSubString(item.name1, 3)} & {getSubString(item.name2, 3)}</View>
-                                            <View className="time">2020.09.09  5:03:53</View>
+                                    return (
+                                        <View className="item">
+                                            <View className="content">
+                                                <View className="name">{getSubString(item.name1, 3)} & {getSubString(item.name2, 3)}</View>
+                                                <View className="time">2020.09.09  5:03:53</View>
+                                            </View>
+                                            <Image className="more" src={img_more}></Image>
                                         </View>
-                                        <Image className="more" src={img_more}></Image>
-                                    </View>
+                                    )
                                 })
                                 }
 

@@ -1,4 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
+import BaseComponent from "../../../components/BaseComponent";
 import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
 import './index.less'
 import { AtNavBar } from "taro-ui";
@@ -12,7 +13,7 @@ import F2 from '@antv/f2'
     ...synastryDetail,
 }))
 
-export default class Index extends Component {
+export default class Index extends BaseComponent {
     config = {
         navigationBarTitleText: '合盘结果',
     };
@@ -39,8 +40,6 @@ export default class Index extends Component {
             type: 'synastryDetail/detail',
         });
     }
-
-    componentDidShow() { }
 
     drawRadar(canvas, width, height) {
 
@@ -178,7 +177,6 @@ export default class Index extends Component {
 
     render() {
         const { data, rid1, rid2 } = this.props;
-        let harmoniousAndConflict = Array(data.harmoniousAndConflict);
         let obj = {
             array: [1, 2]
         }
@@ -214,6 +212,9 @@ export default class Index extends Component {
                 data.relation[i].per = persent;
             }
         }
+        let foothold = Array(data.foothold);
+        let conflict = Array(data.conflict);
+        // let [harmoniousAndConflict] = Array(data.harmoniousAndConflict);
         console.log(data);
         return (
             <View className='synastry-detail-page'>
@@ -246,6 +247,9 @@ export default class Index extends Component {
                     {/*进度条部分*/}
                     <View className='progress-con'>
                         <View className='percent-con'>
+                            {/* {data.harmoniousAndConflict.map((item) = (
+                                <View className="left-bg">{item}</View>
+                            ))} */}
                             <View className='left-bg' style={'width:30%;'}>30%</View>
                             <View className='right-bg' style={'width:70%;'}>70%</View>
                         </View>
@@ -264,30 +268,20 @@ export default class Index extends Component {
                     className='swiper'
                     circular
                 >
-                    <SwiperItem>
-                        <View className='relation'>
-                            <View className="title">最合适的关系</View>
-                            <View className="rel-con">
-                                <View className="info">
-                                    <View className="rel">亲朋好友</View>
-                                    <View className="des">关系概率</View>
+                    {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
+                        <SwiperItem>
+                            <View className='relation'>
+                                <View className="title">{index == 0 ? '最合适的关系' : '适合的关系'}</View>
+                                <View className="rel-con">
+                                    <View className="info">
+                                        <View className="rel">{item.name_cn}</View>
+                                        <View className="des">关系概率</View>
+                                    </View>
+                                    <View className="num">{item.per}%</View>
                                 </View>
-                                <View className="num">50%</View>
                             </View>
-                        </View>
-                    </SwiperItem>
-                    <SwiperItem>
-                        <View className='relation'>
-                            <View className="title">最合适的关系</View>
-                            <View className="rel-con">
-                                <View className="info">
-                                    <View className="rel">亲朋好友</View>
-                                    <View className="des">关系概率</View>
-                                </View>
-                                <View className="num">50%</View>
-                            </View>
-                        </View>
-                    </SwiperItem>
+                        </SwiperItem>
+                    ))}
                 </Swiper>
                 <View className="detail">
                     <View className="title">关系发展潜力</View>
@@ -318,14 +312,11 @@ export default class Index extends Component {
                             <View className='left-bg'></View>
                             <View className='judje-title'>立足点</View>
                         </View>
-                        {/* {data.foothold.map((item, index) => (
+                        {foothold.map((item, index) => (
                             <View className='item-con'>
                                 <View className='content'>{index + 1}.{item}</View>
                             </View>
-                        ))} */}
-                        <View className='item-con'>
-                            <View className='content'>1111</View>
-                        </View>
+                        ))}
                     </View>
 
                     {/*矛盾点*/}
@@ -334,18 +325,11 @@ export default class Index extends Component {
                             <View className='left-bg'></View>
                             <View className='judje-title'>矛盾点</View>
                         </View>
-                        {/* {data.conflict.map((item, index) => (
+                        {conflict.map((item, index) => (
                             <View className='item-con'>
                                 <View className='content'>{index + 1}.{item}</View>
                             </View>
-                        ))} */}
-                        <View className='item-con'>
-                            <View className='content'>1111</View>
-                        </View>
-                        <View className='judje-title-con margin-top-style'>
-                            <View className='left-bg'></View>
-                            <View className='judje-title'>双方在关系中的收获</View>
-                        </View>
+                        ))}
                     </View>
 
 

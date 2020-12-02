@@ -52,11 +52,13 @@
 .synastry-page .top-con .info .name {
   font-size: 36px;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 .synastry-page .top-con .info .con {
   background: #FFFFFF;
   border-radius: 22px;
   font-size: 16px;
+  padding: 12px 16px;
 }
 .synastry-page .top-con .btn {
   width: 48%;

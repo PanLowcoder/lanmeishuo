@@ -220,7 +220,7 @@ export default class tabHome extends BaseComponent {
                             <View className="left">
                                 <View className="text">星文推荐</View>
                             </View>
-                            <View className="right" onClick={this.actionArticleMore}>
+                            <View className="right" >
                                 <Text className='text'>查看更多</Text>
                                 <Image className='icon' src={icon_more}></Image>
                             </View>

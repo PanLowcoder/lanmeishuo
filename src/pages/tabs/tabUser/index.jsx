@@ -11,7 +11,8 @@ import { getWindowHeight } from "../../../utils/style";
 const img_msg = ossUrl + 'upload/images/user/news.png';
 const img_atv = ossUrl + 'upload/images/user/avatar.png';
 const img_more = ossUrl + 'upload/images/user/more.png';
-
+const img_sex_male = ossUrl + 'upload/images/user/img_sex_male.png';
+const img_sex_female = ossUrl + 'upload/images/user/img_sex_female.png';
 @connect(({ user, common }) => ({
     ...user,
     ...common,
@@ -123,15 +124,15 @@ export default class tabUser extends BaseComponent {
                     <View className="user-header">
                         <View className="header-con" onClick={this.actionUserHeaderClick}>
                             <Image className='img-msg' src={img_msg} onClick={this.actionMsg}></Image>
-                            <AtAvatar circle className="img-avatar" image={img_atv} ></AtAvatar>
+                            <AtAvatar circle className="img-avatar" image={user.avatar != '' ? ossUrl + user.avatar : img_atv} ></AtAvatar>
                             <View className="right-con">
-                                <View className="name">南山吴彦祖 </View>
-                                <View className="num">ID: 59120301031</View>
+                                <View className="name">{user && user.name} </View>
+                                <View className="num">ID号：{user && user.uen}</View>
                                 <View className="asc">
                                     <View className="icon">
-                                        <Image className="img-sex"></Image>
+                                        <Image className="img-sex" src={user && user.sex == 1 ? img_sex_male : img_sex_female}></Image>
                                     </View>
-                                    <View className="asc-text">日金牛·月射手·升天秤</View>
+                                    <View className="asc-text">{asc}</View>
                                 </View>
                             </View>
                         </View>

@@ -9,9 +9,9 @@ import { ASTRO_CONF_BGS, PROTECT_ANCIENT_IDS, PROTECT_IDS } from "../../../js/as
 import { showToast } from "../../../utils/common";
 import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE } from '../../../utils/astrolabe';
 
-const icon_astro_style = ossUrl + 'wap/images/astro/cavans/icon_astro_style.png'
-const icon_astro_note = ossUrl + 'wap/images/astro/cavans/icon_astro_note.png'
-const icon_astro_setting = ossUrl + 'wap/images/astro/cavans/icon_astro_setting.png'
+const icon_astro_style = ossUrl + 'upload/images/astro/cavans/icon_astro_style.png'
+const icon_astro_note = ossUrl + 'upload/images/astro/cavans/icon_astro_note.png'
+const icon_astro_setting = ossUrl + 'upload/images/astro/cavans/icon_astro_setting.png'
 
 /**
  * 详情弹出框的类型

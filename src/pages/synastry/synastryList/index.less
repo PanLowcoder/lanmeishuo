@@ -1,0 +1,133 @@
+@import '../../../styles/base.less';
+
+.synastry-page{
+    background: @deep;
+    margin-top: @height-nav;
+    overflow: hidden;
+    color: @color;
+    .top-con{
+        background: @white;
+        padding-top: 26px;
+        padding-bottom: 60px;
+        border-radius: 20px;
+        .left,.right{
+            width: 648px;
+            height: 211px;
+            margin-bottom: 32px;
+            padding: 32px;
+        }
+        .left-con,.right-con{
+            display: flex;
+            justify-content: space-around;
+        }
+        .left{
+            background: linear-gradient(180deg, #FFE8E8 0%, #FFCCCC 100%);
+            border-top-right-radius: 138px;
+            border-bottom-right-radius: 138px;
+            .left-con{
+                margin-left: 20px;
+            }
+
+        }
+        .right{            
+            background: linear-gradient(180deg, #FFF2D3 55%, #FFF2D3 100%);
+            border-top-left-radius: 138px;
+            border-bottom-left-radius: 138px;
+            float: right;
+            .right-con{
+                // float: right;
+                margin-right: 20px;
+            }
+
+        }
+        .user, .astro{
+            .img-record{
+                width: 200px;
+                height: 200px;
+            }
+        }
+        .info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .name{
+                font-size: 36px;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
+            .con{
+                background: @white;
+                border-radius: 22px;
+                font-size: 16px;
+                padding: 12px 16px;
+            }
+
+        }
+        .btn{
+            width: 48%;
+            height: 82px;
+            background:#6C5FD3 ;
+            border-radius: 10px;
+            color:#FFFFFF;
+            font-size: 28px;
+        }
+        
+    }
+    .record{
+        color:@color ;
+        margin-top: 32px;
+        padding-left: 32px;
+        padding-right: 38px;
+        .head{
+            display: flex;
+            justify-content: space-between;
+            .title{
+                font-size: 28px;
+                margin-left: 2px;
+                line-height: 40px;
+                font-weight: 400;
+            }
+            .del{
+                display: flex;
+                align-items: center;
+                .icon{
+                    width: 38px;
+                    height: 40px;
+                }
+                .text{
+                    font-size: 24px;
+                    margin-left: 6px;
+                }
+            }
+        }
+        .list{
+            margin-top: 24px;
+            .item{
+                background: @white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 10px;
+                padding: 26px 32px 26px 30px;
+                margin-bottom: 32px;
+
+                .content{  
+                    .name{
+                        font-size: 22px;
+                    } 
+                    .time{
+                        font-size: 18px;
+                        opacity: .29;
+                    }                 
+                }
+                .more{
+                    width: 25.44px;
+                    height: 25.44px; 
+                }
+            }
+            
+        }
+        
+
+    }
+}

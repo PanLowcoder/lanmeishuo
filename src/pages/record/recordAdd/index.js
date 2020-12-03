@@ -330,8 +330,8 @@ class recordAdd extends BaseComponent {
       }
       case 2: {
         list[this.state.index_of_click].value_name = e.detail.value;
-        params.hour = e.detail.value.split('-')[0];
-        params.minute = e.detail.value.split('-')[1];
+        params.hour = e.detail.value.split(':')[0];
+        params.minute = e.detail.value.split(':')[1];
         break;
       }
       case 3: {

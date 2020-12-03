@@ -1,11 +1,11 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../../../components/BaseComponent";
-import './index.scss';
+import './index.less';
 
 import RecordsAndCatsList from '../../../components/RecordsAndCatsList'
-import {connect} from "@tarojs/redux";
-import {goToCommonPage} from "../../../utils/common";
-import {PAGES} from "../../../utils/constants";
+import { connect } from "@tarojs/redux";
+import { goToCommonPage } from "../../../utils/common";
+import { PAGES } from "../../../utils/constants";
 
 /**
  *
@@ -27,7 +27,7 @@ export const RECORD_SELECT_TYPES = {
  * type：0：全部的档案（点击跳转到星盘）；1：选择档案（单选）；2：选择档案（多选）；3：选择档案（2个【合盘使用】）；4：鉴爱选择档案（没有档案袋，有微信档案）;5：占星地图选择档案（单选，但是跳转固定）
  * selected_records：已经选择的档案
  */
-@connect(({record, common}) => ({
+@connect(({ record, common }) => ({
   ...record, ...common
 }))
 class recordSelect extends BaseComponent {
@@ -48,7 +48,7 @@ class recordSelect extends BaseComponent {
   componentDidMount = () => {
     let type = this.$router.params.type;
     let cid = this.$router.params.cid;
-    this.setState({type: type, cid: cid});
+    this.setState({ type: type, cid: cid });
   };
 
   componentDidShow = () => {
@@ -83,7 +83,7 @@ class recordSelect extends BaseComponent {
   }
 
 
-//切换到微信档案回调
+  //切换到微信档案回调
   onTabToWechatRecords = () => {
     this.log('onTabToWechatRecords');
     this.requestFirstPage();
@@ -133,8 +133,8 @@ class recordSelect extends BaseComponent {
 
 
   render() {
-    const {type, record_list, cat_list} = this.state;
-    const {selected_records, list, loading} = this.props;
+    const { type, record_list, cat_list } = this.state;
+    const { selected_records, list, loading } = this.props;
 
     this.log('record render');
     this.log(list);

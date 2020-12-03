@@ -110,13 +110,13 @@ class AstroTypeModal extends BaseComponent {
                 >
                   经典
                 </View>
-                {/*<View*/}
-                {/*  onClick={this.actionStyleClick}*/}
-                {/*  data-id={1}*/}
-                {/*  className={style == 0 ? 'item' : 'item selected'}*/}
-                {/*>*/}
-                {/*  专业*/}
-                {/*</View>*/}
+                <View
+                 onClick={this.actionStyleClick}
+                data-id={1}
+                 className={style == 0 ? 'item' : 'item selected'}
+                >
+                专业
+                </View>
               </View>
             </View>
           </View>

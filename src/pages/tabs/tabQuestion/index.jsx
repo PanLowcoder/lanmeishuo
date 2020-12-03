@@ -1,8 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
+import BaseComponent from "../../../components/BaseComponent";
 import { View, Text } from '@tarojs/components'
 import './index.less'
 
-export default class Index extends Component {
+export default class Index extends BaseComponent {
 
     componentWillMount() { }
 

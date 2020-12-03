@@ -5,7 +5,7 @@ export const get_personal_info = (data, loading) => Request({
   url: '/api/user/personal',
   method: 'GET',
   data,
-}, false);
+}, true);
 
 //请求-个人中心-页面数据
 export const get_user_center = (data, loading) => Request({

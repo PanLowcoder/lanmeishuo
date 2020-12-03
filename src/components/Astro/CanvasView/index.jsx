@@ -9,9 +9,9 @@ import { ASTRO_CONF_BGS, PROTECT_ANCIENT_IDS, PROTECT_IDS } from "../../../js/as
 import { showToast } from "../../../utils/common";
 import { CANVAS_VIEW_TYPE, ASTRO_TID_TYPES, ASTRO_TYPES, ASTRO_SYNASTRY_TYPES, BOTTOM_LETF_BTN_TYPE } from '../../../utils/astrolabe';
 
-const icon_astro_style = ossUrl + 'wap/images/astro/cavans/icon_astro_style.png'
-const icon_astro_note = ossUrl + 'wap/images/astro/cavans/icon_astro_note.png'
-const icon_astro_setting = ossUrl + 'wap/images/astro/cavans/icon_astro_setting.png'
+const icon_astro_style = ossUrl + 'upload/images/astro/cavans/icon_astro_style.png'
+const icon_astro_note = ossUrl + 'upload/images/astro/cavans/icon_astro_note.png'
+const icon_astro_setting = ossUrl + 'upload/images/astro/cavans/icon_astro_setting.png'
 
 /**
  * 详情弹出框的类型
@@ -86,31 +86,36 @@ class CanvasView extends BaseComponent {
 
 
   componentDidMount() {
-    console.log("====<>" + this.props.data)
     // 只有编译为h5下面代码才会被编译
     if (process.env.TARO_ENV === 'h5') {
       // this.context = window.document.getElementById('canvas-id').getContext('2d')
       if (this.props.data)
         this.draw(this.props.data)
-        this.CavasClick()
       // 只有编译为小程序下面代码才会被编译
     } else {
+      setTimeout(() => {
+        let query = Taro.createSelectorQuery().in(this.$scope)
+        query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+          let node = res[0].node;
+          let ctx = node.getContext('2d');
+          console.log(ctx);
+        })
+      }, 1000)
       this.draw(this.props.data)
-      this.CavasClick()
     }
   }
 
 
   componentWillReceiveProps(nextProps, nextContext) {
-    console.log('CanvasView componentWillReceiveProps props=')
-    console.log(this.props)
-    console.log('CanvasView componentWillReceiveProps state=')
-    console.log(this.state)
+    this.log('CanvasView componentWillReceiveProps props=')
+    this.log(this.props)
+    this.log('CanvasView componentWillReceiveProps state=')
+    this.log(this.state)
 
-    console.log('CanvasView componentWillReceiveProps nextProps=')
-    console.log(nextProps)
-    console.log('CanvasView componentWillReceiveProps nextContext=')
-    console.log(nextContext)
+    this.log('CanvasView componentWillReceiveProps nextProps=')
+    this.log(nextProps)
+    this.log('CanvasView componentWillReceiveProps nextContext=')
+    this.log(nextContext)
 
     if (nextProps.data)
       this.draw(nextProps.data)
@@ -119,13 +124,13 @@ class CanvasView extends BaseComponent {
 
   //星盘样式按钮被点击
   actionStyleBtnClick = () => {
-    console.log('actionStyleBtnClick')
+    this.log('actionStyleBtnClick')
     this.props.onStyleBtnClick()
   }
 
   //笔记按钮被点击
   actionNoteBtnClick = () => {
-    console.log('actionNoteBtnClick')
+    this.log('actionNoteBtnClick')
 
     if (this.props.count_of_note == 0) {//添加
       // let page_type = CANVAS_VIEW_TYPE.ASTRO == this.props.type ? NOTE_PAGE_TYPE.ASTRO : NOTE_PAGE_TYPE.DIVINATION
@@ -139,7 +144,7 @@ class CanvasView extends BaseComponent {
 
   //参数或者单盘、双盘按钮被点击
   actionLeftBottomBtnClick = () => {
-    console.log('actionLeftBottomBtnClick')
+    this.log('actionLeftBottomBtnClick')
     // 左下角按钮的类型：-1：不显示；0：显示参数；1：显示单盘；2：显示双盘；
     if (BOTTOM_LETF_BTN_TYPE.PARAMS == this.props.btn_type) {
       let params = ''
@@ -163,7 +168,7 @@ class CanvasView extends BaseComponent {
   //tid切换按钮被点击
   actionTidChangeClick = (e) => {
     let tid_current = e.currentTarget.dataset.tid;
-    console.log('actionTidChangeClick tid_current=' + tid_current)
+    this.log('actionTidChangeClick tid_current=' + tid_current)
     if (tid_current == ASTRO_TID_TYPES.MODERN) {
       tid_current = ASTRO_TID_TYPES.ANCIENT;
     } else if (tid_current == ASTRO_TID_TYPES.ANCIENT) {
@@ -176,7 +181,7 @@ class CanvasView extends BaseComponent {
 
   //星盘设置按钮被点击
   actionSettingBtnClick = () => {
-    console.log('actionSettingBtnClick')
+    this.log('actionSettingBtnClick')
     let chart = ''
     if (0 == this.props.type) {//星盘
       chart = ASTRO_TABS[this.props.astro_type].params
@@ -188,10 +193,10 @@ class CanvasView extends BaseComponent {
 
   // 绘制的函数
   draw(data) {
-    console.log('---------------draw-----------------')
+    this.log('---------------draw-----------------')
     //canvas
     if (process.env.TARO_ENV === 'h5') {
-      let canvas = document.getElementById("myCanvas"+this.props.type);
+      let canvas = document.getElementById("myCanvas");
       let ctx = canvas.getContext("2d");
       this.init(canvas, ctx, data)
     } else {
@@ -210,7 +215,7 @@ class CanvasView extends BaseComponent {
     const info = Taro.getSystemInfoSync()
 
     let screenWidth = info.screenWidth * rdi;
-    console.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + info.windowWidth + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
+    // this.log('draw this.state.screenWidth= ' + screenWidth + ',org=' + info.screenWidth + ',window.screen.width=' + window.screen.width + ',this.props.astro_bg_index=' + this.props.astro_bg_index)
     //设置画布宽高
     canvas.height = canvas.width = screenWidth;
     let x = screenWidth / 2;
@@ -250,7 +255,7 @@ class CanvasView extends BaseComponent {
     //---------法达盘---------
     if (data.firdaria) {
       sub_of_firdaria_or_profection = 30 * rdi;
-      console.log('画法达大运')
+      this.log('画法达大运')
 
       let cx = screenWidth / 2;
       let ro = screenWidth / 2 - 15 * rdi;//法达大运
@@ -292,7 +297,7 @@ class CanvasView extends BaseComponent {
 
           //---------法达-小运当前选中的圆弧--------
           if (item.main.id == data.firdaria.main_luck && item_sub.id == data.firdaria.sub_luck) {
-            console.log('i=' + i + ',j=' + j + ',item.main.id=' + item.main.id + ',item_sub.id=' + item_sub.id)
+            this.log('i=' + i + ',j=' + j + ',item.main.id=' + item.main.id + ',item_sub.id=' + item_sub.id)
             let deg_sub1 = deg_sub - pro_add_sub * 360;
             let angle_sub1 = Math.PI / 180 * deg_sub1;
 
@@ -340,7 +345,7 @@ class CanvasView extends BaseComponent {
 
         //---------法达-大运当前选中的圆弧--------
         if (item.main.id == data.firdaria.main_luck) {
-          console.log('i=' + i + ',item.main.id=' + item.main.id)
+          this.log('i=' + i + ',item.main.id=' + item.main.id)
           let angle_main1 = Math.PI / 180 * deg;
           let angle_main2 = Math.PI / 180 * (deg + (pro_add_main * 360))
           // deg += (pro_add_main * 360)
@@ -421,7 +426,7 @@ class CanvasView extends BaseComponent {
       //---------小限盘---------
       if (data.profection) {
         sub_of_firdaria_or_profection = 30 * rdi;
-        console.log('画小限盘')
+        this.log('画小限盘')
         let cx = screenWidth / 2;
         let ro = screenWidth / 2 - 15 * rdi;//法达大运
         let r = screenWidth / 2;
@@ -491,7 +496,7 @@ class CanvasView extends BaseComponent {
             ctx.font = 10 * rdi + "px iconfont";
             text = eval(PLANET(data.houses[key].protect_ancient_id).glyph_cavans)
           }
-          console.log('profection key=' + key + ',protect_id=' + data.houses[key].protect_id + ',protect_ancient_id=' + data.houses[key].protect_ancient_id)
+          this.log('profection key=' + key + ',protect_id=' + data.houses[key].protect_id + ',protect_ancient_id=' + data.houses[key].protect_ancient_id)
           ctx.fillStyle = '#999'
           ctx.fillText(text, x_profection_year, y_profection_year)
           ctx.fillText(text, x_profection_month, y_profection_month)
@@ -540,7 +545,7 @@ class CanvasView extends BaseComponent {
     ctx.fill()
     //---------星盘里-相位的圆背景---------
 
-    console.log('---------')
+    this.log('---------')
 
     //---------星座-圆环-文字、守护星、刻度线---------
     let r = screenWidth / 2;
@@ -689,7 +694,7 @@ class CanvasView extends BaseComponent {
       ctx.font = 8 * rdi + "px Verdana";
       ctx.fillStyle = HOUSE(i).color;
       ctx.fillText(i.toString(), x, y)
-      // console.log('house i=' + i + ',x=' + x + ',y=' + y)
+      // this.log('house i=' + i + ',x=' + x + ',y=' + y)
       canvas_tap_house.push([x, y])
       //---------宫位-圆环-12宫位的文字---------
     }
@@ -816,13 +821,13 @@ class CanvasView extends BaseComponent {
 
 
     //---------外圈4（相位线）行星点之间的连线---------
-    // console.log(data1)
+    // this.log(data1)
     if (data1) {//双盘
-      console.log('双盘外盘')
+      this.log('双盘外盘')
       let i;
       for (i = 0; i < data1.phase.length; i++) {
         let item_phase = data1.phase[i];
-        // console.log(item_phase)
+        // this.log(item_phase)
 
         //起始点
         let l1 = data.planets[item_phase.id2].deg;
@@ -836,7 +841,7 @@ class CanvasView extends BaseComponent {
         let x_phase = -(r6) * Math.cos(angle_phase) + cx;
         let y_phase = (r6) * Math.sin(angle_phase) + cx;
 
-        // console.log('i=' + i + ',l1=' + l1 + ',l2=' + l2 + ',asc=' + asc)
+        // this.log('i=' + i + ',l1=' + l1 + ',l2=' + l2 + ',asc=' + asc)
 
         //设置透明度
         ctx.globalAlpha = Math.abs(1.1 - parseFloat(item_phase.orb) / parseInt(item_phase.or_orb))
@@ -851,7 +856,7 @@ class CanvasView extends BaseComponent {
 
       }
     } else {//单盘
-      console.log('双盘内盘')
+      this.log('双盘内盘')
       let i;
       for (i = 0; i < data.phase.length; i++) {
         let item = data.phase[i];
@@ -898,45 +903,26 @@ class CanvasView extends BaseComponent {
     this.setState({ canvas_tap_profection_year })
     this.setState({ canvas_tap_profection_month })
   }
-  
-  CavasClick() {
-    console.log('---------------click-----------------')
-    //canvas
-    if (process.env.TARO_ENV === 'h5') {
-      let canvas = document.getElementById("myCanvas"+this.props.type);
-      let canva = canvas.getBoundingClientRect();
-      this.setState({canvas:canva})
-    } else {
-      let that =this;
-      let query = Taro.createSelectorQuery().in(this.$scope)
-          query.select("#myCanvas"+that.props.type).boundingClientRect(function(res){
-      let canvas = res;
-        that.setState({canvas:canvas})
-      }).exec()
-    }
 
-  }
+
   //画布被点击
   actionCavasClick = (e) => {
-      const canvas = this.state.canvas
-      console.log(e)
-      console.log(canvas)
-       if (process.env.TARO_ENV === 'h5') {
-      var x = (e.pageX - canvas.left) * rdi;
-      var y = (e.pageY - canvas.top) * rdi;
-      console.log('actionCavasClick x=' + x + ',y=' + y)
-    } else {
-      var x = (e.detail.x - canvas.left) * rdi;
-      var y = (e.detail.y - canvas.top) * rdi;
-      console.log('actionCavasClick x=' + x + ',y=' + y)
-    }
+    let query = Taro.createSelectorQuery().in(this.$scope)
+    query.select('.canvas').fields({ node: true, size: true }).exec(res => {
+      let node = res[0].node;
+      let ctx = node.getContext('2d');
+      console.log(res);
+      //console.log(canvas)
+      var x = (e.pageX - ctx.getBoundingClientRect().left) * rdi;
 
+      var y = (e.pageY - ctx.getBoundingClientRect().top) * rdi;
+      this.log('actionCavasClick x=' + x + ',y=' + y)
 
       let area = 10 * rdi;
       //检测宫位文字是否被点击
       this.state.canvas_tap_house.map((item, index) => {
         if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          console.log('click ' + index + ' house text'+item)
+          this.log('click ' + index + ' house text')
           this.setState({ index_house_detail_pop: index, pop_type: POP_TYPE.HOUSE })
         }
       })
@@ -945,7 +931,7 @@ class CanvasView extends BaseComponent {
       for (key in this.state.canvas_tap_planet) {
         let item = this.state.canvas_tap_planet[key];
         if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          console.log('click ' + key + ' planet text')
+          this.log('click ' + key + ' planet text')
           this.setState({ index_planet_detail_pop: key, index_planet: 0, pop_type: POP_TYPE.PLANET })
         }
       }
@@ -953,7 +939,7 @@ class CanvasView extends BaseComponent {
       for (key in this.state.canvas_tap_planet_out) {
         let item = this.state.canvas_tap_planet_out[key];
         if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-          console.log('click ' + key + ' planet text')
+          this.log('click ' + key + ' planet text')
           this.setState({ index_planet_detail_pop: key, index_planet: 1, pop_type: POP_TYPE.PLANET_OUT })
         }
       }
@@ -964,7 +950,7 @@ class CanvasView extends BaseComponent {
         for (key in this.state.canvas_tap_firdaria_small) {
           let item = this.state.canvas_tap_firdaria_small[key];
           if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-            console.log('click ' + key + ' small firdaria text')
+            this.log('click ' + key + ' small firdaria text')
             let tmp_arr = key.split('-')
             this.setState({
               index_planet_detail_pop: parseInt(tmp_arr[0]),
@@ -978,7 +964,7 @@ class CanvasView extends BaseComponent {
         for (key in this.state.canvas_tap_firdaria_big) {
           let item = this.state.canvas_tap_firdaria_big[key];
           if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-            console.log('click ' + key + ' big firdaria text')
+            this.log('click ' + key + ' big firdaria text')
             this.setState({ index_planet_detail_pop: key, index_planet: -1, pop_type: POP_TYPE.FIRDARIA_BIG })
           }
         }
@@ -990,7 +976,7 @@ class CanvasView extends BaseComponent {
         for (key in this.state.canvas_tap_profection_month) {
           let item = this.state.canvas_tap_profection_month[key];
           if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-            console.log('click profection month key=' + key)
+            this.log('click profection month key=' + key)
             this.setState({
               index_planet_detail_pop: parseInt(key),
               pop_type: POP_TYPE.PROFECTION_MONTH
@@ -1001,7 +987,7 @@ class CanvasView extends BaseComponent {
         for (key in this.state.canvas_tap_profection_year) {
           let item = this.state.canvas_tap_profection_year[key];
           if (Math.abs(x - item[0]) < area && Math.abs(y - item[1]) < area) {
-            console.log('click profection year key=' + key)
+            this.log('click profection year key=' + key)
             this.setState({
               index_planet_detail_pop: parseInt(key),
               pop_type: POP_TYPE.PROFECTION_YEAR
@@ -1010,11 +996,12 @@ class CanvasView extends BaseComponent {
         }
 
       }
+    })
   }
 
   //宫位详情或者星座详情pop被点击
   actionHouseDetailPopClick = () => {
-    console.log('actionHouseDetailPopClick')
+    this.log('actionHouseDetailPopClick')
     this.setState({ index_house_detail_pop: -1, index_planet_detail_pop: -1, pop_type: POP_TYPE.NONE })
   }
 
@@ -1036,7 +1023,7 @@ class CanvasView extends BaseComponent {
       pop_type,
     } = this.state;
 
-    console.log('CanvasView render btn_type ==' + btn_type)
+    this.log('CanvasView render btn_type ==' + btn_type)
 
     //点击的宫位详情
     let house_detail = '';
@@ -1065,14 +1052,14 @@ class CanvasView extends BaseComponent {
         planet_detail_phases.push(planet_detail.phase[key])
       }
     }
-    // console.log('planet_detail=')
-    // console.log(planet_detail)
+    // this.log('planet_detail=')
+    // this.log(planet_detail)
 
-    // console.log('planet_detail_phases=')
-    // console.log(planet_detail_phases)
+    // this.log('planet_detail_phases=')
+    // this.log(planet_detail_phases)
 
-    console.log('CanvasView render pop_type=' + pop_type + ' data=')
-    console.log(data)
+    this.log('CanvasView render pop_type=' + pop_type + ' data=')
+    this.log(data)
 
     return (
       <View className='astro-canvas-page'>
@@ -1105,7 +1092,7 @@ class CanvasView extends BaseComponent {
           {process.env.TARO_ENV === 'h5' &&
             <canvas type="2d"
               className='canvas'
-              id={'myCanvas'+type}
+              id='myCanvas'
               canvas-id='myCanvas'
               onClick={this.actionCavasClick}>
             </canvas>
@@ -1114,8 +1101,8 @@ class CanvasView extends BaseComponent {
             <Canvas
               type="2d"
               className='canvas'
-              id={'myCanvas'+type}
-              canvas-id={'myCanvas'+type}
+              id='myCanvas'
+              canvas-id='myCanvas'
               onClick={this.actionCavasClick}
             />
           }
@@ -1359,16 +1346,16 @@ class CanvasView extends BaseComponent {
       }
     }
 
-    // console.log('sort=')
-    // console.log(sort)
-    // console.log('sort_pos=')
-    // console.log(sort_pos)
+    // this.log('sort=')
+    // this.log(sort)
+    // this.log('sort_pos=')
+    // this.log(sort_pos)
 
     let arr = []
     arr.push(sort_pos)
     arr.push(sort)
-    // console.log('sorted')
-    // console.log(arr)
+    // this.log('sorted')
+    // this.log(arr)
 
     return arr
   }

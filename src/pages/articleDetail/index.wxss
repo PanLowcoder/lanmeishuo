@@ -84,6 +84,9 @@
   height: 66px;
   margin-right: 32px;
 }
+.detail-page .top .container .com-list {
+  font-size: 28px ;
+}
 .detail-page .footer {
   width: 92%;
   position: fixed;

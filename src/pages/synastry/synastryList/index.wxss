@@ -1,0 +1,121 @@
+.synastry-page {
+  background: #F6F7F9;
+  margin-top: 85px;
+  overflow: hidden;
+  color: #313836;
+}
+.synastry-page .top-con {
+  background: #FFFFFF;
+  padding-top: 26px;
+  padding-bottom: 60px;
+  border-radius: 20px;
+}
+.synastry-page .top-con .left,
+.synastry-page .top-con .right {
+  width: 648px;
+  height: 211px;
+  margin-bottom: 32px;
+  padding: 32px;
+}
+.synastry-page .top-con .left-con,
+.synastry-page .top-con .right-con {
+  display: flex;
+  justify-content: space-around;
+}
+.synastry-page .top-con .left {
+  background: linear-gradient(180deg, #FFE8E8 0%, #FFCCCC 100%);
+  border-top-right-radius: 138px;
+  border-bottom-right-radius: 138px;
+}
+.synastry-page .top-con .left .left-con {
+  margin-left: 20px;
+}
+.synastry-page .top-con .right {
+  background: linear-gradient(180deg, #FFF2D3 55%, #FFF2D3 100%);
+  border-top-left-radius: 138px;
+  border-bottom-left-radius: 138px;
+  float: right;
+}
+.synastry-page .top-con .right .right-con {
+  margin-right: 20px;
+}
+.synastry-page .top-con .user .img-record,
+.synastry-page .top-con .astro .img-record {
+  width: 200px;
+  height: 200px;
+}
+.synastry-page .top-con .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.synastry-page .top-con .info .name {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.synastry-page .top-con .info .con {
+  background: #FFFFFF;
+  border-radius: 22px;
+  font-size: 16px;
+  padding: 12px 16px;
+}
+.synastry-page .top-con .btn {
+  width: 48%;
+  height: 82px;
+  background: #6C5FD3;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 28px;
+}
+.synastry-page .record {
+  color: #313836;
+  margin-top: 32px;
+  padding-left: 32px;
+  padding-right: 38px;
+}
+.synastry-page .record .head {
+  display: flex;
+  justify-content: space-between;
+}
+.synastry-page .record .head .title {
+  font-size: 28px;
+  margin-left: 2px;
+  line-height: 40px;
+  font-weight: 400;
+}
+.synastry-page .record .head .del {
+  display: flex;
+  align-items: center;
+}
+.synastry-page .record .head .del .icon {
+  width: 38px;
+  height: 40px;
+}
+.synastry-page .record .head .del .text {
+  font-size: 24px;
+  margin-left: 6px;
+}
+.synastry-page .record .list {
+  margin-top: 24px;
+}
+.synastry-page .record .list .item {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 26px 32px 26px 30px;
+  margin-bottom: 32px;
+}
+.synastry-page .record .list .item .content .name {
+  font-size: 22px;
+}
+.synastry-page .record .list .item .content .time {
+  font-size: 18px;
+  opacity: 0.29;
+}
+.synastry-page .record .list .item .more {
+  width: 25.44px;
+  height: 25.44px;
+}

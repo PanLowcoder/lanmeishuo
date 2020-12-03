@@ -2,14 +2,14 @@ import Taro from '@tarojs/taro'
 import BaseComponent from "../../../components/BaseComponent";
 import { View, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
-import { AtProgress } from 'taro-ui'
+import { AtProgress, AtRate } from 'taro-ui'
 import './index.less'
 import MySwiper from '../../../components/Swiper/MySwiper';
 import ArticleList from '../../../components/ArticleList';
 import { ossUrl } from "../../../config";
+import { customTime, getAtWeeks, getCustomImgUrl } from "../../../utils/common"
 
-const yellow = ossUrl + 'upload/images/home/yellow.png';
-const gray = ossUrl + 'upload/images/home/gray.png';
+const icon_more = ossUrl + 'upload/images/home/more.png';
 
 const img_Today = ossUrl + 'upload/images/home/today_bg.png';
 
@@ -42,7 +42,7 @@ export default class tabHome extends BaseComponent {
     }
 
     componentDidMount = () => {
-        this.log('home componentDidMount= access_token=' + this.props.access_token);
+        console.log('home componentDidMount= access_token=' + this.props.access_token);
         if (!this.props.access_token) {
             this.log('跳转到登陆页');
             Taro.navigateTo({
@@ -51,34 +51,19 @@ export default class tabHome extends BaseComponent {
             return;
         }
 
-        // if (this.props.data) {//当前首页数据不为空，已保存到本地
-        //   this.log('当前档首页数据不为空，已保存到本地');
-        // } else {
         this.props.dispatch({
             type: 'tabHome/load',
-        }).then((data) => {
-        })
-        // }
+        });
     };
 
-    // componentDidMount = () => {
-    //   console.log(this);
-    // }
     componentDidShow = () => {
         if (this.props.data) {//当前首页数据不为空，已保存到本地
             this.log('当前档首页数据不为空，已保存到本地');
-            this.log(this.props.data)
-            // alert('当前档首页数据不为空，已保存到本地')
         } else {
-            // this.props.dispatch({
-            //   type: 'tabHome/load',
-            // });
+            this.props.dispatch({
+                type: 'tabHome/load',
+            });
         }
-    }
-
-    componentDidUpdate = () => {
-
-        //this.log('home componentDidUpdate ');
     }
 
     //分享
@@ -142,42 +127,26 @@ export default class tabHome extends BaseComponent {
         e.stopPropagation();
     }
 
-    //通用的关闭按钮点击事件（公告框、**之日alert）
-    onClickAlertShadow = () => {
-        this.setState({ show_alert_type: HOME_ALERT_TYPE.NONE })
+    actionItemClick = (e) => {
+        let index = e.currentTarget.dataset.index;
+        let item = this.props.tabs[index];
+        console.log(item.path);
+        Taro.navigateTo({ url: item.path })
     }
 
     render() {
         const { data, tabs } = this.props;
+        const fortune_list = data.today_fortune.fortune_list;
         console.log(data);
-        const {
-            tabsListValue,
-            show_alert_type,
-        } = this.state;
-        
-        let baseTime = data.today_astro.time
-        let map = new Date(baseTime);
-        let year = map.getFullYear(); //获取年
-      let month = map.getMonth() + 1; //获取月
-      let time = map.getDate(); //获取日
-      let date = year + '-' + month + "-" + time
-
-        if (!data)
-            return
-
-        // let astroTime = '2019';
-        // if (data) {
-        //   astroTime = fmtDate(data.today_astro.time * 1000);
-        // }
         return (
             <View className='page'>
                 <MySwiper />
                 <View className="container">
                     {/* 导航栏 */}
                     <View className='nav'>
-                        {tabs && tabs.map((item) => {
+                        {tabs && tabs.map((item, index) => {
                             return (
-                                <View className='nav-item'>
+                                <View className='nav-item' data-index={index} onClick={this.actionItemClick}>
                                     <Image
                                         className='img'
                                         src={item.url}
@@ -193,41 +162,35 @@ export default class tabHome extends BaseComponent {
                         <View className="fortune">
                             <View className="fortune-header">
                                 <View className="header-left">
-                                    <View className="left-text">今日运势</View>
-                                    <View className="left-img">
-                                        <Image className="img" src={yellow}></Image>
-                                        <Image className="img" src={yellow}></Image>
-                                        <Image className="img" src={gray}></Image>
-                                    </View>
+                                    <View className="left-text">{data && data.today_fortune.revive_day.name}</View>
+                                    <AtRate
+                                        className='left-img'
+                                        size='15'
+                                        max={3}
+                                        value={data && data.today_fortune.revive_day.star_level}
+                                    />
                                 </View>
-                                <View className="header-right">周运</View>
+                                <View className="header-right">
+                                    <Text className='text'>周运</Text>
+                                    <Image className='icon' src={icon_more}></Image>
+                                </View>
                             </View>
                             <View className="fortune-content">
                                 <View className="des-title">上午好!今天财运满满哦!</View>
                                 <View className="des">
-                                    <View className='des-img'></View>
+                                    <Image className='des-img' src={data && getCustomImgUrl(data.today_fortune.revive_day.icon_url)}></Image>
                                     <View className="des-content">
+                                    {fortune_list.map((item, index) => (
                                         <View className="item">
-                                            <Text className="text">财富78%</Text>
+                                            <Text className="text">{item.name}   {Math.floor(item.score)}%</Text>
                                             <View className="progress">
-                                                <AtProgress percent={78} color='#FFA256' isHidePercent={true}></AtProgress>
+                                                <AtProgress percent={item.score} color={item.color} isHidePercent={true}></AtProgress>
                                             </View>
                                         </View>
-                                        <View className="item">
-                                            <Text className="text">事业61%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={61} color='#FED370' isHidePercent={true}></AtProgress>
-                                            </View>
-                                        </View>
-                                        <View className="item">
-                                            <Text className="text">桃花39%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={39} color='#FFE4A5' isHidePercent={true}></AtProgress>
-                                            </View>
-                                        </View>
+                                    ))}
                                     </View>
                                 </View>
-                                <View className="textarea">今日适合执行建身计划，比以往事半功倍，但是一定要注意</View>
+                                <View className="textarea">{data && data.today_fortune.revive_day.tips}</View>
                             </View>
                         </View>
                         {/* 今日天象 */}
@@ -237,23 +200,19 @@ export default class tabHome extends BaseComponent {
                                 mode="widthFix"
                                 src={img_Today}
                             />
-                          
                             <View className="info">
-                                <View className="date">{date}</View>
-                                <View className="today-content">
-                                    {data.today_astro.tips}
+                                <View className="date">{customTime(data.today_astro.time, 13)}</View>
+                                <View className="today-content">{data && data.today_astro.tips}</View>
                             </View>
-                            </View>
-                
                         </View>
-
                         {/*文章列表*/}
                         <View className="art-title">
                             <View className="left">
                                 <View className="text">星文推荐</View>
                             </View>
                             <View className="right">
-                                <View className="more">查看更多</View>
+                                <Text className='text'>查看更多</Text>
+                                <Image className='icon' src={icon_more}></Image>
                             </View>
                         </View>
                         <ArticleList list={data && data.article}></ArticleList>

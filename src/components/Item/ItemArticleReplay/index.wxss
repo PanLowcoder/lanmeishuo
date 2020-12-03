@@ -1,27 +1,24 @@
-.com-list {
-  font-size: 28px ;
-}
-.com-list .com-item {
+.com-item {
   padding-top: 32px;
 }
-.com-list .com-item .user {
+.com-item .user {
   display: flex;
 }
-.com-list .com-item .user .info {
+.com-item .user .info {
   padding-left: 16px;
 }
-.com-list .com-item .user .info .time {
+.com-item .user .info .time {
   opacity: 30%;
   font-size: 22px;
 }
-.com-list .com-item .comment {
+.com-item .comment {
   display: flex;
   justify-content: space-between;
   margin-left: 102px;
   margin-top: 30px;
   margin-bottom: 62px;
 }
-.com-list .com-item .comment .small {
+.com-item .comment .small {
   width: 30px ;
   height: 28px;
 }

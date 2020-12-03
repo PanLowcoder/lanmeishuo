@@ -53,7 +53,7 @@ class App extends Component {
         pages: [
           //个人中心
           'message/index',//消息中心页面
-          // 'setting/index',//设置页面
+          //'setting/index',//设置页面
           // 'about/index',//关于我们页面
           'userCenter/index',//个人中心页面
           'likeOrCollect/index'//点赞或收藏页面
@@ -84,6 +84,16 @@ class App extends Component {
           'recordNameAndTagAdd/index',//新建档案-》姓名/标签页
           'recordMoveCat/index',//移入档案到-档案袋页面
           'catRecords/index',//档案袋item点击-》档案详情页面
+        ]
+      },
+      {
+        root: "pages/synastry/",
+        pages: [
+          //合盘
+          'synastryList/index',//合盘列表页
+          'synastryDetail/index',//合盘详情页
+          // 'moreRelations/index',//合盘更多关系页
+          // 'relationExplain/index',//合盘更多关系页
         ]
       },
     ],

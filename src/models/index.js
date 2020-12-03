@@ -11,6 +11,11 @@ import astro from '../pages/astro/model';
 
 import articleDetail from '../pages/articleDetail/model';
 import likeOrCollect from '../minePages/likeOrCollect/model';
+//档案-新增档案、新增档案袋、获取微信档案列表
+import record from '../pages/record/model';
+
+import synastryDetail from '../pages/synastry/synastryDetail/model';
+
 
 
 export default [
@@ -24,5 +29,8 @@ export default [
     message,
     articleDetail,
     likeOrCollect,
+    record,
     astro,
+
+    synastryDetail
 ]

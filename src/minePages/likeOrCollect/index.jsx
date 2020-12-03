@@ -6,7 +6,7 @@ import { connect } from '@tarojs/redux';
 
 //通用列表组件
 import CommonList from '../../components/CommonList/CommonList';
-import { AtNavBar, AtTabs } from "taro-ui";
+import { AtNavBar } from "taro-ui";
 import {
     ASTRO_TABS,
     LIST_ITEM_TYPES,

@@ -96,6 +96,11 @@
   font-size: 24px;
   margin-left: 6px;
 }
+.synastry-page .record .empty {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 26px;
+}
 .synastry-page .record .list {
   margin-top: 24px;
 }

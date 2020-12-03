@@ -39,6 +39,7 @@ class App extends Component {
     pages: [
       'pages/login/index',//登录页面
       'pages/articleDetail/index',//文章详情页
+      'pages/emptyPage/index',//空页面
 
       'pages/tabs/tabHome/index',
       'pages/tabs/tabArticle/index',
@@ -53,7 +54,7 @@ class App extends Component {
         pages: [
           //个人中心
           'message/index',//消息中心页面
-          // 'setting/index',//设置页面
+          'setting/index',//设置页面
           // 'about/index',//关于我们页面
           'userCenter/index',//个人中心页面
           'likeOrCollect/index'//点赞或收藏页面
@@ -92,8 +93,7 @@ class App extends Component {
           //合盘
           'synastryList/index',//合盘列表页
           'synastryDetail/index',//合盘详情页
-          // 'moreRelations/index',//合盘更多关系页
-          // 'relationExplain/index',//合盘更多关系页
+          'relationExplain/index',//合盘更多关系页
         ]
       },
     ],

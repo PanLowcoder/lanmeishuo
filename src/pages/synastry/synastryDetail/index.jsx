@@ -174,6 +174,10 @@ export default class Index extends BaseComponent {
         chart.render();
         return chart;
     }
+    //关系详解 被点击
+    actionRelationExplain = () => {
+        Taro.navigateTo({ url: '/pages/synastry/relationExplain/index' })
+    }
 
     render() {
         const { data, rid1, rid2 } = this.props;
@@ -342,11 +346,9 @@ export default class Index extends BaseComponent {
                             </View>
                             <View className='bottom-con'>
                                 <View className='item-con'>
-                                    {/* <Image className='img' src={img_detail_line_1}></Image> */}
                                     <View className='title'>{getNameFromRecord(record1)}</View>
                                 </View>
                                 <View className='item-con'>
-                                    {/* <Image className='img' src={img_detail_line_2}></Image> */}
                                     <View className='title'>{getNameFromRecord(record2)}</View>
                                 </View>
                             </View>
@@ -354,7 +356,9 @@ export default class Index extends BaseComponent {
                     </View>
                 </View>
 
-                <View className="more-btn">查看更多详细内容</View>
+                <View className="more-btn" onClick={this.actionRelationExplain}>
+                    查看更多详细内容
+                </View>
             </View>
         )
     }

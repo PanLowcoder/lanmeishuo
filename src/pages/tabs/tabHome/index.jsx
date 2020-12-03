@@ -119,7 +119,7 @@ export default class tabHome extends BaseComponent {
 
     //更多星文 点击
     actionArticleMore = () => {
-        Taro.navigateTo({ url: '/pages/tabs/tabArticle/index' });
+        Taro.switchTab({ url: '/pages/tabs/tabArticle/index' });
     }
 
     actionScrollviewClick = (e) => {
@@ -220,7 +220,7 @@ export default class tabHome extends BaseComponent {
                             <View className="left">
                                 <View className="text">星文推荐</View>
                             </View>
-                            <View className="right">
+                            <View className="right" onClick={this.actionArticleMore}>
                                 <Text className='text'>查看更多</Text>
                                 <Image className='icon' src={icon_more}></Image>
                             </View>

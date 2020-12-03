@@ -136,7 +136,7 @@ export default class tabHome extends BaseComponent {
 
     render() {
         const { data, tabs } = this.props;
-
+        const fortune_list = data.today_fortune.fortune_list;
         console.log(data);
         return (
             <View className='page'>
@@ -180,24 +180,14 @@ export default class tabHome extends BaseComponent {
                                 <View className="des">
                                     <Image className='des-img' src={data && getCustomImgUrl(data.today_fortune.revive_day.icon_url)}></Image>
                                     <View className="des-content">
-                                        <View className="item">
-                                            <Text className="text">财富78%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={78} color='#FFA256' isHidePercent={true}></AtProgress>
+                                        {fortune_list.map((item, index) => (
+                                            <View className="item">
+                                                <Text className="text">{item.name}   {Math.floor(item.score)}%</Text>
+                                                <View className="progress">
+                                                    <AtProgress percent={item.score} color={item.color} isHidePercent={true}></AtProgress>
+                                                </View>
                                             </View>
-                                        </View>
-                                        <View className="item">
-                                            <Text className="text">事业61%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={61} color='#FED370' isHidePercent={true}></AtProgress>
-                                            </View>
-                                        </View>
-                                        <View className="item">
-                                            <Text className="text">桃花39%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={39} color='#FFE4A5' isHidePercent={true}></AtProgress>
-                                            </View>
-                                        </View>
+                                        ))}
                                     </View>
                                 </View>
                                 <View className="textarea">{data && data.today_fortune.revive_day.tips}</View>
@@ -220,7 +210,7 @@ export default class tabHome extends BaseComponent {
                             <View className="left">
                                 <View className="text">星文推荐</View>
                             </View>
-                            <View className="right" >
+                            <View className="right" onClick={this.actionArticleMore}>
                                 <Text className='text'>查看更多</Text>
                                 <Image className='icon' src={icon_more}></Image>
                             </View>

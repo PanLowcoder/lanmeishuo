@@ -1,3 +1,9 @@
+page {
+  background: #F6F7F9;
+}
+.user-page {
+  height: auto;
+}
 .user-page .user-header {
   width: 100%;
   height: 542px;

@@ -41,6 +41,7 @@
 }
 .page .container .content .fortune .fortune-header .header-left {
   display: flex;
+  align-items: center;
 }
 .page .container .content .fortune .fortune-header .header-left .left-img {
   padding-left: 8px;
@@ -52,6 +53,12 @@
 }
 .page .container .content .fortune .fortune-header .header-right {
   display: flex;
+  align-items: center;
+}
+.page .container .content .fortune .fortune-header .header-right .icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
 }
 .page .container .content .fortune .fortune-content {
   margin-top: 24px;
@@ -59,8 +66,17 @@
 .page .container .content .fortune .fortune-content .des-title {
   font-weight: 800;
 }
+.page .container .content .fortune .fortune-content .des {
+  display: flex;
+  margin: 16px 0;
+}
+.page .container .content .fortune .fortune-content .des .des-img {
+  width: 128px;
+  height: 128px;
+}
 .page .container .content .fortune .fortune-content .des .des-content {
   font-size: 18px ;
+  margin-left: 36px;
 }
 .page .container .content .fortune .fortune-content .des .des-content .item {
   display: flex;
@@ -110,6 +126,15 @@
 .page .container .content .art-title .left .text {
   font-size: 28px;
 }
-.page .container .content .art-title .right .more {
+.page .container .content .art-title .right {
+  display: flex;
+  align-items: center;
+}
+.page .container .content .art-title .right .text {
   font-size: 22px;
+}
+.page .container .content .art-title .right .icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
 }

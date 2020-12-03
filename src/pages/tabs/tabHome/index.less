@@ -36,9 +36,10 @@
                 font-size: 28px;
                 .fortune-header{
                     display: flex;
-                    justify-content: space-between;                                        
+                    justify-content: space-between;
                     .header-left{
                         display: flex; 
+                        align-items: center;                                      
                         .left-img{
                             padding-left: 8px;
                             .img{
@@ -51,6 +52,13 @@
                     }
                     .header-right{
                         display: flex;
+                        align-items: center;
+                        .text{}
+                        .icon{
+                            width: 20px;
+                            height: 20px;
+                            margin-left: 8px;
+                        }
                     }
                 }
                 .fortune-content{
@@ -60,11 +68,15 @@
                         font-weight: 800;
                     }
                     .des{
+                        display: flex;
+                        margin: 16px 0;
                         .des-img{
-                            
+                            width: 128px;
+                            height: 128px;
                         }
                         .des-content{
                             font-size:18px ;
+                            margin-left: 36px;
                             .item{
                                 display: flex;
                                 align-items: center;
@@ -120,10 +132,17 @@
                     }
                 }
                 .right{
-                    .more{
+                    display: flex;
+                    align-items: center;
+                    .text{
                         font-size: 22px;
                     }
-                }
+                    .icon{
+                        width: 20px;
+                        height: 20px;
+                        margin-left: 6px;
+                    }
+            }
             }
         }
     }

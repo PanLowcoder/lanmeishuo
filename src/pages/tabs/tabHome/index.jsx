@@ -2,14 +2,14 @@ import Taro from '@tarojs/taro'
 import BaseComponent from "../../../components/BaseComponent";
 import { View, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
-import { AtProgress } from 'taro-ui'
+import { AtProgress, AtRate } from 'taro-ui'
 import './index.less'
 import MySwiper from '../../../components/Swiper/MySwiper';
 import ArticleList from '../../../components/ArticleList';
 import { ossUrl } from "../../../config";
+import { customTime, getAtWeeks, getCustomImgUrl } from "../../../utils/common"
 
-const yellow = ossUrl + 'upload/images/home/yellow.png';
-const gray = ossUrl + 'upload/images/home/gray.png';
+const icon_more = ossUrl + 'upload/images/home/more.png';
 
 const img_Today = ossUrl + 'upload/images/home/today_bg.png';
 
@@ -136,12 +136,8 @@ export default class tabHome extends BaseComponent {
 
     render() {
         const { data, tabs } = this.props;
-        const {
-            tabsListValue,
-        } = this.state;
 
-        if (!data)
-            return
+        console.log(data);
         return (
             <View className='page'>
                 <MySwiper />
@@ -166,19 +162,23 @@ export default class tabHome extends BaseComponent {
                         <View className="fortune">
                             <View className="fortune-header">
                                 <View className="header-left">
-                                    <View className="left-text">今日运势</View>
-                                    <View className="left-img">
-                                        <Image className="img" src={yellow}></Image>
-                                        <Image className="img" src={yellow}></Image>
-                                        <Image className="img" src={gray}></Image>
-                                    </View>
+                                    <View className="left-text">{data && data.today_fortune.revive_day.name}</View>
+                                    <AtRate
+                                        className='left-img'
+                                        size='15'
+                                        max={3}
+                                        value={data && data.today_fortune.revive_day.star_level}
+                                    />
                                 </View>
-                                <View className="header-right">周运</View>
+                                <View className="header-right">
+                                    <Text className='text'>周运</Text>
+                                    <Image className='icon' src={icon_more}></Image>
+                                </View>
                             </View>
                             <View className="fortune-content">
                                 <View className="des-title">上午好!今天财运满满哦!</View>
                                 <View className="des">
-                                    <View className='des-img'></View>
+                                    <Image className='des-img' src={data && getCustomImgUrl(data.today_fortune.revive_day.icon_url)}></Image>
                                     <View className="des-content">
                                         <View className="item">
                                             <Text className="text">财富78%</Text>
@@ -200,7 +200,7 @@ export default class tabHome extends BaseComponent {
                                         </View>
                                     </View>
                                 </View>
-                                <View className="textarea">今日适合执行建身计划，比以往事半功倍，但是一定要注意</View>
+                                <View className="textarea">{data && data.today_fortune.revive_day.tips}</View>
                             </View>
                         </View>
                         {/* 今日天象 */}
@@ -211,10 +211,8 @@ export default class tabHome extends BaseComponent {
                                 src={img_Today}
                             />
                             <View className="info">
-                                <View className="date">2020.08.29 星期六</View>
-                                <View className="today-content">
-                                    太阳在处女座，木星逆行，木星停滞土星逆行，土星停滞，大信封。
-                            </View>
+                                <View className="date">{customTime(data.today_astro.time, 13)}</View>
+                                <View className="today-content">{data && data.today_astro.tips}</View>
                             </View>
                         </View>
                         {/*文章列表*/}
@@ -223,7 +221,8 @@ export default class tabHome extends BaseComponent {
                                 <View className="text">星文推荐</View>
                             </View>
                             <View className="right">
-                                <View className="more">查看更多</View>
+                                <Text className='text'>查看更多</Text>
+                                <Image className='icon' src={icon_more}></Image>
                             </View>
                         </View>
                         <ArticleList list={data && data.article}></ArticleList>

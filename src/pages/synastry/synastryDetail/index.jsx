@@ -212,10 +212,8 @@ export default class Index extends BaseComponent {
                 data.relation[i].per = persent;
             }
         }
-        let foothold = Array(data.foothold);
-        let conflict = Array(data.conflict);
-        // let [harmoniousAndConflict] = Array(data.harmoniousAndConflict);
-        console.log(data);
+        let foothold = data.foothold;
+        let conflict = data.conflict;
         return (
             <View className='synastry-detail-page'>
                 {/*导航栏*/}
@@ -246,13 +244,14 @@ export default class Index extends BaseComponent {
                     </View>
                     {/*进度条部分*/}
                     <View className='progress-con'>
+                      {data && (
                         <View className='percent-con'>
-                            {/* {data.harmoniousAndConflict.map((item) = (
-                                <View className="left-bg">{item}</View>
-                            ))} */}
-                            <View className='left-bg' style={'width:30%;'}>30%</View>
-                            <View className='right-bg' style={'width:70%;'}>70%</View>
+                          
+                            <View className='left-bg' style={'width:'+data.harmoniousAndConflict[0]+'%;'}>{data.harmoniousAndConflict[0]}%</View>
+                            <View className='right-bg' style={'width:'+data.harmoniousAndConflict[1]+'%;'}>{data.harmoniousAndConflict[1]}%</View>
+                          
                         </View>
+                          )}
                         <View className="des">
                             <View className='left-des'>和谐</View>
                             <View className='left-des'>冲突</View>
@@ -304,6 +303,7 @@ export default class Index extends BaseComponent {
                         ))}
                     </View>
                 </View>
+                  {data && (
                 <View className="comment">
                     <View className="title">整体评价</View>
                     {/*立足点*/}
@@ -318,7 +318,7 @@ export default class Index extends BaseComponent {
                             </View>
                         ))}
                     </View>
-
+                    
                     {/*矛盾点*/}
                     <View className='content-con'>
                         <View className='judje-title-con'>
@@ -331,7 +331,7 @@ export default class Index extends BaseComponent {
                             </View>
                         ))}
                     </View>
-
+                    
 
                     {/*双方在关系中的收获*/}
                     <View className='get-content-con'>
@@ -353,7 +353,7 @@ export default class Index extends BaseComponent {
                         </View>
                     </View>
                 </View>
-
+ )}
                 <View className="more-btn">查看更多详细内容</View>
             </View>
         )

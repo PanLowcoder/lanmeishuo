@@ -136,15 +136,11 @@ export default class tabHome extends BaseComponent {
 
     render() {
         const { data, tabs } = this.props;
-<<<<<<< HEAD
         const fortune_list = data.today_fortune.fortune_list;
-=======
-
->>>>>>> 3603c994ce8a62d5809273cf60a10fc96e23f830
         console.log(data);
         return (
             <View className='page'>
-                <MySwiper />
+                 <MySwiper banner={data && data.slides}></MySwiper>
                 <View className="container">
                     {/* 导航栏 */}
                     <View className='nav'>

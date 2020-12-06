@@ -59,18 +59,18 @@ const astro_theme_color5 = ossUrl + 'wap/images/astro/astro_mode_modal/astro_the
 const astro_theme_color6 = ossUrl + 'wap/images/astro/astro_mode_modal/astro_theme_color6.png';
 
 
-const record_default_avatar_0 = ossUrl + 'wap/images/common/record_default_avatar_0.png';
-const record_default_avatar_1 = ossUrl + 'wap/images/common/record_default_avatar_1.png';
-const record_default_avatar_2 = ossUrl + 'wap/images/common/record_default_avatar_2.png';
-const record_default_avatar_3 = ossUrl + 'wap/images/common/record_default_avatar_3.png';
-const record_default_avatar_4 = ossUrl + 'wap/images/common/record_default_avatar_4.png';
-const record_default_avatar_5 = ossUrl + 'wap/images/common/record_default_avatar_5.png';
-const record_default_avatar_6 = ossUrl + 'wap/images/common/record_default_avatar_6.png';
-const record_default_avatar_7 = ossUrl + 'wap/images/common/record_default_avatar_7.png';
-const record_default_avatar_8 = ossUrl + 'wap/images/common/record_default_avatar_8.png';
-const record_default_avatar_9 = ossUrl + 'wap/images/common/record_default_avatar_9.png';
-const record_default_avatar_10 = ossUrl + 'wap/images/common/record_default_avatar_10.png';
-const record_default_avatar_11 = ossUrl + 'wap/images/common/record_default_avatar_11.png';
+const record_default_avatar_0 = ossUrl + 'upload/images/common/record_default_avatar_0.png';
+const record_default_avatar_1 = ossUrl + 'upload/images/common/record_default_avatar_1.png';
+const record_default_avatar_2 = ossUrl + 'upload/images/common/record_default_avatar_2.png';
+const record_default_avatar_3 = ossUrl + 'upload/images/common/record_default_avatar_3.png';
+const record_default_avatar_4 = ossUrl + 'upload/images/common/record_default_avatar_4.png';
+const record_default_avatar_5 = ossUrl + 'upload/images/common/record_default_avatar_5.png';
+const record_default_avatar_6 = ossUrl + 'upload/images/common/record_default_avatar_6.png';
+const record_default_avatar_7 = ossUrl + 'upload/images/common/record_default_avatar_7.png';
+const record_default_avatar_8 = ossUrl + 'upload/images/common/record_default_avatar_8.png';
+const record_default_avatar_9 = ossUrl + 'upload/images/common/record_default_avatar_9.png';
+const record_default_avatar_10 = ossUrl + 'upload/images/common/record_default_avatar_10.png';
+const record_default_avatar_11 = ossUrl + 'upload/images/common/record_default_avatar_11.png';
 
 
 const img_con_0 = ossUrl + 'wap/images/h5/mi/divination_detail/img_con_0.png';

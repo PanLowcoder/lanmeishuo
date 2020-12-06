@@ -9,10 +9,10 @@ import {ossUrl} from "../../../config"
 import {get_astro_setting, set_astro_setting, set_astro_setting_original} from "../service"
 import {connect} from "@tarojs/redux";
 
-const img_radio_selected = ossUrl + 'wap/images/common/img_radio_selected.png'
-const img_radio_normal = ossUrl + 'wap/images/common/img_radio_normal.png'
-const img_add = ossUrl + 'wap/images/astro/setting/img_add.png'
-const img_sub = ossUrl + 'wap/images/astro/setting/img_sub.png'
+const img_radio_selected = ossUrl + 'upload/images/common/img_radio_selected.png'
+const img_radio_normal = ossUrl + 'upload/images/common/img_radio_normal.png'
+const img_add = ossUrl + 'upload/images/astro/setting/img_add.png'
+const img_sub = ossUrl + 'upload/images/astro/setting/img_sub.png'
 
 
 /*
@@ -333,7 +333,7 @@ class astroSetting extends BaseComponent {
                       <AtSwitch
                         className='switch'
                         data-index={index1}
-                        color='#FF6C89'
+                        color='#7376e7'
                         checked={planets_display[index1] == 1}
                         onChange={this.actionPlanetIsShowChange.bind(this, index1)}
                       />
@@ -351,7 +351,7 @@ class astroSetting extends BaseComponent {
                       <AtSwitch
                         className='switch'
                         disabled={(index1 == 17 || index1 == 20) ? true : false}
-                        color='#FF6C89'
+                        color='#7376e7'
                         checked={planets_display[index1] == 1}
                         onChange={this.actionPlanetIsShowChange.bind(this, index1)}
                       />
@@ -385,7 +385,7 @@ class astroSetting extends BaseComponent {
                     </View>
                     <AtSwitch
                       disabled={(index1 == 17 || index1 == 20) ? true : false}
-                      color='#FF6C89'
+                      color='#7376e7'
                       checked={item1.is_selected}
                       onChange={this.actionAspsIsShowChange.bind(this, item1.name)}
                     />
@@ -418,7 +418,7 @@ class astroSetting extends BaseComponent {
                     </View>
                     <AtSwitch
                       disabled={(index1 == 17 || index1 == 20) ? true : false}
-                      color='#FF6C89'
+                      color='#7376e7'
                       checked={item1.is_selected}
                       onChange={this.actionAspsIsShowChange.bind(this, item1.name)}
                     />

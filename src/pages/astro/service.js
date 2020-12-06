@@ -16,21 +16,21 @@ export const get_note_count = data => Request({
 
 //获取星盘配置接口
 export const get_astro_setting = data => Request({
-  url: '/api/user/astroset/get',
+  url: '/api/setting/astro/index',
   method: 'GET',
   data,
 }, true);
 
 //设置星盘配置接口
 export const set_astro_setting = data => Request({
-  url: '/api/user/astroset',
-  method: 'POST',
+  url: '/api/setting/astro/update',
+  method: 'PUT',
   data,
 }, true);
 
 //还原星盘配置接口
 export const set_astro_setting_original = data => Request({
-  url: '/api/user/astroset',
+  url: '/api/user/astroset/restore',
   method: 'PUT',
   data,
 }, true);

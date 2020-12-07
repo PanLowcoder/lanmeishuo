@@ -216,149 +216,147 @@ export default class Index extends BaseComponent {
                 data.relation[i].per = persent;
             }
         }
-        let foothold = Array(data.foothold);
-        let conflict = Array(data.conflict);
-        // let [harmoniousAndConflict] = Array(data.harmoniousAndConflict);
-        console.log(data);
         return (
-            <View className='synastry-detail-page'>
-                {/*导航栏*/}
-                <AtNavBar
-                    className='nav'
-                    onClickLeftIcon={this.actionNavBack}
-                    color='#000'
-                    title='合盘结果'
-                    border={false}
-                    leftIconType='chevron-left'
-                    fixed
-                />
-                <View className="top-con">
-                    {/*档案1 vs 档案2 部分*/}
-                    <View className="vs-con">
-                        <View className='item-con'>
-                            <Image className='img' src={getImgFromRecord(record1, '', true)}></Image>
-                            <View className='name'>{getNameFromRecord(record1)}</View>
-                            <View className='asc'>{getAscFromRecord(record1)}</View>
-                        </View>
-                        <View className='vs-text'>V<Text className='text'>s</Text></View>
-                        <View className='item-con text-align-right'>
-                            <Image className='img' src={getImgFromRecord(record2, '', true)}></Image>
-                            <View className='name'>{getNameFromRecord(record2)}</View>
-                            <View className='asc'>{getAscFromRecord(record2)}</View>
-                        </View>
+            <View>
+                {data && (
+                    <View className='synastry-detail-page'>
+                        {/*导航栏*/}
+                        <AtNavBar
+                            className='nav'
+                            onClickLeftIcon={this.actionNavBack}
+                            color='#000'
+                            title='合盘结果'
+                            border={false}
+                            leftIconType='chevron-left'
+                            fixed
+                        />
+                        <View className="top-con">
+                            {/*档案1 vs 档案2 部分*/}
+                            <View className="vs-con">
+                                <View className='item-con'>
+                                    <Image className='img' src={getImgFromRecord(record1, '', true)}></Image>
+                                    <View className='name'>{getNameFromRecord(record1)}</View>
+                                    <View className='asc'>{getAscFromRecord(record1)}</View>
+                                </View>
+                                <View className='vs-text'>V<Text className='text'>s</Text></View>
+                                <View className='item-con text-align-right'>
+                                    <Image className='img' src={getImgFromRecord(record2, '', true)}></Image>
+                                    <View className='name'>{getNameFromRecord(record2)}</View>
+                                    <View className='asc'>{getAscFromRecord(record2)}</View>
+                                </View>
 
-                    </View>
-                    {/*进度条部分*/}
-                    <View className='progress-con'>
-                        <View className='percent-con'>
-                            {/* {data.harmoniousAndConflict.map((item) = (
-                                <View className="left-bg">{item}</View>
-                            ))} */}
-                            <View className='left-bg' style={'width:30%;'}>30%</View>
-                            <View className='right-bg' style={'width:70%;'}>70%</View>
+                            </View>
+                            {/*进度条部分*/}
+                            <View className='progress-con'>
+                                <View className='percent-con'>
+                                    <View className='left-bg' style={'width:70%;'}>{data.harmoniousAndConflict[0]}%</View>
+                                    <View className='right-bg' style={'width:70%;'}>{data.harmoniousAndConflict[1]}%</View>
+                                </View>
+                                <View className="des">
+                                    <View className='left-des'>和谐</View>
+                                    <View className='left-des'>冲突</View>
+                                </View>
+                            </View>
+                            {/*如果部分*/}
+                            <View className='if-content-con'>
+                                <View className='title'>{data.is_love_status == 1 ? '如果相处' : '假如恋爱'}</View>
+                                <View className='content'>{data.if_love}</View>
+                            </View>
                         </View>
-                        <View className="des">
-                            <View className='left-des'>和谐</View>
-                            <View className='left-des'>冲突</View>
-                        </View>
-                    </View>
-                    {/*如果部分*/}
-                    <View className='if-content-con'>
-                        <View className='title'>{data.is_love_status == 1 ? '如果相处' : '假如恋爱'}</View>
-                        <View className='content'>{data.if_love}</View>
-                    </View>
-                </View>
-                <Swiper
-                    className='swiper'
-                    circular
-                >
-                    {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
-                        <SwiperItem>
-                            <View className='relation'>
-                                <View className="title">{index == 0 ? '最合适的关系' : '适合的关系'}</View>
-                                <View className="rel-con">
-                                    <View className="info">
-                                        <View className="rel">{item.name_cn}</View>
-                                        <View className="des">关系概率</View>
+                        <Swiper
+                            className='swiper'
+                            circular
+                        >
+                            {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
+                                <SwiperItem>
+                                    <View className='relation'>
+                                        <View className="title">{index == 0 ? '最合适的关系' : '适合的关系'}</View>
+                                        <View className="rel-con">
+                                            <View className="info">
+                                                <View className="rel">{item.name_cn}</View>
+                                                <View className="des">关系概率</View>
+                                            </View>
+                                            <View className="num">{item.per}%</View>
+                                        </View>
                                     </View>
-                                    <View className="num">{item.per}%</View>
-                                </View>
-                            </View>
-                        </SwiperItem>
-                    ))}
-                </Swiper>
-                <View className="detail">
-                    <View className="title">关系发展潜力</View>
-                    {/*图表部分*/}
-                    {data && (
-                        <View className='graph-con'>
-                            <F2Canvas onCanvasInit={this.drawRadar.bind(this)}></F2Canvas>
-                        </View>
-                    )}
-                    {/*吸引、亲密。。部分*/}
-                    <View className='items-con'>
-                        {relations.map((item, index) => (
-                            <View className='item-con'>
-                                <View className='sub-title' style={(index + 1) % 2 == 0 ? 'background:#FF83A5' : (index + 1) % 3 == 0 ? 'background:#FFB976' : 'background:#6C5FD2'}>{item.title}</View>
-                                <View className='right-con' style={(index + 1) % 2 == 0 ? 'border: 1px solid #FF83A5;color:#FF83A5;' : (index + 1) % 3 == 0 ? 'border: 1px solid #FFB976;color:#FFB976;' : 'border: 1px solid #6C5FD2;color:#6C5FD2;'}>
-                                    <View className='score'>{item.num}</View>
-                                    <View className='des'>{item.text}</View>
-                                </View>
-                            </View>
-                        ))}
-                    </View>
-                </View>
-                <View className="comment">
-                    <View className="title">整体评价</View>
-                    {/*立足点*/}
-                    <View className='content-con'>
-                        <View className='judje-title-con'>
-                            <View className='left-bg'></View>
-                            <View className='judje-title'>立足点</View>
-                        </View>
-                        {foothold.map((item, index) => (
-                            <View className='item-con'>
-                                <View className='content'>{index + 1}.{item}</View>
-                            </View>
-                        ))}
-                    </View>
-
-                    {/*矛盾点*/}
-                    <View className='content-con'>
-                        <View className='judje-title-con'>
-                            <View className='left-bg'></View>
-                            <View className='judje-title'>矛盾点</View>
-                        </View>
-                        {conflict.map((item, index) => (
-                            <View className='item-con'>
-                                <View className='content'>{index + 1}.{item}</View>
-                            </View>
-                        ))}
-                    </View>
-
-
-                    {/*双方在关系中的收获*/}
-                    <View className='get-content-con'>
-                        <View className='graph-con'>
+                                </SwiperItem>
+                            ))}
+                        </Swiper>
+                        <View className="detail">
+                            <View className="title">关系发展潜力</View>
                             {/*图表部分*/}
-                            <View className='top-con'>
-                                <F2Canvas onCanvasInit={this.initChart.bind(this)}></F2Canvas>
-                            </View>
-                            <View className='bottom-con'>
-                                <View className='item-con'>
-                                    <View className='title'>{getNameFromRecord(record1)}</View>
+                            {data && (
+                                <View className='graph-con'>
+                                    <F2Canvas onCanvasInit={this.drawRadar.bind(this)}></F2Canvas>
                                 </View>
-                                <View className='item-con'>
-                                    <View className='title'>{getNameFromRecord(record2)}</View>
+                            )}
+                            {/*吸引、亲密。。部分*/}
+                            <View className='items-con'>
+                                {relations.map((item, index) => (
+                                    <View className='item-con'>
+                                        <View className='sub-title' style={(index + 1) % 2 == 0 ? 'background:#FF83A5' : (index + 1) % 3 == 0 ? 'background:#FFB976' : 'background:#6C5FD2'}>{item.title}</View>
+                                        <View className='right-con' style={(index + 1) % 2 == 0 ? 'border: 1px solid #FF83A5;color:#FF83A5;' : (index + 1) % 3 == 0 ? 'border: 1px solid #FFB976;color:#FFB976;' : 'border: 1px solid #6C5FD2;color:#6C5FD2;'}>
+                                            <View className='score'>{item.num}</View>
+                                            <View className='des'>{item.text}</View>
+                                        </View>
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
+                        <View className="comment">
+                            <View className="title">整体评价</View>
+                            {/*立足点*/}
+                            <View className='content-con'>
+                                <View className='judje-title-con'>
+                                    <View className='left-bg'></View>
+                                    <View className='judje-title'>立足点</View>
+                                </View>
+                                {data.foothold.map((item, index) => (
+                                    <View className='item-con'>
+                                        <View className='content'>{index + 1}.{item}</View>
+                                    </View>
+                                ))}
+                            </View>
+
+                            {/*矛盾点*/}
+                            <View className='content-con'>
+                                <View className='judje-title-con'>
+                                    <View className='left-bg'></View>
+                                    <View className='judje-title'>矛盾点</View>
+                                </View>
+                                {data.conflict.map((item, index) => (
+                                    <View className='item-con'>
+                                        <View className='content'>{index + 1}.{item}</View>
+                                    </View>
+                                ))}
+                            </View>
+
+
+                            {/*双方在关系中的收获*/}
+                            <View className='get-content-con'>
+                                <View className='graph-con'>
+                                    {/*图表部分*/}
+                                    <View className='top-con'>
+                                        <F2Canvas onCanvasInit={this.initChart.bind(this)}></F2Canvas>
+                                    </View>
+                                    <View className='bottom-con'>
+                                        <View className='item-con'>
+                                            <View className='title'>{getNameFromRecord(record1)}</View>
+                                        </View>
+                                        <View className='item-con'>
+                                            <View className='title'>{getNameFromRecord(record2)}</View>
+                                        </View>
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                    </View>
-                </View>
 
-                <View className="more-btn" onClick={this.actionRelationExplain}>
-                    查看更多详细内容
+                        <View className="more-btn" onClick={this.actionRelationExplain}>
+                            查看更多详细内容
                 </View>
+                    </View>
+                )
+                }
             </View>
         )
     }

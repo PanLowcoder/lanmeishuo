@@ -28,27 +28,27 @@ const icon_planet_18 = ossUrl + 'wap/images/synastry/icon_planet_18.png';
 const icon_planet_19 = ossUrl + 'wap/images/synastry/icon_planet_19.png';
 const icon_planet_20 = ossUrl + 'wap/images/synastry/icon_planet_20.png';
 
-const icon_predict_planet_0 = ossUrl + 'wap/images/astro/predict/icon_planet_0.png';
-const icon_predict_planet_1 = ossUrl + 'wap/images/astro/predict/icon_planet_1.png';
-const icon_predict_planet_2 = ossUrl + 'wap/images/astro/predict/icon_planet_2.png';
-const icon_predict_planet_3 = ossUrl + 'wap/images/astro/predict/icon_planet_3.png';
-const icon_predict_planet_4 = ossUrl + 'wap/images/astro/predict/icon_planet_4.png';
-const icon_predict_planet_5 = ossUrl + 'wap/images/astro/predict/icon_planet_5.png';
-const icon_predict_planet_6 = ossUrl + 'wap/images/astro/predict/icon_planet_6.png';
-const icon_predict_planet_7 = ossUrl + 'wap/images/astro/predict/icon_planet_7.png';
-const icon_predict_planet_8 = ossUrl + 'wap/images/astro/predict/icon_planet_8.png';
-const icon_predict_planet_9 = ossUrl + 'wap/images/astro/predict/icon_planet_9.png';
+const icon_predict_planet_0 = ossUrl + 'upload/images/astro/predict/icon_planet_0.png';
+const icon_predict_planet_1 = ossUrl + 'upload/images/astro/predict/icon_planet_1.png';
+const icon_predict_planet_2 = ossUrl + 'upload/images/astro/predict/icon_planet_2.png';
+const icon_predict_planet_3 = ossUrl + 'upload/images/astro/predict/icon_planet_3.png';
+const icon_predict_planet_4 = ossUrl + 'upload/images/astro/predict/icon_planet_4.png';
+const icon_predict_planet_5 = ossUrl + 'upload/images/astro/predict/icon_planet_5.png';
+const icon_predict_planet_6 = ossUrl + 'upload/images/astro/predict/icon_planet_6.png';
+const icon_predict_planet_7 = ossUrl + 'upload/images/astro/predict/icon_planet_7.png';
+const icon_predict_planet_8 = ossUrl + 'upload/images/astro/predict/icon_planet_8.png';
+const icon_predict_planet_9 = ossUrl + 'upload/images/astro/predict/icon_planet_9.png';
 
-const icon_predict_planet_bg_0 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_0.png';
-const icon_predict_planet_bg_1 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_1.png';
-const icon_predict_planet_bg_2 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_2.png';
-const icon_predict_planet_bg_3 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_3.png';
-const icon_predict_planet_bg_4 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_4.png';
-const icon_predict_planet_bg_5 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_5.png';
-const icon_predict_planet_bg_6 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_6.png';
-const icon_predict_planet_bg_7 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_7.png';
-const icon_predict_planet_bg_8 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_8.png';
-const icon_predict_planet_bg_9 = ossUrl + 'wap/images/astro/predict/icon_planet_bg_9.png';
+const icon_predict_planet_bg_0 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_0.png';
+const icon_predict_planet_bg_1 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_1.png';
+const icon_predict_planet_bg_2 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_2.png';
+const icon_predict_planet_bg_3 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_3.png';
+const icon_predict_planet_bg_4 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_4.png';
+const icon_predict_planet_bg_5 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_5.png';
+const icon_predict_planet_bg_6 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_6.png';
+const icon_predict_planet_bg_7 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_7.png';
+const icon_predict_planet_bg_8 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_8.png';
+const icon_predict_planet_bg_9 = ossUrl + 'upload/images/astro/predict/icon_planet_bg_9.png';
 
 
 const astro_theme_color1 = ossUrl + 'wap/images/astro/astro_mode_modal/astro_theme_color1.png';

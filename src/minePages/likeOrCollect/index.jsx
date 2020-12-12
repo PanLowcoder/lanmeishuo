@@ -6,7 +6,7 @@ import { connect } from '@tarojs/redux';
 
 //通用列表组件
 import CommonList from '../../components/CommonList/CommonList';
-import { AtNavBar, AtTabs } from "taro-ui";
+import { AtNavBar } from "taro-ui";
 import {
     ASTRO_TABS,
     LIST_ITEM_TYPES,
@@ -101,7 +101,6 @@ export default class Index extends BaseComponent {
     onItemClick = (index, type) => {
         if (this.state.is_show_selected == 1) {//正在显示选中radio
             let list = this.props.list;
-            this.log(list);
             if (list[index].is_selected && list[index].is_selected == 1) {
                 list[index].is_selected = 0;
             } else {
@@ -115,7 +114,6 @@ export default class Index extends BaseComponent {
                 }
             });
             this.setState({ list })
-            this.log(list);
 
             //判断是否有选中的内容
             let is_del_btn_enable = false;

@@ -94,9 +94,29 @@ export default class Index extends BaseComponent {
             });
         }
     }
-
+    // 清空缓存
     actionRemoveStorage = () => {
-        Taro.removeStorageSync('store_synatry_list');
+        Taro.showModal({
+            title: '提示',
+            content: '确认要清空合盘记录吗?',
+            confirmColor: '#6C5FD3',
+            success: function (res) {
+                if (res.confirm) {
+                    Taro.removeStorageSync('store_synatry_list');
+                    Taro.reLaunch({
+                        url: '/pages/synastry/synastryList/index'
+                    })
+                } else if (res.cancel) {
+
+                }
+            }
+        })
+    }
+
+    //历史记录 被点击
+    actionListItemClick = (e) => {
+        this.log('actionListItemClick');
+        Taro.navigateTo({ url: '/pages/synastry/synastryDetail/index?rid1=' + e.currentTarget.dataset.rid1 + '&rid2=' + e.currentTarget.dataset.rid2 });
     }
 
     render() {
@@ -157,12 +177,12 @@ export default class Index extends BaseComponent {
                     {/* 合盘记录 */}
 
                     {(!list || list.length == 0) ? (
-                        <View>暂时没有合盘记录</View>
+                        <View className='empty'>暂时没有合盘记录~</View>
                     ) : (
                             <View className="list">
-                                { list && list.length > 0 && list.map((item, index) => {
+                                {list && list.length > 0 && list.map((item, index) => {
                                     return (
-                                        <View className="item">
+                                        <View className="item" data-rid1={item.rid1} data-rid2={item.rid2} onClick={this.actionListItemClick}>
                                             <View className="content">
                                                 <View className="name">{getSubString(item.name1, 3)} & {getSubString(item.name2, 3)}</View>
                                                 <View className="time">2020.09.09  5:03:53</View>
@@ -172,9 +192,9 @@ export default class Index extends BaseComponent {
                                     )
                                 })
                                 }
-
                             </View>
                         )}
+
 
                 </View>
             </View>

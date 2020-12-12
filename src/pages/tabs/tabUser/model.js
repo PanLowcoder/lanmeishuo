@@ -40,7 +40,7 @@ export default {
                 txt: '我的订单',
                 img: img_grid_function_0,
                 num: 0,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_ORDER,
+                link: '/pages/emptyPage/index',
                 type: 2,
             },
             {
@@ -61,32 +61,33 @@ export default {
                 txt: '我的课程',
                 img: img_grid_function_3,
                 num: 1,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_MY_COURSE,
+                link: '/pages/emptyPage/index',
                 type: 8,
             },
             {
                 txt: '幸运星',
                 img: img_grid_function_4,
                 num: 0,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_LUCKY,
+                link: '/pages/emptyPage/index',
+
             },
             {
                 txt: '我的提问',
                 img: img_grid_function_5,
                 num: 0,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_QUESITON_MY,
+                link: '/pages/emptyPage/index',
             },
             {
                 txt: '生时校正',
                 img: img_grid_function_6,
                 num: 0,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_RECTIFICATION,
+                link: '/pages/emptyPage/index',
             },
             {
                 txt: '运势日记',
                 img: img_grid_function_7,
                 num: 1,
-                link: '/minePages/likeOrCollect/index?type=' + LIST_ITEM_TYPES.ITEM_FORTUNE_NOTE,
+                link: '/pages/emptyPage/index',
             }
 
         ],
@@ -96,17 +97,17 @@ export default {
             {
                 txt: '我的钱包',
                 img: img_list_function_0,
-                link: '/pages/platform/balanceDetail/index',
+                link: '/pages/emptyPage/index',
             },
             {
                 txt: '我要认证',
                 img: img_list_function_1,
-                link: '/pages/platform/identifyPage/index',
+                link: '/pages/emptyPage/index',
             },
             {
                 txt: '我要考试',
                 img: img_list_function_2,
-                link: '/pages/platform/examineListPage/index',
+                link: '/pages/emptyPage/index',
             },
             {
                 txt: '分享给好友',
@@ -121,7 +122,7 @@ export default {
             {
                 txt: '设置',
                 img: img_list_function_5,
-                link: '/pages/platform/examineListPage/index',
+                link: '/minePages/setting/index',
             },
         ],
     },

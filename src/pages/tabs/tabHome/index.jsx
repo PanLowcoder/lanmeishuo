@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import BaseComponent from "../../../components/BaseComponent";
 import { View, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
-import { AtProgress, AtRate } from 'taro-ui'
+import { AtRate } from 'taro-ui'
 import './index.less'
 import MySwiper from '../../../components/Swiper/MySwiper';
 import ArticleList from '../../../components/ArticleList';
@@ -58,7 +58,7 @@ export default class tabHome extends BaseComponent {
 
     componentDidShow = () => {
         if (this.props.data) {//当前首页数据不为空，已保存到本地
-            this.log('当前档首页数据不为空，已保存到本地');
+            console.log('当前档首页数据不为空，已保存到本地');
         } else {
             this.props.dispatch({
                 type: 'tabHome/load',
@@ -119,7 +119,7 @@ export default class tabHome extends BaseComponent {
 
     //更多星文 点击
     actionArticleMore = () => {
-        Taro.navigateTo({ url: '/pages/tabs/tabArticle/index' });
+        Taro.switchTab({ url: '/pages/tabs/tabArticle/index' });
     }
 
     actionScrollviewClick = (e) => {
@@ -136,7 +136,6 @@ export default class tabHome extends BaseComponent {
 
     render() {
         const { data, tabs } = this.props;
-        const fortune_list = data.today_fortune.fortune_list;
         console.log(data);
         return (
             <View className='page'>
@@ -176,18 +175,18 @@ export default class tabHome extends BaseComponent {
                                 </View>
                             </View>
                             <View className="fortune-content">
-                                <View className="des-title">上午好!今天财运满满哦!</View>
+                                <View className="des-title">{data.today_fortune.lucky_name}</View>
                                 <View className="des">
                                     <Image className='des-img' src={data && getCustomImgUrl(data.today_fortune.revive_day.icon_url)}></Image>
                                     <View className="des-content">
-                                    {fortune_list.map((item, index) => (
-                                        <View className="item">
-                                            <Text className="text">{item.name}   {Math.floor(item.score)}%</Text>
-                                            <View className="progress">
-                                                <AtProgress percent={item.score} color={item.color} isHidePercent={true}></AtProgress>
+                                        {data.today_fortune['fortune_list'].map((item, index) => (
+                                            <View className="item">
+                                                <View className="text">{item.name} : {Math.floor(item.score)}%</View>
+                                                <View className="progress">
+                                                    <View className="score" style={`width:${Math.floor(item.score)}%;background:${item.color}`}></View>
+                                                </View>
                                             </View>
-                                        </View>
-                                    ))}
+                                        ))}
                                     </View>
                                 </View>
                                 <View className="textarea">{data && data.today_fortune.revive_day.tips}</View>
@@ -210,7 +209,7 @@ export default class tabHome extends BaseComponent {
                             <View className="left">
                                 <View className="text">星文推荐</View>
                             </View>
-                            <View className="right">
+                            <View className="right" onClick={this.actionArticleMore}>
                                 <Text className='text'>查看更多</Text>
                                 <Image className='icon' src={icon_more}></Image>
                             </View>

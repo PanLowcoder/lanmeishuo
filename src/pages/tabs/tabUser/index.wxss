@@ -2,6 +2,7 @@ page {
   background: #F6F7F9;
 }
 .user-page {
+  width: 100%;
   height: auto;
 }
 .user-page .user-header {
@@ -9,6 +10,7 @@ page {
   height: 542px;
   background: linear-gradient(180deg, #B494EF 0%, #5F5DCF 100%);
   border-radius: 2px;
+  position: relative;
 }
 .user-page .user-header .header-con {
   padding-top: 176px;
@@ -45,7 +47,7 @@ page {
   background: #FFFFFF;
   border-radius: 22px;
   font-size: 18px;
-  color: #8575DD;
+  color: #6C5FD3;
   display: flex;
   padding: 6px 10px;
 }
@@ -57,11 +59,11 @@ page {
   padding-left: 6px;
 }
 .user-page .container {
-  position: relative;
-  top: -150px;
+  width: 100%;
+  position: absolute;
+  top: 362px;
   background: #F6F7F9;
   border-radius: 20px 20px 0 0;
-  padding: 38px 32px;
 }
 .user-page .container .tab,
 .user-page .container .list {
@@ -69,7 +71,7 @@ page {
   border-radius: 26px;
 }
 .user-page .container .tab {
-  margin-bottom: 32px;
+  margin: 38px 32px 32px;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   padding-top: 28px;
@@ -87,6 +89,9 @@ page {
 }
 .user-page .container .tab .tab-item .text {
   font-size: 12px;
+}
+.user-page .container .list {
+  margin: 0 32px 32px;
 }
 .user-page .container .list .list-item {
   padding: 16px 16px 0 32px;

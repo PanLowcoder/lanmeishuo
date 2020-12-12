@@ -4,7 +4,7 @@ import { View, Text, Image, Icon } from '@tarojs/components';
 import PropTypes from 'prop-types';
 import { AtAvatar } from 'taro-ui';
 import './index.less';
-import { List } from '../../ArticleList';
+import { customTime, getCustomImgUrl } from "../../../utils/common";
 import { ossUrl } from '../../../config';
 
 const heart = ossUrl + 'upload/images/home/Star_Heart.png';
@@ -38,7 +38,7 @@ class ItemArticle extends BaseComponent {
       <View className='articles-li' data-id={item.id} onClick={this.gotoDetail}>
         <View className="article-title">
           <View className="title-text">{item.title}</View>
-          <View className="title-time">{item.created_at}</View>
+          {/* <View className="title-time">{item.created_at}</View> */}
         </View>
         <Image
           className='article-img'

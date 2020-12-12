@@ -134,7 +134,7 @@ export default class Index extends BaseComponent {
 
                     ))}
                 </ScrollView>
-            </View>
+            </View >
         )
     }
 }

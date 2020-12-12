@@ -339,7 +339,6 @@ export default class Index extends BaseComponent {
                                     <View className='top-con'>
                                         <F2Canvas onCanvasInit={this.initChart.bind(this)}></F2Canvas>
                                     </View>
-
                                 </View>
                             </View>
                         </View>

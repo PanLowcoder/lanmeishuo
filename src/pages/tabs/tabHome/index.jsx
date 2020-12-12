@@ -138,7 +138,7 @@ export default class tabHome extends BaseComponent {
         const { data, tabs } = this.props;
         return (
             <View className='page'>
-                <MySwiper />
+                <MySwiper banner={data && data.slides}></MySwiper>
                 <View className="container">
                     {/* 导航栏 */}
                     <View className='nav'>

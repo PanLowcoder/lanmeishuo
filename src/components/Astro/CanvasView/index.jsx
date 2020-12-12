@@ -91,17 +91,11 @@ class CanvasView extends BaseComponent {
       // this.context = window.document.getElementById('canvas-id').getContext('2d')
       if (this.props.data)
         this.draw(this.props.data)
+        this.CavasClick()
       // 只有编译为小程序下面代码才会被编译
     } else {
-      setTimeout(() => {
-        let query = Taro.createSelectorQuery().in(this.$scope)
-        query.select('.canvas').fields({ node: true, size: true }).exec(res => {
-          let node = res[0].node;
-          let ctx = node.getContext('2d');
-          console.log(ctx);
-        })
-      }, 1000)
       this.draw(this.props.data)
+      this.CavasClick()
     }
   }
 
@@ -196,8 +190,8 @@ class CanvasView extends BaseComponent {
     this.log('---------------draw-----------------')
     //canvas
     if (process.env.TARO_ENV === 'h5') {
-      let canvas = document.getElementById("myCanvas");
-      let ctx = canvas.getContext("2d");
+      let canvas = window.document.getElementById('myCanvas' + this.props.type);
+      let ctx = canvas.getContext('2d')
       this.init(canvas, ctx, data)
     } else {
       let query = Taro.createSelectorQuery().in(this.$scope)
@@ -903,20 +897,39 @@ class CanvasView extends BaseComponent {
     this.setState({ canvas_tap_profection_year })
     this.setState({ canvas_tap_profection_month })
   }
+  
+  CavasClick() {
+    console.log('---------------click-----------------')
+    //canvas
+    if (process.env.TARO_ENV === 'h5') {
+      let canvas = document.getElementById("myCanvas"+this.props.type);
+      let canva = canvas.getBoundingClientRect()
+      this.setState({canvas:canva})
+    } else {
+      let that =this;
+      let query = Taro.createSelectorQuery().in(this.$scope)
+          query.select("#myCanvas"+that.props.type).boundingClientRect(function(res){
+      let canvas = res;
+        that.setState({canvas:canvas})
+      }).exec()
+    }
 
+  }
 
   //画布被点击
   actionCavasClick = (e) => {
-    let query = Taro.createSelectorQuery().in(this.$scope)
-    query.select('.canvas').fields({ node: true, size: true }).exec(res => {
-      let node = res[0].node;
-      let ctx = node.getContext('2d');
-      console.log(res);
-      //console.log(canvas)
-      var x = (e.pageX - ctx.getBoundingClientRect().left) * rdi;
-
-      var y = (e.pageY - ctx.getBoundingClientRect().top) * rdi;
-      this.log('actionCavasClick x=' + x + ',y=' + y)
+     const canvas = this.state.canvas
+      console.log(e)
+      console.log(canvas)
+       if (process.env.TARO_ENV === 'h5') {
+      var x = (e.pageX - canvas.left) * rdi;
+      var y = (e.pageY - canvas.top) * rdi;
+      console.log('actionCavasClick x=' + x + ',y=' + y)
+    } else {
+      var x = (e.detail.x - canvas.left) * rdi;
+      var y = (e.detail.y - canvas.top) * rdi;
+      console.log('actionCavasClick x=' + x + ',y=' + y)
+    }
 
       let area = 10 * rdi;
       //检测宫位文字是否被点击
@@ -996,7 +1009,7 @@ class CanvasView extends BaseComponent {
         }
 
       }
-    })
+  
   }
 
   //宫位详情或者星座详情pop被点击
@@ -1090,10 +1103,9 @@ class CanvasView extends BaseComponent {
         {/*星盘画布*/}
         <View className='canvas-con'>
           {process.env.TARO_ENV === 'h5' &&
-            <canvas type="2d"
+            <canvas
               className='canvas'
-              id='myCanvas'
-              canvas-id='myCanvas'
+              id={'myCanvas' + type}
               onClick={this.actionCavasClick}>
             </canvas>
           }

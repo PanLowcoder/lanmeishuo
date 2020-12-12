@@ -7,7 +7,7 @@ import './index.scss';
 import {ASTRO_MODAL_BGS} from "../../../utils/constants";
 import {ossUrl} from "../../../config";
 
-const img_radio_selected = ossUrl + 'wap/images/common/img_radio_selected.png'
+const img_radio_selected = ossUrl + 'upload/images/common/img_radio_selected.png'
 
 /**
  *  星盘样式 alert组件

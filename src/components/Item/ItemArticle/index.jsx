@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro';
 import BaseComponent from "../../../components/BaseComponent";
 import { View, Text, Image, Icon } from '@tarojs/components';
 import PropTypes from 'prop-types';
-import { AtAvatar } from 'taro-ui'
+import { AtAvatar } from 'taro-ui';
 import './index.less';
 import { customTime, getCustomImgUrl } from "../../../utils/common";
 import { ossUrl } from '../../../config';

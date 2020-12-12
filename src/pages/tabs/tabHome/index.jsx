@@ -139,7 +139,7 @@ export default class tabHome extends BaseComponent {
         console.log(data);
         return (
             <View className='page'>
-                <MySwiper />
+                 <MySwiper banner={data && data.slides}></MySwiper>
                 <View className="container">
                     {/* 导航栏 */}
                     <View className='nav'>

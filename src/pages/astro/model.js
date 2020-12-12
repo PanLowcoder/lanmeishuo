@@ -185,6 +185,7 @@ export default {
         tid: tid,
         chart: ASTRO_TABS[tab_index].params,
       });
+      console.log(res)
       if (res && res.code == '200') {
         yield put({
           type: 'save', payload: {

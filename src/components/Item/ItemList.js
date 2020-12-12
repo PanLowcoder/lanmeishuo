@@ -22,7 +22,7 @@ class ItemList extends BaseComponent {
 
   static defaultProps = {
     type: 0,
-    item: {}
+    item: {},
   }
 
   componentWillMount() {

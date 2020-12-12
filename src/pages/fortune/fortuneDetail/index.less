@@ -1,0 +1,87 @@
+@import '../../../styles/base.less';
+
+.fortune-detail-page{
+    color: @color;
+  .nav-con {
+    width: 100%;
+    height: @height-nav;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    .nav-back {
+      padding-top: 20px;
+      position: fixed;
+      width: 80px;
+      padding-left: 20px;
+      z-index: 2;
+    }
+
+    //tabs
+    .tab-container {
+      z-index: 0;
+      position: fixed;
+      width: 100%;
+      height: @height-nav;    
+      margin-top: 10px;
+      .tabs {
+        margin-left: 20%;
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 10px;
+        .item {
+          .title {
+            text-align: center;
+            font-size: 32px;
+            opacity: 29%;
+          }
+          .title-selected {
+            opacity: 1;
+          }
+          .line {
+            // @include wh(30px, 5px);
+            margin: 0px 28px 10px 28px;
+            background: #000000;
+          }
+        }
+      }
+    }
+  }
+    .scrollview{
+    position: fixed;
+    width: 100%;
+    top: @height-nav;
+  }
+
+  //单个pane
+  .pane-page {
+      .record{
+          padding: 10px 32px 0 34px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 28px;
+          .user{
+              display: flex;
+              align-items: center;
+            .avator{
+                .img{
+
+                }
+                .bottom{
+                    font-size: 16px;
+                }
+            }
+            .name{
+                margin-left: 32px;
+            }
+        }
+        .time{}
+      }
+
+    .sperate {
+      background: #fff;
+    }
+  }
+}

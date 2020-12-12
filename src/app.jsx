@@ -96,6 +96,18 @@ class App extends Component {
           'relationExplain/index',//合盘更多关系页
         ]
       },
+      {
+        root: "pages/fortune/",
+        pages: [
+          //运势
+          // 'Note/index',//运势日记页面
+          'fortuneDetail/index',//日运、月运、年运详情页面
+          // 'weekConList/index',//12星座列表页面
+          // 'weekDetail/index',//星座周运详情页面
+          // 'fortuneOrder/index',//日运、月运、年运订购页面
+          // 'fortuneOrder/rectification_submit_detail',//生时校正下单详情页
+        ]
+      },
     ],
     window: {
       backgroundTextStyle: 'light',

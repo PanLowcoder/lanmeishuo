@@ -1,0 +1,69 @@
+.fortune-detail-page {
+  color: #313836;
+}
+.fortune-detail-page .nav-con {
+  width: 100%;
+  height: 85px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.fortune-detail-page .nav-con .nav-back {
+  padding-top: 20px;
+  position: fixed;
+  width: 80px;
+  padding-left: 20px;
+  z-index: 2;
+}
+.fortune-detail-page .nav-con .tab-container {
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 85px;
+  margin-top: 10px;
+}
+.fortune-detail-page .nav-con .tab-container .tabs {
+  margin-left: 20%;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+.fortune-detail-page .nav-con .tab-container .tabs .item .title {
+  text-align: center;
+  font-size: 32px;
+  opacity: 29%;
+}
+.fortune-detail-page .nav-con .tab-container .tabs .item .title-selected {
+  opacity: 1;
+}
+.fortune-detail-page .nav-con .tab-container .tabs .item .line {
+  margin: 0px 28px 10px 28px;
+  background: #000000;
+}
+.fortune-detail-page .scrollview {
+  position: fixed;
+  width: 100%;
+  top: 85px;
+}
+.fortune-detail-page .pane-page .record {
+  padding: 10px 32px 0 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+}
+.fortune-detail-page .pane-page .record .user {
+  display: flex;
+  align-items: center;
+}
+.fortune-detail-page .pane-page .record .user .avator .bottom {
+  font-size: 16px;
+}
+.fortune-detail-page .pane-page .record .user .name {
+  margin-left: 32px;
+}
+.fortune-detail-page .pane-page .sperate {
+  background: #fff;
+}

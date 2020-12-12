@@ -16,7 +16,8 @@ import record from '../pages/record/model';
 
 import synastryDetail from '../pages/synastry/synastryDetail/model';
 
-
+//运势
+import fortuneDetail from '../pages/fortune/fortuneDetail/model';
 
 export default [
     common,
@@ -32,5 +33,6 @@ export default [
     record,
     astro,
 
-    synastryDetail
+    synastryDetail,
+    fortuneDetail
 ]

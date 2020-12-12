@@ -9,6 +9,7 @@
 .articles-li .article-title {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .articles-li .article-title .title-text {
   font-size: 28px;

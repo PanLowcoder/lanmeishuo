@@ -69,12 +69,14 @@
 .page .container .content .fortune .fortune-content .des {
   display: flex;
   margin: 16px 0;
+  width: 100%;
 }
 .page .container .content .fortune .fortune-content .des .des-img {
   width: 128px;
   height: 128px;
 }
 .page .container .content .fortune .fortune-content .des .des-content {
+  width: 74%;
   font-size: 18px ;
   margin-left: 36px;
 }
@@ -82,9 +84,16 @@
   display: flex;
   align-items: center;
 }
+.page .container .content .fortune .fortune-content .des .des-content .item .text {
+  margin-right: 24px;
+  width: 29%;
+}
 .page .container .content .fortune .fortune-content .des .des-content .item .progress {
-  width: 172px;
-  margin-left: 18px;
+  width: 63%;
+}
+.page .container .content .fortune .fortune-content .des .des-content .item .progress .score {
+  height: 20px;
+  border-radius: 10px;
 }
 .page .container .content .fortune .fortune-content .textarea {
   font-size: 22px;

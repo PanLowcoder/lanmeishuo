@@ -27,18 +27,18 @@ export default {
       {
         title: '预测',
         url: icon_Prediction,
-        path: '/pages/synastry/synastryList/index'
+        path: '/pages/fortune/fortuneDetail/index'
       },
       {
         title: '日记',
         url: icon_Diary,
-        path: '/pages/synastry/synastryList/index'
+        path: '/pages/emptyPage/index'
       },
 
       {
         title: '生时校正',
         url: icon_Correction,
-        path: '/pages/synastry/synastryList/index'
+        path: '/pages/emptyPage/index'
       }
     ]
   },

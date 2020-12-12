@@ -1,4 +1,56 @@
 .relation-explain-page {
   margin-top: 85px;
   background: #F0F2F5;
+  padding: 38px 32px 0;
+  color: #313836;
+}
+.relation-explain-page .item-con {
+  margin-bottom: 64px;
+}
+.relation-explain-page .item-con .top-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.relation-explain-page .item-con .top-con .left-con .title {
+  font-size: 32px;
+}
+.relation-explain-page .item-con .top-con .left-con .bottom-con {
+  margin-top: 8px;
+  display: flex;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+.relation-explain-page .item-con .top-con .left-con .bottom-con .padding {
+  border-radius: 20px;
+  padding: 4px 24px 6px ;
+}
+.relation-explain-page .item-con .top-con .left-con .bottom-con .good {
+  background: #6C5FD3;
+}
+.relation-explain-page .item-con .top-con .left-con .bottom-con .love {
+  background: #FF83A5;
+}
+.relation-explain-page .item-con .top-con .left-con .bottom-con .margin-left {
+  margin-left: 8px;
+}
+.relation-explain-page .item-con .top-con .right-con {
+  width: 40%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.relation-explain-page .item-con .top-con .right-con .img {
+  width: 78px;
+  height: 78px;
+}
+.relation-explain-page .item-con .top-con .right-con .relation-img {
+  width: 40px;
+  height: 40px;
+}
+.relation-explain-page .item-con .des {
+  margin-top: 40px;
+  font-size: 28px;
+  opacity: 60%;
 }

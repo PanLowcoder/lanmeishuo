@@ -2,4 +2,58 @@
 .relation-explain-page{
     margin-top: @height-nav;
     background: #F0F2F5;
+    padding: 38px 32px 0;
+    color: @color;
+    .item-con{
+        margin-bottom: 64px;
+        .top-con{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .left-con{
+                .title{
+                    font-size: 32px;
+                }
+                .bottom-con{
+                    margin-top: 8px;
+                    display: flex;
+                    font-size: 20px;
+                    color: @white;
+                    .padding{
+                        border-radius: 20px;
+                        padding: 4px 24px 6px ;
+                    }
+                    .good{
+                        background: @base;
+                    }
+                    .love{
+                        background: @pink;
+                    }
+                    .margin-left{
+                        margin-left: 8px
+                    }
+                }
+            }
+            .right-con{
+                width: 40%;
+                margin-right: 10px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .img{
+                    width: 78px;
+                    height: 78px;
+                }
+                .relation-img{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+        .des{
+            margin-top: 40px;
+            font-size: 28px;
+            opacity: 60%;
+        }
+    }
 }

@@ -6,6 +6,8 @@ import { connect } from '@tarojs/redux';
 import { AtIcon, AtAvatar } from 'taro-ui';
 import { getSelfRecord, actionNavBack, customTime, getDateFromStr } from "../../../utils/common";
 import { getWindowHeight } from "../../../utils/style";
+import FortuneDayCalendar from '../../../components/Fortune/FortuneDayCalendar';
+import FortuneDayDetail from '../../../components/Fortune/FortuneDayDetail';
 
 
 @connect(({ fortuneDetail, common, fortune }) => ({
@@ -354,6 +356,24 @@ export default class Index extends BaseComponent {
         }
     }
 
+    onFortuneNoteClick = (note_status) => {
+        this.log('onFortuneNoteClick note_status=' + note_status)
+        if (note_status == 0) {//[0=>没有笔记,1=>有笔记]
+            this.log(this.props.day_param_time)
+            this.props.dispatch({
+                type: 'fortune/save',
+                payload: {
+                    time: customTime(this.props.day_param_time, 4, true)
+                }
+            })
+            Taro.navigateTo({ url: '/pages/fortune/Note/index?type=0' });
+        } else {
+            Taro.navigateTo({
+                url: '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_FORTUNE_NOTE
+            })
+        }
+    }
+
     render() {
         const {
             is_show_day_calendar_modal
@@ -367,6 +387,19 @@ export default class Index extends BaseComponent {
             is_show_day_modal,
             day_calendar_data,
         } = this.props;
+        let lucky_name = '';
+        if (day_detail && day_detail.lucky_name) {
+            for (let i = 0; i < day_detail.lucky_name.length; i++) {
+                lucky_name += day_detail.lucky_name[i] + '  ';
+            }
+        }
+
+        let forbid_name = '';
+        if (day_detail && day_detail.forbid_name) {
+            for (let i = 0; i < day_detail.forbid_name.length; i++) {
+                forbid_name += day_detail.forbid_name[i] + '  ';
+            }
+        }
         return (
             <View className='fortune-detail-page'>
                 <View className='nav-con'>
@@ -381,7 +414,6 @@ export default class Index extends BaseComponent {
                             {tabs && tabs.length > 0 && tabs.map((item, index) =>
                                 <View className='item' data-index={index} onClick={this.actionTabItem.bind()} key={index}>
                                     <View className={current_tab == index ? 'title title-selected' : 'title '}>{item}</View>
-                                    {current_tab == index && (<View className='line'></View>)}
                                 </View>
                             )}
                         </View>
@@ -397,17 +429,12 @@ export default class Index extends BaseComponent {
                     lowerThreshold='20'
                     onScrollToLower={this.onScrollToLower}
                 >
-
                     <View className='pane-page'>
                         {/*顶部档案部分*/}
-                        {/* <FortuneRecords
-                            onClickRecord={this.onClickRecord}
-                            records={this.props.records}
-                        /> */}
                         <View className="record">
                             <View className="user">
                                 <View className="avator">
-                                    <AtAvatar circle className="img" ></AtAvatar>
+                                    <AtAvatar circle size='large' className="img" ></AtAvatar>
                                     <View className="bottom">更换身份</View>
                                 </View>
                                 <View className="name">韩钰</View>
@@ -418,17 +445,45 @@ export default class Index extends BaseComponent {
                         {/*日运部分*/}
                         {
                             current_tab == 0 && (
-                                <View>
-                                    111
-
+                                <View className='detail'>
+                                    {/* 日历部分 */}
+                                    <FortuneDayCalendar
+                                        year={customTime(day_param_time, 8, true)}
+                                        month={customTime(day_param_time, 9, true)}
+                                        list={day_detail && day_detail.fortune}
+                                        time={day_detail && day_detail.time}
+                                        onClickDay={this.onClickDay}
+                                        onClickCalendarImg={this.onClickCalendarImg}
+                                    />
+                                    {/*宜忌 部分*/}
+                                    <View className='luck_adversity-container'>
+                                        {/*宜部分*/}
+                                        <View className='item-container'>
+                                            <View className="title">宜</View>
+                                            <View className='info'>{lucky_name}</View>
+                                        </View>
+                                        {/*忌部分*/}
+                                        <View className='item-container'>
+                                            <View className="title">忌</View>
+                                            <View className='info'>{forbid_name}</View>
+                                        </View>
+                                    </View>
+                                    {/*日运底部详情内容*/}
+                                    {day_detail && (
+                                        <FortuneDayDetail
+                                            detail={day_detail}
+                                            onFortuneNoteClick={this.onFortuneNoteClick}
+                                        />
+                                    )}
                                 </View>
-                            )}
+                            )
+                        }
 
                         {/*月运部分*/}
                         {
                             current_tab == 1 && (
                                 <View>
-                                    222
+                                    本功能正在开发中...
                                 </View>
                             )}
 
@@ -436,7 +491,7 @@ export default class Index extends BaseComponent {
                         {
                             current_tab == 2 && (
                                 <View>
-                                    333
+                                    本功能正在开发中...
                                 </View>
                             )}
 

@@ -1,0 +1,48 @@
+.hidden {
+  visibility: hidden;
+}
+.day-calendar-container {
+  width: 90%;
+  height: 220px;
+  background: #6C5FD3;
+  margin: 0 38px 0 32px;
+  color: #fff;
+  border-radius: 10px;
+}
+.day-calendar-container .top-container {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.day-calendar-container .top-container .date-container {
+  font-size: 32px;
+}
+.day-calendar-container .list-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 40px;
+}
+.day-calendar-container .list-container .item-container {
+  border-radius: 10px;
+}
+.day-calendar-container .list-container .item-container .item-day {
+  line-height: 50px;
+  font-size: 52px;
+  text-align: center;
+}
+.day-calendar-container .list-container .item-container .item-day-selected {
+  background: #FF83A5;
+  color: #fff;
+}
+.day-calendar-container .list-container .item-container .item-week-num {
+  text-align: center;
+  font-size: 28px;
+}
+.day-calendar-container .list-container .item-container .item-week-num-selected {
+  background: #FF83A5;
+}

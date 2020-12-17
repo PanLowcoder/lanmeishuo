@@ -1,0 +1,100 @@
+@import "../../../styles/mixin";
+
+//出生时间 弹出框
+.day_modal {
+  //background: #f00;
+  color: #000;
+  //顶部图片
+  .header-img {
+    @include wh(100%, 180px);
+  }
+
+  .container {
+    padding: 30px;
+    //顶部标题
+    .title {
+      @include sc(27px, $color-dark);
+    }
+    //单条内容列表
+    .list-container {
+      margin: 30px 0px 30px 30px;
+      padding-bottom: 30px;
+      background: $bg-color-light;
+      border-radius: 20px;
+      .item-container {
+        //background: #f00;
+        margin: 30px 30px 0 -10px;
+        display: inline-flex;
+        align-items: center;
+        .item-img {
+          //background: #f00;
+          display: inline-block;
+          @include wh(40px, 40px);
+          margin-left: -5px;
+        }
+        .text {
+          //background: #0f0;
+          @include sc(23px, $color-dark2);
+          margin: 5px 0 0 20px;
+        }
+      }
+
+      .second-container {
+          //background: #f00;
+          justify-content: flex-start;
+          margin: 30px 30px 0 -10px;
+          display: flex;
+          .text {
+            //background: #0f0;
+            @include sc(23px, $color-dark2);
+            margin-left: 20px;
+            display: inline-block;
+          }
+
+          .second-img {
+            //background: #00f;
+            @include wh(80px, 40px);
+            margin-left: -8px;
+          }
+
+      }
+    }
+    //注意点
+    .notice-container {
+      display: flex;
+      justify-content: flex-start;
+      padding-right: 20px;
+      .left-bg {
+        margin: 10px 20px 0 20px;
+        @include wh(15px, 15px);
+        border-radius: 15px;
+        background: $color-pink;
+      }
+      .text {
+        //background: #0f0;
+        @include sc(25px, $color-pink);
+
+      }
+    }
+    //底部按钮
+    .bottom-container {
+      //background: #f00;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 40px;
+      .cancle {
+        @include sc(30px, $color-dark);
+      }
+      .ok {
+        @include sc(30px, $color-pink);
+        margin-left: 60px;
+      }
+    }
+  }
+
+}
+
+//tar-ui定制
+.at-modal__content {
+  padding: 0;
+}

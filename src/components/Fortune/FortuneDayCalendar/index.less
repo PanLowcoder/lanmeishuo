@@ -1,0 +1,80 @@
+@import "../../../styles/base.less";
+
+//单个宽度
+// $width_of_item: 90px;
+//选择档案图片的宽度
+// $width_of_choose_img: 50px;
+
+//隐藏站位
+.hidden {
+  visibility: hidden
+}
+
+.day-calendar-container {
+    width: 90%;
+    height: 220px;
+    background: @base;
+    margin: 0 38px 0 32px;
+    color: #fff;
+    border-radius: 10px;
+
+  //左侧日期、右侧日历图标 部分
+  .top-container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    //左侧日期部分
+    .date-container {
+        font-size: 32px;
+      .year-text {
+        // @include sc(28px, $color-light);
+      }
+    }
+  }
+
+  //横向日历列表
+  .list-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    // align-items: center;
+    padding: 0 40px;
+
+    //单个部分
+    .item-container {
+        border-radius: 10px;
+      //几号样式
+      .item-day {
+        // @include wh(50px, 50px);
+        line-height: 50px;
+        font-size: 52px;
+        text-align: center;
+      }
+      //几号 选中的背景样式
+      .item-day-selected {
+        background: @pink;
+        color: #fff;
+      }
+      //当前日期的 颜色
+      .item-day-color {
+        // color: @pink;
+      }
+
+      //显示星期几
+      .item-week-num {
+        text-align: center;
+        font-size: 28px;
+      }
+      //星期几 选中样式
+      .item-week-num-selected {
+        // @include sc(25px, #000)
+        background: @pink;
+      }
+    }
+  }
+}

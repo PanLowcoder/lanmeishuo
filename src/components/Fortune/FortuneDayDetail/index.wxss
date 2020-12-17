@@ -1,0 +1,102 @@
+.day-detail-container {
+  background: #F6F7F9;
+}
+.day-detail-container .symbol-container {
+  padding: 32px 32px 32px 0;
+  white-space: nowrap;
+}
+.day-detail-container .symbol-container .item-container {
+  display: inline-block;
+  padding: 30px;
+  margin-left: 30px;
+  background: #fff;
+  border-radius: 20px;
+  text-align: center;
+}
+.day-detail-container .symbol-container .item-container .img {
+  width: 40px;
+  height: 40px;
+}
+.day-detail-container .symbol-container .item-container .title {
+  font-size: 28px;
+}
+.day-detail-container .chart-list-container {
+  background: #fff;
+  padding: 0 32px 40px 32px;
+  font-size: 24px;
+  /* for Chrome 隐藏进度条*/
+  /* for Chrome 隐藏进度条*/
+}
+.day-detail-container .chart-list-container .header-container {
+  padding-top: 26px;
+}
+.day-detail-container .chart-list-container .header-container .title {
+  font-size: 32px;
+  height: 48px;
+}
+.day-detail-container .chart-list-container .header-container .des {
+  margin-top: 8px;
+  opacity: 30%;
+}
+.day-detail-container .chart-list-container .scroll-view-container {
+  margin-top: 20px;
+  padding-right: 50px;
+  white-space: nowrap;
+}
+.day-detail-container .chart-list-container .scroll-view-container .item-container {
+  display: inline-block;
+}
+.day-detail-container .chart-list-container .scroll-view-container .item-container .top-container {
+  height: 300px;
+}
+.day-detail-container .chart-list-container .scroll-view-container .item-container .top-container .progress {
+  width: 280px;
+  -webkit-transform: rotate(270deg);
+}
+.day-detail-container .chart-list-container .scroll-view-container .item-container .top-container .percent {
+  opacity: 29%;
+}
+.day-detail-container .chart-list-container .scroll-view-container .item-container .bottom_title {
+  margin-left: 85px;
+}
+.day-detail-container .chart-list-container .scroll-view-container::-webkit-scrollbar {
+  display: none;
+}
+.day-detail-container .chart-list-container .symbol-container::-webkit-scrollbar {
+  display: none;
+}
+.day-detail-container .revive-day-container {
+  background: #FFFFFF;
+  margin-top: 32px;
+  padding: 26px 38px 56px 32px;
+  font-size: 24px;
+}
+.day-detail-container .revive-day-container .header-container .title {
+  font-size: 32px;
+}
+.day-detail-container .revive-day-container .header-container .des {
+  opacity: 30%;
+}
+.day-detail-container .revive-day-container .list-container .item-container .day-container .title-and-rate-container {
+  display: flex ;
+  align-items: center;
+}
+.day-detail-container .revive-day-container .list-container .item-container .day-container .title-and-rate-container .day-rate {
+  margin-left: 18px;
+}
+.day-detail-container .word-contianer {
+  background: #FFFFFF;
+  margin: 32px 36px 34px 34px;
+  font-size: 28px;
+}
+.day-detail-container .note-btn {
+  margin: 34px auto 0;
+  padding: 20px 0;
+  border-radius: 40px;
+  background: #6C5FD3;
+  font-size: 28px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  width: 41%;
+}

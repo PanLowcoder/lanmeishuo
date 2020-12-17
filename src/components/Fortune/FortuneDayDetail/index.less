@@ -1,0 +1,135 @@
+@import '../../../styles/base.less';
+
+.day-detail-container{
+    background: @deep;
+    .symbol-container{
+        //幸运色、方位、数字、星座 部分
+        padding: 32px 32px 32px 0;
+        white-space: nowrap; 
+        //单个元素 部分
+        .item-container {
+            display: inline-block;
+            // @include wh(120px, 120px);
+            padding: 30px;
+            margin-left: 30px;
+            background: #fff;
+            border-radius: 20px;
+            text-align: center;
+            //图片
+            .img {
+                //background: #0f0;
+                width: 40px;
+                height: 40px;
+            }
+            //文字
+            .title {
+                font-size: 28px;
+            }
+        }
+    }
+      //运势概括、柱状图部分
+  .chart-list-container {
+    background: #fff;
+    padding:0 32px 40px 32px;
+    font-size: 24px;
+    //顶部标题部分
+    .header-container {
+        padding-top: 26px;
+        .title {
+            font-size: 32px;
+            height: 48px;
+        }
+        .des {
+            margin-top: 8px;
+            opacity: 30%;
+        }
+    }
+
+    //柱状图部分
+    .scroll-view-container {
+      margin-top: 20px;
+      padding-right: 50px;
+      white-space: nowrap;
+      //单个元素
+      .item-container {
+        display: inline-block;
+        //进度条以及百分比部分
+        .top-container {
+          height: 300px;
+          //进度条
+          .progress {
+            width: 280px;
+            -webkit-transform: rotate(270deg);
+          }
+          //百分比数字
+          .percent {
+            opacity: 29%;
+          }
+        }
+        //底部文字标题
+        .bottom_title {
+          margin-left: 85px;
+        }
+      }
+    }
+
+    /* for Chrome 隐藏进度条*/
+    .scroll-view-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* for Chrome 隐藏进度条*/
+    .symbol-container::-webkit-scrollbar {
+      display: none;
+    }
+
+  }
+
+    //   运势提点
+    .revive-day-container{
+        background: @white;
+        margin-top: 32px;
+        padding: 26px 38px 56px 32px;
+        font-size: 24px;
+        .header-container{
+            .title{
+                font-size: 32px;
+            }
+            .des{
+                opacity: 30%;
+            }
+        }
+        .list-container{
+            .item-container{
+                .day-container{
+                    .title-and-rate-container{
+                        display:flex ;
+                        align-items: center;
+                        .day-title{}
+                        .day-rate{
+                            margin-left: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .word-contianer{
+        background: @white;
+        margin: 32px 36px 34px 34px;
+        font-size: 28px;
+    }
+      //运势日记按钮
+    .note-btn {
+        margin: 34px auto 0;
+        padding: 20px 0;
+        border-radius: 40px;
+        background: @base;
+        font-size: 28px;
+        font-weight: 600;
+        color: @white;
+        text-align: center;
+        width: 41%;
+    }
+}

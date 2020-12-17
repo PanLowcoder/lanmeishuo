@@ -3,11 +3,11 @@ import BaseComponent from "../../BaseComponent";
 import PropTypes from 'prop-types';
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components';
 import './index.less';
-import {ossUrl} from '../../../config';
+import { ossUrl } from '../../../config';
 import top_banner from '../../../images/home/top_banner.png';
 export default class MySwiper extends BaseComponent {
 
- static propTypes = {
+  static propTypes = {
     banner: PropTypes.array,
   };
 
@@ -34,35 +34,35 @@ export default class MySwiper extends BaseComponent {
   }
 
 
-/**
- * 左右滑动组件（图片）
- */
-render() {
-     const {banner} = this.props;
+  /**
+   * 左右滑动组件（图片）
+   */
+  render() {
+    const { banner } = this.props;
     return (
-        <View className='myswiper'>
-            <Swiper
-                className='swiper'
-                indicatorColor='#999'
-                indicatorActiveColor='#333'
-                circular
-                indicatorDots
-            // autoplay
-            > 
-            {banner && banner.length > 0 && banner.map((item, index) => (
-                <SwiperItem className='swiper-item'>
-                    <View className=''>
-                        <Image
-                            className='img'
-                            mode='widthFix'
-                            src={ossUrl + `${item.image}`}
-                        />
-                    </View>
-                </SwiperItem>
-                ))}
-            </Swiper>
-        </View>
+      <View className='myswiper'>
+        <Swiper
+          className='swiper'
+          indicatorColor='#999'
+          indicatorActiveColor='#333'
+          circular
+          indicatorDots
+          autoplay
+        >
+          {banner && banner.length > 0 && banner.map((item, index) => (
+            <SwiperItem className='swiper-item'>
+              <View className=''>
+                <Image
+                  className='img'
+                  mode='widthFix'
+                  src={ossUrl + `${item.image}`}
+                />
+              </View>
+            </SwiperItem>
+          ))}
+        </Swiper>
+      </View>
     )
-}
+  }
 
 }

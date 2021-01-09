@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { Canvas } from '@tarojs/components'
+import { Canvas, View } from '@tarojs/components'
 import PropTypes from 'prop-types';
 import Renderer from './lib/renderer';
 import './f2-canvas.css';
@@ -99,35 +99,27 @@ export default class F2Canvas extends Component<F2CanvasPropTypes> {
 
   render() {
     const id = this.id;
-    //   if (process.env.TARO_ENV === 'h5') {
-    //     return <canvas ref={this.htmlCanvas.bind(this)} className={'f2-canvas ' + id}></canvas>
-    //   }
-    //   if (process.env.TARO_ENV !== 'h5') {
-    //     return <Canvas
-    //       style={'width: ' + this.state.width + '; height:' + this.state.height}
-    //       className='f2-canvas' canvasId='f2-canvas'
-    //       id={id}
-    //       onTouchStart={this.touchStart.bind(this)}
-    //       onTouchMove={this.touchMove.bind(this)}
-    //       onTouchEnd={this.touchEnd.bind(this)}
-    //       onLongPress={this.press.bind(this)}
-    //     />;
-    //   }
-    // }
-    {
-      process.env.TARO_ENV !== 'h5' && (
-        <Canvas
-          style={'width: ' + this.state.width + '; height:' + this.state.height}
-          className='f2-canvas' canvasId='f2-canvas'
-          id={id}
-          onTouchStart={this.touchStart.bind(this)}
-          onTouchMove={this.touchMove.bind(this)}
-          onTouchEnd={this.touchEnd.bind(this)}
-          onLongPress={this.press.bind(this)}
-        />
-      )
-    }
+    return (
+      <View>
+        {
+          process.env.TARO_ENV !== 'h5' ? (<Canvas
+            style={'width: ' + this.state.width + '; height:' + this.state.height}
+            className='f2-canvas' canvasId='f2-canvas'
+            id={id}
+            onTouchStart={this.touchStart.bind(this)}
+            onTouchMove={this.touchMove.bind(this)}
+            onTouchEnd={this.touchEnd.bind(this)}
+            onLongPress={this.press.bind(this)}
+          />) :
+            (<canvas ref={this.htmlCanvas.bind(this)} className={'f2-canvas ' + id}></canvas>)
+        }
+      </View>
+
+    )
   }
+
+
+}
 
 function strLen(str) {
   let len = 0;

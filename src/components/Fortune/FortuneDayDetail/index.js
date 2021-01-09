@@ -141,17 +141,14 @@ class FortuneDayDetail extends BaseComponent {
                       <View className='title-and-status-container'>
                         <View className='title'>{item.name}</View>
                         {/*[1=>今日,2=>近日]*/}
-                        {item.status == 2 && (
-                          // <Image
-                          //   className='status_img'
-                          //   src={img_day_advice_rencent}
-                          // />
-                          <View>11111</View>
-                        )}
+                        {/* {item.status == 2 && (
+                          <Image
+                            className='status_img'
+                            src={img_day_advice_rencent}
+                          />
+                        )} */}
                       </View>
                       <View className='des'>{item.tips}</View>
-                      {index != detail.fortune_advice.length - 1 && (<View className='sperate-line'></View>)}
-
                     </View>
                   </View>
                 )}
@@ -176,7 +173,7 @@ class FortuneDayDetail extends BaseComponent {
                   {detail && detail.astro_tips && detail.astro_tips.length > 0 && detail.astro_tips.map((item, index) =>
                     <View className='item-container'>
                       <View className='left' style={'background:' + astro_colors[index % 3]}></View>
-                      <View className='right_des'>{item}</View>
+                      <View className='des'>{item}</View>
                     </View>
                   )}
                 </View>

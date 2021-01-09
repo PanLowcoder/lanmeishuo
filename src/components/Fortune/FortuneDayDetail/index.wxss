@@ -74,9 +74,6 @@
 .day-detail-container .revive-day-container .header-container .title {
   font-size: 32px;
 }
-.day-detail-container .revive-day-container .header-container .des {
-  opacity: 30%;
-}
 .day-detail-container .revive-day-container .list-container .item-container .day-container .title-and-rate-container {
   display: flex ;
   align-items: center;
@@ -84,9 +81,22 @@
 .day-detail-container .revive-day-container .list-container .item-container .day-container .title-and-rate-container .day-rate {
   margin-left: 18px;
 }
+.day-detail-container .revive-day-container .des {
+  opacity: 30%;
+}
 .day-detail-container .word-contianer {
-  background: #FFFFFF;
   margin: 32px 36px 34px 34px;
+  padding: 18px 36px 32px 32px;
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+  font-size: 28px;
+}
+.day-detail-container .word-contianer .word {
+  font-size: 32px;
+}
+.day-detail-container .word-contianer .from {
+  text-align: right;
   font-size: 28px;
 }
 .day-detail-container .note-btn {

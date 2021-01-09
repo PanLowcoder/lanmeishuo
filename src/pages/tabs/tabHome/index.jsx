@@ -174,11 +174,11 @@ export default class tabHome extends BaseComponent {
                                 </View>
                             </View>
                             <View className="fortune-content">
-                                <View className="des-title">{data.today_fortune.lucky_name}</View>
+                                <View className="des-title">{data && data.today_fortune.lucky_name}</View>
                                 <View className="des">
                                     <Image className='des-img' src={data && getCustomImgUrl(data.today_fortune.revive_day.icon_url)}></Image>
                                     <View className="des-content">
-                                        {data.today_fortune['fortune_list'].map((item, index) => (
+                                        {data && data.today_fortune['fortune_list'].map((item, index) => (
                                             <View className="item">
                                                 <View className="text">{item.name} : {Math.floor(item.score)}%</View>
                                                 <View className="progress">
@@ -199,7 +199,7 @@ export default class tabHome extends BaseComponent {
                                 src={img_Today}
                             />
                             <View className="info">
-                                <View className="date">{customTime(data.today_astro.time, 13)}</View>
+                                <View className="date">{customTime(data && data.today_astro.time, 13)}</View>
                                 <View className="today-content">{data && data.today_astro.tips}</View>
                             </View>
                         </View>

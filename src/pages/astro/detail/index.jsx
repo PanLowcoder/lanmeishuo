@@ -30,7 +30,7 @@ import AstroInfoModal from "../../../components/Modal/AstroInfoModal"
 import {getWindowHeight} from "../../../utils/style";
 import BottomTimeView from "../../../components/Astro/BottomTimeView";
 import {PAGES} from "../../../utils/constants";
-import {RECORD_SELECT_TYPES} from "../../record/recordSelect";
+import {RECORD_SELECT_TYPES} from "../../record/recordSelect/constants";
 
 
 /**

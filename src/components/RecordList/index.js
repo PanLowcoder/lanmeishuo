@@ -11,7 +11,7 @@ import CommonErrorOrEmptyHint from '../../components/CommonErrorOrEmptyHint';
 import {getNameFromRecord, isEmpty ,goToCommonPage} from "../../utils/common";
 import {connect} from "@tarojs/redux";
 import {getWindowHeight} from "../../utils/style";
-import {RECORD_SELECT_TYPES} from "../../pages/record/recordSelect";
+import {RECORD_SELECT_TYPES} from "../../pages/record/recordSelect/constants";
 
 const img_radio_normal = ossUrl + 'wap/images/common/img_radio_normal.png'
 const img_radio_selected = ossUrl + 'wap/images/common/img_radio_selected.png'

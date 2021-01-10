@@ -1,9 +1,8 @@
-import Taro, { Component } from '@tarojs/taro'
-import BaseComponent from "../../../components/BaseComponent";
-import { View, Image } from '@tarojs/components'
-import './index.less'
-import { AtNavBar, AtButton } from "taro-ui";
-import { connect } from "@tarojs/redux";
+import Taro from '@tarojs/taro';
+import BaseComponent from '../../../components/BaseComponent';
+import { View, Image } from '@tarojs/components';
+import { AtNavBar, AtButton } from 'taro-ui';
+import { connect } from '@tarojs/redux';
 import {
     getAscFromRecord,
     getNameFromRecord,
@@ -11,21 +10,20 @@ import {
     getSelfRecord,
     getSubString,
     goToCommonPage,
-    actionNavBack,
 } from '../../../utils/common';
 import { ossUrl } from '../../../config';
-import { PAGES } from "../../../utils/constants";
-import { RECORD_SELECT_TYPES } from "../../record/recordSelect";
+import { PAGES } from '../../../utils/constants';
+import { RECORD_SELECT_TYPES } from '../../record/recordSelect/constants';
+import './index.less'
 
 const default_atavar = ossUrl + 'upload/images/recode/male.png';
 const del_icon = ossUrl + 'upload/images/recode/del.png';
 const img_more = ossUrl + 'upload/images/user/more.png';
 
-
 @connect(({ synastryDetail, common }) => ({
-    ...synastryDetail, ...common
+    ...synastryDetail,
+    ...common
 }))
-
 export default class Index extends BaseComponent {
 
     constructor() {
@@ -38,9 +36,9 @@ export default class Index extends BaseComponent {
             list: [],//合盘历史列表（保存在本地）
         }
     }
+
     componentWillMount() {
         this.setState({ record1: getSelfRecord() });
-
     }
 
     componentDidMount() { }
@@ -83,7 +81,7 @@ export default class Index extends BaseComponent {
 
     //合盘按钮 被点击
     actionDetail = () => {
-        Taro.navigateTo({ url: '/pages/synastry/synastryDetail/index' });
+        // Taro.navigateTo({ url: '/pages/synastry/synastryDetail/index' });
         if (this.state.record1 && this.state.record2) {
             Taro.navigateTo({ url: '/pages/synastry/synastryDetail/index?rid1=' + this.state.record1.id + '&rid2=' + this.state.record2.id });
         } else {

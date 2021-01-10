@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { Canvas, View } from '@tarojs/components'
 import PropTypes from 'prop-types';
 import Renderer from './lib/renderer';
-import './f2-canvas.css';
+import './f2-canvas.less';
 
 
 interface F2CanvasPropTypes {

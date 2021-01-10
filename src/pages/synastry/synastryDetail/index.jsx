@@ -4,10 +4,9 @@ import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
 import './index.less'
 import { AtNavBar } from "taro-ui";
 import { connect } from '@tarojs/redux';
-import { actionNavBack, getAscFromRecord, getImgFromRecord, getNameFromRecord, getRecord } from "../../../utils/common";
+import { getAscFromRecord, getImgFromRecord, getNameFromRecord, getRecord } from "../../../utils/common";
 import F2Canvas from "../../../components/f2-canvas/f2-canvas";
-import F2 from '@antv/f2'
-
+import F2 from '@antv/f2';
 
 @connect(({ synastryDetail }) => ({
     ...synastryDetail,

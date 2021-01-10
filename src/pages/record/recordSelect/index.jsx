@@ -1,26 +1,10 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../../../components/BaseComponent";
-import './index.less';
-
 import RecordsAndCatsList from '../../../components/RecordsAndCatsList'
 import { connect } from "@tarojs/redux";
 import { goToCommonPage } from "../../../utils/common";
 import { PAGES } from "../../../utils/constants";
-
-/**
- *
- * type：0：全部的档案（点击跳转到星盘）；1：选择档案（单选）；2：选择档案（多选）；3：选择档案（2个【合盘使用】）；4：鉴爱选择档案（没有档案袋，有微信档案）;5：占星地图选择档案（单选，但是跳转固定）
- *
- * @type {{SELECT_TWO: number, SELECT_MAP: number, SELECT_MUTLI: number, SELECT_IDENTIFY_LOVE: number, SELECT_ONE: number, TO_ASTRO: number}}
- */
-export const RECORD_SELECT_TYPES = {
-  TO_ASTRO: 0,//0：全部的档案（点击跳转到星盘）
-  SELECT_ONE: 1,//1：选择档案（单选）
-  SELECT_MUTLI: 2,//2：选择档案（多选）
-  SELECT_TWO: 3,//3：选择档案（2个【合盘使用、占星平台选择合盘档案使用】）
-  SELECT_IDENTIFY_LOVE: 4,//4：鉴爱选择档案（没有档案袋，有微信档案）
-  SELECT_MAP: 5,//5：占星地图选择档案（单选，但是跳转固定）
-}
+import './index.less';
 
 /**
  * 档案选择页面

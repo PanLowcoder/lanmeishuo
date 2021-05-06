@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux';
 import { baseUrl, ossUrl } from "../../config";
 import './index.less'
 
-import { AtDivider } from 'taro-ui'
+import { AtDivider, AtCheckbox } from 'taro-ui'
 const img_wechat = ossUrl + 'upload/images/login/img_wechat.png';
 
 let setIntervalTime = null;
@@ -169,12 +169,12 @@ export default class Login extends BaseComponent {
         return (
             <View className='login-page'>
                 <View className="container">
-                    <View className="title purple">欢迎</View>
+                    <View className="title purple">欢迎!</View>
                     <View className="box">
                         <Text className="text">手机号码</Text>
                         {/*手机号部分*/}
                         <View className='mobile-con'>
-                            <View className='left'>+86<Text className='vertical'>|</Text> </View>
+                            <View style='margin-left: 6px'>+86<Text style='margin-left: 8px; margin-right: 10px'>|</Text> </View>
                             <Input
                                 className='mobile input'
                                 type='tel'
@@ -189,7 +189,7 @@ export default class Login extends BaseComponent {
 
                         {/*验证码部分*/}
                         <View className='code-con'>
-                            <View className='left'>
+                            <View style='margin-left: 6px'>
                                 <Input
                                     className='code input'
                                     type='tel'
@@ -201,7 +201,7 @@ export default class Login extends BaseComponent {
                                     onInput={this.getCode}
                                 />
                             </View>
-                            <View className='code' onClick={this.sendSms}>重新获取</View>
+                            <View className='code' onClick={this.sendSms}>获取验证码</View>
                             {/* {sending == 2 && <View className='code' onClick={this.sendSms}>重新获取</View>}
                         {sending == 1 && <View className='code'>{`${smsTime}秒后重发`}</View>}
                         {sending == 0 && <View className='code' onClick={this.sendSms}>获取验证码</View>} */}

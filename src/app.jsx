@@ -27,7 +27,13 @@ const store = dvaApp.getStore();
 
 class App extends Component {
 
-  componentDidMount() { }
+  componentDidMount() {
+    Taro.loadFontFace({
+      global: true,
+      family: 'SJfengyu-Regular', //Css中引用使用的字体名
+      source: 'url("https://api.lanmeishuo.com/fonts/SJfengyu.ttf")',
+    })
+  }
 
   componentDidShow() { }
 

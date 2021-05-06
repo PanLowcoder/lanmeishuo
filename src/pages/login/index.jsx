@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux';
 import { baseUrl, ossUrl } from "../../config";
 import './index.less'
 
-import { AtDivider, AtCheckbox } from 'taro-ui'
+import { AtDivider, AtFloatLayout } from 'taro-ui'
 const img_wechat = ossUrl + 'upload/images/login/img_wechat.png';
 
 let setIntervalTime = null;
@@ -20,7 +20,9 @@ export default class Login extends BaseComponent {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            isOpenedDialog: false
+        };
     }
 
 
@@ -58,12 +60,14 @@ export default class Login extends BaseComponent {
 
     //微信登录
     actionWechatLogin = () => {
-        this.log('actionWechatLogin');
+        // this.log('actionWechatLogin');
         // window.location.href = baseUrl + '/web/wap/wechat_login?callback=' + encodeURI(wechatLoginCallBackUrl)
-        let url = window.location.href;
-        this.log(url)
-        window.location.href = baseUrl + '/web/wap/wechat_login?callback_url=' + encodeURIComponent(window.location.href + '?user_info=')
-
+        // let url = window.location.href;
+        // this.log(url)
+        // window.location.href = baseUrl + '/web/wap/wechat_login?callback_url=' + encodeURIComponent(window.location.href + '?user_info=')
+        this.setState({
+            isOpenedDialog: true
+        })
     }
 
     getMobile = (event) => {
@@ -174,7 +178,7 @@ export default class Login extends BaseComponent {
                         <Text className="text">手机号码</Text>
                         {/*手机号部分*/}
                         <View className='mobile-con'>
-                            <View style='margin-left: 6px'>+86<Text style='margin-left: 8px; margin-right: 10px'>|</Text> </View>
+                            <View>+86<Text style='margin-left: 8px; margin-right: 10px'>|</Text> </View>
                             <Input
                                 className='mobile input'
                                 type='tel'
@@ -189,7 +193,7 @@ export default class Login extends BaseComponent {
 
                         {/*验证码部分*/}
                         <View className='code-con'>
-                            <View style='margin-left: 6px'>
+                            <View>
                                 <Input
                                     className='code input'
                                     type='tel'
@@ -201,10 +205,10 @@ export default class Login extends BaseComponent {
                                     onInput={this.getCode}
                                 />
                             </View>
-                            <View className='code' onClick={this.sendSms}>获取验证码</View>
-                            {/* {sending == 2 && <View className='code' onClick={this.sendSms}>重新获取</View>}
-                        {sending == 1 && <View className='code'>{`${smsTime}秒后重发`}</View>}
-                        {sending == 0 && <View className='code' onClick={this.sendSms}>获取验证码</View>} */}
+                            {/* <View className='code' onClick={this.sendSms}>获取验证码</View> */}
+                            {sending == 2 && <View className='code' onClick={this.sendSms}>重新获取</View>}
+                            {sending == 1 && <View className='code'>{`${smsTime}秒后重发`}</View>}
+                            {sending == 0 && <View className='code' onClick={this.sendSms}>获取验证码</View>}
                         </View>
 
                         {/*协议部分*/}
@@ -227,15 +231,18 @@ export default class Login extends BaseComponent {
 
                     {/*微信登录部分*/}
                     <View className='wechat-con'>
-                        <AtDivider content='其他方式登录' fontColor='#ACAEAD' fontSize='24' />
+                        <AtDivider content='其他方式登录' fontColor='#ACAEAD' fontSize='12' />
                         {/*微信登录*/}
-                        <View className='img-con' >
+                        <View className='img-con' onClick={this.actionWechatLogin}>
                             <Image src={img_wechat} className='wechat-img'></Image>
                             <View className='text'>微信登录</View>
                         </View>
                     </View>
 
                 </View>
+                <AtFloatLayout isOpened={this.state.isOpenedDialog} title="蓝莓说" >
+                    获取当前微信用户头像和姓名信息
+                    </AtFloatLayout>
             </View>
         );
     }

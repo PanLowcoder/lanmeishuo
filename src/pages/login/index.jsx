@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux';
 import { baseUrl, ossUrl } from "../../config";
 import './index.less'
 
-import { AtDivider, AtFloatLayout } from 'taro-ui'
+import { AtDivider } from 'taro-ui'
 const img_wechat = ossUrl + 'upload/images/login/img_wechat.png';
 
 let setIntervalTime = null;
@@ -21,7 +21,6 @@ export default class Login extends BaseComponent {
     constructor(props) {
         super(props);
         this.state = {
-            isOpenedDialog: false
         };
     }
 
@@ -65,10 +64,25 @@ export default class Login extends BaseComponent {
         // let url = window.location.href;
         // this.log(url)
         // window.location.href = baseUrl + '/web/wap/wechat_login?callback_url=' + encodeURIComponent(window.location.href + '?user_info=')
-        this.setState({
-            isOpenedDialog: true
-        })
+        Taro.login({
+            success: function (res) {
+              if (res.code) {
+                console.log('登录！' + res.code)
+                //发起网络请求
+                Taro.request({
+                  url: 'https://api.lanmeishuo.com/api/v3/wechat',
+                  data: {
+                    code: res.code
+                  }
+                })
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
+            }
+          })
     }
+
+    
 
     getMobile = (event) => {
         const value = event.target.value;
@@ -240,9 +254,6 @@ export default class Login extends BaseComponent {
                     </View>
 
                 </View>
-                <AtFloatLayout isOpened={this.state.isOpenedDialog} title="蓝莓说" >
-                    获取当前微信用户头像和姓名信息
-                    </AtFloatLayout>
             </View>
         );
     }

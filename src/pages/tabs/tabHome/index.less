@@ -5,16 +5,16 @@
         .nav{
             display: flex; 
             justify-content: space-around;
-            margin-left: 16px;
-            margin-right: 16px;
-            margin-bottom: 16px;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 8px;
             background: #FFFFFF;
             .nav-item{
                 display: flex;
                 flex-direction: column;
                 .img{
-                    width: 96px;
-                    height: 96px;                    
+                    width: 48px;
+                    height: 48px;                    
                     border-radius: 5px 0px 0px 0px;
                 } 
                 .text{
@@ -29,68 +29,86 @@
             width: 90%;
             margin: auto;
             .fortune{ 
-                padding: 30px;               
+                padding: 13px 18px 15px 16px;               
                 background: #FFFFFF;
                 box-shadow: 0px 8px 15px 0px rgba(150, 159, 171, 0.23);
                 border-radius: 5px;
-                font-size: 28px;
+                font-size: 14px;
                 .fortune-header{
                     display: flex;
                     justify-content: space-between;
                     .header-left{
                         display: flex; 
-                        align-items: center;                                      
+                        align-items: center;
+                        .left-text {
+                            font-size: 14px;
+                            font-family: "SJfengyu-Regular";
+                            color: #FFA256;
+                        }                                      
                         .left-img{
                             padding-left: 8px;
-                            .img{
-                                width: 28px;
-                                height: 28px;
-                                margin-left: 10px;
-                            }
                         }                       
                         
                     }
                     .header-right{
                         display: flex;
                         align-items: center;
-                        .text{}
+                        .text{
+                            font-size: 14px;
+                            color: #313836;
+                            font-family: 'PingFang-SC-Regular';
+                        }
                         .icon{
-                            width: 20px;
-                            height: 20px;
-                            margin-left: 8px;
+                            width: 7px;
+                            height: 8px;
+                            margin-left: 4px;
                         }
                     }
                 }
                 .fortune-content{
-                    margin-top: 24px;
+                    margin-top: 16px;
                     // display: flex;
                     .des-title{
-                        font-weight: 800;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #313836;
+                        font-family: 'PingFang-SC-Semibold';
                     }
                     .des{
                         display: flex;
-                        margin: 16px 0;
+                        margin-top: 8px;
                         width: 100%;
                         .des-img{
-                            width: 128px;
-                            height: 128px;
+                            width: 64px;
+                            height: 64px;
                         }
                         .des-content{
                             width: 74%;
-                            font-size:18px ;
-                            margin-left: 36px;
+                            font-size:9px ;
+                            margin-left: 21px;
                             .item{
                                 display: flex;
                                 align-items: center;
+                                margin-bottom: 12px;
+                                .dot{
+                                    width: 4px;
+                                    height: 4px;
+                                    border: 1px solid #8E58FF;
+                                    border-radius: 50%;
+                                    background-color: #8E58FF;
+                                }
                                 .text{
-                                    margin-right:24px;
-                                    width: 29%;
+                                    margin-right:12px;
+                                    margin-left: 3px;
+                                    width: 52px;
                                 }
                                 .progress{
-                                    width: 63%;
+                                    width: 164px;
+                                    background-color: #EAEAEA;
+                                    border-radius: 5px;
                                     .score{
-                                        height: 20px;
-                                        border-radius: 10px;
+                                        height: 10px;
+                                        border-radius: 5px;
                                     }
 
                                 }
@@ -99,7 +117,8 @@
                         }
                     }
                     .textarea{
-                        font-size: 22px;
+                        font-size: 11px;
+                        font-family: 'PingFang-SC-Regular';
                         display: -webkit-box;
                         overflow: hidden;
                         /* autoprefixer: ignore next */
@@ -110,25 +129,25 @@
             }
             .today{
                 margin: 32px auto;
-                height: 222px;
-                .img{
-                    width: 100%;
-                    z-index: 0;
-                }
+                height: 113px;
+                display: flex;
+                justify-content: flex-end;
                 .info{
-                    position: relative;
-                    top: -210px;
-                    margin-left: 287px;
-                    margin-right: 16px;
-                    z-index: 100;
                     color: #FFFFFF;
                     .date{
-                        font-size: 22px;
-                        margin-left: 140px;
+                        margin-top: 13px;
+                        margin-right: 18px;
+                        font-size: 11px;
+                        font-family: 'PingFang-SC-Regular';
+                        text-align: right;
                     }
                     .today-content{
-                        font-size: 24px;
+                        width: 186px;
                         margin-top: 16px;
+                        margin-right: 11px;
+                        font-size: 12px;
+                        font-family: 'PingFang-SC-Regular';
+                        text-align: left;
                     }
                 }
             }
@@ -138,18 +157,22 @@
                 margin-bottom: 8px;
                 .left{
                     .text{
-                        font-size: 28px;
+                        font-size: 14px;
+                        font-family: 'PingFang-SC-Regular';
+                        color: #313836;
                     }
                 }
                 .right{
                     display: flex;
                     align-items: center;
                     .text{
-                        font-size: 22px;
+                        font-size: 11px;
+                        font-family: 'PingFang-SC-Regular';
+                        color: #313836;
                     }
                     .icon{
-                        width: 20px;
-                        height: 20px;
+                        width: 7px;
+                        height: 8px;
                         margin-left: 6px;
                     }
             }

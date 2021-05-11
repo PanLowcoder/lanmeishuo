@@ -7,7 +7,7 @@ import './index.less'
 import MySwiper from '../../../components/Swiper/MySwiper';
 import ArticleList from '../../../components/ArticleList';
 import { ossUrl } from "../../../config";
-import { customTime, getAtWeeks, getCustomImgUrl } from "../../../utils/common"
+import { customTime, getAtWeeks, getCustomImgUrl, getCurrenWeek } from "../../../utils/common"
 
 const icon_more = ossUrl + 'upload/images/home/more.png';
 
@@ -136,6 +136,7 @@ export default class tabHome extends BaseComponent {
 
     render() {
         const { data, tabs } = this.props;
+        console.log("data-----" + data.article);
         return (
             <View className='page'>
                 <MySwiper banner={data && data.slides}></MySwiper>
@@ -163,7 +164,7 @@ export default class tabHome extends BaseComponent {
                                     <View className="left-text">{data && data.today_fortune.revive_day.name}</View>
                                     <AtRate
                                         className='left-img'
-                                        size='15'
+                                        size='13'
                                         max={3}
                                         value={data && data.today_fortune.revive_day.star_level}
                                     />
@@ -180,6 +181,7 @@ export default class tabHome extends BaseComponent {
                                     <View className="des-content">
                                         {data && data.today_fortune['fortune_list'].map((item, index) => (
                                             <View className="item">
+                                                <View className="dot"></View>
                                                 <View className="text">{item.name} : {Math.floor(item.score)}%</View>
                                                 <View className="progress">
                                                     <View className="score" style={`width:${Math.floor(item.score)}%;background:${item.color}`}></View>
@@ -192,14 +194,9 @@ export default class tabHome extends BaseComponent {
                             </View>
                         </View>
                         {/* 今日天象 */}
-                        <View className="today">
-                            <Image
-                                className='img'
-                                mode="widthFix"
-                                src={img_Today}
-                            />
+                        <View className="today" style={`background-image: url(${img_Today}); background-repeat: no-repeat; background-size:100% 100%;`}>
                             <View className="info">
-                                <View className="date">{customTime(data && data.today_astro.time, 13)}</View>
+                                <View className="date">{customTime(data && data.today_astro.time, 13)} {getCurrenWeek(data && data.today_astro.time)}</View>
                                 <View className="today-content">{data && data.today_astro.tips}</View>
                             </View>
                         </View>

@@ -32,6 +32,16 @@ class App extends Component {
       global: true,
       family: 'SJfengyu-Regular', //Css中引用使用的字体名
       source: 'url("https://api.lanmeishuo.com/fonts/SJfengyu.ttf")',
+    }),
+    Taro.loadFontFace({
+      global: true,
+      family: 'PingFang-SC-Regular', //Css中引用使用的字体名
+      source: 'url("https://api.lanmeishuo.com/fonts/PingFang-SC-Regular.otf")',
+    }),
+    Taro.loadFontFace({
+      global: true,
+      family: 'PingFang-SC-Semibold', //Css中引用使用的字体名
+      source: 'url("https://api.lanmeishuo.com/fonts/PingFang-SC-Semibold.ttf")',
     })
   }
 

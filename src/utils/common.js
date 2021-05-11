@@ -8,13 +8,13 @@ import { Decrypt, Encrypt, sign, app_type, did, time, model, phone_version } fro
 
 export const promisify = (func, ctx) => {
     // 返回一个新的function
-    return function () {
+    return function() {
         // 初始化this作用域
         var ctx = ctx || this;
         // 新方法返回的promise
         return new Promise((resolve, reject) => {
             // 调用原来的非promise方法func，绑定作用域，传参，以及callback（callback为func的最后一个参数）
-            func.call(ctx, ...arguments, function () {
+            func.call(ctx, ...arguments, function() {
                 // 将回调函数中的的第一个参数error单独取出
                 var args = Array.prototype.map.call(arguments, item => item);
                 var err = args.shift();
@@ -54,7 +54,7 @@ export const promisify = (func, ctx) => {
 // }
 
 export const promiseImage = (url) => {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         resolve(url)
     })
 }
@@ -75,9 +75,9 @@ export const handleName = (str) => {
 }
 
 export const emoj2str = (str) => {
-    return unescape(escape(str).replace(/\%uD.{3}/g, ''))
-}
-/*获取当前页url*/
+        return unescape(escape(str).replace(/\%uD.{3}/g, ''))
+    }
+    /*获取当前页url*/
 export const getCurrentPageUrl = () => {
     let pages = getCurrentPages()
     let currentPage = pages[pages.length - 1]
@@ -95,20 +95,20 @@ export const getCurrentPageUrl = () => {
 //   return device
 // }
 
-export const timeago = dateTimeStamp => {   //dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
-    let minute = 1000 * 60;      //把分，时，天，周，半个月，一个月用毫秒表示
+export const timeago = dateTimeStamp => { //dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
+    let minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
     let hour = minute * 60;
     let day = hour * 24;
     let week = day * 7;
     let halfamonth = day * 15;
     let month = day * 30;
-    let now = new Date().getTime();   //获取当前时间毫秒
-    let diffValue = now - dateTimeStamp;//时间差
+    let now = new Date().getTime(); //获取当前时间毫秒
+    let diffValue = now - dateTimeStamp; //时间差
 
     if (diffValue < 0) {
         return;
     }
-    let minC = diffValue / minute;  //计算时间差的分，时，天，周，月
+    let minC = diffValue / minute; //计算时间差的分，时，天，周，月
     let hourC = diffValue / hour;
     let dayC = diffValue / day;
     let weekC = diffValue / week;
@@ -462,7 +462,7 @@ export function getSelfRecord() {
                 record_self = all_records[i];
             }
         }
-    //如果自己的档案获取成功，那么保存到list中
+        //如果自己的档案获取成功，那么保存到list中
     if (record_self) {
         return record_self;
     } else {
@@ -805,30 +805,33 @@ export function wxPay(appId, nonceStr, packageStr, paySign, signType, timeStamp,
         // const {appid, nonceStr, packageStr, paySign, signType, timeStamp} = data // 服务器返回的参数
         WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-            appId: appId,
-            timeStamp: timeStamp.toString(),
-            nonceStr: nonceStr,
-            package: packageStr,
-            signType: signType,
-            paySign: paySign
-        },
-            function (res) {
+                appId: appId,
+                timeStamp: timeStamp.toString(),
+                nonceStr: nonceStr,
+                package: packageStr,
+                signType: signType,
+                paySign: paySign
+            },
+            function(res) {
                 // alert(JSON.stringify(res))
                 if (res.err_msg === "get_brand_wcpay_request:ok") {
                     showToast('支付成功');
                     switch (parseInt(type)) {
-                        case PAY_GOODS.PAY_GOODS_RECTIFICATION: {
-                            Taro.navigateTo({ url: '/pages/rectification/resultDetail/index?id=' + order_id })
-                            break;
-                        }
-                        case PAY_GOODS.PAY_GOODS_FORTUNE: {
-                            goToCommonPage(PAGES.PAGE_ORDER_DETAILS, '?type=' + type + '&id=' + order_id);
-                            break;
-                        }
-                        case PAY_GOODS.PAY_GOODS_MAP: {
-                            goToCommonPage(PAGES.PAGE_ORDER_DETAILS, '?type=' + type + '&id=' + order_id);
-                            break;
-                        }
+                        case PAY_GOODS.PAY_GOODS_RECTIFICATION:
+                            {
+                                Taro.navigateTo({ url: '/pages/rectification/resultDetail/index?id=' + order_id })
+                                break;
+                            }
+                        case PAY_GOODS.PAY_GOODS_FORTUNE:
+                            {
+                                goToCommonPage(PAGES.PAGE_ORDER_DETAILS, '?type=' + type + '&id=' + order_id);
+                                break;
+                            }
+                        case PAY_GOODS.PAY_GOODS_MAP:
+                            {
+                                goToCommonPage(PAGES.PAGE_ORDER_DETAILS, '?type=' + type + '&id=' + order_id);
+                                break;
+                            }
                     }
 
                 } else if (res.err_msg === "get_brand_wcpay_request:cancel") {
@@ -845,7 +848,7 @@ export function wxPay(appId, nonceStr, packageStr, paySign, signType, timeStamp,
 export function jsSdkConfig() {
 
     const ua = window.navigator.userAgent.toLowerCase()
-    // 如果不在微信浏览器内，微信分享也没意义了对吧？这里判断一下
+        // 如果不在微信浏览器内，微信分享也没意义了对吧？这里判断一下
     if (ua.indexOf('micromessenger') < 0) return false
 
     // 最好在在 router 的全局钩子里调用这个方法，每次页面的 URL 发生变化时，都需要重新获取微信分享参数
@@ -868,7 +871,7 @@ export function jsSdkConfig() {
     // url = encodeURIComponent(window.location.href.split('#')[0]);
     // url = baseUrl+'/';
     alert(url)
-    // //console.log(url)
+        // //console.log(url)
 
     getWechatSignRequest(url)
 
@@ -1035,7 +1038,7 @@ export function goToCommonPage(page, params) {
     }
     //console.log('page=' + page);
     let url = '';
-    if (page == PAGES.PAGE_URL) {//跳转url
+    if (page == PAGES.PAGE_URL) { //跳转url
         window.location.href = params;
     } else if (page == PAGES.PAGE_BALANCE_LIST) {
         url = '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_BALANCE;
@@ -1053,17 +1056,17 @@ export function goToCommonPage(page, params) {
         url = '/pages/platform/astrologerDetail/index' + params
     } else if (page == PAGES.PAGE_ASTROLOGERS_SELECT) {
         url = '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_ASTROLOGER + '&is_show_selected=1';
-    } else if (page == PAGES.PAGE_IDENTIFY_LOVE) {//鉴爱
+    } else if (page == PAGES.PAGE_IDENTIFY_LOVE) { //鉴爱
         url = '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_IDENTIFY_LOVE;
-    } else if (page == PAGES.PAGE_COMPOSITE) {//合盘
+    } else if (page == PAGES.PAGE_COMPOSITE) { //合盘
         url = '/pages/synastry/synastryList/index' + params;
-    } else if (page == PAGES.PAGE_RECTIFICATION) {//生时校正
+    } else if (page == PAGES.PAGE_RECTIFICATION) { //生时校正
         url = '/pages/rectification/inputPage/index';
-    } else if (page == PAGES.PAGE_RECTIFICATION_DETAILS) {//生时校正结果
+    } else if (page == PAGES.PAGE_RECTIFICATION_DETAILS) { //生时校正结果
         url = '/pages/rectification/resultDetail/index' + params;
-    } else if (page == PAGES.PAGE_DIVINATION) {//占卜
+    } else if (page == PAGES.PAGE_DIVINATION) { //占卜
         url = '/pages/divination/divinationInput/index';
-    } else if (page == PAGES.PAGE_IDENTIFY_RESULT) {//鉴爱结果页
+    } else if (page == PAGES.PAGE_IDENTIFY_RESULT) { //鉴爱结果页
         url = '/pages/loveResult/index' + params;
     } else if (page == PAGES.PAGE_FORTUNE_FOR_YEAR) {
         // 0：日运；1：月运；2：年运；
@@ -1084,7 +1087,7 @@ export function goToCommonPage(page, params) {
         url = '/pages/commonList/index?type=' + LIST_ITEM_TYPES.ITEM_COURSE_LIST;
     } else if (page == PAGES.PAGE_COURSE_DETAIL) {
         url = '/pages/course/courseDetail/index' + params;
-    } else if (page == PAGES.PAGE_ACG_MAP) {//'acg_map?rid=参数(地图首页)',
+    } else if (page == PAGES.PAGE_ACG_MAP) { //'acg_map?rid=参数(地图首页)',
         if (params == '?') {
             params = getSelfRecord().id;
         }
@@ -1107,9 +1110,9 @@ export function goToCommonPage(page, params) {
     }
 
     //下面是我自己定的
-    else if (page == PAGES.PAGE_HOROSCOPE) {//八字
+    else if (page == PAGES.PAGE_HOROSCOPE) { //八字
         url = '/pages/astro/horoscope/index' + params;
-    } else if (page == PAGES.PAGE_RECORD_SELECT) {//档案选择页面
+    } else if (page == PAGES.PAGE_RECORD_SELECT) { //档案选择页面
         url = '/pages/record/recordSelect/index' + params;
     } else if (page == PAGES.PAGE_CAT_RECORDS) {
         url = '/pages/record/catRecords/index' + params;
@@ -1121,3 +1124,36 @@ export function goToCommonPage(page, params) {
         Taro.navigateTo({ url: url });
 }
 
+/**
+ * 获取当前时间星期几
+ */
+
+export function getCurrenWeek(timestamp) {
+
+    var myDate = new Date(timestamp * 1000);
+    var days = myDate.getDay();
+    switch (days) {
+        case 1:
+            days = '星期一';
+            break;
+        case 2:
+            days = '星期二';
+            break;
+        case 3:
+            days = '星期三';
+            break;
+        case 4:
+            days = '星期四';
+            break;
+        case 5:
+            days = '星期五';
+            break;
+        case 6:
+            days = '星期六';
+            break;
+        case 0:
+            days = '星期日';
+            break;
+    }
+    return days == null ? "" : days;
+}

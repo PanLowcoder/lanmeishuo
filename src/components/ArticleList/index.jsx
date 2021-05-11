@@ -27,6 +27,7 @@ class ArticleList extends BaseComponent {
 
   render() {
     const { list } = this.props;
+    console.log(list)
     return (
       <View className='article-list-container'>
         {

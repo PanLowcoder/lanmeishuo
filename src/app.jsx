@@ -133,6 +133,7 @@ class App extends Component {
       navigationStyle: 'custom',
     },
     tabBar: {
+      custom: false, 
       list: [
         {
           pagePath: "pages/tabs/tabHome/index",

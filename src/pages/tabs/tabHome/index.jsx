@@ -200,16 +200,23 @@ export default class tabHome extends BaseComponent {
                                 <View className="today-content">{data && data.today_astro.tips}</View>
                             </View>
                         </View>
-                        {/*文章列表*/}
-                        <View className="art-title">
-                            <View className="left">
-                                <View className="text">星文推荐</View>
+                        {/*星文推荐*/}
+                        <View className='star-art'>
+                            <View className='art-title'>
+                                <View className='left'>
+                                    <View className='text'>星文推荐</View>
+                                </View>
+                                <View className='right' onClick={this.actionArticleMore}>
+                                    <Text className='text'>查看更多</Text>
+                                    <Image className='icon' src={icon_more}></Image>
+                                </View>
                             </View>
-                            <View className="right" onClick={this.actionArticleMore}>
-                                <Text className='text'>查看更多</Text>
-                                <Image className='icon' src={icon_more}></Image>
+                            <View className='art-content'>
+                                ssdas
+                                <Imag></Imag>
                             </View>
                         </View>
+                        {/*文章列表*/}
                         <ArticleList list={data && data.article}></ArticleList>
                     </View>
                 </View>

@@ -112,36 +112,37 @@ export default class tabArticle extends BaseComponent {
         return (
             <View className='tab-article-page'>
                 <View className="search">
-                    <Input className='input' type='text' placeholder='9月1日双子座运势' />
+                    <Input className='input' type='text' placeholder='9月1日双子座运势' placeholderStyle='color: rgba(49, 56, 54, 0.3)' />
                 </View>
                 <View className="line"></View>
                 {/* Tabs */}
-                {categories && categories.length > 0 && (
-                    <AtTabs
-                        className='tab'
-                        swipeable={false}
-                        animated={false}
-                        scroll
-                        current={category_index}
-                        tabList={categories}
-                        onClick={this.handleTabsClick.bind(this, 'category_index')}
-                    >
-                        {categories && categories.length > 0 && categories.map((item, index) => (
-                            //单个item
-                            <AtTabsPane className='tab_pane' current={category_index} index={index}>
-                                <CommonList
-                                    className='list-con'
-                                    height={getWindowHeight(true, true, 10)}
-                                    onListMore={this.onListMore}
-                                    loading={loading}
-                                    list={list && list.length > 0 && list}
-                                    type={LIST_ITEM_TYPES.ITEM_ARTICLE}
-                                />
-                            </AtTabsPane>
-                        ))}
-                    </AtTabs>
-                )}
-
+                <View className='content'>
+                    {categories && categories.length > 0 && (
+                        <AtTabs
+                            className='tab'
+                            swipeable={false}
+                            animated={false}
+                            scroll
+                            current={category_index}
+                            tabList={categories}
+                            onClick={this.handleTabsClick.bind(this, 'category_index')}
+                        >
+                            {categories && categories.length > 0 && categories.map((item, index) => (
+                                //单个item
+                                <AtTabsPane className='tab_pane' current={category_index} index={index}>
+                                    <CommonList
+                                        className='list-con'
+                                        height={getWindowHeight(true, true, 10)}
+                                        onListMore={this.onListMore}
+                                        loading={loading}
+                                        list={list && list.length > 0 && list}
+                                        type={LIST_ITEM_TYPES.ITEM_ARTICLE}
+                                    />
+                                </AtTabsPane>
+                            ))}
+                        </AtTabs>
+                    )}
+                </View>
             </View>
         )
     }

@@ -17,6 +17,9 @@ const heart = ossUrl + 'upload/images/home/Star_Heart.png';
 const star = ossUrl + 'upload/images/home/Star_Star.png';
 const chat = ossUrl + 'upload/images/home/Star_Chat.png';
 const smile = ossUrl + 'upload/images/article/smile.png';
+const left_arrow = ossUrl + 'upload/images/article/left_arrow.png';
+const female_image = ossUrl + 'upload/images/article/female_image.png';
+const face = ossUrl + 'upload/images/article/face.png';
 
 @connect(({ articleDetail }) => ({
     ...articleDetail,
@@ -100,15 +103,10 @@ export default class Detail extends BaseComponent {
         let user = Object(detail.user)
         return (
             <View className='detail-page'>
-                {/*导航栏*/}
-                <AtNavBar
-                    className='nav'
-                    onClickLeftIcon={this.actionNavBack}
-                    color='#000'
-                    border={false}
-                    leftIconType='chevron-left'
-                    fixed
-                />
+                {/*返回按钮*/}
+                <View className='backNavBar' onClick={this.actionNavBack}>
+                    <Image className='left_arrow' src={left_arrow}></Image>
+                </View>
                 <View className="top">
                     <View className="header">
                         <View className="title">{detail.title}</View>
@@ -119,7 +117,9 @@ export default class Detail extends BaseComponent {
                         <View className="art-img">
                             <Image className='img' src={ossUrl + detail.img}></Image>
                         </View>
-                        <View className="label">太阳或上升再白羊座</View>
+                        <View className='flabel'>
+                            <View className="label">太阳或上升再白羊座</View>
+                        </View>
                     </View>
                     <View className="container">
                         {/*文章详情*/}
@@ -129,6 +129,7 @@ export default class Detail extends BaseComponent {
                                 dangerouslySetInnerHTML={this.customHtmlContent()}
                             />
                         )}
+                        {/*分享点赞喜欢*/}
                         <View className="event">
                             <View className="share">
                                 <Image className='img' src={share_wechat}></Image>
@@ -150,6 +151,89 @@ export default class Detail extends BaseComponent {
                             </View>
                         </View>
                         <View className="line"></View>
+                    </View>
+                    {/*评论*/}
+                    <View className='comment'>
+                        <View className='comment-left'>
+                            <Image className='img' src={female_image}></Image>
+                        </View>
+                        <View className='comment-right'>
+                            <Text className='name'>白日梦想家</Text>
+                            <Text className='date'>3分钟前</Text>
+                            <View className='content'>
+                                <View className='text'>跪求桃花运！呜呜呜！</View>
+                                <View className='like-reply'>
+                                    <View className='like'>
+                                        <Image className='icon' src={heart}></Image>
+                                        <Text className='text'>3</Text>
+                                    </View>
+                                    <View className='all-reply'>
+                                        <Image Image className='icon' src={chat}></Image>
+                                        <Text className='text'>1</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View className='reply'></View>
+                        </View>
+                    </View>
+
+                    <View className='comment'>
+                        <View className='comment-left'>
+                            <Image className='img' src={female_image}></Image>
+                        </View>
+                        <View className='comment-right'>
+                            <Text className='name'>白日梦想家</Text>
+                            <Text className='date'>3分钟前</Text>
+                            <View className='content'>
+                                <View className='text'>跪求桃花运！呜呜呜！</View>
+                                <View className='like-reply'>
+                                    <View className='like'>
+                                        <Image className='icon' src={heart}></Image>
+                                        <Text className='text'>3</Text>
+                                    </View>
+                                    <View className='all-reply'>
+                                        <Image Image className='icon' src={chat}></Image>
+                                        <Text className='text'>1</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View className='reply'></View>
+                        </View>
+                    </View>
+
+                    <View className='comment'>
+                        <View className='comment-left'>
+                            <Image className='img' src={female_image}></Image>
+                        </View>
+                        <View className='comment-right'>
+                            <Text className='name'>白日梦想家</Text>
+                            <Text className='date'>3分钟前</Text>
+                            <View className='content'>
+                                <View className='text'>跪求桃花运！呜呜呜！</View>
+                                <View className='like-reply'>
+                                    <View className='like'>
+                                        <Image className='icon' src={heart}></Image>
+                                        <Text className='text'>3</Text>
+                                    </View>
+                                    <View className='all-reply'>
+                                        <Image Image className='icon' src={chat}></Image>
+                                        <Text className='text'>1</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View className='reply'></View>
+                        </View>
+                    </View>
+                    
+                </View>
+                <View className='bottom'>
+                    <View className='content'>
+                        <View className="reply-input">
+                            <Input className='input' type='text' placeholder='写评论' placeholderStyle='color: rgba(49, 56, 54, 0.3)' />
+                        </View>
+                        <View className="face">
+                            <Image className='img' src={face}></Image>
+                        </View>
                     </View>
                 </View>
             </View>

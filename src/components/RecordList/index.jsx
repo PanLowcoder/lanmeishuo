@@ -1,17 +1,17 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../BaseComponent";
-import {View, Image, ScrollView} from '@tarojs/components';
-import {AtSearchBar, AtSwipeAction, AtButton} from "taro-ui"
+import { View, Image, ScrollView } from '@tarojs/components';
+import { AtSearchBar, AtSwipeAction, AtButton } from "taro-ui"
 import PropTypes from 'prop-types';
 import './index.scss';
-import {ossUrl} from "../../config";
-import {CONS ,PAGES} from "../../utils/constants";
+import { ossUrl } from "../../config";
+import { CONS, PAGES } from "../../utils/constants";
 //网络错误页面
 import CommonErrorOrEmptyHint from '../../components/CommonErrorOrEmptyHint';
-import {getNameFromRecord, isEmpty ,goToCommonPage} from "../../utils/common";
-import {connect} from "@tarojs/redux";
-import {getWindowHeight} from "../../utils/style";
-import {RECORD_SELECT_TYPES} from "../../pages/record/recordSelect/constants";
+import { getNameFromRecord, isEmpty, goToCommonPage } from "../../utils/common";
+import { connect } from "@tarojs/redux";
+import { getWindowHeight } from "../../utils/style";
+import { RECORD_SELECT_TYPES } from "../../pages/record/recordSelect/constants";
 
 const img_radio_normal = ossUrl + 'wap/images/common/img_radio_normal.png'
 const img_radio_selected = ossUrl + 'wap/images/common/img_radio_selected.png'
@@ -20,7 +20,7 @@ const img_hint = ossUrl + 'wap/images/record/img_hint.png'
 /**
  * 档案列表组件
  */
-@connect(({record}) => ({
+@connect(({ record }) => ({
   ...record,
 }))
 class RecordList extends BaseComponent {
@@ -65,12 +65,12 @@ class RecordList extends BaseComponent {
     this.log('RecordList componentWillReceiveProps')
   }
 
-//开始搜索按钮被点击
+  //开始搜索按钮被点击
   onActionClick() {
     this.log('开始搜索')
   }
 
-//搜索栏输入变化
+  //搜索栏输入变化
   onChange(value) {
     let result_array = this.fuzzyQuery(this.props.record_list, value);
     this.setState({
@@ -78,29 +78,29 @@ class RecordList extends BaseComponent {
     });
 
     //保存数据
-    this.setState({search_records: this.getList(result_array)});
+    this.setState({ search_records: this.getList(result_array) });
   }
 
-//侧滑打开（完全打开时触发）
+  //侧滑打开（完全打开时触发）
   actionItemSwiperOpened = () => {
     this.log('actionItemSwiperOpened ');
   }
 
-//侧滑关闭（完全关闭时触发）
+  //侧滑关闭（完全关闭时触发）
   actionItemSwiperClosed = () => {
     this.log('actionItemSwiperClosed');
   }
 
-//action 里面的item点击事件
+  //action 里面的item点击事件
   actionSwiperItemClick = (option) => {
     this.log('actionSwiperItemClick')
     this.log(option);
     if (option.text == '移入档案袋') {
       this.log('move')
-      Taro.navigateTo({url: '/pages/record/recordMoveCat/index?rid=' + option.id})
+      Taro.navigateTo({ url: '/pages/record/recordMoveCat/index?rid=' + option.id })
     } else if (option.text == '编辑') {
       this.log('edit')
-      Taro.navigateTo({url: '/pages/record/recordAdd/index?type=1&rid=' + option.id})
+      Taro.navigateTo({ url: '/pages/record/recordAdd/index?type=1&rid=' + option.id })
     } else if (option.text == '删除') {
       this.log('delete')
       Taro.showModal({
@@ -165,7 +165,7 @@ class RecordList extends BaseComponent {
           records[index1].items[index2].is_selected = 1;
         }
         //保存已选中的数据
-        this.setState({selected_records: this.state.selected_records_state});
+        this.setState({ selected_records: this.state.selected_records_state });
         // this.log('打印已选中：');
         // this.log(this.state.selected_records_state);
         break;
@@ -177,12 +177,12 @@ class RecordList extends BaseComponent {
           records[index1].items[index2].is_selected = 0;
         } else {
           //没有选中，判断已有数量
-          if (2==this.state.selected_records_state.length){
+          if (2 == this.state.selected_records_state.length) {
             record.index = 1;
             records[index1].items[index2].is_selected = 1;
             //替换第一个
-            this.state.selected_records_state.splice(0,1,records[index1].items[index2])
-          }else{
+            this.state.selected_records_state.splice(0, 1, records[index1].items[index2])
+          } else {
             //直接添加
             record.index = this.state.selected_records_state.length;
             this.state.selected_records_state.push(record);
@@ -191,7 +191,7 @@ class RecordList extends BaseComponent {
 
         }
         //保存已选中的数据
-        this.setState({selected_records: this.state.selected_records_state});
+        this.setState({ selected_records: this.state.selected_records_state });
         this.log('打印已选中：');
         this.log(this.state.selected_records_state);
         break;
@@ -210,14 +210,14 @@ class RecordList extends BaseComponent {
     }
   }
 
-//type=2时有效，多选底部完成按钮被点击
+  //type=2时有效，多选底部完成按钮被点击
   actionMutlSelectedOkClick = () => {
     this.log('actionMutlSelectedOkClick');
     this.log(this.state.selected_records_state);
     this.props.onSelectedOkClick(this.state.selected_records_state);
   }
 
-//长按事件
+  //长按事件
   onLongClick = () => {
     this.log('onLongClick');
   }
@@ -284,8 +284,8 @@ class RecordList extends BaseComponent {
 
 
   render() {
-    const {type, selected_records, record_list, is_in_cat} = this.props;
-    const {search_records, search} = this.state;
+    const { type, selected_records, record_list, is_in_cat } = this.props;
+    const { search_records, search } = this.state;
     this.log('RecordList render records=')
 
     // this.log('RecordList render,record_list.length=' + record_list.length + ',selected_records.length=' + selected_records ? selected_records.length : '' + ',search_records.length=' + search_records.length);
@@ -309,13 +309,6 @@ class RecordList extends BaseComponent {
             onChange={this.onChange.bind(this)}
             onActionClick={this.onActionClick.bind(this)}
           />
-          <View className='hint-con'>
-            <Image
-              className='img'
-              src={img_hint}
-            />
-            <View className='text'>左滑可修改和删除档案，自己的档案只能修改</View>
-          </View>
         </View>
 
         {/*列表部分*/}
@@ -383,13 +376,15 @@ class RecordList extends BaseComponent {
                                 <View className='index'>{items.title}</View>
                               )}
                               {item.is_first == 0 && (
-                                <View className='index'>&nbsp;</View>
+                                <View className='index'> </View>
                               )}
-                              <Image
-                                className='img_bg'
-                                src={isEmpty(item.avatar)? CONS[(item.sun.split('-')[0] - 1)].record_default_avatar : (ossUrl + item.avatar)}
-                              />
-                              <View className='name'>{getNameFromRecord(item)}</View>
+                              <View className='img_name'>
+                                <Image
+                                  className='img_bg'
+                                  src={isEmpty(item.avatar) ? CONS[(item.sun.split('-')[0] - 1)].record_default_avatar : (ossUrl + item.avatar)}
+                                />
+                                <View className='name'>{getNameFromRecord(item)}</View>
+                              </View>
                             </View>
                             {/*右侧选中图片*/}
                             {(RECORD_SELECT_TYPES.SELECT_MUTLI == type || RECORD_SELECT_TYPES.SELECT_TWO == type) && (
@@ -450,7 +445,7 @@ class RecordList extends BaseComponent {
     var segs = [];
     var curr;
     letters.map((letter, i) => {
-      curr = {letter: letter, data: []};
+      curr = { letter: letter, data: [] };
       arr.map((item_data) => {
         var item = item_data.name;
         if ((!zh[i - 1] || zh[i - 1].localeCompare(item, "zh") <= 0) && item.localeCompare(zh[i], "zh") == -1) {

@@ -1,21 +1,24 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from "../BaseComponent";
-import {View} from '@tarojs/components';
+import { View } from '@tarojs/components';
 import PropTypes from 'prop-types';
 import './index.scss';
-import RecordList from '../../components/RecordList'
-import CatList from '../../components/CatList';
+import RecordList from '../RecordList'
+import CatList from '../CatList';
 //通用列表组件
-import CommonList from '../../components/CommonList/CommonList';
-import {LIST_ITEM_TYPES ,PAGES} from "../../utils/constants";
-import {goToCommonPage,actionNavBack} from "../../utils/common";
-import {connect} from "@tarojs/redux";
-import {AtIcon} from "taro-ui";
+import CommonList from '../CommonList/CommonList';
+import { LIST_ITEM_TYPES, PAGES } from "../../utils/constants";
+import { goToCommonPage, actionNavBack } from "../../utils/common";
+import { connect } from "@tarojs/redux";
+import { AtIcon } from "taro-ui";
+import { ossUrl } from "../../config";
+
+const add = ossUrl + 'upload/images/recode/add.png';
 
 /**
  * 档案和档案袋组件
  */
-@connect(({record}) => ({
+@connect(({ record }) => ({
   ...record,
 }))
 class RecordsAndCatsList extends BaseComponent {
@@ -102,7 +105,7 @@ class RecordsAndCatsList extends BaseComponent {
     this.log(option);
     if (option.text == '编辑') {
       this.log('edit')
-      Taro.navigateTo({url: '/pages/record/recordCatAdd/index?type=1&id=' + option.id})
+      Taro.navigateTo({ url: '/pages/record/recordCatAdd/index?type=1&id=' + option.id })
     } else if (option.text == '删除') {
       this.log('delete')
       Taro.showModal({
@@ -129,7 +132,7 @@ class RecordsAndCatsList extends BaseComponent {
   actionTabItem = (e) => {
     let index = e.currentTarget.dataset.index;
     this.log('actionTabItem index=' + index)
-    this.setState({tabsListValue: index})
+    this.setState({ tabsListValue: index })
     if (this.props.onTabChange)
       this.props.onTabChange(index);
     if (this.props.type == 4 && index == 1) {
@@ -151,16 +154,16 @@ class RecordsAndCatsList extends BaseComponent {
     this.log('RecordsAndCatsList render record length=' + record_list.length + ',cat_list=' + cat_list.length + ',type=' + type);
     this.log(record_list)
 
-    const {tabsListValue} = this.state;
+    const { tabsListValue } = this.state;
     let tabList = [
-      {title: '档案'},
-      {title: '档案袋'},
+      { title: '档案' },
+      { title: '档案袋' },
     ];
 
     if (type && type == 4) {
       tabList = [
-        {title: '档案'},
-        {title: '微信档案'},
+        { title: '档案' },
+        { title: '微信档案' },
       ];
     }
 
@@ -178,8 +181,12 @@ class RecordsAndCatsList extends BaseComponent {
               )}
             </View>
           </View>
+          {/*新建按钮*/}
+          <View className='new_btn' onClick={this.actionNewRecordBtn}>
+            <Image className='icon' src={add}></Image>
+          </View>
         </View>
-        <View className='new_btn' onClick={this.actionNewRecordBtn}>新建</View>
+        {/* <View className='new_btn' onClick={this.actionNewRecordBtn}>新建</View> */}
 
         {/*返回按钮（只有选择档案的时候才显示）*/}
         {type != 0 && (

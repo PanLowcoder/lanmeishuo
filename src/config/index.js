@@ -1,3 +1,11 @@
+/*
+ * @Author: QINJIN
+ * @Date: 2021-05-07 11:21:10
+ * @LastEditTime: 2021-05-26 11:23:36
+ * @LastEditors: QINJIN
+ * @Description: Do not edit
+ * @FilePath: /lanmeishuo/src/config/index.js
+ */
 // 请求连接前缀
 
 //版本号

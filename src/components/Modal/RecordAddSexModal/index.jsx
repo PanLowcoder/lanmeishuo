@@ -57,12 +57,12 @@ class RecordAddSexModal extends BaseComponent {
                     <View className='left_text'>
                       {item.name}
                     </View>
-                    <View className='right_container'>
+                    {/* <View className='right_container'>
                       <Image
                         className='right_img'
                         src={item.sex == sex ? img_radio_selected : img_radio_normal}
                       />
-                    </View>
+                    </View> */}
                   </View>
                 ))
             }

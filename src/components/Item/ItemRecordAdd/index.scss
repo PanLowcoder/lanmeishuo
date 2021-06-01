@@ -1,47 +1,49 @@
 @import "../../../styles/mixin";
-
-
 .item-con {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  .taro-img, image {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
-  .left-con {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    line-height: 100%;
-    .name {
-      margin-left: 50px;
-      white-space: nowrap;
+    height: 50px;
+    .taro-img,
+    image {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
     }
-
-  }
-  .right-con {
-    display: flex;
-    align-items: center;
-    line-height: 100%;
-    .num {
-      display: inline-block;
-      font-size: 18px;
-      text-align: center;
-      color: #ffffff;
-      background: #EC5D75;
-      border-radius: 20px;
-      padding: 6px 12px;
-      box-sizing: border-box;
-      margin-right: 25px;
+    .left-con {
+        display: flex;
+        align-items: center;
+        line-height: 100%;
+        .name {
+            margin-left: 16px;
+            white-space: nowrap;
+        }
     }
-    i.arrow {
-      font-size: 20px;
+    .right-con {
+        display: flex;
+        align-items: center;
+        line-height: 100%;
+        margin-right: 16px;
+        .num {
+            display: inline-block;
+            font-size: 18px;
+            text-align: center;
+            color: #ffffff;
+            background: #EC5D75;
+            border-radius: 10px;
+            padding: 6px 12px;
+            box-sizing: border-box;
+            margin-right: 25px;
+        }
+        i.arrow {
+            font-size: 10px;
+        }
+        .value {
+            @include sc(15px, rgba(108, 95, 211, 1));
+        }
+        .right_arrow {
+            width: 10px;
+            height: 10px;
+        }
     }
-
-    .value {
-      @include sc(30px, $color-pink);
-    }
-  }
 }

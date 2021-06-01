@@ -157,7 +157,7 @@ class RecordsAndCatsList extends BaseComponent {
     const { tabsListValue } = this.state;
     let tabList = [
       { title: '档案' },
-      { title: '档案袋' },
+      // { title: '档案袋' },
     ];
 
     if (type && type == 4) {

@@ -10,7 +10,7 @@ import { ossUrl } from "../../../config";
 import { getRecord, isEmpty, showToast } from "../../../utils/common";
 import { cityData_latlng } from "../../../js/city.data-xzns.js";
 
-const img_back = ossUrl + 'wap/images/common/img_back.png'
+const img_back = ossUrl + 'upload/images/article/left_arrow.png'
 const img_edit = ossUrl + 'wap/images/record/img_edit.png'
 const img_default_avatar = ossUrl + 'wap/images/common/img_default_avatar.png'
 const img_sex = ossUrl + "wap/images/record/img_sex.png";
@@ -389,6 +389,9 @@ class recordAdd extends BaseComponent {
         record_add_params: params,
       },
     });
+
+    // 修复bug不能及时刷新选择
+    this.onItemClick();
 
   }
 

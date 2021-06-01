@@ -2,7 +2,10 @@ import Taro from '@tarojs/taro';
 import BaseComponent from "../../BaseComponent";
 import {View, Text, Image} from '@tarojs/components';
 import PropTypes from 'prop-types';
+import { ossUrl } from "../../../config";
 import './index.scss';
+
+const right_arrow = ossUrl + 'upload/images/recode/right_arrow.png.png';
 
 /**
  * 新增档案-item-组件
@@ -28,6 +31,7 @@ class ItemRecordAdd extends BaseComponent {
     const {index, item} = this.props;
     this.log('ItemRecordAdd render index=' + index + ',item=' + item.value)
     this.log(item)
+    console.log(item)
     return (
 
       <View
@@ -36,10 +40,10 @@ class ItemRecordAdd extends BaseComponent {
         onClick={this.onItemClick}
       >
         <View className='left-con'>
-          <Image
+          {/* <Image
             className='icon-left'
             src={item.img}
-          />
+          /> */}
           <Text className='name'>{item.name}</Text>
         </View>
         <View className='right-con'>
@@ -47,7 +51,10 @@ class ItemRecordAdd extends BaseComponent {
             <View className='value'>{item.value_name}</View>
           )}
           {(!item.value || item.value == '0,0,0') && (
-            <View className='iconfont icon-arrow-right arrow'></View>
+            // <View className='iconfont icon-arrow-right arrow'></View>
+            <View className='arrow'>
+              <Image className='right_arrow' src={right_arrow}></Image>
+            </View>
           )}
         </View>
       </View>

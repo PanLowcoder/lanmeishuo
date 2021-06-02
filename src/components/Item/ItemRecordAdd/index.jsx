@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { ossUrl } from "../../../config";
 import './index.scss';
 
-const right_arrow = ossUrl + 'upload/images/recode/right_arrow.png.png';
+const right_arrow = ossUrl + 'upload/images/recode/right_arrow.png';
 
 /**
  * 新增档案-item-组件

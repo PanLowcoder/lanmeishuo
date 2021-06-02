@@ -13,6 +13,7 @@ const img_atv = ossUrl + 'upload/images/user/avatar.png';
 const img_more = ossUrl + 'upload/images/user/more.png';
 const img_sex_male = ossUrl + 'upload/images/user/img_sex_male.png';
 const img_sex_female = ossUrl + 'upload/images/user/img_sex_female.png';
+const right_arrow = ossUrl + 'upload/images/user/right_arrow_white.png';
 @connect(({ user, common }) => ({
     ...user,
     ...common,
@@ -123,16 +124,25 @@ export default class tabUser extends BaseComponent {
                 >
                     <View className="user-header">
                         <View className="header-con" onClick={this.actionUserHeaderClick}>
-                            <Image className='img-msg' src={img_msg} onClick={this.actionMsg}></Image>
-                            <AtAvatar circle className="img-avatar" image={user.avatar != '' ? ossUrl + user.avatar : img_atv} ></AtAvatar>
-                            <View className="right-con">
-                                <View className="name">{user && user.name} </View>
-                                <View className="num">ID号：{user && user.uen}</View>
-                                <View className="asc">
-                                    <View className="icon">
-                                        <Image className="img-sex" src={user && user.sex == 1 ? img_sex_male : img_sex_female}></Image>
+                            <View>
+                                <Image className='img-msg' src={img_msg} onClick={this.actionMsg}></Image>
+                            </View>
+                            <View className='userInfo'>
+                                <View>
+                                    <AtAvatar circle className="img-avatar" image={user.avatar != '' ? ossUrl + user.avatar : img_atv} ></AtAvatar>
+                                </View>
+                                <View className="right-con">
+                                    <View className="name">
+                                        <View>{user && user.name}</View>
+                                        <Image className='arrow' src={right_arrow}></Image>
                                     </View>
-                                    <View className="asc-text">{asc}</View>
+                                    <View className="num">ID：{user && user.uen}</View>
+                                    <View className="asc">
+                                        <View className="icon">
+                                            <Image className="img-sex" src={user && user.sex == 1 ? img_sex_male : img_sex_female}></Image>
+                                        </View>
+                                        <View className="asc-text">{asc}</View>
+                                    </View>
                                 </View>
                             </View>
                         </View>
@@ -170,7 +180,6 @@ export default class tabUser extends BaseComponent {
                                     )
                                 })
                             }
-
                         </View>
 
                     </View>

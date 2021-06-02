@@ -7,54 +7,69 @@ page{
     height: auto;
     .user-header{
         width: 100%;
-        height: 542px;
+        height: 271px;
         background: linear-gradient(180deg, #B494EF 0%, #5F5DCF 100%);
-        border-radius: 2px;
+        border-radius: 1px;
         position: relative;     
         .header-con{
-            padding-top: 176px;
-            padding-left: 62px;
+            padding-top: 55px;
+            padding-left: 16px;
             display: flex;
             .img-msg{
-                width: 38px;
-                height: 34px;
+                width: 19px;
+                height: 17px;
                 position: absolute;
-                top: 110px;
-                left: 32px;
             }
-            .img-avatar{
-                width: 128px;
-                height: 128px;
-            }
-            .right-con{
-                padding-left: 18px;
-                color: #FFFFFF;
-                .name{
-                    font-size: 28px;
-                    font-weight: 600;
-                    margin-bottom: 8px;
+            .userInfo{
+                display: flex;
+                margin-top: 35px;
+                margin-left: 15px;
+                .img-avatar{
+                    width: 64px;
+                    height: 64px;
                 }
-                .num{
-                    font-size: 24px;
-                    font-weight: 400;
-                    opacity: 0.6;
-                    margin-bottom: 6px;
-                }
-                .asc{
-                    background: #FFFFFF;
-                    border-radius: 22px;
-                    font-size: 18px;
-                    color: @base;
-                    display: flex;
-                    padding: 6px 10px;
-                    .img-sex{
-                        width: 24px;
-                        height: 24px;
+                .right-con{
+                    margin-left: 9px;
+                    color: #FFFFFF;
+                    .name{
+                        font-size: 14px;
+                        font-weight: 600;
+                        font-family: 'PingFang-SC-Semibold';
+                        line-height: 20px;
+                        display: flex;
+                        align-items: center;
+                        .arrow{
+                            margin-left: 3px;
+                            width: 12px;
+                            height: 12px;
+                        }
                     }
-                    .asc-text{
-                        padding-left: 6px;
+                    .num{
+                        margin-top: 3px;
+                        font-size: 12px;
+                        font-weight: 400;
+                        opacity: 0.3;
+                        font-family: 'PingFang-SC-Regular';
+                        line-height: 18px;
                     }
-
+                    .asc{
+                        margin-top: 4px;
+                        padding: 0 8px;
+                        background: #FFFFFF;
+                        border-radius: 11px;
+                        color: @base;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .img-sex{
+                            width: 12px;
+                            height: 12px;
+                        }
+                        .asc-text{
+                            font-size: 9px;
+                        }
+    
+                    }
                 }
             }
         }
@@ -62,27 +77,28 @@ page{
     .container{
         width: 100%;
         position: absolute; 
-        top: 362px;  
+        top: 0;
+        margin-top: 181px;
         background: #F6F7F9;
-        border-radius: 20px 20px 0 0;
+        border-radius: 10px 10px 0 0;
         .tab, .list{
             background: #FFFFFF;
-            border-radius: 26px;
+            border-radius: 13px;
         }
         .tab{
-            margin: 38px 32px 32px;
+            margin: 19px 16px 16px;
             display: grid;
             grid-template-columns: 25% 25% 25% 25%; 
-            padding-top: 28px;
+            padding-top: 20px;
             .tab-item{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding-bottom: 40px;
+                padding-bottom: 14px;
                 .img{
-                    width: 64px;
-                    height: 64px;
+                    width: 32px;
+                    height: 32px;
                 }
                 .text{
                     font-size: 12px;
@@ -90,38 +106,36 @@ page{
             }           
         }
         .list{
-            margin: 0 32px 32px;
+            margin: 19px 16px 16px;
            .list-item{
-               padding:16px 16px 0 32px;
-               .item{                    
+               .item{     
+                   padding: 16px;               
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-bottom: 32px;
                     .left{
+                        // width: 311px;
                         display: flex;
-                            align-items: center;
+                        align-items: center;
                         .icon-img{
-                            width: 64px;
-                            height: 64px;
+                            width: 32px;
+                            height: 32px;
                         }
                         .text{
-                            font-size: 28px;
+                            font-size: 14px;
                             margin-left: 16px;
                         }
                     }
                     .right{
-                        width: 22.62px;
-                        height: 22.62px;
+                        width: 12px;
+                        height: 12px;
                     }
                }
                 .line{
-                    width: 100%;
-                    // height: 1px;
-                    background: #D8D8D8;
-                    border-radius: 2px;
-                    opacity: 0.1;
-                    border: 1px solid #979797;
+                    margin: 0 28px 0 16px;
+                    height: 1px;
+                    background: rgba(151, 151, 151, 0.09);
+                    border-radius: 1px;
                 }
            } 
         }

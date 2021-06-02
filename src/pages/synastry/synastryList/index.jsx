@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 import BaseComponent from '../../../components/BaseComponent';
 import { View, Image } from '@tarojs/components';
-import { AtNavBar, AtButton } from 'taro-ui';
+import { AtNavBar, AtButton, AtAvatar } from 'taro-ui';
 import { connect } from '@tarojs/redux';
 import {
     getAscFromRecord,
@@ -19,6 +19,9 @@ import './index.less'
 const default_atavar = ossUrl + 'upload/images/recode/male.png';
 const del_icon = ossUrl + 'upload/images/recode/del.png';
 const img_more = ossUrl + 'upload/images/user/more.png';
+const left_arrow = ossUrl + 'upload/images/article/left_arrow.png';
+const img_sex_male = ossUrl + 'upload/images/user/img_sex_male.png';
+const img_sex_female = ossUrl + 'upload/images/user/img_sex_female.png';
 
 @connect(({ synastryDetail, common }) => ({
     ...synastryDetail,
@@ -121,46 +124,56 @@ export default class Index extends BaseComponent {
         const { record1, record2, list } = this.state;
         return (
             <View className='synastry-page'>
-                {/*导航栏*/}
-                <AtNavBar
-                    className='nav'
-                    onClickLeftIcon={this.actionNavBack}
-                    color='#000'
-                    title='合盘关系'
-                    border={false}
-                    leftIconType='chevron-left'
-                    fixed
-                />
+                {/*顶部*/}
+                <View className='header'>
+                    {/*返回按钮*/}
+                    <View className='backNavBar' onClick={this.actionNavBack}>
+                        <Image className='left_arrow' src={left_arrow}></Image>
+                    </View>
+                    <View className='title'>
+                        关系合盘
+                    </View>
+                </View>
                 <View className="top-con">
                     <View className="left">
                         <View className="left-con">
                             <View className="user" data-index={0} onClick={this.actionRecordClick}>
-                                <Image className='img-record' src={getImgFromRecord(record1, default_atavar, true)}></Image>
+                                <View className='img'>
+                                    <Image className='img-record' mode='aspectFit' src={getImgFromRecord(record1, default_atavar, false)}></Image>
+                                </View>
+                                <View className='change'>{getAscFromRecord(record1) == '' ? '选择合盘档案' : '更换身份'}</View>
+                                {record1.type === 1 || record1.type === 2 ? <View className='show_sex'>
+                                    <Image className='img_sex' src={record1.type && record1.type === 1 ? img_sex_male : img_sex_female}></Image>
+                                </View> : <View></View>}
                             </View>
                             <View className="info">
                                 <View className="name">{getNameFromRecord(record1)}</View>
-                                <View className="con">{getAscFromRecord(record1) == '' ? '选择合盘档案' : getAscFromRecord(record1)}</View>
+                                {getAscFromRecord(record1) == '' ? <View className="con_no"></View> : <View className="con"> {getAscFromRecord(record1)}</View>}
                             </View>
                             <View className="astro">
-                                <Image className='img-record' src={getImgFromRecord(record1, default_atavar, true)}></Image>
+                                <Image className='img-record' mode='aspectFit' src={getImgFromRecord(record1, default_atavar, true)}></Image>
                             </View>
                         </View>
-
                     </View>
                     <View className="right">
                         <View className="right-con">
                             <View className="astro">
-                                <Image className='img-record' src={getImgFromRecord(record2, default_atavar, true)}></Image>
+                                <Image className='img-record' mode='aspectFit' src={getImgFromRecord(record2, default_atavar, true)}></Image>
                             </View>
                             <View className="info">
                                 <View className="name">{getNameFromRecord(record2)}</View>
-                                <View className="con">{getAscFromRecord(record2) == '' ? '选择合盘档案' : getAscFromRecord(record2)}</View>
+                                {getAscFromRecord(record2) == '' ? <View className="con_no"></View> : <View className="con"> {getAscFromRecord(record2)}</View>}
                             </View>
                             <View className="user" data-index={1} onClick={this.actionRecordClick}>
-                                <Image className='img-record' src={getImgFromRecord(record2, default_atavar, true)}></Image>
+                                <View className='img'>
+                                    <Image className='img-record' mode='aspectFit' src={getImgFromRecord(record2, default_atavar, false)}></Image>
+                                </View>
+                                <View className='change'>{getAscFromRecord(record2) == '' ? '选择合盘档案' : '更换身份'}</View>
+                                {record2.type === 1 || record2.type === 2 ? <View className='show_sex'>
+                                    <Image className='img_sex' src={record2.type && record2.type === 1 ? img_sex_male : img_sex_female}></Image>
+                                </View> : <View></View>}
                             </View>
                         </View>
-
                     </View>
                     <AtButton className="btn" onClick={this.actionDetail}>合盘</AtButton>
                 </View>
@@ -177,23 +190,21 @@ export default class Index extends BaseComponent {
                     {(!list || list.length == 0) ? (
                         <View className='empty'>暂时没有合盘记录~</View>
                     ) : (
-                            <View className="list">
-                                {list && list.length > 0 && list.map((item, index) => {
-                                    return (
-                                        <View className="item" data-rid1={item.rid1} data-rid2={item.rid2} onClick={this.actionListItemClick}>
-                                            <View className="content">
-                                                <View className="name">{getSubString(item.name1, 3)} & {getSubString(item.name2, 3)}</View>
-                                                <View className="time">2020.09.09  5:03:53</View>
-                                            </View>
-                                            <Image className="more" src={img_more}></Image>
+                        <View className="list">
+                            {list && list.length > 0 && list.map((item, index) => {
+                                return (
+                                    <View className="item" data-rid1={item.rid1} data-rid2={item.rid2} onClick={this.actionListItemClick}>
+                                        <View className="content">
+                                            <View className="name">{getSubString(item.name1, 12)} & {getSubString(item.name2, 12)}</View>
+                                            <View className="time">2020.09.09  5:03:53</View>
                                         </View>
-                                    )
-                                })
-                                }
-                            </View>
-                        )}
-
-
+                                        <Image className="more" src={img_more}></Image>
+                                    </View>
+                                )
+                            })
+                            }
+                        </View>
+                    )}
                 </View>
             </View>
         )

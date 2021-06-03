@@ -2,131 +2,213 @@
 @purple:#6C5FD2;
 @pink:#FF83A5;
 @orange:#FFB976;
-.synastry-detail-page{
-    margin-top: @height-nav;
-    background:@deep ;
-    color: @color;
-    .top-con,.relation,.detail{
-        background: @white;
-    }
-    .top-con{
-      font-size: 28px;
-      //档案1 vs 档案2 部分
-      .vs-con {
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .item-con {
-          .img {
-            width: 212px;
-            height: 212px;
-          }
-          .name,.asc{
-            text-align: center;
-          }
-          .name {
-            
-          }
-          .asc {
-            font-size: 24px;
-            opacity: 30%;
-          }
-        }
-        .text-align-right {
-          text-align: right;
-        }
 
-        .vs-text {          
-         .text {
-            
-          }
+page{
+  background:@deep ;
+}
+.synastry-detail-page{
+  // margin-top: @height-nav;
+  // background:@deep ;
+  // color: @color;
+  // .top-con,.relation,.detail{
+  //     background: @white;
+  // }
+  .header{
+    display: flex;
+    align-items: center;
+    padding-top: 54px;
+    background: @white;
+    .backNavBar{
+        padding-left: 16px;
+        .left_arrow{
+            width: 17px;
+            height: 17px;
         }
+    }
+    .title{
+        margin-left: 130px;
+        font-size: 17px;
+        font-family: 'PingFang-SC-Regular';
+        line-height: 24px;
+        color: rgba(0, 0, 0, 1);
+    }
+  }
+  .top-con{
+    //档案1 vs 档案2 部分
+    .vs-con {
+      background: @white;
+      padding: 26px 19px 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .item-con {
+        .img {
+          width: 106px;
+          height: 106px;
+          border-radius: 50%;
+        }
+        .name,.asc{
+          text-align: center;
+        }
+        .name {
+          margin-top: 12px;
+          font-size: 14px;
+          font-family: 'PingFang-SC-Regular';
+          font-weight: 400;
+          color: #313836;
+          line-height: 20px;
+        }
+        .asc {
+          margin-top: 4px;
+          font-size: 12px;
+          opacity: 30%;
+          font-family: 'PingFang-SC-Regular';
+          font-weight: 400;
+          color: #313836;
+          line-height: 17px;
+        }
+      }
+      .text-align-right {
+        text-align: right;
+      }
+      .vs-text {      
+        position: relative;
+        bottom: 30px;
+        font-size: 18px;
+        font-family: 'PingFang-SC-Regular';
+        font-weight: 400;
+        color: #313836;
+        line-height: 25px;
+      }
     }
 
     //进度条部分
     .progress-con {
-        background: #fff;
-        padding: 32px 38px 12px 32px;
-        // display: flex;
+        background: @white;
+        padding-left: 16px;
         justify-content: space-between;
         align-items: flex-end;
           .percent-con {
-            padding-top: 10px;
             width: 100%;
-            height: 54px;
             display: flex;
             .left-bg,.right-bg{
-              border-radius: 28px;
+              border-radius: 18px;
               color: @white;
-              line-height: 54px;
+              line-height: 27px;
             }
             .left-bg {
+              position: relative;
               background: #6C5FD3;
-              padding-left: 32px;
+              padding-left: 16px;
+              z-index: 100;
             }
             .right-bg {
+              position: relative;
               background: #FF83A5;
-              padding-right: 32px;
+              padding-right: 13px;
               text-align: right;
+              z-index: 80;
+              left: -19px;
             }
           }
           .des{
             display: flex;
             justify-content: space-between;
-            padding: 12px 32px;
+            padding: 6px 32px 0 16px;
+            .left-des,.right-des{
+              font-size: 14px;
+              font-family: 'PingFang-SC-Regular';
+              font-weight: 400;
+              color: #313836;
+              line-height: 20px;
+            }
           }
       }
 
-        //如果部分
-  .if-content-con {
-    padding-top: 32px;
-    text-align: center;
-    .title {
-      opacity: 29%;
-    }
-    .content {
-      margin-top: 32px;
-      padding-bottom: 36px;
-      font-size: 32px;
-    }
-  }
-    }
-  .swiper-container-wrapper{
-    height: auto;
-  }
-  .relation{
-      margin:32px 0 32px 32px ;
-      width: 83%;
-      padding-top:30px;
-      padding-left: 32px;
-      font-size: 28px;
-      border-radius: 10px;
-      .title{}
-      .rel-con{
-          display: flex;
-          align-items: center;
-          margin-left: 112px;
-          margin-right: 112px;
-        .info{
-          flex: 3;
-          .rel{
-            border-bottom: 1px solid @base;
-          }
-          .des{
-            opacity: 29%;
-          }
-        }
-        .num{
-          flex: 1;
-          font-size: 98px;
-          color: @base;
-          margin-left: 8px;
-        }
+    //如果部分
+    .if-content-con {
+      padding: 16px 0 18px 0;
+      background: @white;
+      text-align: center;
+      .title {
+        font-size: 14px;
+        font-family: 'PingFang-SC-Regular';
+        font-weight: 400;
+        color: #313836;
+        line-height: 22px;
+        opacity: 29%;
       }
+      .content {
+        margin-top: 16px;
+        font-size: 16px;
+        font-family: 'PingFang-SC-Regular';
+        font-weight: 400;
+        color: #313836;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .relation_scroll{
+    // background: pink;
+    padding: 16px 16px 16px 0;
+    .scrollview{
+      // width: 550px;
+      white-space: nowrap;
+    }
+    .relation{
+        display: inline-block;
+        width: 310px;
+        height: 117px;
+        background: #FFFFFF;
+        border-radius: 5px;
+        margin-left: 16px;
+        .title{
+          font-size: 14px;
+          font-family: 'PingFang-SC-Regular';
+          font-weight: 400;
+          color: #313836;
+          line-height: 22px;
+          margin-top: 15px;
+          margin-left: 16px;
+        }
+        .rel-con{
+            display: flex;
+            margin-top: 18px;
+            margin-left: 56px;
+          .info{
+            .rel{
+              font-size: 14px;
+              font-family: 'PingFang-SC-Regular';
+              font-weight: 400;
+              color: #313836;
+              line-height: 20px;
+              width: 122px;
+              border-bottom: 1px solid @base;
+            }
+            .des{
+              margin-top: 1px;
+              font-size: 14px;
+              font-family: 'PingFang-SC-Regular';
+              font-weight: 400;
+              color: #313836;
+              line-height: 20px;
+              opacity: 29%;
+            }
+          }
+          .num{
+            margin-left: 4px;
+            font-size: 49px;
+            font-family: 'DINMittelschriftStd';
+            color: #6C5FD3;
+            line-height: 59px;
+          }
+        }
+    }
   }
   .detail{
-      font-size: 24px;
+    background: @white;
+    font-size: 24px;
     .title{
       padding-top: 32px;
       text-align: center;

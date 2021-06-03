@@ -42,6 +42,11 @@ class App extends Component {
       global: true,
       family: 'PingFang-SC-Semibold', //Css中引用使用的字体名
       source: 'url("https://api.lanmeishuo.com/fonts/PingFang-SC-Semibold.ttf")',
+    }),
+    Taro.loadFontFace({
+      global: true,
+      family: 'DINMittelschriftStd', //Css中引用使用的字体名
+      source: 'url("https://api.lanmeishuo.com/fonts/DINMittelschriftStd.otf")',
     })
   }
 

@@ -7,6 +7,10 @@ import { connect } from '@tarojs/redux';
 import { getAscFromRecord, getImgFromRecord, getNameFromRecord, getRecord } from "../../../utils/common";
 import F2Canvas from "../../../components/f2-canvas/f2-canvas";
 import F2 from '@antv/f2';
+import { ossUrl } from '../../../config';
+
+const default_atavar = ossUrl + 'upload/images/recode/male.png';
+const left_arrow = ossUrl + 'upload/images/article/left_arrow.png';
 
 @connect(({ synastryDetail }) => ({
     ...synastryDetail,
@@ -215,31 +219,32 @@ export default class Index extends BaseComponent {
                 data.relation[i].per = persent;
             }
         }
+        console.log('数据data---' + JSON.stringify(data.relation))
         return (
             <View>
                 {data && (
                     <View className='synastry-detail-page'>
-                        {/*导航栏*/}
-                        <AtNavBar
-                            className='nav'
-                            onClickLeftIcon={this.actionNavBack}
-                            color='#000'
-                            title='合盘结果'
-                            border={false}
-                            leftIconType='chevron-left'
-                            fixed
-                        />
+                        {/*顶部*/}
+                        <View className='header'>
+                            {/*返回按钮*/}
+                            <View className='backNavBar' onClick={this.actionNavBack}>
+                                <Image className='left_arrow' src={left_arrow}></Image>
+                            </View>
+                            <View className='title'>
+                                合盘结果
+                            </View>
+                        </View>
                         <View className="top-con">
                             {/*档案1 vs 档案2 部分*/}
                             <View className="vs-con">
                                 <View className='item-con'>
-                                    <Image className='img' src={getImgFromRecord(record1, '', true)}></Image>
+                                    <Image className='img' src={getImgFromRecord(record1, default_atavar, false)}></Image>
                                     <View className='name'>{getNameFromRecord(record1)}</View>
                                     <View className='asc'>{getAscFromRecord(record1)}</View>
                                 </View>
-                                <View className='vs-text'>V<Text className='text'>s</Text></View>
+                                <View className='vs-text'>Vs</View>
                                 <View className='item-con text-align-right'>
-                                    <Image className='img' src={getImgFromRecord(record2, '', true)}></Image>
+                                    <Image className='img' src={getImgFromRecord(record2, default_atavar, false)}></Image>
                                     <View className='name'>{getNameFromRecord(record2)}</View>
                                     <View className='asc'>{getAscFromRecord(record2)}</View>
                                 </View>
@@ -249,11 +254,11 @@ export default class Index extends BaseComponent {
                             <View className='progress-con'>
                                 <View className='percent-con'>
                                     <View className='left-bg' style={`width:${data.harmoniousAndConflict[0]}%;`}>{data.harmoniousAndConflict[0]}%</View>
-                                    <View className='right-bg' style={`width:${data.harmoniousAndConflict[1]}%;`}>{data.harmoniousAndConflict[1]}%</View>
+                                    <View className='right-bg' style={`width:${data.harmoniousAndConflict[1] + 10}%;`}>{data.harmoniousAndConflict[1]}%</View>
                                 </View>
                                 <View className="des">
                                     <View className='left-des'>和谐</View>
-                                    <View className='left-des'>冲突</View>
+                                    <View className='right-des'>冲突</View>
                                 </View>
                             </View>
                             {/*如果部分*/}
@@ -262,12 +267,15 @@ export default class Index extends BaseComponent {
                                 <View className='content'>{data.if_love}</View>
                             </View>
                         </View>
-                        <Swiper
-                            className='swiper'
-                            circular
-                        >
-                            {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
-                                <SwiperItem>
+                        {/*关系滑动*/}
+                        <View className='relation_scroll'>
+                            <ScrollView
+                                className='scrollview'
+                                scrollX
+                                scrollWithAnimation
+                                onScroll={this.onScroll}
+                            >
+                                {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
                                     <View className='relation'>
                                         <View className="title">{index == 0 ? '最合适的关系' : '适合的关系'}</View>
                                         <View className="rel-con">
@@ -278,9 +286,9 @@ export default class Index extends BaseComponent {
                                             <View className="num">{item.per}%</View>
                                         </View>
                                     </View>
-                                </SwiperItem>
-                            ))}
-                        </Swiper>
+                                ))}
+                            </ScrollView>
+                        </View>
                         <View className="detail">
                             <View className="title">关系发展潜力</View>
                             {/*图表部分*/}

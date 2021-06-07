@@ -208,11 +208,15 @@ page{
   }
   .detail{
     background: @white;
-    font-size: 24px;
+    padding-top: 16px;
     .title{
-      padding-top: 32px;
+      margin-bottom: 16px;
       text-align: center;
-      font-size: 32px;
+      font-size: 16px;
+      font-family: 'PingFang-SC-Regular';
+      font-weight: 400;
+      color: #313836;
+      line-height: 22px
     }
     //图表部分
     .graph-con {
@@ -223,71 +227,126 @@ page{
     .items-con {
       display: grid;
       grid-template-columns: 50% 50%;
+      margin-left: 16px;
       .item-con {
         display: flex;
-        align-self: flex-start;
-        border-radius: 10px;
-        margin: 0 28px 32px 32px;
+        margin-bottom: 16px;
         .sub-title {
-          border-radius: 10px;
-          padding: 2px 18px;
-          color: @white;
-          font-size: 28px;
+          width: 47px;
+          height: 23px;
+          text-align: center;
+          font-size: 14px;
+          font-family: 'PingFang-SC-Regular';
+          font-weight: 400;
+          color: #FFFFFF;
+          align-items: center;
+          line-height: 23px;
+          z-index: 100;
         }
         .right-con {
-          text-align: left;
+          width: 99px;
+          height: 23px;
           display: flex;
           align-items: center;
-          border-radius: 10px;
-          padding-left: 40px;
-          padding-right: 22px;
+          justify-content: flex-end;
+          border-radius: 5px;
           position: relative;
-          left: -20px;
+          left: -12px;
+          z-index: 80;
           .score {
-            line-height: 30px;
-            font-size: 32px;
+            margin-top: 7px;
+            font-size: 16px;
+            font-family: 'DINMittelschriftStd';
           }
           .des {
-          padding-left: 8px;
+            margin-left: 4px;
+            margin-right: 11px;
+            font-size: 12px;
+            font-family: 'PingFang-SC-Regular';
+            font-weight: 400;
+            color: #FFB976;
           }
         }
-
+      }
+      .item-con:nth-of-type(1),  .item-con:nth-of-type(4) {
+        .sub-title {
+          background: rgba(108, 95, 210, 1);
+          border-radius: 5px;
+          border: 1px solid #6C5FD2;
+        }
+        .right-con {
+          border: 1px solid #6C5FD2;
+          color: #6C5FD2;
+        }
+      }
+      .item-con:nth-of-type(2), .item-con:nth-of-type(5) {
+        .sub-title {
+          background: rgba(255, 131, 165, 1);
+          border-radius: 5px;
+          border: 1px solid #FF83A5;
+        }
+        .right-con {
+          border: 1px solid #FF83A5;
+          color: #FF83A5;
+        }
+      }
+      .item-con:nth-of-type(3), .item-con:nth-of-type(6) {
+        .sub-title {
+          background: rgba(255, 185, 118, 1);
+          border-radius: 5px;
+          border: 1px solid #FFB976;
+        }
+        .right-con {
+          border: 1px solid #FFB976;
+          color: #FFB976;
+        }
       }
     }
   }
   .comment{
     background: @white;
-    margin-top: 32px;
+    margin-top: 16px;
+    padding-top: 14px;
+    padding-bottom: 16px;
     .title{
-      padding-top: 28px;
+      font-size: 16px;
+      font-family: 'PingFang-SC-Regular';
+      font-weight: 400;
+      color: #313836;
+      line-height: 24px;
       text-align: center;
-      font-size: 32px;
     }
-        //立足点
+    //立足点
     .content-con {
-      padding: 40px 40px;
-      font-size: 28px;
+      margin-bottom: 28px;
+      margin-top: 18px;
       .judje-title-con {
-        //background: #0f0;
+        margin-left: 16px;
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         .left-bg {
-          background: @purple;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
         }
         .judje-title {
-          margin-left: 20px;
+          margin-left: 5px;
         }
-
       }
 
       .item-con {
+        margin-left: 35px;
         .content {
-          opacity: 59%;
+          font-size: 14px;
+          font-family: 'PingFang-SC-Regular';
+          font-weight: 400;
+          color: rgba(49, 56, 54, .59);
+          line-height: 20px;
         }
       }
     }
-        //双方在关系中的收获
+    //双方在关系中的收获
     .get-content-con {
       .graph-con {
         .top-con {
@@ -311,17 +370,19 @@ page{
   }
 
   .more-btn{
-    width: 45%;
-    height: 70px;
-    margin: 0 auto;
-    margin-top: 140px;
-    border-radius: 36px;
-    background: #6C5FD2;
-    text-align: center;
-    color: @white;
-    font-size: 28px;
-    line-height: 70px;
-    position: relative;
-    bottom: 70px;
+    margin-top: 35px;
+    margin-bottom: 65px;
+    text-align:  -webkit-center;
+    .text{
+      width: 170px;
+      height: 35px;
+      background: #6C5FD2;
+      border-radius: 18px;
+      font-size: 14px;
+      font-family: 'PingFang-SC-Regular';
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 35px;
+    }
   }
 }

@@ -5,7 +5,7 @@ import './index.less'
 import { AtNavBar } from "taro-ui";
 import { connect } from '@tarojs/redux';
 import { getAscFromRecord, getImgFromRecord, getNameFromRecord, getRecord } from "../../../utils/common";
-import F2Canvas from "../../../components/f2-canvas/f2-canvas";
+// import F2Canvas from "../../../components/f2-canvas/f2-canvas";
 import F2 from '@antv/f2';
 import { ossUrl } from '../../../config';
 
@@ -219,7 +219,7 @@ export default class Index extends BaseComponent {
                 data.relation[i].per = persent;
             }
         }
-        console.log('数据data---' + JSON.stringify(data.relation))
+        // console.log('数据data---' + JSON.stringify(data.relation))
         return (
             <View>
                 {data && (
@@ -276,7 +276,7 @@ export default class Index extends BaseComponent {
                                 onScroll={this.onScroll}
                             >
                                 {data && data.relation && data.relation.length > 0 && data.relation.map((item, index) => (
-                                    <View className='relation'>
+                                    <View className='relation' key={index}>
                                         <View className="title">{index == 0 ? '最合适的关系' : '适合的关系'}</View>
                                         <View className="rel-con">
                                             <View className="info">
@@ -292,17 +292,17 @@ export default class Index extends BaseComponent {
                         <View className="detail">
                             <View className="title">关系发展潜力</View>
                             {/*图表部分*/}
-                            {data && (
+                            {/* {data && (
                                 <View className='graph-con'>
                                     <F2Canvas onCanvasInit={this.drawRadar.bind(this)}></F2Canvas>
                                 </View>
-                            )}
+                            )} */}
                             {/*吸引、亲密。。部分*/}
                             <View className='items-con'>
                                 {relations.map((item, index) => (
-                                    <View className='item-con'>
-                                        <View className='sub-title' style={(index + 1) % 2 == 0 ? 'background:#FF83A5' : (index + 1) % 3 == 0 ? 'background:#FFB976' : 'background:#6C5FD2'}>{item.title}</View>
-                                        <View className='right-con' style={(index + 1) % 2 == 0 ? 'border: 1px solid #FF83A5;color:#FF83A5;' : (index + 1) % 3 == 0 ? 'border: 1px solid #FFB976;color:#FFB976;' : 'border: 1px solid #6C5FD2;color:#6C5FD2;'}>
+                                    <View className='item-con' key={index}>
+                                        <View className='sub-title'>{item.title}</View>
+                                        <View className='right-con'>
                                             <View className='score'>{item.num}</View>
                                             <View className='des'>{item.text}</View>
                                         </View>
@@ -315,11 +315,11 @@ export default class Index extends BaseComponent {
                             {/*立足点*/}
                             <View className='content-con'>
                                 <View className='judje-title-con'>
-                                    <View className='left-bg'></View>
+                                    <View className='left-bg' style='border: 3px solid #6C5FD2;'></View>
                                     <View className='judje-title'>立足点</View>
                                 </View>
                                 {data.foothold.map((item, index) => (
-                                    <View className='item-con'>
+                                    <View className='item-con' key={index}>
                                         <View className='content'>{index + 1}.{item}</View>
                                     </View>
                                 ))}
@@ -328,11 +328,11 @@ export default class Index extends BaseComponent {
                             {/*矛盾点*/}
                             <View className='content-con'>
                                 <View className='judje-title-con'>
-                                    <View className='left-bg'></View>
+                                    <View className='left-bg' style='border: 3px solid #FF83A5;'></View>
                                     <View className='judje-title'>矛盾点</View>
                                 </View>
                                 {data.conflict.map((item, index) => (
-                                    <View className='item-con'>
+                                    <View className='item-con' key={index}>
                                         <View className='content'>{index + 1}.{item}</View>
                                     </View>
                                 ))}
@@ -343,16 +343,16 @@ export default class Index extends BaseComponent {
                             <View className='get-content-con'>
                                 <View className='graph-con'>
                                     {/*图表部分*/}
-                                    <View className='top-con'>
+                                    {/* <View className='top-con'>
                                         <F2Canvas onCanvasInit={this.initChart.bind(this)}></F2Canvas>
-                                    </View>
+                                    </View> */}
                                 </View>
                             </View>
                         </View>
 
-                        <View className="more-btn" onClick={this.actionRelationExplain}>
-                            查看更多详细内容
-                </View>
+                        <View className="more-btn">
+                            <View className='text' onClick={this.actionRelationExplain}>查看更多详细内容</View>
+                        </View>
                     </View>
                 )
                 }

@@ -18,6 +18,8 @@ const icon_relation_good = ossUrl + 'upload/images/synastry/icon_relation_good.p
 const icon_relation_love = ossUrl + 'upload/images/synastry/icon_relation_love.png'
 const icon_relation_neutral = ossUrl + 'upload/images/synastry/icon_relation_neutral.png'
 
+const left_arrow = ossUrl + 'upload/images/article/left_arrow.png';
+
 @connect(({ synastryDetail }) => ({
     ...synastryDetail,
 }))
@@ -84,18 +86,19 @@ export default class Index extends BaseComponent {
 
     render() {
         const { data } = this.state;
+        // console.log('data----'+ JSON.stringify(data))
         return (
             <View className='relation-explain-page'>
-                {/*导航栏*/}
-                <AtNavBar
-                    className='nav'
-                    onClickLeftIcon={this.actionNavBack}
-                    color='#000'
-                    title='关系详解'
-                    border={false}
-                    leftIconType='chevron-left'
-                    fixed
-                />
+                {/*顶部*/}
+                <View className='header'>
+                    {/*返回按钮*/}
+                    <View className='backNavBar' onClick={this.actionNavBack}>
+                        <Image className='left_arrow' src={left_arrow}></Image>
+                    </View>
+                    <View className='title'>
+                        关系详解
+                    </View>
+                </View>
                 <ScrollView
                     className='scrollview'
                     scrollY
@@ -105,7 +108,7 @@ export default class Index extends BaseComponent {
                 >
                     {data && data.length > 0 && data.map((item) => (
 
-                        <View className='item-con'>
+                        <View className='item-con' key={item}>
                             {/*上部分*/}
                             <View className='top-con'>
                                 <View className='left-con'>
@@ -125,8 +128,8 @@ export default class Index extends BaseComponent {
                                 {/*右侧图片*/}
                                 <View className='right-con'>
                                     <Image className='img' src={PLANET(item.id1).icon}></Image>
-                                    <Image className='relation-img' src={this.getRelationIcon(item.good, item.love)}></Image>
-                                    <Image className='img' src={PLANET(item.id2).icon}></Image>
+                                    <Image style='margin-left:11px' className='relation-img' src={this.getRelationIcon(item.good, item.love)}></Image>
+                                    <Image style='margin-left:12px' className='img' src={PLANET(item.id2).icon}></Image>
                                 </View>
                             </View>
                             <View className='des'>{item.text}</View>

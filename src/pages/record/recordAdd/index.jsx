@@ -8,7 +8,7 @@ import RecordAddSexModal from '../../../components/Modal/RecordAddSexModal'
 import { ossUrl } from "../../../config";
 // import {record_upload_img} from "../../../pages/map/service";
 import { getRecord, isEmpty, showToast } from "../../../utils/common";
-import { cityData_latlng } from "../../../js/city.data-xzns.js";
+//import { cityData_latlng } from "../../../js/city.data-xzns.js";
 
 const img_back = ossUrl + 'upload/images/article/left_arrow.png'
 const img_edit = ossUrl + 'wap/images/record/img_edit.png'
@@ -18,7 +18,7 @@ const img_date = ossUrl + "wap/images/record/img_date.png";
 const img_address_birth = ossUrl + "wap/images/record/img_address_birth.png";
 const img_address_current = ossUrl + "wap/images/record/img_address_current.png";
 
-// const cityData_latlng = ossUrl + "wap/utils/city.data-xzns.js";
+const cityData_latlng = ossUrl + "upload/utils/city.data-xzns.js";
 
 @connect(({ record }) => ({
   ...record,

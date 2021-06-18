@@ -8,6 +8,10 @@ import { getSelfRecord, actionNavBack, customTime, getDateFromStr } from "../../
 import { getWindowHeight } from "../../../utils/style";
 import FortuneDayCalendar from '../../../components/Fortune/FortuneDayCalendar';
 import FortuneDayDetail from '../../../components/Fortune/FortuneDayDetail';
+import { ossUrl } from "../../../config";
+
+const left_arrow = ossUrl + 'upload/images/article/left_arrow.png';
+const male = ossUrl + 'upload/images/recode/male.png';
 
 
 @connect(({ fortuneDetail, common, fortune }) => ({
@@ -94,8 +98,9 @@ export default class Index extends BaseComponent {
                 records: records,
             }
         });
-
-        if (is_request) {
+        console.log('11111')
+        console.log(is_request)
+        if (true) {
             //请求数据
             this.actionTabItem(this.props.current_tab);
         }
@@ -383,6 +388,7 @@ export default class Index extends BaseComponent {
             current_tab,
             day_detail,
             day_param_time,
+            records,
             error,
             is_show_day_modal,
             day_calendar_data,
@@ -403,11 +409,10 @@ export default class Index extends BaseComponent {
         return (
             <View className='fortune-detail-page'>
                 <View className='nav-con'>
-                    <AtIcon
-                        onClick={this.actionNavBack}
-                        value='chevron-left'
-                        className='nav-back'
-                    />
+                    {/*返回按钮*/}
+                    <View className='backNavBar' onClick={this.actionNavBack}>
+                        <Image className='left_arrow' src={left_arrow}></Image>
+                    </View>
                     {/*tab栏*/}
                     <View className='tab-container'>
                         <View className='tabs'>
@@ -434,7 +439,11 @@ export default class Index extends BaseComponent {
                         <View className="record">
                             <View className="user">
                                 <View className="avator">
-                                    <AtAvatar circle size='large' className="img" ></AtAvatar>
+                                    {/* <AtAvatar circle size='large' className="img" ></AtAvatar> */}
+                                    <Image
+                                        className='img'
+                                        src={male}
+                                    />
                                     <View className="bottom">更换身份</View>
                                 </View>
                                 <View className="name">韩钰</View>

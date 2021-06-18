@@ -9,6 +9,7 @@ import { ossUrl } from "../../../config";
 
 const img_day_advice_rencent = ossUrl + 'upload/images/fortune/img_day_advice_rencent.png';
 const img_day_words = ossUrl + 'upload/images/fortune/img_day_words.png';
+const male = ossUrl + 'upload/images/recode/male.png';
 
 
 /**
@@ -45,6 +46,8 @@ class FortuneDayDetail extends BaseComponent {
     const { detail } = this.props;
     const { astro_colors } = this.state;
 
+    console.log('lucky_symbol' + JSON.stringify(detail.lucky_symbol))
+
     return (
       <View className='day-detail-container'>
         {/*幸运色、方位、数字、星座 部分 部分*/}
@@ -54,11 +57,11 @@ class FortuneDayDetail extends BaseComponent {
           scrollWithAnimation
         >
           {/*单个元素 部分*/}
-          {detail && detail.lucky_symbol && detail.lucky_symbol.length > 0 && detail.lucky_symbol.map((item) =>
-            <View className='item-container'>
+          {detail && detail.lucky_symbol && detail.lucky_symbol.length > 0 && detail.lucky_symbol.map((item, index) =>
+            <View className='item-container' key={index}>
               <Image
                 className='img'
-                src={item.icon_url}
+                src={male}
                 onClick={this.actionCalendarImg}
               />
               <View className='title'>{item.name}</View>
@@ -80,18 +83,15 @@ class FortuneDayDetail extends BaseComponent {
             scrollWithAnimation
           >
             {/*单个元素 部分*/}
-            {detail && detail.fortune_list && detail.fortune_list.length > 0 && detail.fortune_list.map((item) =>
-              <View className='item-container'>
+            {detail && detail.fortune_list && detail.fortune_list.length > 0 && detail.fortune_list.map((item, index) =>
+              <View className='item-container' key={item}>
                 <View className='top-container'>
-                  <AtProgress
-                    className='progress'
-                    percent={item.score}
-                    color={item.color}
-                    isHidePercent
-                  />
+                  <View className='histogram'>
+                    <View className='histogram_item' style={{ height: (item.score / 100 * 140) + 'px', background: item.color }}></View>
+                  </View>
                   <View className='percent'>{Math.floor(item.score)}%</View>
+                  <View className='bottom_title'>{item.name}</View>
                 </View>
-                <View className='bottom_title'>{item.name}</View>
               </View>
             )}
           </ScrollView>
@@ -105,20 +105,20 @@ class FortuneDayDetail extends BaseComponent {
             <View className='title'>运势提点</View>
             <View className='des'>预测无法涵盖所有情形，也不会绝对准确，请大家理性看待，适当参考。另外，预测事件很可能提前或错后一两天发生。</View>
           </View>
+
           {/* **之日列表 部分*/}
-          <View className='list-container'>
+          <View className='day-list-container'>
             {/*单个元素 部分*/}
             {detail && detail.revive_day && detail.revive_day.length > 0 && detail.revive_day.map((item) =>
               <View className='item-container'>
                 {/*标题&评分 和 内容 部分*/}
-                <View className='day-container'>
-                  <View className='title-and-rate-container'>
-                    <Text className='day-title'>{item.name}</Text>
+                <View className='day_container'>
+                  <View className='title_and_rate_container'>
+                    <Text className='day_title'>{item.name}</Text>
                     <AtRate
-                      className='day-rate'
+                      className='day_rate'
                       size='15'
                       max={3}
-                      margin={10}
                       value={item.star_level}
                     />
                   </View>
@@ -129,26 +129,34 @@ class FortuneDayDetail extends BaseComponent {
               </View>
             )}
           </View>
+
           {/*运势建议列表 部分*/}
           {detail.fortune_advice && detail.fortune_advice.length > 0 &&
             (<View className='adavice-list-container'>
               <View className='list-container'>
+
                 {/*单个元素 部分*/}
                 {detail && detail.fortune_advice && detail.fortune_advice.length > 0 && detail.fortune_advice.map((item, index) =>
                   <View className='item-container'>
+                    <Image
+                      className='img'
+                      src={item.icon_url}
+                    />
                     {/*标题&评分 和 内容 部分*/}
-                    <View className='advice-container'>
-                      <View className='title-and-status-container'>
+                    <View className='advice_container'>
+                      <View className='title_and_status_container'>
                         <View className='title'>{item.name}</View>
                         {/*[1=>今日,2=>近日]*/}
-                        {/* {item.status == 2 && (
+                        {item.status == 2 && (
                           <Image
                             className='status_img'
                             src={img_day_advice_rencent}
                           />
-                        )} */}
+                        )}
                       </View>
                       <View className='des'>{item.tips}</View>
+                      {index != detail.fortune_advice.length - 1 && (<View className='sperate_line'></View>)}
+
                     </View>
                   </View>
                 )}

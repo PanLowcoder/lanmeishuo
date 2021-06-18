@@ -11,28 +11,46 @@
 }
 
 .day-calendar-container {
-    width: 90%;
-    height: 220px;
-    background: @base;
-    margin: 0 38px 0 32px;
-    color: #fff;
-    border-radius: 10px;
+  padding: 12px 18px 16px 0px;
+  background: @base;
+  margin: 0 19px 0 16px;
+  color: #fff;
+  border-radius: 5px;
 
   //左侧日期、右侧日历图标 部分
   .top-container {
-    height: 80px;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
-
-    //左侧日期部分
-    .date-container {
-        font-size: 32px;
-      .year-text {
-        // @include sc(28px, $color-light);
+    margin-left: 16px;
+    .year-container{
+      display: flex;
+      .year{
+        font-size: 16px;
+        font-family: 'DINMittelschriftStd';
+        color: #FFFFFF;
+        line-height: 19px;
+      }
+      .down{
+        margin-top: 2.5px;
+        margin-left: 4px;
+        width: 8px;
+        height: 8px;
+      }
+    }
+    .month-container{
+      margin-left: 23px;
+      display: flex;
+      .month{
+        font-size: 16px;
+        font-family: 'DINMittelschriftStd';
+        color: #FFFFFF;
+        line-height: 19px;
+      }
+      .down{
+        margin-top: 2.5px;
+        margin-left: 4px;
+        width: 8px;
+        height: 8px;
       }
     }
   }
@@ -42,38 +60,33 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    // align-items: center;
-    padding: 0 40px;
+    margin-left: 2px;
+    margin-top: 14px;
 
+    .item-container-select {
+      background: #FF83A5;
+      border-radius: 5px;
+    }
     //单个部分
     .item-container {
-        border-radius: 10px;
+      width: 40px;
+      height: 59px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       //几号样式
       .item-day {
-        // @include wh(50px, 50px);
-        line-height: 50px;
-        font-size: 52px;
-        text-align: center;
+        font-size: 26px;
+        font-family: 'DINMittelschriftStd';
+        color: #FFFFFF;
       }
-      //几号 选中的背景样式
-      .item-day-selected {
-        background: @pink;
-        color: #fff;
-      }
-      //当前日期的 颜色
-      .item-day-color {
-        // color: @pink;
-      }
-
       //显示星期几
       .item-week-num {
-        text-align: center;
-        font-size: 28px;
-      }
-      //星期几 选中样式
-      .item-week-num-selected {
-        // @include sc(25px, #000)
-        background: @pink;
+        font-size: 14px;
+        font-family: 'PingFang-SC-Regular';
+        font-weight: 400;
+        color: #FFFFFF;
       }
     }
   }

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import './index.less';
 import { ossUrl } from "../../../config";
 
-const img_day_calendar = ossUrl + 'wap/images/fortune/img_day_calendar.png'
+// const img_day_calendar = ossUrl + 'wap/images/fortune/img_day_calendar.png'
+const down_triangle = ossUrl + 'upload/images/home/down_triangle.png'
 
 
 /**
@@ -14,9 +15,9 @@ const img_day_calendar = ossUrl + 'wap/images/fortune/img_day_calendar.png'
 class FortuneDayCalendar extends BaseComponent {
   static propTypes = {
     year: PropTypes.number,
-    month: PropTypes.number,
-    list: PropTypes.array,//日期列表；
-    time: PropTypes.array,//有运势日记的日期列表；
+    month: PropTypes.string,
+    list: PropTypes.string,//日期列表；
+    time: PropTypes.string,//有运势日记的日期列表；
     onClickDay: PropTypes.func,
     onClickCalendarImg: PropTypes.func,
   }
@@ -30,7 +31,7 @@ class FortuneDayCalendar extends BaseComponent {
     this.state = {
       days: [],//显示的days列表
       current_day_index: 0,//当前选中的day 的index
-      week_titles: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],//星期几的标示
+      week_titles: ['日', '一', '二', '三', '四', '五', '六'],//星期几的标示
     }
   }
 
@@ -125,27 +126,42 @@ class FortuneDayCalendar extends BaseComponent {
     const { year, month } = this.props;
     const { days, week_titles } = this.state;
 
+    console.log('day' + JSON.stringify(days))
+
     return (
       <View className='day-calendar-container'>
 
         {/*左侧日期、右侧日历图标 部分*/}
         <View className='top-container'>
-          <View className='date-container'>
-            {year}年{month}月
+          <View className='year-container'>
+            <View className='year'>{year}年</View>
+            <Image className='down' src={down_triangle}></Image>
+            {/* <View className='down'>
+
+            </View> */}
+          </View>
+          <View className='month-container'>
+            <View className='month'>{month}月</View>
+            <Image className='down' src={down_triangle}></Image>
           </View>
         </View>
 
         {/*日期横向列表*/}
         <View className='list-container'>
           {days && days.length > 0 && days.map((item, index) =>
-            <View className='item-container' data-index={index} onClick={this.onClickDay}>
-
+            <View className={index == 3 ? 'item-container item-container-select' : 'item-container'} key={index} data-index={index} onClick={this.onClickDay}>
               <View
+                className='item-day'
+              >{item.day}</View>
+              <View
+                className='.item-week-num'
+              >{week_titles[item.week]}</View>
+              {/* <View
                 className={3 == index ? 'item-day item-day-selected' : (item.now == 0 ? 'item-day' : 'item-day item-day-color')}
               >{item.day}</View>
               <View
                 className={3 == index ? 'item-week-num item-week-num-selected' : 'item-week-num'}
-              >{week_titles[item.week]}</View>
+              >{week_titles[item.week]}</View> */}
             </View>
           )}
         </View>
